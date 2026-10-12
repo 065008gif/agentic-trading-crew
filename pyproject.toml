@@ -1,0 +1,22 @@
+[project]
+name = "agentic-trading-crew"
+version = "1.0.0"
+description = "CrewAI multi-agent trading system with local MCP servers on Alpaca paper trading"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "crewai==1.15.27",
+    "crewai-tools[mcp]==1.15.27",
+    "mcp==1.28.1",
+    "fastmcp==3.4.8",
+    "pandas==3.0.6",
+    "numpy==2.5.4",
+    "requests==2.34.2",
+    "fastapi==0.143.0",
+    "uvicorn==0.54.0",
+    "python-dotenv==1.2.4",
+    "pytest",
+]
+
+[tool.uv]
+package = false

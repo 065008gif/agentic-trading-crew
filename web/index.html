@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trading Crew Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15263F; --ink-2:#4A5A70; --ink-3:#7D8A9C;
+  --paper:#EDF0F3; --sheet:#FFFFFF; --line:#D5DBE2;
+  --signal:#2552D0; --gain:#1D8556; --loss:#BF3A30; --warn:#B8820F;
+  --r-sm:4px; --r-md:8px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E6ECF3; --ink-2:#AAB6C5; --ink-3:#7E8DA0;
+    --paper:#0F1B2D; --sheet:#16243A; --line:#2A3B55;
+    --signal:#6E93F5; --gain:#3FBF83; --loss:#F07067; --warn:#E3B04B;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.5 "Archivo",system-ui,sans-serif;
+  font-variant-numeric:tabular-nums}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+/* top bar */
+.bar{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;
+  padding:20px 24px 16px;border-bottom:1px solid var(--line);background:var(--sheet)}
+.brand{font-weight:700;font-stretch:80%;font-size:18px;margin:0}
+.brand small{display:block;font-weight:400;font-stretch:100%;font-size:13px;color:var(--ink-3)}
+.accounts{display:flex;gap:4px;background:var(--paper);padding:3px;border-radius:var(--r-md)}
+.accounts{overflow-x:auto;max-width:100%}
+.accounts button{white-space:nowrap;border:0;background:none;padding:6px 14px;border-radius:var(--r-sm);cursor:pointer;font-weight:600}
+.accounts button[aria-pressed="true"]{background:var(--sheet);box-shadow:0 0 0 1px var(--line)}
+.equity{text-align:right}
+.equity .num{display:block;font-size:clamp(30px,6vw,46px);font-weight:800;font-stretch:125%;line-height:1;letter-spacing:-.01em}
+.equity .sub{font-size:13px;color:var(--ink-2)}
+.up{color:var(--gain)} .down{color:var(--loss)}
+
+main{display:grid;grid-template-columns:minmax(280px,360px) 1fr;gap:24px;padding:24px;max-width:1280px;margin:0 auto}
+main>*{min-width:0}
+.bar>div{min-width:0;max-width:100%}
+@media (max-width:860px){main{grid-template-columns:1fr;padding:16px}.bar{padding:16px}.equity{text-align:left}}
+section h2{font-size:15px;font-weight:700;font-stretch:85%;margin:0 0 12px}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r-md);padding:18px}
+.stack>*+*{margin-top:18px}
+label.f{display:block;font-size:13px;color:var(--ink-2);margin-bottom:6px}
+textarea,input[type=text],input[type=password],select{width:100%;border:1px solid var(--line);
+  background:var(--paper);border-radius:var(--r-sm);padding:8px 10px}
+textarea{min-height:84px;resize:vertical;text-transform:uppercase}
+.hint{font-size:12px;color:var(--ink-3);margin:6px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;
+  padding:4px 10px;font-size:13px;cursor:pointer;user-select:none}
+.chip input{margin:0;accent-color:var(--signal)}
+.modes{display:grid;gap:6px}
+.modes label{display:flex;gap:8px;align-items:flex-start;font-size:14px;cursor:pointer}
+.modes span{color:var(--ink-3);font-size:12px;display:block}
+details summary{cursor:pointer;font-size:14px;color:var(--ink-2)}
+.btn{display:inline-block;border:0;border-radius:var(--r-sm);padding:11px 18px;font-weight:700;cursor:pointer}
+.btn-main{background:var(--signal);color:#fff;width:100%;font-size:16px}
+.btn-main:disabled{opacity:.55;cursor:progress}
+.btn-go{background:var(--gain);color:#fff}
+.btn-ghost{background:none;border:1px solid var(--line)}
+
+/* agent sequence */
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:0}
+.steps li::before{content:counter(s);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;
+  font-size:12px;font-weight:700;border:1.5px solid var(--line);color:var(--ink-3)}
+.steps li.done::before{background:var(--ink);border-color:var(--ink);color:var(--sheet)}
+.steps li.live::before{border-color:var(--signal);color:var(--signal)}
+.steps .who{font-weight:600}
+.steps .what{font-size:13px;color:var(--ink-2)}
+.steps pre{margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.45 "Archivo",system-ui,sans-serif;font-stretch:90%;max-height:190px;overflow:auto;
+  background:var(--paper);padding:8px;border-radius:var(--r-sm)}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{font-weight:600;font-stretch:75%;text-align:left;color:var(--ink-2);padding:6px 8px;border-bottom:1.5px solid var(--ink)}
+td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right}
+.scroll{overflow-x:auto}
+.act{font-weight:700;font-stretch:85%}
+.act.BUY,.act.ADD{color:var(--gain)} .act.EXIT,.act.TRIM{color:var(--loss)} .act.AVOID{color:var(--ink-3)}
+.why{color:var(--ink-3);font-size:12px;max-width:340px}
+.orders{list-style:none;padding:0;margin:0}
+.orders li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.side-buy{color:var(--gain);font-weight:700} .side-sell{color:var(--loss);font-weight:700}
+.summary{border-left:3px solid var(--signal);padding:4px 0 4px 12px;color:var(--ink-2);margin:14px 0}
+.alert{border-left:3px solid var(--warn);padding:6px 12px;background:var(--paper);font-size:13.5px;margin:10px 0}
+.alert.bad{border-color:var(--loss)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.muted{color:var(--ink-3)}
+.empty{color:var(--ink-3);font-size:14px;padding:12px 0}
+.wide{grid-column:1/-1}
+.reports a{color:var(--signal);text-decoration:none;cursor:pointer}
+.reportview{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12.5px;background:var(--paper);padding:12px;border-radius:var(--r-sm);max-height:420px;overflow:auto}
+@media (prefers-reduced-motion:no-preference){ .steps li.live::before{animation:pulse 1.2s ease-in-out infinite} }
+@keyframes pulse{50%{box-shadow:0 0 0 4px color-mix(in srgb,var(--signal) 25%,transparent)}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div>
+    <p class="brand">Trading Crew Desk<small>CrewAI agents with local MCP servers on Alpaca paper trading</small></p>
+    <div class="accounts" role="group" aria-label="Account" id="accounts" style="margin-top:10px"></div>
+  </div>
+  <div class="equity" aria-live="polite">
+    <span class="num" id="eq">$—</span>
+    <span class="sub" id="eqsub">Enter keys or set them in .env, then refresh</span>
+  </div>
+</header>
+
+<main>
+  <!-- setup -->
+  <section class="stack" aria-labelledby="setup-h">
+    <div class="panel stack">
+      <h2 id="setup-h">Run setup</h2>
+      <div>
+        <label class="f" for="syms">Stocks for this account (10 to 15)</label>
+        <textarea id="syms" spellcheck="false"></textarea>
+        <p class="hint" id="symhint"></p>
+      </div>
+      <div>
+        <label class="f" for="profile">Strategy profile</label>
+        <select id="profile"></select>
+      </div>
+      <div>
+        <span class="f" id="fam-l">Indicator families in the Alpha Score</span>
+        <div class="chips" id="fams" role="group" aria-labelledby="fam-l"></div>
+      </div>
+      <div>
+        <span class="f">After the agents finish</span>
+        <div class="modes" role="radiogroup">
+          <label><input type="radio" name="mode" value="approve" checked><div>Show the plan and wait for my approval<span>Recommended: you press Place orders</span></div></label>
+          <label><input type="radio" name="mode" value="auto"><div>Place the orders straight away</div></label>
+          <label><input type="radio" name="mode" value="analyze"><div>Analyse only, never trade</div></label>
+        </div>
+      </div>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:14px;cursor:pointer"><input type="checkbox" id="usellm" checked style="margin-top:4px"><span>Use the AI agents<span class="hint" style="display:block;margin:0">Off runs the rules only, with no LLM calls</span></span></label>
+      <details>
+        <summary>Alpaca keys and app password</summary>
+        <div class="stack" style="margin-top:12px">
+          <div><label class="f" for="k1">Alpaca paper API key</label><input type="text" id="k1" autocomplete="off" spellcheck="false"></div>
+          <div><label class="f" for="k2">Alpaca paper secret key</label><input type="password" id="k2" autocomplete="off"></div>
+          <div><label class="f" for="pw">App password</label><input type="password" id="pw" autocomplete="off"></div>
+          <p class="hint">Keys stay in this browser tab and are sent only to your own computer. Leave them blank to use the keys in .env.</p>
+        </div>
+      </details>
+      <button class="btn btn-main" id="run">Run the agents</button>
+      <p class="hint" id="llm"></p>
+    </div>
+  </section>
+
+  <!-- run -->
+  <section class="stack" aria-labelledby="run-h">
+    <div class="panel">
+      <div class="row" style="justify-content:space-between"><h2 id="run-h" style="margin:0">Agent run</h2><span class="muted" id="runstate">Not started</span></div>
+      <ol class="steps" id="steps" style="margin-top:10px"></ol>
+      <div id="errors"></div>
+    </div>
+    <div class="panel" id="planpanel" hidden>
+      <h2>Target portfolio</h2>
+      <p class="muted" id="planhead"></p>
+      <p class="summary" id="pmsum" hidden></p>
+      <div class="scroll"><table id="plan"></table></div>
+    </div>
+    <div class="panel" id="orderpanel" hidden>
+      <div class="row" style="justify-content:space-between"><h2 style="margin:0">Orders</h2>
+        <button class="btn btn-go" id="exec" hidden>Place orders</button></div>
+      <ul class="orders" id="orders"></ul>
+      <div id="execout"></div>
+    </div>
+  </section>
+
+  <section class="panel wide" aria-labelledby="pos-h">
+    <div class="row" style="justify-content:space-between"><h2 id="pos-h" style="margin:0">Positions</h2>
+      <button class="btn btn-ghost" id="refresh">Refresh</button></div>
+    <div class="scroll"><table id="pos"></table></div>
+    <p class="hint" id="clock"></p>
+  </section>
+
+  <section class="panel wide" aria-labelledby="rep-h">
+    <div class="row" style="justify-content:space-between"><h2 id="rep-h" style="margin:0">Agent reports</h2>
+      <button class="btn btn-ghost" id="reploadbtn">Load list</button></div>
+    <div class="reports" id="replist"><p class="empty">Each run saves one Markdown file per agent. Load the list to read them.</p></div>
+    <div class="reportview" id="repview" hidden></div>
+  </section>
+</main>
+
+<script>
+const AGENTS=[["Market Regime Strategist","Loads prices for every stock in one call and reads the market regime"],
+ ["Quantitative Signal Analyst","Ranks the stocks with the Alpha Score"],
+ ["News and Catalyst Analyst","Reads headlines and earnings dates"],
+ ["Portfolio Manager","Adjusts scores within ±15 and sets exposure"],
+ ["Risk Manager","Rules: sizes positions, applies stops, checks cash"]];
+let CFG=null, ACCT="A", RUN=null, POLL=null;
+const $=id=>document.getElementById(id);
+const money=v=>v==null?"—":"$"+Number(v).toLocaleString(undefined,{maximumFractionDigits:0});
+const pct=v=>(v>=0?"+":"")+Number(v).toFixed(1)+"%";
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const keys=()=>({ALPACA_API_KEY:$("k1").value.trim(),ALPACA_SECRET_KEY:$("k2").value.trim()});
+function hdr(){return {"Content-Type":"application/json","X-App-Password":$("pw").value}}
+async function api(path,opt={}){
+  const r=await fetch(path,{...opt,headers:hdr()});
+  const body=await r.json().catch(()=>({}));
+  if(!r.ok) throw new Error(body.detail||("Request failed ("+r.status+")"));
+  return body;
+}
+function alertBox(msg,bad){return `<div class="alert ${bad?"bad":""}">${esc(msg)}</div>`}
+
+async function loadConfig(){
+  try{ CFG=await api("/api/config"); }catch(e){ $("errors").innerHTML=alertBox(e.message+". Enter the app password under Alpaca keys and app password, then reload.",true); return; }
+  $("accounts").innerHTML=Object.keys(CFG.portfolios).concat(["Custom"]).map(a=>`<button aria-pressed="${a===ACCT}" data-a="${a}">${a==="Custom"?"Custom":"Account "+a}</button>`).join("");
+  $("accounts").onclick=e=>{const a=e.target.dataset.a;if(a){ACCT=a;fillAccount();[...$("accounts").children].forEach(b=>b.setAttribute("aria-pressed",b.dataset.a===a))}};
+  $("profile").innerHTML=Object.entries(CFG.profiles).map(([k,v])=>`<option value="${k}">${esc(v)}</option>`).join("");
+  $("fams").innerHTML=CFG.families.map(f=>`<label class="chip"><input type="checkbox" value="${f}" checked>${({trend:"Trend",momentum:"Momentum",rs:"Relative strength",volume:"Volume",volatility:"Breakout and volatility",stats:"Mean reversion"})[f]||f}</label>`).join("");
+  $("llm").textContent=CFG.llm_chain.length?"AI models in fallback order: "+CFG.llm_chain.join(", "):"No AI key in .env: runs use the rules only.";
+  fillAccount(); refresh();
+}
+function fillAccount(){
+  const p=CFG.portfolios[ACCT];
+  if(p){$("syms").value=p.high_beta.concat(p.others).join(" ");$("profile").value=p.profile;
+    $("symhint").textContent=`${p.owner}: ${p.high_beta.length} high-beta (${p.high_beta.join(", ")}) and ${p.others.length} others`;}
+  else{$("syms").value="";$("symhint").textContent="Type tickers separated by spaces or commas";}
+}
+async function refresh(){
+  try{
+    const d=await api("/api/account",{method:"POST",body:JSON.stringify(keys())});
+    const a=d.account, ch=a.last_equity?100*(a.equity/a.last_equity-1):0;
+    $("eq").textContent=money(a.equity); $("eq").className="num "+(ch>=0?"up":"down");
+    $("eqsub").innerHTML=`Today ${pct(ch)}&ensp;|&ensp;cash ${money(a.cash)}&ensp;|&ensp;${pct(100*(a.equity/100000-1))} since the $100,000 start`;
+    const rows=Object.entries(d.positions).sort((x,y)=>y[1].market_value-x[1].market_value);
+    $("pos").innerHTML=rows.length?`<thead><tr><th>Stock</th><th class="n">Shares</th><th class="n">Avg cost</th><th class="n">Price</th><th class="n">Value</th><th class="n">Weight</th><th class="n">P/L</th></tr></thead><tbody>`+
+      rows.map(([s,p])=>`<tr><td><b>${s}</b></td><td class="n">${(+p.qty).toFixed(3).replace(/\.?0+$/,"")}</td><td class="n">${(+p.avg_entry).toFixed(2)}</td><td class="n">${(+p.current_price).toFixed(2)}</td><td class="n">${money(p.market_value)}</td><td class="n">${(100*p.market_value/a.equity).toFixed(1)}%</td><td class="n ${p.pl_pct>=0?"up":"down"}">${pct(p.pl_pct)}</td></tr>`).join("")+"</tbody>"
+      :`<tbody><tr><td class="empty">No positions yet. Run the agents to build the portfolio.</td></tr></tbody>`;
+    const c=d.clock||{}; $("clock").textContent=c.is_open?"US market is open.":"US market is closed. Orders placed now fill at the next open"+(c.next_open?" ("+c.next_open.replace("T"," ").slice(0,16)+" New York time).":".");
+  }catch(e){ $("eqsub").textContent=e.message; }
+}
+function drawSteps(run){
+  const done=new Set((run?.steps||[]).map(s=>s.agent));
+  const planDone=!!run?.plan;
+  let liveSet=false;
+  $("steps").innerHTML=AGENTS.map(([name,what])=>{
+    const isDone=done.has(name)||(name==="Risk Manager"&&planDone);
+    let cls=isDone?"done":"";
+    if(!isDone&&!liveSet&&run?.status==="running"){cls="live";liveSet=true}
+    const out=(run?.steps||[]).filter(s=>s.agent===name).map(s=>`<pre>${esc(s.output.slice(0,1800))}</pre>`).join("");
+    return `<li class="${cls}"><div><div class="who">${name}</div><div class="what">${what}</div>${out}</div></li>`;}).join("");
+}
+function drawPlan(p){
+  $("planpanel").hidden=false; $("orderpanel").hidden=false;
+  $("planhead").textContent=`Regime ${p.regime} (${p.regime_score}). Target ${Math.round(p.exposure_target*100)}% invested, ${p.invested_after_pct}% after this plan. Model: ${p.model}.`;
+  $("pmsum").hidden=!p.pm_summary; $("pmsum").textContent=p.pm_summary||"";
+  $("plan").innerHTML=`<thead><tr><th>Stock</th><th class="n">Alpha</th><th class="n">PM</th><th class="n">Final</th><th class="n">Now</th><th class="n">Target</th><th>Action</th><th>Why</th></tr></thead><tbody>`+
+    p.targets.map(t=>`<tr><td><b>${t.symbol}</b></td><td class="n">${t.alpha<0?"—":t.alpha}</td><td class="n">${t.adjust>0?"+":""}${t.adjust}</td><td class="n"><b>${t.final<0?"—":t.final}</b></td><td class="n">${(100*t.current_weight).toFixed(1)}%</td><td class="n">${(100*t.target_weight).toFixed(1)}%</td><td class="act ${t.action}">${t.action}</td><td class="why">${esc(t.reasons.join("; "))}</td></tr>`).join("")+"</tbody>";
+  $("orders").innerHTML=p.orders.length?p.orders.map(o=>`<li><span><span class="side-${o.side}">${o.side==="buy"?"Buy":"Sell"}</span> <b>${o.symbol}</b> <span class="muted">${esc(o.reason)}</span></span><span>${o.type==="close"?"all":money(o.dollars)}</span></li>`).join(""):`<li class="empty">No orders: the portfolio already matches the targets.</li>`;
+  const executed=(p.executions||[]).length>0;
+  $("exec").hidden=!(p.orders.length&&!executed&&RUN?.request?.mode==="approve");
+  if(executed) showExec(p.executions);
+}
+function showExec(ex){
+  $("execout").innerHTML=alertBox("Sent "+ex.length+" orders: "+ex.map(e=>`${e.order.side} ${e.order.symbol} ${e.result?.status||e.result?.error||""}`).join(", "),
+    ex.some(e=>e.result?.error));
+  $("exec").hidden=true;
+}
+async function poll(){
+  const r=await api("/api/run/"+RUN.id); RUN={...RUN,...r};
+  drawSteps(r);
+  $("runstate").textContent=r.status==="running"?"Running since "+r.started:r.status==="done"?"Finished "+r.finished:"Failed";
+  $("errors").innerHTML=(r.errors||[]).map(e=>alertBox(e,r.status==="failed")).join("");
+  if(r.plan) drawPlan(r.plan);
+  if(r.status!=="running"){clearInterval(POLL);$("run").disabled=false;$("run").textContent="Run the agents";refresh();}
+}
+$("run").onclick=async()=>{
+  const req={account:ACCT==="Custom"?"CUSTOM":ACCT,symbols:$("syms").value.split(/[\s,]+/).map(s=>s.trim().toUpperCase()).filter(Boolean),
+    profile:$("profile").value,families:[...$("fams").querySelectorAll("input:checked")].map(i=>i.value),
+    mode:document.querySelector("input[name=mode]:checked").value,use_llm:$("usellm").checked,keys:keys()};
+  if(req.symbols.length<1){$("errors").innerHTML=alertBox("Add at least one stock.",true);return}
+  $("planpanel").hidden=true;$("orderpanel").hidden=true;$("execout").innerHTML="";
+  try{
+    const r=await api("/api/run",{method:"POST",body:JSON.stringify(req)});
+    RUN={id:r.run_id,request:req}; $("run").disabled=true; $("run").textContent="Agents working…";
+    drawSteps({status:"running",steps:[]}); POLL=setInterval(()=>poll().catch(e=>{$("errors").innerHTML=alertBox(e.message,true)}),2500);
+  }catch(e){$("errors").innerHTML=alertBox(e.message,true)}
+};
+$("exec").onclick=async()=>{
+  if(!confirm("Place these orders on your Alpaca paper account?"))return;
+  $("exec").disabled=true;
+  try{const r=await api(`/api/run/${RUN.id}/execute`,{method:"POST",body:JSON.stringify(keys())});showExec(r.executions);refresh();}
+  catch(e){$("execout").innerHTML=alertBox(e.message,true)} finally{$("exec").disabled=false}
+};
+$("refresh").onclick=refresh;
+$("reploadbtn").onclick=async()=>{
+  try{const l=await api("/api/reports");
+    $("replist").innerHTML=l.length?"<table><tbody>"+l.map(r=>`<tr><td><a data-p="${esc(r.path)}">${esc(r.path)}</a></td><td class="n muted">${r.modified}</td></tr>`).join("")+"</tbody></table>":`<p class="empty">No reports yet. They appear after the first run.</p>`;
+  }catch(e){$("replist").innerHTML=alertBox(e.message,true)}
+};
+$("replist").onclick=async e=>{
+  const p=e.target.dataset.p; if(!p)return;
+  const r=await fetch("/api/report?path="+encodeURIComponent(p),{headers:hdr()});
+  $("repview").hidden=false; $("repview").textContent=await r.text(); $("repview").scrollIntoView({behavior:"smooth",block:"nearest"});
+};
+drawSteps(null); loadConfig();
+</script>
+</body>
+</html>

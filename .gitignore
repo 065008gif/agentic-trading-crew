@@ -1,0 +1,10 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mock_state.json
+# run records contain account numbers and change every run; share them with export_reports.py
+run_reports/
+*.zip
