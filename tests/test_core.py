@@ -251,3 +251,14 @@ def test_aggressive_sizing_concentrates_on_the_best():
     held = [s for s, v in w.items() if v > 0]
     assert len(held) <= RiskSettings().max_holdings and w["MSFT"] > 2 * min(v for v in w.values() if v > 0)
     assert w["MSFT"] <= RiskSettings().max_position_pct + 1e-9
+
+
+def test_every_file_in_the_repo_can_be_checked_out_on_windows():
+    """13 Oct: a teammate's Windows clone failed on run_reports/A/Executor13102026-22:49.md."""
+    import subprocess
+    root = Path(__file__).resolve().parent.parent
+    files = subprocess.run(["git", "ls-files"], cwd=root, capture_output=True, text=True).stdout.splitlines()
+    bad = [f for f in files if any(c in f for c in ':*?"<>|')]
+    assert not bad, bad
+    from trading.reports import SEP
+    assert SEP == "."

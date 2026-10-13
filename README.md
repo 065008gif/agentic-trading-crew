@@ -39,7 +39,7 @@ MCP server 1: market_data_mcp_server.py                     MCP server 2: alpaca
                          orders through MCP server 2 -> Alpaca paper
 ```
 
-Every agent's output is saved as `run_reports/<account>/<AgentName><DDMMYYYY>-<HH:MM>.md`, as the brief asks (Akshit's account in `run_reports/A`, the teammates' accounts in `teammate_reports/B` and `teammate_reports/C`). Each run also saves a JSON plan, a trade journal (`trade_journal.csv`) and an equity log (`equity_log.csv`).
+Every agent's output is saved as `run_reports/<account>/<AgentName><DDMMYYYY>-<HH.MM>.md`, the brief's `agentNameDDMMYYYY-HH:MM.md` format with a dot instead of the colon, because Windows (the teammates' laptops) cannot create or clone a file whose name contains `:` (Akshit's account in `run_reports/A`, the teammates' accounts in `teammate_reports/B` and `teammate_reports/C`). Each run also saves a JSON plan, a trade journal (`trade_journal.csv`) and an equity log (`equity_log.csv`).
 
 ## Commands
 
@@ -70,7 +70,7 @@ In VS Code the same commands are one click away: **Run and Debug** (`Ctrl+Shift+
 | CrewAI agents | `trading_crew.py` (4 LLM agents + rule-based Risk Manager) |
 | Local MCP server, not Alpaca's MCP | `servers/` (two FastMCP servers over stdio) |
 | OHLCV for many stocks in one call | `fetch_ohlcv_batch` / `alpaca_rest.get_bars` |
-| Agent outputs saved as agentNameDDMMYYYY-HH:MM.md | `trading/reports.py` |
+| Agent outputs saved as agentNameDDMMYYYY-HH.MM.md (`.` for `:`, Windows-safe) | `trading/reports.py` |
 | Free LLMs (Ollama cloud / Groq / OpenRouter) | `trading/llm.py` with automatic fallback |
 | Optional human approval before orders | default `approve` mode, web **Place orders** button |
 | News analysis | `get_news_digest` (Alpaca news) + News & Catalyst Analyst |

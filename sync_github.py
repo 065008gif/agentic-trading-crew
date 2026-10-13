@@ -61,7 +61,8 @@ def import_teammate_zips() -> list[str]:
                     names = [n for n in f.namelist()
                              if n.startswith("run_reports/") and ".." not in n and not n.endswith("/")]
                     for n in names:
-                        dest = ROOT / "teammate_reports" / n[len("run_reports/"):]
+                        rel = "".join("." if c in BAD_CHARS else c for c in n[len("run_reports/"):])
+                        dest = ROOT / "teammate_reports" / rel
                         dest.parent.mkdir(parents=True, exist_ok=True)
                         dest.write_bytes(f.read(n))
             except zipfile.BadZipFile:
@@ -71,6 +72,27 @@ def import_teammate_zips() -> list[str]:
             shutil.move(str(z), ROOT / "imported_zips" / z.name)
             done.append(f"{z.name} ({len(names)} files)")
     return done
+
+
+BAD_CHARS = ':*?"<>|'   # not allowed in Windows file names
+
+
+def windows_safe_names() -> list[str]:
+    """Rename record files whose names Windows cannot create (e.g. the old
+    HH:MM format), so teammates can always clone and pull the project."""
+    fixed = []
+    for folder in ("run_reports", "teammate_reports", "console_logs"):
+        base = ROOT / folder
+        if not base.is_dir():
+            continue
+        for p in sorted(base.rglob("*")):
+            if p.is_file() and any(c in p.name for c in BAD_CHARS):
+                new = p.with_name("".join("." if c in BAD_CHARS else c for c in p.name))
+                if new.exists():
+                    new = new.with_name(new.stem + "_2" + new.suffix)
+                p.rename(new)
+                fixed.append(f"{p.name} -> {new.name}")
+    return fixed
 
 
 def tidy_console_logs() -> list[str]:
@@ -99,6 +121,9 @@ def main() -> int:
     imported = import_teammate_zips()
     if imported:
         print("Imported teammate records:", ", ".join(imported))
+    renamed = windows_safe_names()
+    if renamed:
+        print(f"Renamed {len(renamed)} file(s) so Windows can open them (':' -> '.')")
     moved = tidy_console_logs()
     if moved:
         print("Moved into console_logs/:", ", ".join(moved))

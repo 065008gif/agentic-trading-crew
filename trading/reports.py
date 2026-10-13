@@ -4,8 +4,9 @@ Run records, as the brief requires: every agent's output is saved as
 plus a machine-readable plan, a trade journal and an equity log for the
 interim and final reports.
 
-Windows does not allow ':' in file names, so on Windows the time is written
-as HH.MM (e.g. QuantAnalyst13102026-19.45.md). Linux and macOS keep HH:MM.
+Windows does not allow ':' in file names, and these files are shared through
+GitHub with teammates on Windows, so the time is written as HH.MM on every
+computer (e.g. RiskManager13102026-19.45.md = 13 Oct 2026, 19:45).
 """
 
 from __future__ import annotations
@@ -18,7 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REPORTS = Path(os.environ.get("RUN_REPORTS_DIR") or ROOT / "run_reports")   # tests can point elsewhere
-SEP = "." if os.name == "nt" else ":"
+SEP = "."   # never ":" - a file name with ":" cannot be checked out on Windows
 
 
 class RunRecorder:
