@@ -4,8 +4,10 @@ Save everything to GitHub in one step (Akshit's computer):
     python sync_github.py
 
 1. Unpacks any teammate zips (reports_B_....zip, reports_C_....zip) found in
-   this folder or in Downloads into run_reports/B and run_reports/C, then
-   moves each zip to imported_zips/ so it is not unpacked twice.
+   this folder or in Downloads into teammate_reports/B and teammate_reports/C,
+   then moves each zip to imported_zips/ so it is not unpacked twice.
+   (Not into run_reports/: the teammates' own laptops write run_reports/B and
+   run_reports/C, and their `git pull` would clash with copies from GitHub.)
 2. Moves loose console outputs (run*.txt, screen*.txt) into console_logs/.
 3. Commits every change (the .env file with your keys is never included),
    pulls any newer code from GitHub, and pushes.
@@ -49,9 +51,12 @@ def import_teammate_zips() -> list[str]:
         for z in sorted(place.glob("reports_*.zip")):
             try:
                 with zipfile.ZipFile(z) as f:
-                    names = [n for n in f.namelist() if n.startswith("run_reports/") and ".." not in n]
+                    names = [n for n in f.namelist()
+                             if n.startswith("run_reports/") and ".." not in n and not n.endswith("/")]
                     for n in names:
-                        f.extract(n, ROOT)
+                        dest = ROOT / "teammate_reports" / n[len("run_reports/"):]
+                        dest.parent.mkdir(parents=True, exist_ok=True)
+                        dest.write_bytes(f.read(n))
             except zipfile.BadZipFile:
                 print(f"[WARN] {z.name} is not a valid zip, skipped")
                 continue

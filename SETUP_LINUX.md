@@ -72,7 +72,7 @@ Web interface on the phone: with `app.py` running, open a second terminal and ru
 | ~1:00 AM (if awake) | run again |
 | End of the session | put the teammates' zips (from WhatsApp/email) in Downloads, then `python sync_github.py` |
 
-`sync_github.py` unpacks the teammates' `reports_B_...zip` / `reports_C_...zip` into `run_reports/B` and `run_reports/C`,
+`sync_github.py` unpacks the teammates' `reports_B_...zip` / `reports_C_...zip` into `teammate_reports/B` and `teammate_reports/C`,
 moves loose `run*.txt` / `screen*.txt` files into `console_logs/`, commits everything, pulls and pushes.
 
 ## Getting code updates

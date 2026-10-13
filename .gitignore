@@ -6,7 +6,7 @@ __pycache__/
 .pytest_cache/
 .mock_state.json
 # run_reports/ IS committed: the agents' outputs are part of the project record
-# (teammates send theirs as zips; sync_github.py unpacks and commits them)
+# (teammates send theirs as zips; sync_github.py unpacks them into teammate_reports/)
 *.zip
 imported_zips/
 .vscode/*.log

@@ -39,7 +39,7 @@ MCP server 1: market_data_mcp_server.py                     MCP server 2: alpaca
                          orders through MCP server 2 -> Alpaca paper
 ```
 
-Every agent's output is saved as `run_reports/<account>/<AgentName><DDMMYYYY>-<HH:MM>.md`, as the brief asks. Each run also saves a JSON plan, a trade journal (`trade_journal.csv`) and an equity log (`equity_log.csv`).
+Every agent's output is saved as `run_reports/<account>/<AgentName><DDMMYYYY>-<HH:MM>.md`, as the brief asks (Akshit's account in `run_reports/A`, the teammates' accounts in `teammate_reports/B` and `teammate_reports/C`). Each run also saves a JSON plan, a trade journal (`trade_journal.csv`) and an equity log (`equity_log.csv`).
 
 ## Commands
 
