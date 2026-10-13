@@ -1,0 +1,11 @@
+{
+  "_note": "Screening universe for choosing the three watch-lists. high_beta_confirmed: S&P 500 High Beta Index members shown on stockanalysis.com (top 25, as of 9 Oct 2026) and etfdb.com (top 15, as of 10 Oct 2026). high_beta_listed_may: further members listed by equibles.com as of 31 May 2026; the index rebalances quarterly, so confirm these before counting them toward the 30% rule. others: liquid large caps across sectors for the diversified part.",
+  "high_beta_confirmed": ["MRNA", "SNDK", "AMD", "SMCI", "MU", "MRVL", "COIN", "HOOD", "LITE", "TER", "LRCX",
+                          "INTC", "COHR", "CIEN", "FLEX", "WDC", "KLAC", "TSLA", "AMAT", "MPWR", "GLW", "FIX",
+                          "DELL", "HPE", "FCX"],
+  "high_beta_listed_may": ["APP", "UAL", "DDOG", "ANET", "NCLH", "CCL", "STX", "ON", "PLTR", "DAL", "VRT", "AVGO",
+                           "XYZ", "CVNA", "QCOM", "ZBRA", "FSLR", "IBKR", "ORCL", "APTV", "NVDA", "APH", "EL",
+                           "SWK", "NXPI", "GNRC", "IVZ"],
+  "others": ["GOOGL", "META", "MSFT", "AMZN", "AAPL", "NFLX", "TSM", "GEV", "CEG", "VST", "NOW", "UBER", "SHOP",
+             "ABNB", "SPOT", "ISRG", "LLY", "GE", "CAT", "JPM", "GS", "BAC", "AXP", "XOM", "WMT", "COST", "NEM"]
+}
