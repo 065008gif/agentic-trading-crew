@@ -1,40 +1,171 @@
 {
-  "_note": "Earnings dates inside the trading window (13-27 Oct 2026). Source: tickzen.app October 2026 earnings calendar, checked 12 Oct 2026. BMO = before market open, AMC = after market close. Re-check a date on the company's investor-relations page before relying on it. Add or edit rows freely.",
-  "JPM":   {"date": "2026-10-13", "time": "BMO"},
-  "GS":    {"date": "2026-10-13", "time": "BMO"},
-  "C":     {"date": "2026-10-13", "time": "BMO"},
-  "WFC":   {"date": "2026-10-13", "time": "BMO"},
-  "JNJ":   {"date": "2026-10-13", "time": "BMO"},
-  "UNH":   {"date": "2026-10-13", "time": "BMO"},
-  "BAC":   {"date": "2026-10-14", "time": "BMO"},
-  "MS":    {"date": "2026-10-14", "time": "BMO"},
-  "BLK":   {"date": "2026-10-14", "time": "BMO"},
-  "SCHW":  {"date": "2026-10-15", "time": "BMO"},
-  "GE":    {"date": "2026-10-19", "time": "BMO"},
-  "TSLA":  {"date": "2026-10-20", "time": "AMC"},
-  "NFLX":  {"date": "2026-10-20", "time": "AMC"},
-  "ISRG":  {"date": "2026-10-20", "time": "AMC"},
-  "COF":   {"date": "2026-10-20", "time": "AMC"},
-  "RTX":   {"date": "2026-10-20", "time": "BMO"},
-  "LRCX":  {"date": "2026-10-21", "time": "AMC"},
-  "TXN":   {"date": "2026-10-21", "time": "AMC"},
-  "URI":   {"date": "2026-10-21", "time": "AMC"},
-  "SPOT":  {"date": "2026-10-22", "time": "BMO"},
-  "LMT":   {"date": "2026-10-22", "time": "BMO"},
-  "HON":   {"date": "2026-10-22", "time": "BMO"},
-  "AAL":   {"date": "2026-10-22", "time": "BMO"},
-  "AXP":   {"date": "2026-10-23", "time": "BMO"},
-  "AMKR":  {"date": "2026-10-26", "time": "AMC"},
-  "GOOGL": {"date": "2026-10-27", "time": "AMC"},
-  "HOOD":  {"date": "2026-10-27", "time": "AMC"},
-  "BA":    {"date": "2026-10-27", "time": "BMO"},
-  "PYPL":  {"date": "2026-10-27", "time": "AMC"},
-  "NXPI":  {"date": "2026-10-27", "time": "AMC"},
-  "SOFI":  {"date": "2026-10-27", "time": "BMO"},
-  "MSFT":  {"date": "2026-10-28", "time": "AMC"},
-  "META":  {"date": "2026-10-28", "time": "AMC"},
-  "KLAC":  {"date": "2026-10-28", "time": "AMC"},
-  "NOW":   {"date": "2026-10-28", "time": "AMC"},
-  "FTNT":  {"date": "2026-10-28", "time": "AMC"},
-  "RIOT":  {"date": "2026-10-28", "time": "AMC"}
+  "_note": "Earnings dates inside the trading window (13-27 Oct 2026). Source: tickzen.app October 2026 earnings calendar, checked 12 Oct 2026. BMO = before market open, AMC = after market close. Re-check a date on the company's investor-relations page before relying on it. Add or edit rows freely. Added 13 Oct 2026 (tickzen): MRNA, LLY, AMZN, MPWR, NEM (NEM time not stated, AMC assumed). TSM and TER usually report mid/late October but no date was found: check before holding them through a report.",
+  "JPM": {
+    "date": "2026-10-13",
+    "time": "BMO"
+  },
+  "GS": {
+    "date": "2026-10-13",
+    "time": "BMO"
+  },
+  "C": {
+    "date": "2026-10-13",
+    "time": "BMO"
+  },
+  "WFC": {
+    "date": "2026-10-13",
+    "time": "BMO"
+  },
+  "JNJ": {
+    "date": "2026-10-13",
+    "time": "BMO"
+  },
+  "UNH": {
+    "date": "2026-10-13",
+    "time": "BMO"
+  },
+  "BAC": {
+    "date": "2026-10-14",
+    "time": "BMO"
+  },
+  "MS": {
+    "date": "2026-10-14",
+    "time": "BMO"
+  },
+  "BLK": {
+    "date": "2026-10-14",
+    "time": "BMO"
+  },
+  "SCHW": {
+    "date": "2026-10-15",
+    "time": "BMO"
+  },
+  "GE": {
+    "date": "2026-10-19",
+    "time": "BMO"
+  },
+  "TSLA": {
+    "date": "2026-10-20",
+    "time": "AMC"
+  },
+  "NFLX": {
+    "date": "2026-10-20",
+    "time": "AMC"
+  },
+  "ISRG": {
+    "date": "2026-10-20",
+    "time": "AMC"
+  },
+  "COF": {
+    "date": "2026-10-20",
+    "time": "AMC"
+  },
+  "RTX": {
+    "date": "2026-10-20",
+    "time": "BMO"
+  },
+  "LRCX": {
+    "date": "2026-10-21",
+    "time": "AMC"
+  },
+  "TXN": {
+    "date": "2026-10-21",
+    "time": "AMC"
+  },
+  "URI": {
+    "date": "2026-10-21",
+    "time": "AMC"
+  },
+  "SPOT": {
+    "date": "2026-10-22",
+    "time": "BMO"
+  },
+  "LMT": {
+    "date": "2026-10-22",
+    "time": "BMO"
+  },
+  "HON": {
+    "date": "2026-10-22",
+    "time": "BMO"
+  },
+  "AAL": {
+    "date": "2026-10-22",
+    "time": "BMO"
+  },
+  "AXP": {
+    "date": "2026-10-23",
+    "time": "BMO"
+  },
+  "AMKR": {
+    "date": "2026-10-26",
+    "time": "AMC"
+  },
+  "GOOGL": {
+    "date": "2026-10-27",
+    "time": "AMC"
+  },
+  "HOOD": {
+    "date": "2026-10-27",
+    "time": "AMC"
+  },
+  "BA": {
+    "date": "2026-10-27",
+    "time": "BMO"
+  },
+  "PYPL": {
+    "date": "2026-10-27",
+    "time": "AMC"
+  },
+  "NXPI": {
+    "date": "2026-10-27",
+    "time": "AMC"
+  },
+  "SOFI": {
+    "date": "2026-10-27",
+    "time": "BMO"
+  },
+  "MSFT": {
+    "date": "2026-10-28",
+    "time": "AMC"
+  },
+  "META": {
+    "date": "2026-10-28",
+    "time": "AMC"
+  },
+  "KLAC": {
+    "date": "2026-10-28",
+    "time": "AMC"
+  },
+  "NOW": {
+    "date": "2026-10-28",
+    "time": "AMC"
+  },
+  "FTNT": {
+    "date": "2026-10-28",
+    "time": "AMC"
+  },
+  "RIOT": {
+    "date": "2026-10-28",
+    "time": "AMC"
+  },
+  "NEM": {
+    "date": "2026-10-22",
+    "time": "AMC"
+  },
+  "MRNA": {
+    "date": "2026-10-29",
+    "time": "BMO"
+  },
+  "LLY": {
+    "date": "2026-10-29",
+    "time": "BMO"
+  },
+  "AMZN": {
+    "date": "2026-10-29",
+    "time": "AMC"
+  },
+  "MPWR": {
+    "date": "2026-10-29",
+    "time": "AMC"
+  }
 }

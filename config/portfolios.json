@@ -1,29 +1,102 @@
 {
-  "_note": "Draft watch-lists for the three team accounts. High-beta names are confirmed members of the S&P 500 High Beta Index (Invesco SPHB top holdings, etfdb.com, 10 Oct 2026). Edit lists here or override them in the web interface. Each list must stay 10-15 stocks.",
+  "_note": "Final watch-lists chosen on 13 Oct 2026 from screen.py (79-stock universe, regime RISK-ON 85). high_beta = confirmed S&P 500 High Beta Index members (stockanalysis.com 9 Oct, etfdb.com 10 Oct 2026). A = strongest trends (momentum), B = names with news/earnings this window (catalyst), C = high-beta chip pullbacks with strong 'stats' rebound scores (rebound). No stock appears in two lists. Each list must stay 10-15 stocks.",
   "group_rules": {
-    "stocks_per_student": [10, 15],
-    "min_high_beta_share": 0.30
+    "stocks_per_student": [
+      10,
+      15
+    ],
+    "min_high_beta_share": 0.3
   },
-  "high_beta_index_members": ["MRNA", "SNDK", "AMD", "SMCI", "MU", "MRVL", "COIN", "HOOD", "LITE", "TER",
-                              "LRCX", "INTC", "COHR", "CIEN", "FLEX"],
+  "high_beta_index_members": [
+    "MRNA",
+    "SNDK",
+    "AMD",
+    "SMCI",
+    "MU",
+    "MRVL",
+    "COIN",
+    "HOOD",
+    "LITE",
+    "TER",
+    "LRCX",
+    "INTC",
+    "COHR",
+    "CIEN",
+    "FLEX",
+    "WDC",
+    "KLAC",
+    "TSLA",
+    "AMAT",
+    "MPWR",
+    "GLW",
+    "FIX",
+    "DELL",
+    "HPE",
+    "FCX"
+  ],
   "portfolios": {
     "A": {
       "owner": "Akshit",
       "profile": "momentum",
-      "high_beta": ["MU", "LRCX", "SNDK", "AMD"],
-      "others": ["NVDA", "AVGO", "TSM", "ANET", "VRT", "PLTR", "GEV", "GOOGL", "META"]
+      "high_beta": [
+        "MRNA",
+        "HPE",
+        "DELL"
+      ],
+      "others": [
+        "PLTR",
+        "SHOP",
+        "MSFT",
+        "META",
+        "DDOG",
+        "XOM",
+        "ZBRA",
+        "VST",
+        "WMT",
+        "AAPL"
+      ]
     },
     "B": {
       "owner": "Teammate 2",
       "profile": "catalyst",
-      "high_beta": ["MRVL", "COIN", "HOOD", "LITE"],
-      "others": ["TSLA", "NFLX", "ISRG", "GE", "SPOT", "AXP", "GS", "UBER", "NOW"]
+      "high_beta": [
+        "TSLA",
+        "CIEN",
+        "LRCX"
+      ],
+      "others": [
+        "ISRG",
+        "SPOT",
+        "NOW",
+        "GOOGL",
+        "CEG",
+        "EL",
+        "COST",
+        "CCL",
+        "GEV",
+        "AMZN"
+      ]
     },
     "C": {
       "owner": "Teammate 3",
       "profile": "rebound",
-      "high_beta": ["SMCI", "COHR", "CIEN", "TER"],
-      "others": ["JPM", "BAC", "FCX", "CEG", "VST", "CAT", "SHOP", "ABNB", "XOM"]
+      "high_beta": [
+        "MRVL",
+        "AMD",
+        "SMCI",
+        "MPWR",
+        "AMAT",
+        "TER"
+      ],
+      "others": [
+        "NVDA",
+        "TSM",
+        "LLY",
+        "NEM",
+        "DAL",
+        "UBER",
+        "GNRC"
+      ]
     }
   }
 }
