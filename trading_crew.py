@@ -244,10 +244,12 @@ def run_crew_with_fallback(symbols, profile, families, holdings_text, rec, log, 
 # ============================================================ one full run
 def run_once(account: str | None = None, symbols: list[str] | None = None, profile: str | None = None,
              families: list[str] | None = None, mode: str = "approve", keys: dict | None = None,
-             use_llm: bool = True, log: dict | None = None, confirm=None) -> dict:
+             use_llm: bool = True, log: dict | None = None, confirm=None, ai_every_min: int = 0) -> dict:
     """
     mode: analyze (never trade) | approve (ask before orders) | auto (trade immediately).
     `confirm(plan) -> bool` is used in approve mode; default asks on the terminal.
+    ai_every_min: if > 0, the four AI agents run at most this often; runs in between
+    reuse their last view with fresh market data (used by run_session.py every 15 min).
     """
     log = log if log is not None else {}
     log.setdefault("steps", []); log.setdefault("errors", [])
@@ -274,8 +276,28 @@ def run_once(account: str | None = None, symbols: list[str] | None = None, profi
           f" Equity ${acct_info.get('equity', 0):,.0f} | cash ${acct_info.get('cash', 0):,.0f}\n{'=' * 70}")
 
     overlay, model_name = ({}, "rule-based (LLM off)")
-    if use_llm:
+    st = state.load(label)
+    cached = st.get("ai") or {}
+    age = None
+    if cached.get("time"):
+        try:
+            age = (datetime.now() - datetime.fromisoformat(cached["time"])).total_seconds() / 60
+        except ValueError:
+            age = None
+    reuse = (use_llm and ai_every_min and age is not None and age < ai_every_min and cached.get("overlay")
+             and set(cached.get("symbols", [])) >= set(syms))
+    if reuse:
+        # fast loop: fresh prices, scores, stops and profit locks every run; the AI team's view
+        # (news adjustments) is reused until it is ai_every_min old, to stay inside free LLM limits
+        overlay, model_name = cached["overlay"], f"{cached.get('model')} (AI view from {cached['time'][11:16]}, reused)"
+        rec.write("Portfolio Manager", "Score adjustments (reused)",
+                  f"Reusing the AI team's view from {cached['time'][11:16]} ({age:.0f} min old; refreshed every "
+                  f"{ai_every_min} min).\n\n```json\n{json.dumps(overlay, indent=1)}\n```")
+    elif use_llm:
         overlay, model_name = run_crew_with_fallback(syms, profile, families, holdings_text, rec, log, env)
+        if overlay:
+            st["ai"] = {"time": datetime.now().isoformat(timespec="seconds"), "model": model_name,
+                        "overlay": overlay, "symbols": syms}
     rec.model = model_name
 
     # deterministic numbers for the Risk Manager (same MCP server, one more data call)
@@ -290,7 +312,6 @@ def run_once(account: str | None = None, symbols: list[str] | None = None, profi
     if not use_llm or not overlay:
         rec.write("Quantitative Signal Analyst", "Alpha Scores (rule-based run)", "```\n" + scores["table"] + "\n```")
 
-    st = state.load(label)
     today = market_today()
     peaks = state.update_peaks(st, positions, scores["rows"])
     plan = build_plan(scores["rows"], regime, positions, acct_info, overlay, profile,

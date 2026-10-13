@@ -16,7 +16,10 @@ from datetime import date, timedelta
 
 @dataclass
 class RiskSettings:
-    max_position_pct: float = 0.20      # cap per stock (the professor's sample also uses 20%)
+    max_position_pct: float = 0.25      # cap per stock (aggressive: the brief says "MUST take risks")
+    max_holdings: int = 8               # concentrate on the strongest 8 of the 13 (all 13 stay tradable)
+    weight_power: float = 2.5           # how hard money tilts to the top scores (1.5 = gentler)
+    hold_bonus: float = 5.0             # a held stock keeps its slot unless a newcomer beats it by 5+
     min_position_pct: float = 0.03      # smaller targets are dropped (not worth the noise)
     entry_score: float = 52             # new buys need at least this final score
     exit_score: float = 40              # held stocks are sold below this (hysteresis)
@@ -31,8 +34,8 @@ class RiskSettings:
     veto_news: float = -0.25            # a buy veto needs news at least this negative (or a breakdown)
     min_holdings: int = 8               # if fewer qualify, add the next-best names scoring >= exit_score
     filler_weight_pct: float = 0.05     # fixed small size for those added names (never more)
-    lock_trigger: float = 0.08          # once a holding has been up 8%+ from our entry ...
-    lock_keep: float = 0.50             # ... never give back more than half of the best gain (profit lock)
+    lock_trigger: float = 0.06          # once a holding has been up 6%+ from our entry ...
+    lock_keep: float = 0.60             # ... keep at least 60% of the best gain (profit lock)
 
 
 @dataclass
@@ -189,7 +192,15 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             elif not held:
                 t.reasons.append(f"score {t.final} below entry {rs.entry_score}")
             continue
-        raw[sym] = max(t.final - 45, 2) ** 1.5   # floor keeps held names in the 40-45 band sized small, never negative
+        raw[sym] = max(t.final - 45, 2) ** rs.weight_power   # floor keeps held names in the 40-45 band small, never negative
+
+    # concentrate: only the best max_holdings names get money (held names get a small bonus
+    # so the portfolio does not flip back and forth between two similar scores every run)
+    if len(raw) > rs.max_holdings:
+        rank = sorted(raw, key=lambda s: -(targets[s].final + (rs.hold_bonus if targets[s].current_value > 0 else 0)))
+        for s in rank[rs.max_holdings:]:
+            del raw[s]
+            targets[s].reasons.append(f"not in the top {rs.max_holdings}: money goes to stronger names")
 
     # top up to min_holdings with the next-best names that are not broken
     forced: set[str] = set()

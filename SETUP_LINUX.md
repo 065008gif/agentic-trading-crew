@@ -57,7 +57,7 @@ drop-down at the top (they are numbered 1-6), press the green play button, and c
 | **Trade** (asks y/N before placing the orders) | `python trading_crew.py --account A` |
 | Screener (scores ~80 stocks) | `python screen.py --top 30` |
 | Web interface | `python app.py`, then http://localhost:8000 |
-| **Whole evening, every 30 min** | `python run_session.py --account A --every 30 --sync` |
+| **Whole evening, a run every 15 min** | `python run_session.py --account A --sync` |
 | Tests | `python -m pytest -q` |
 | **Save everything to GitHub** | `python sync_github.py` |
 
@@ -80,12 +80,13 @@ In the VS Code terminal (**Terminal > New Terminal**, the line starts with `(.ve
 
 ```bash
 git pull
-python run_session.py --account A --every 30 --sync
+python run_session.py --account A --sync
 ```
 
-That is all. It waits for the 7:00 PM open, makes the first run at 7:10 PM, then runs the full crew every
-30 minutes (auto mode, no y/N questions) until the 1:30 AM close, stops by itself, and saves everything
-to GitHub. Leave VS Code open; you can lock the screen. To stop early press **Ctrl + C**: it still saves.
+That is all. It waits for the 7:00 PM open, makes the first run at 7:10 PM, then runs every **15 minutes**
+(auto mode, no y/N questions): fresh prices, scores, stops and profit locks every run, and the four AI agents
+refresh their view every 30 minutes (to stay inside the free Groq limits). It stops by itself after the
+1:30 AM close and saves everything to GitHub. Leave VS Code open; you can lock the screen. To stop early press **Ctrl + C**: it still saves.
 One line per run is written to `run_reports/A/session_log.txt`.
 
 Before starting, put any teammates' zips (`reports_B_...zip`, `reports_C_...zip`) in **Downloads**;
@@ -94,9 +95,9 @@ the save step at the end imports them into `teammate_reports/`.
 If the final save says it timed out (GitHub wanted a login), run `python sync_github.py` the next time you are at the PC.
 On weekends and US holidays the session says "no trading session" and exits.
 
-**Booking profit:** every run applies a *profit lock*: once a stock has been up 8% or more from our buy
-price, it is sold if it falls back below half of its best gain (so at least half the gain is kept), and it
-is not bought back the same day. On the **last day, 27 Oct**, the session sells **everything** at
+**Booking profit:** every run applies a *profit lock*: once a stock has been up 6% or more from our buy
+price, it is sold if it falls back below 60% of its best gain (so most of the gain is kept), and it
+is not bought back the same day. Money is concentrated in the 8 strongest stocks (up to 25% each). On the **last day, 27 Oct**, the session sells **everything** at
 1:00 AM IST (30 min before the close) so all gains are booked as cash. Make sure the session runs that
 evening. Manual version: `python close_all.py --account A` (asks y/N).
 

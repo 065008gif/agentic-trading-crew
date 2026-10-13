@@ -115,7 +115,8 @@ def test_first_live_run_13_oct_sizing():
               "NVDA": 41.0, "TSM": 39.3, "AVGO": 33.6, "LRCX": 33.2, "MU": 24.4, "SNDK": 19.1, "VRT": 13.7}
     rows = [row(s, v) for s, v in scores.items()]
     reg = {"regime": "RISK-ON", "regime_score": 95, "invest_fraction": 0.97}
-    plan = build_plan(rows, reg, {}, ACCT)
+    legacy = RiskSettings(max_position_pct=0.20, weight_power=1.5)   # settings used that day
+    plan = build_plan(rows, reg, {}, ACCT, settings=legacy)
     w = {x["symbol"]: x["target_weight"] for x in plan["targets"]}
     for strong in ("PLTR", "META", "GOOGL", "GEV"):
         assert abs(w[strong] - 0.20) < 1e-9, (strong, w[strong])
@@ -215,12 +216,14 @@ def test_dropped_small_position_money_is_reinvested():
     reg = {"regime": "RISK-ON", "regime_score": 95, "invest_fraction": 0.98}
     plan = build_plan(rows, reg, {}, ACCT)
     t = {x["symbol"]: x for x in plan["targets"]}
-    assert t["DELL"]["action"] == "AVOID" and any("minimum position" in r for r in t["DELL"]["reasons"])
+    assert t["DELL"]["action"] == "AVOID" and any("minimum position" in r or "not in the top" in r
+                                                  for r in t["DELL"]["reasons"])
+    assert sum(1 for x in plan["targets"] if x["target_weight"] > 0) <= RiskSettings().max_holdings
     assert abs(sum(x["target_weight"] for x in plan["targets"]) - 0.98) < 1e-6
 
 
-def test_profit_lock_books_half_of_the_best_gain():
-    """Bought at 100, ran to 120 (+20%), now back to 109: lock is 110, so sell and book +9%."""
+def test_profit_lock_books_most_of_the_best_gain():
+    """Bought at 100, ran to 120 (+20%), now back to 109: lock is 112 (keep 60%), so sell and book +9%."""
     pos = {"AAA": {"qty": 100, "market_value": 10900, "avg_entry": 100, "pl_pct": 9.0}}
     plan = build_plan([row("AAA", 85, close=109, stop=95)], REGIME, pos, ACCT, peaks={"AAA": 120})
     t = plan["targets"][0]
@@ -229,8 +232,8 @@ def test_profit_lock_books_half_of_the_best_gain():
     plan2 = build_plan([row("AAA", 85, close=115, stop=95)], REGIME, pos, ACCT, peaks={"AAA": 120})
     t2 = plan2["targets"][0]
     assert t2["action"] != "EXIT" and any("profit lock active" in r for r in t2["reasons"])
-    # small gains (peak under +8%) are left to the normal stop
-    plan3 = build_plan([row("AAA", 85, close=101, stop=95)], REGIME, pos, ACCT, peaks={"AAA": 106})
+    # small gains (peak under +6%) are left to the normal stop
+    plan3 = build_plan([row("AAA", 85, close=101, stop=95)], REGIME, pos, ACCT, peaks={"AAA": 105})
     assert plan3["targets"][0]["action"] != "EXIT"
 
 
@@ -238,3 +241,13 @@ def test_no_rebuy_same_day_after_stop_or_lock():
     plan = build_plan([row("AAA", 90)] + [row(s, 80) for s in "BCDEFGHI"], REGIME, {}, ACCT, no_rebuy={"AAA"})
     t = {x["symbol"]: x for x in plan["targets"]}
     assert t["AAA"]["action"] == "AVOID" and t["AAA"]["target_weight"] == 0
+
+
+def test_aggressive_sizing_concentrates_on_the_best():
+    scores = {"MSFT": 96.9, "SHOP": 94.2, "PLTR": 93.7, "DDOG": 91.5, "META": 88.7, "MRNA": 88.1, "ZBRA": 86.5,
+              "XOM": 81.4, "VST": 79.8, "HPE": 78.2, "WMT": 76.2, "AAPL": 73.9, "DELL": 63.3}
+    plan = build_plan([row(s, v) for s, v in scores.items()], REGIME, {}, ACCT)
+    w = {x["symbol"]: x["target_weight"] for x in plan["targets"]}
+    held = [s for s, v in w.items() if v > 0]
+    assert len(held) <= RiskSettings().max_holdings and w["MSFT"] > 2 * min(v for v in w.values() if v > 0)
+    assert w["MSFT"] <= RiskSettings().max_position_pct + 1e-9

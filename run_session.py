@@ -1,12 +1,14 @@
 """
 One command for a whole trading evening:
 
-    python run_session.py --account A --every 30 --sync          (Akshit)
-    uv run python run_session.py --account B --every 30          (teammates)
+    python run_session.py --account A --sync          (Akshit)
+    uv run python run_session.py --account B          (teammates)
 
 - If the US market is not open yet, it waits for the open (times shown in IST).
 - First run 10 minutes after the open (the first minutes are the noisiest),
-  then the full agent crew runs every --every minutes in auto mode
+  then a run every --every minutes (default 15) in auto mode: fresh prices,
+  scores, stops and profit locks every run; the four AI agents refresh their
+  view every --ai-every minutes (default 30), to stay inside free LLM limits
   (no y/N question), until the market closes (1:30 AM IST until 1 Nov 2026).
 - At the close it stops by itself, then either saves everything to GitHub
   (--sync, Akshit's computer) or zips the run records to send to Akshit
@@ -97,13 +99,16 @@ def finish(sync: bool) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(description="Run the trading crew all evening, every N minutes")
     ap.add_argument("--account", default=os.environ.get("ACCOUNT_LABEL", "A"), help="A, B or C")
-    ap.add_argument("--every", type=int, default=30, help="minutes between runs (default 30, minimum 15)")
+    ap.add_argument("--every", type=int, default=15, help="minutes between runs (default 15, minimum 10)")
+    ap.add_argument("--ai-every", type=int, default=30,
+                    help="the four AI agents run at most this often (default 30 min); runs in between reuse "
+                         "their view with fresh prices, stops and profit locks (keeps inside free LLM limits)")
     ap.add_argument("--start-delay", type=int, default=10, help="minutes after the open before the first run")
     ap.add_argument("--sync", action="store_true", help="at the end, save everything to GitHub (Akshit)")
     ap.add_argument("--no-llm", action="store_true", help="rules only, no AI agents")
     a = ap.parse_args()
     a.account = a.account.upper()
-    every = timedelta(minutes=max(15, a.every))
+    every = timedelta(minutes=max(10, a.every))
 
     print("=" * 70)
     print(f" Trading session | account {a.account} | a run every {every.seconds // 60} min | auto mode")
@@ -160,7 +165,7 @@ def main() -> int:
             if runs == 0 and now < first_ok:
                 sleep_until(first_ok, now, "Market just opened; first run at")
                 continue
-            if close - now < timedelta(minutes=5):
+            if close - now < timedelta(minutes=10):   # no new run in the last 10 minutes
                 sleep_until(close + timedelta(minutes=1), now, "Close is near; no new run. Stopping after")
                 continue
 
@@ -168,7 +173,8 @@ def main() -> int:
             started = now
             print(f"\n{'#' * 70}\n# Run {runs}  |  {ist(now)}  |  market closes {ist(close)}\n{'#' * 70}")
             try:
-                plan = tc.run_once(a.account, mode="auto", use_llm=not a.no_llm)
+                plan = tc.run_once(a.account, mode="auto", use_llm=not a.no_llm,
+                                   ai_every_min=max(0, a.ai_every - 2))   # -2: a fresh AI view every 2nd run
                 ex = plan.get("executions", [])
                 bad = [e for e in ex if isinstance(e.get("result"), dict) and "error" in e["result"]]
                 summary = (f"run {runs}: model {plan.get('model')}, regime {plan.get('regime')}, "
