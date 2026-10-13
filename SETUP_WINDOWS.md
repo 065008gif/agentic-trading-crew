@@ -81,7 +81,7 @@ git pull
 uv run python run_session.py --account B
 ```
 
-It waits for the open, runs every 15 minutes (auto mode, no questions; the AI agents refresh every 30 minutes) until the 1:30 AM close,
+It waits for the open, runs all the agents every 15 minutes (auto mode, no questions) until the 1:30 AM close,
 stops by itself, and creates `reports_B_....zip` in the project folder. Send that zip to Akshit
 (the next morning is fine). Ctrl + C stops it early and still creates the zip.
 

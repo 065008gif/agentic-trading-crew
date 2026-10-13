@@ -212,8 +212,18 @@ def run_crew_with_fallback(symbols, profile, families, holdings_text, rec, log, 
     if not providers:
         log["errors"].append("No LLM key configured: running on the rule-based Alpha Score only.")
         return {}, "rule-based (no LLM key)"
+    from trading.reports import REPORTS
+    spent_file = REPORTS / "llm_daily_limits.json"     # providers whose free DAILY quota is used up
+    try:
+        spent = json.loads(spent_file.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        spent = {}
+    today = market_today().isoformat()
     for name, llm in providers:
         model_name = llm_factory.describe(name)
+        if spent.get(model_name) == today:
+            print(f">>> {model_name}: free daily limit already used today, skipping")
+            continue
         rec.model = model_name
         print(f"\n>>> Running crew on {model_name}")
         market = trading = None
@@ -231,6 +241,14 @@ def run_crew_with_fallback(symbols, profile, families, holdings_text, rec, log, 
             msg = f"{model_name} failed: {type(e).__name__}: {str(e)[:300]}"
             print("WARNING:", msg)
             log["errors"].append(msg)
+            low = str(e).lower()
+            if "per day" in low or "(tpd)" in low or "(rpd)" in low or "daily" in low:
+                spent[model_name] = today          # do not waste time on it again until tomorrow
+                try:
+                    spent_file.parent.mkdir(parents=True, exist_ok=True)
+                    spent_file.write_text(json.dumps(spent, indent=1), encoding="utf-8")
+                except OSError:
+                    pass
         finally:
             for a in (market, trading):
                 try:

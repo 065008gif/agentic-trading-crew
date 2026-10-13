@@ -4,6 +4,7 @@ LLM factory with an ordered fallback chain. Only free providers are used.
 LLM_CHAIN in .env decides the order, e.g.  groq,groq_backup,openrouter
   groq          Groq free tier, GROQ_MODEL (default openai/gpt-oss-120b)
   groq_backup   Groq free tier, second model with its own daily quota
+  groq_backup2  Groq free tier, third model (GROQ_BACKUP2_MODEL, default qwen/qwen3.8-27b)
   openrouter    OpenRouter ":free" model, OPENROUTER_MODEL
   ollama_cloud  Ollama Cloud free tier (OLLAMA_API_KEY), OLLAMA_CLOUD_MODEL
   ollama        Local Ollama on this computer, OLLAMA_MODEL
@@ -32,6 +33,7 @@ def describe(name: str) -> str:
     return {
         "groq": f"groq:{_env('GROQ_MODEL', 'openai/gpt-oss-120b')}",
         "groq_backup": f"groq:{_env('GROQ_BACKUP_MODEL', 'openai/gpt-oss-20b')}",
+        "groq_backup2": f"groq:{_env('GROQ_BACKUP2_MODEL', 'qwen/qwen3.8-27b')}",
         "openrouter": f"openrouter:{_env('OPENROUTER_MODEL', 'openai/gpt-oss-20b:free')}",
         "ollama_cloud": f"ollama-cloud:{_env('OLLAMA_CLOUD_MODEL', 'gpt-oss:120b')}",
         "ollama": f"ollama-local:{_env('OLLAMA_MODEL', 'qwen3:8b')}",
@@ -40,13 +42,15 @@ def describe(name: str) -> str:
 
 def make_llm(name: str) -> LLM | None:
     """Build one provider's LLM, or None if its key is not configured."""
-    common = {"temperature": 0.2, "max_retries": 6}
-    if name in ("groq", "groq_backup"):
+    # few retries: a daily-limit error will not clear in seconds, the next provider is better
+    common = {"temperature": 0.2, "max_retries": 2}
+    if name in ("groq", "groq_backup", "groq_backup2"):
         key = _env("GROQ_API_KEY")
         if not key:
             return None
-        model = _env("GROQ_MODEL", "openai/gpt-oss-120b") if name == "groq" \
-            else _env("GROQ_BACKUP_MODEL", "openai/gpt-oss-20b")
+        model = {"groq": _env("GROQ_MODEL", "openai/gpt-oss-120b"),
+                 "groq_backup": _env("GROQ_BACKUP_MODEL", "openai/gpt-oss-20b"),
+                 "groq_backup2": _env("GROQ_BACKUP2_MODEL", "qwen/qwen3.8-27b")}[name]
         # CrewAI strips one leading "openai/" when routing; add it back so Groq
         # receives its exact model id (e.g. "openai/gpt-oss-120b").
         return LLM(model=f"openai/{model}", custom_openai=True,
@@ -73,7 +77,12 @@ def make_llm(name: str) -> LLM | None:
 
 def chain() -> list[tuple[str, LLM]]:
     """Configured providers in fallback order (skips any without a key)."""
-    names = [n.strip() for n in _env("LLM_CHAIN", "groq,groq_backup,openrouter,ollama_cloud").split(",") if n.strip()]
+    names = [n.strip() for n in _env("LLM_CHAIN", "groq,groq_backup,groq_backup2,openrouter,ollama_cloud").split(",")
+             if n.strip()]
+    # each Groq model has its own free daily quota: a third one is added after groq_backup
+    # automatically (older .env files list only two)
+    if "groq_backup" in names and "groq_backup2" not in names:
+        names.insert(names.index("groq_backup") + 1, "groq_backup2")
     out = []
     for n in names:
         llm = make_llm(n)
