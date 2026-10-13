@@ -1,0 +1,48 @@
+{
+  // Run any of these from the "Run and Debug" panel (Ctrl+Shift+D): pick one
+  // in the drop-down at the top and press the green play button. Each one
+  // asks which account (A, B or C) and runs in the terminal, so you can type
+  // y or N when the program asks before placing orders.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "1. Check setup (no orders)",
+      "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/check_setup.py",
+      "console": "integratedTerminal", "cwd": "${workspaceFolder}", "justMyCode": true
+    },
+    {
+      "name": "2. Analyze only (no orders)",
+      "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/trading_crew.py",
+      "args": ["--account", "${input:account}", "--mode", "analyze"],
+      "console": "integratedTerminal", "cwd": "${workspaceFolder}", "justMyCode": true
+    },
+    {
+      "name": "3. TRADE (asks y/N before every order)",
+      "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/trading_crew.py",
+      "args": ["--account", "${input:account}"],
+      "console": "integratedTerminal", "cwd": "${workspaceFolder}", "justMyCode": true
+    },
+    {
+      "name": "4. Screener (scores ~80 stocks, no orders)",
+      "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/screen.py",
+      "args": ["--top", "30"],
+      "console": "integratedTerminal", "cwd": "${workspaceFolder}", "justMyCode": true
+    },
+    {
+      "name": "5. Web interface (http://localhost:8000)",
+      "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/app.py",
+      "console": "integratedTerminal", "cwd": "${workspaceFolder}", "justMyCode": true
+    },
+    {
+      "name": "6. Save everything to GitHub (Akshit only)",
+      "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/sync_github.py",
+      "console": "integratedTerminal", "cwd": "${workspaceFolder}", "justMyCode": true
+    }
+  ],
+  "inputs": [
+    {
+      "id": "account", "type": "pickString", "description": "Which account is this computer?",
+      "options": ["A", "B", "C"], "default": "A"
+    }
+  ]
+}

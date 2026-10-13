@@ -36,7 +36,7 @@ mcp = FastMCP("MarketData", log_level="WARNING")
 
 BENCHMARKS = ["SPY", "QQQ", "SPHB", "SPLV"]
 _cache: dict = {}   # symbol -> DataFrame
-EARNINGS = {k: v for k, v in json.loads((ROOT / "config" / "earnings.json").read_text()).items()
+EARNINGS = {k: v for k, v in json.loads((ROOT / "config" / "earnings.json").read_text(encoding="utf-8")).items()
             if not k.startswith("_")}
 
 

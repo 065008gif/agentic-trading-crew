@@ -19,6 +19,13 @@ import argparse
 import json
 import os
 import sys
+# Windows consoles and redirected output (| tee, > file) may not be UTF-8;
+# never crash on a symbol an LLM wrote, print a '?' instead.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -38,7 +45,7 @@ def main() -> int:
     ap.add_argument("--profiles", nargs="*", default=["momentum", "catalyst", "rebound"])
     a = ap.parse_args()
 
-    uni = json.loads((ROOT / "config" / "universe.json").read_text())
+    uni = json.loads((ROOT / "config" / "universe.json").read_text(encoding="utf-8"))
     confirmed, may = set(uni["high_beta_confirmed"]), set(uni["high_beta_listed_may"])
     symbols = list(dict.fromkeys(uni["high_beta_confirmed"] + uni["high_beta_listed_may"] + uni["others"]))
     env = {"ALPACA_API_KEY": os.environ.get("ALPACA_API_KEY", ""),

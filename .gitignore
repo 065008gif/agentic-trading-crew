@@ -5,6 +5,8 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .mock_state.json
-# run records contain account numbers and change every run; share them with export_reports.py
-run_reports/
+# run_reports/ IS committed: the agents' outputs are part of the project record
+# (teammates send theirs as zips; sync_github.py unpacks and commits them)
 *.zip
+imported_zips/
+.vscode/*.log

@@ -27,6 +27,13 @@ import argparse
 import json
 import os
 import sys
+# Windows consoles and redirected output (| tee, > file) may not be UTF-8;
+# never crash on a symbol an LLM wrote, print a '?' instead.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
 import time
 import traceback
 from datetime import datetime
@@ -50,7 +57,7 @@ from trading.planner import RiskSettings, build_plan, plan_markdown  # noqa: E40
 from trading.reports import RunRecorder, log_equity, log_trade  # noqa: E402
 from trading.scoring import FAMILIES, PROFILES  # noqa: E402
 
-CONFIG = json.loads((ROOT / "config" / "portfolios.json").read_text())
+CONFIG = json.loads((ROOT / "config" / "portfolios.json").read_text(encoding="utf-8"))
 
 
 # ============================================================ structured output of agent 4

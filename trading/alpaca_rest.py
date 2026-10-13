@@ -307,7 +307,7 @@ def _mock_price(symbol: str) -> float:
 
 def _mock_state() -> dict:
     if MOCK_STATE.exists():
-        return json.loads(MOCK_STATE.read_text())
+        return json.loads(MOCK_STATE.read_text(encoding="utf-8"))
     return {"cash": 100000.0, "positions": {}}
 
 

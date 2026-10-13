@@ -3,6 +3,13 @@
 """
 import os
 import sys
+# Windows consoles and redirected output (| tee, > file) may not be UTF-8;
+# never crash on a symbol an LLM wrote, print a '?' instead.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
 from pathlib import Path
 
 import requests

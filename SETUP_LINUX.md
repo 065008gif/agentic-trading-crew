@@ -1,114 +1,83 @@
 # Setup on the college Linux computer (Akshit, account A)
 
-Every command goes in the **Terminal** (open it with `Ctrl + Alt + T`).
-Copy each block, paste it with `Ctrl + Shift + V`, and press Enter.
-Wait for a command to finish (the prompt `$` comes back) before the next one.
+This computer uses a plain Python **venv** (no extra installers) and **VS Code**.
+Commands go in the VS Code terminal: **Terminal > New Terminal** (or `` Ctrl + ` ``).
+Paste with `Ctrl + Shift + V` and press Enter. Wait for the prompt to come back before the next command.
 
-## 1. Install uv (one time, no admin password needed)
-
-uv downloads the right Python version and all libraries for you.
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-source $HOME/.local/bin/env
-uv --version
-```
-
-The last line should print something like `uv 0.9.x`. If it says "command not found", close the terminal, open a new one and run `uv --version` again.
-
-## 2. Download the project
+## 1. Download the project and open it in VS Code (one time)
 
 ```bash
 cd ~
 git clone https://github.com/065008gif/agentic-trading-crew.git
 cd agentic-trading-crew
+code .
 ```
 
-## 3. Install everything (takes 2-4 minutes the first time)
+When VS Code asks **"Do you trust the authors of the files in this folder?"**, click **Yes, I trust the authors**.
+When it suggests installing the recommended **Python** extensions, click **Install**.
+
+## 2. Create the venv and install the libraries (one time, 3-5 minutes)
+
+In the VS Code terminal (it opens inside the project folder):
 
 ```bash
-uv sync
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-## 4. Put your keys in a private `.env` file
+The prompt now starts with `(.venv)`. Every new terminal in VS Code activates it automatically.
+If it ever doesn't, run `source .venv/bin/activate`.
+
+## 3. Put your keys in a private `.env` file
 
 ```bash
 cp .env.example .env
-nano .env
+code .env
 ```
 
-`nano` is a simple text editor that opens inside the terminal:
+Fill in right after each `=` (no spaces, no quotes): `ALPACA_API_KEY`, `ALPACA_SECRET_KEY` (Alpaca **paper**),
+`GROQ_API_KEY`, `ACCOUNT_LABEL=A`, `APP_PASSWORD`. Save with `Ctrl + S`.
+`.env` never goes to GitHub (it is in `.gitignore`, and `sync_github.py` double-checks).
 
-1. Use the arrow keys to move to `ALPACA_API_KEY=` and paste your Alpaca **paper** key right after the `=` (no spaces, no quotes).
-2. Do the same for `ALPACA_SECRET_KEY=` and `GROQ_API_KEY=`.
-3. Check `ACCOUNT_LABEL=A`.
-4. Set `APP_PASSWORD=` to any password you'll remember (it protects the web page).
-5. Save with `Ctrl + O`, then press Enter. Exit with `Ctrl + X`.
+## 4. Sign in to GitHub inside VS Code (one time)
 
-`.env` never goes to GitHub (it is listed in `.gitignore`).
+Click the **Accounts** icon (person, bottom-left) > **Sign in with GitHub** and finish in the browser.
+After that, `git push` from the VS Code terminal works without typing a password.
 
-## 5. Check the setup (places no orders)
+## 5. Running things
 
-```bash
-uv run python check_setup.py
-```
+Either type the commands below, or use the **Run and Debug** panel (`Ctrl + Shift + D`): pick an entry in the
+drop-down at the top (they are numbered 1-6), press the green play button, and choose the account.
 
-You want `[ OK ]` on the Alpaca, market data and LLM lines. If a line says `[FAIL]`, the message says what to fix.
-
-## 6. First run: analysis only
-
-```bash
-uv run python trading_crew.py --account A --mode analyze
-```
-
-You'll see the four agents work one after another, then the Risk Manager's table of targets and orders. Nothing is traded in `analyze` mode. The agents' notes are saved in `run_reports/A/`.
-
-## 7. Trade
-
-```bash
-uv run python trading_crew.py --account A
-```
-
-Same as above, but at the end it asks `Place these orders on your PAPER account? [y/N]`. Type `y` and Enter to trade.
-
-## 8. Web interface (optional, also on your phone)
-
-```bash
-uv run python app.py
-```
-
-Open http://localhost:8000 in the browser. Type your app password under **Alpaca keys and app password** and reload the page.
-
-To open it on your phone, install ngrok once (free account at ngrok.com, then follow its "Linux" install steps). Run this in a **second** terminal while `app.py` is running:
-
-```bash
-ngrok http 8000
-```
-
-Open the `https://....ngrok-free.app` link it prints on your phone.
-
-## Daily routine (US market: 7:00 PM to 1:30 AM India time)
-
-| India time | What to run |
+| What | Command |
 |---|---|
-| ~7:30 PM (after the open settles) | `uv run python trading_crew.py --account A` and approve |
+| Check keys and connections (no orders) | `python check_setup.py` |
+| Analysis only (no orders) | `python trading_crew.py --account A --mode analyze 2>&1 \| tee console_logs/runN.txt` |
+| **Trade** (asks y/N before placing the orders) | `python trading_crew.py --account A` |
+| Screener (scores ~80 stocks) | `python screen.py --top 30` |
+| Web interface | `python app.py`, then http://localhost:8000 |
+| Tests | `python -m pytest -q` |
+| **Save everything to GitHub** | `python sync_github.py` |
+
+Web interface on the phone: with `app.py` running, open a second terminal and run `ngrok http 8000`
+(free ngrok account), then open the `https://....ngrok-free.app` link it prints.
+
+## Daily routine (US market: 7:00 PM to 1:30 AM India time, Monday to Friday, until 27 October)
+
+| India time | Do this |
+|---|---|
+| ~7:30 PM | `git pull`, then trade: `python trading_crew.py --account A`, approve with `y` |
 | ~10:30 PM | run again (it only trades what changed) |
-| ~1:00 AM (before the close) | run again |
+| ~1:00 AM (if awake) | run again |
+| End of the session | put the teammates' zips (from WhatsApp/email) in Downloads, then `python sync_github.py` |
 
-Or let it run by itself every hour while the market is open:
+`sync_github.py` unpacks the teammates' `reports_B_...zip` / `reports_C_...zip` into `run_reports/B` and `run_reports/C`,
+moves loose `run*.txt` / `screen*.txt` files into `console_logs/`, commits everything, pulls and pushes.
 
-```bash
-uv run python trading_crew.py --account A --mode auto --loop 60
-```
-
-Stop it with `Ctrl + C`.
-
-## Getting updates
-
-When the code changes on GitHub:
+## Getting code updates
 
 ```bash
-cd ~/agentic-trading-crew
 git pull
-uv sync
+pip install -r requirements.txt
 ```

@@ -54,7 +54,10 @@ Every agent's output is saved as `run_reports/<account>/<AgentName><DDMMYYYY>-<H
 | Custom stocks / profile / indicator families | `--symbols MU AMD NVDA --profile rebound --families trend momentum` |
 | Web interface | `uv run python app.py`, then http://localhost:8000 (`ngrok http 8000` for the phone) |
 | Offline tests | `uv run python -m pytest -q` |
-| Zip run records for the report | `uv run python export_reports.py` |
+| Zip run records for the report (teammates) | `uv run python export_reports.py` |
+| Save records and code to GitHub (Akshit) | `python sync_github.py` |
+
+In VS Code the same commands are one click away: **Run and Debug** (`Ctrl+Shift+D`) lists them as numbered entries (`.vscode/launch.json`). The college Linux PC uses a plain venv (`SETUP_LINUX.md`); the Windows laptops use uv (`SETUP_WINDOWS.md`).
 
 ## Requirement checklist (from the project brief)
 
