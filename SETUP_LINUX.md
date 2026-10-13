@@ -84,8 +84,9 @@ python run_session.py --account A --sync
 ```
 
 That is all. It waits for the 7:00 PM open, makes the first run at 7:10 PM, then runs every **15 minutes**
-(auto mode, no y/N questions): all four AI agents plus fresh prices, scores, stops and profit locks on every
-run. When a free model's daily limit is used up, the next free model takes over automatically. It stops by itself after the
+(auto mode, no y/N questions): fresh prices, scores, stops and profit locks every run, and the four AI agents
+refresh their view every 30 minutes (to stay inside the free Groq limits). When a free model's daily limit is
+used up, the next free model takes over automatically. It stops by itself after the
 1:30 AM close and saves everything to GitHub. Leave VS Code open; you can lock the screen. To stop early press **Ctrl + C**: it still saves.
 One line per run is written to `run_reports/A/session_log.txt`.
 

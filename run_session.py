@@ -7,10 +7,11 @@ One command for a whole trading evening:
 - If the US market is not open yet, it waits for the open (times shown in IST).
 - First run 10 minutes after the open (the first minutes are the noisiest),
   then a run every --every minutes (default 15) in auto mode: fresh prices,
-  scores, stops and profit locks every run, and the four AI agents run every
-  time too (--ai-every 15). When a free model's daily limit is used up, the
-  next free model takes over (Groq 120b -> 20b -> qwen -> OpenRouter -> Ollama
-  Cloud), and as a last resort the run is rules-only (still trades safely).
+  scores, stops and profit locks every run; the four AI agents refresh their
+  view every --ai-every minutes (default 30), to stay inside free LLM limits.
+  When a free model's daily limit is used up, the next free model takes over
+  (Groq 120b -> 20b -> qwen -> OpenRouter -> Ollama Cloud), and as a last
+  resort the run is rules-only (still trades safely).
   (no y/N question), until the market closes (1:30 AM IST until 1 Nov 2026).
 - At the close it stops by itself, then either saves everything to GitHub
   (--sync, Akshit's computer) or zips the run records to send to Akshit
@@ -102,9 +103,9 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Run the trading crew all evening, every N minutes")
     ap.add_argument("--account", default=os.environ.get("ACCOUNT_LABEL", "A"), help="A, B or C")
     ap.add_argument("--every", type=int, default=15, help="minutes between runs (default 15, minimum 10)")
-    ap.add_argument("--ai-every", type=int, default=15,
-                    help="the four AI agents run at most this often (default 15 = every run); with a larger "
-                         "value the runs in between reuse their view with fresh prices, stops and profit locks")
+    ap.add_argument("--ai-every", type=int, default=30,
+                    help="the four AI agents run at most this often (default 30 min); runs in between reuse "
+                         "their view with fresh prices, scores, stops and profit locks (keeps inside free LLM limits)")
     ap.add_argument("--start-delay", type=int, default=10, help="minutes after the open before the first run")
     ap.add_argument("--sync", action="store_true", help="at the end, save everything to GitHub (Akshit)")
     ap.add_argument("--no-llm", action="store_true", help="rules only, no AI agents")
