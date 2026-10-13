@@ -22,7 +22,7 @@ FAMILIES = ["trend", "momentum", "rs", "volume", "volatility", "stats"]
 
 PROFILES: dict[str, dict] = {
     "momentum": {
-        "label": "A - AI/semis momentum: ride the strongest trends",
+        "label": "A - Momentum leaders: ride the strongest trends",
         "weights": {"trend": .25, "momentum": .30, "rs": .20, "volume": .10, "volatility": .15, "stats": 0},
         "hold_through_earnings": False,
     },
@@ -32,7 +32,7 @@ PROFILES: dict[str, dict] = {
         "hold_through_earnings": True,
     },
     "rebound": {
-        "label": "C - Rebound: buy sharp pullbacks inside uptrends, across sectors",
+        "label": "C - Rebound: buy sharp pullbacks in high-beta chip stocks and other uptrends",
         "weights": {"trend": .15, "momentum": .10, "rs": .10, "volume": .15, "volatility": .05, "stats": .45},
         "hold_through_earnings": False,
     },

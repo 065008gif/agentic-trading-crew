@@ -16,6 +16,7 @@ the free Groq token limits.
 """
 
 import json
+import re
 import os
 import sys
 from datetime import date, datetime
@@ -181,37 +182,64 @@ def get_market_regime(benchmarks: list[str] = ["SPY", "QQQ"]) -> str:  # noqa: B
     return json.dumps(out)
 
 
-@mcp.tool()
-def get_news_digest(symbols: list[str], days: int = 3, per_symbol: int = 2) -> str:
-    """
-    Recent news for ALL symbols in one Alpaca call, with a sentiment score
-    per symbol (-1 bearish .. +1 bullish), the top headlines, and any
-    earnings date inside the trading window.
-    Arguments: symbols (list), days (int, default 3), per_symbol (int, default 2).
-    """
+def _relevant(article: dict, sym: str) -> bool:
+    """An article counts for a stock only if it is really about that stock:
+    tagged with at most 3 tickers (market round-ups tag 10+), or the ticker
+    is written in the headline."""
+    tags = article.get("symbols", [])
+    return len(tags) <= 3 or re.search(r"\b" + re.escape(sym) + r"\b", article.get("headline", "")) is not None
+
+
+def _news_rows(symbols, days: int = 3, per_symbol: int = 2) -> tuple[list[dict], str | None]:
     syms = _clean(symbols)
     try:
-        news = ar.get_news(syms, days=days, limit=50)
-        err = None
+        news, err = ar.get_news(syms, days=days), None
     except Exception as e:  # news is optional; never break the run
         news, err = [], str(e)
     by = {s: [] for s in syms}
     for n in news:
         for s in n.get("symbols", []):
-            if s in by:
+            if s in by and _relevant(n, s):
                 by[s].append(n)
-    lines, rows = [], []
+    rows = []
     for s in syms:
         items = by[s]
-        scores = [score_headline(n.get("headline", "")) for n in items]
-        avg = round(sum(scores) / len(scores), 2) if scores else 0.0
-        heads = [n.get("headline", "")[:110] for n in items[:per_symbol]]
-        earn = _earnings_note(s)
-        rows.append({"symbol": s, "articles": len(items), "sentiment": avg, "headlines": heads, "earnings": earn})
-        lines.append(f"{s}: sent {avg:+.2f} ({len(items)} art){' | ' + earn if earn else ''}"
-                     + "".join(f"\n   - {h}" for h in heads))
+        # an article about this stock alone counts fully; one shared with
+        # other tickers counts half (unless the ticker is in the headline)
+        w = [1.0 if len(n.get("symbols", [])) == 1
+             or re.search(r"\b" + re.escape(s) + r"\b", n.get("headline", "")) else 0.5 for n in items]
+        sc = [score_headline(n.get("headline", "")) for n in items]
+        # shrink toward 0 (+2 in the denominator): one headline can never read as +/-1.0
+        sent = round(sum(a * b for a, b in zip(w, sc)) / (sum(w) + 2), 2) if items else 0.0
+        rows.append({"symbol": s, "articles": len(items), "sentiment": sent,
+                     "headlines": [n.get("headline", "")[:110] for n in items[:per_symbol]],
+                     "earnings": _earnings_note(s)})
+    return rows, err
+
+
+@mcp.tool()
+def get_news_digest(symbols: list[str], days: int = 3, per_symbol: int = 2) -> str:
+    """
+    Recent news for ALL symbols, with a sentiment score per symbol
+    (-1 bearish .. +1 bullish, shrunk toward 0 when there are few articles),
+    the top headlines, and any earnings date inside the trading window.
+    Market round-ups that merely tag a stock are left out.
+    Arguments: symbols (list), days (int, default 3), per_symbol (int, default 2).
+    """
+    rows, err = _news_rows(symbols, days, per_symbol)
+    lines = [f"{r['symbol']}: sent {r['sentiment']:+.2f} ({r['articles']} art)"
+             + (f" | {r['earnings']}" if r["earnings"] else "")
+             + "".join(f"\n   - {h}" for h in r["headlines"]) for r in rows]
     head = f"News digest, last {days} days" + (f" (news unavailable: {err[:80]})" if err else "")
     return head + "\n" + "\n".join(lines)
+
+
+@mcp.tool()
+def news_data(symbols: list[str], days: int = 3) -> dict:
+    """Same news as get_news_digest but as data rows (used by the Risk Manager
+    code to check the Portfolio Manager's adjustments against real news)."""
+    rows, err = _news_rows(symbols, days)
+    return {"rows": rows, "error": err}
 
 
 @mcp.tool()

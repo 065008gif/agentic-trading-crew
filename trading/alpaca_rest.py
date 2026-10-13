@@ -128,17 +128,28 @@ def get_latest_prices(symbols: list[str]) -> dict[str, float]:
     return out
 
 
-def get_news(symbols: list[str], days: int = 3, limit: int = 50) -> list[dict]:
+def get_news(symbols: list[str], days: int = 3, limit: int = 50, pages: int = 6) -> list[dict]:
     """Recent headlines (Alpaca news, Benzinga source) for many symbols in one call."""
     if MOCK:
         return [{"symbols": [s], "headline": f"{s} mock headline: analysts debate outlook",
                  "summary": "", "created_at": datetime.now(timezone.utc).isoformat(), "source": "mock"}
                 for s in symbols]
     start = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")
-    payload = _request("GET", f"{DATA_URL}/v1beta1/news",
-                       params={"symbols": ",".join(s.upper() for s in symbols), "start": start,
-                               "limit": limit, "sort": "desc", "include_content": "false"})
-    return payload.get("news", [])
+    # Alpaca returns at most 50 articles per page, newest first. Mega caps
+    # (MSFT, META, AAPL) fill one page on their own, so read up to `pages`
+    # pages or the smaller names get no news at all.
+    out, token = [], None
+    for _ in range(max(1, pages)):
+        params = {"symbols": ",".join(s.upper() for s in symbols), "start": start,
+                  "limit": min(limit, 50), "sort": "desc", "include_content": "false"}
+        if token:
+            params["page_token"] = token
+        payload = _request("GET", f"{DATA_URL}/v1beta1/news", params=params)
+        out += payload.get("news", [])
+        token = payload.get("next_page_token")
+        if not token:
+            break
+    return out
 
 
 # ============================================================ trading

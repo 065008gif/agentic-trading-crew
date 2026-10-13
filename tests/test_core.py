@@ -163,3 +163,45 @@ def test_regime_labels():
     weak = {"close": 80, "ema20": 85, "ema50": 90, "ema200": 95, "macd_hist": -1}
     assert regime_score(strong, strong, 3)["regime"] == "RISK-ON"
     assert regime_score(weak, weak, -3)["regime"] == "RISK-OFF"
+
+
+def test_pm_moves_need_news_evidence():
+    """Replays 13 Oct run 3: the PM vetoed SHOP over an Apple headline and
+    DELL over a bullish CEO comment, and gave MSFT +12 for Oracle news."""
+    rows = [row("SHOP", 86.5), row("DELL", 66.7), row("MSFT", 86.8), row("DDOG", 82.5), row("XOM", 79.7)]
+    overlay = {"adjustments": [
+        {"symbol": "SHOP", "adjust": -8, "veto_buy": True, "note": "Munster warns Apple"},
+        {"symbol": "DELL", "adjust": -10, "veto_buy": True, "note": "CEO cites supply"},
+        {"symbol": "MSFT", "adjust": 12, "note": "Oracle news"},
+        {"symbol": "DDOG", "adjust": 10, "note": "Barclays target raise"},
+        {"symbol": "XOM", "adjust": -12, "veto_buy": True, "note": "really bad news"}]}
+    ev = {"SHOP": {"sentiment": -0.2}, "DELL": {"sentiment": 0.0}, "MSFT": {"sentiment": 0.03},
+          "DDOG": {"sentiment": 0.33}, "XOM": {"sentiment": -0.4}}
+    plan = build_plan(rows, REGIME, {}, ACCT, overlay, evidence=ev)
+    t = {x["symbol"]: x for x in plan["targets"]}
+    assert t["SHOP"]["action"] == "BUY" and t["SHOP"]["adjust"] == -8   # mild bad news: dip kept, veto dropped
+    assert t["DELL"]["action"] == "BUY" and t["DELL"]["adjust"] == -5
+    assert t["MSFT"]["adjust"] == 5                 # unsupported +12 capped
+    assert t["DDOG"]["adjust"] == 10                # backed by a target raise, kept
+    assert t["XOM"]["action"] == "AVOID" and t["XOM"]["adjust"] == -12   # backed by bad news, kept
+    # without evidence (old behaviour) the veto still applies
+    plan2 = build_plan(rows, REGIME, {}, ACCT, overlay)
+    assert {x["symbol"]: x for x in plan2["targets"]}["SHOP"]["action"] == "AVOID"
+
+
+def test_news_filter_drops_roundups_and_shrinks_single_headlines():
+    import importlib
+    srv = importlib.import_module("servers.market_data_mcp_server")
+    roundup = {"symbols": ["AAPL", "MSFT", "META", "NVDA", "AVGO"], "headline": "Samsung falls as Broadcom CEO warns"}
+    shared = {"symbols": ["AAPL", "SHOP"], "headline": "Munster warns Apple could lose the AI game"}
+    own = {"symbols": ["DDOG"], "headline": "Barclays raises price target on Datadog"}
+    assert not srv._relevant(roundup, "MSFT") and srv._relevant(shared, "SHOP")
+    orig = srv.ar.get_news
+    srv.ar.get_news = lambda syms, days=3: [roundup, shared, own]
+    try:
+        rows = {r["symbol"]: r for r in srv._news_rows(["MSFT", "SHOP", "DDOG"])[0]}
+    finally:
+        srv.ar.get_news = orig
+    assert rows["MSFT"]["articles"] == 0
+    assert -0.25 < rows["SHOP"]["sentiment"] < 0     # half weight, shrunk: too weak for a veto
+    assert rows["DDOG"]["sentiment"] > 0.3

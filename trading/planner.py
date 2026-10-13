@@ -26,6 +26,9 @@ class RiskSettings:
     earnings_cap_pct: float = 0.05      # A/C profiles shrink to 5% the day before a report
     overextended_cap_pct: float = 0.07  # RSI>82 and z>2.5: lock in gains
     max_llm_adjust: float = 15
+    unsupported_adjust: float = 5       # PM moves beyond +/-5 need news pointing the same way
+    news_support: float = 0.10          # |sentiment| that counts as news support for a big adjustment
+    veto_news: float = -0.25            # a buy veto needs news at least this negative (or a breakdown)
     min_holdings: int = 8               # if fewer qualify, add the next-best names scoring >= exit_score
     filler_weight_pct: float = 0.05     # fixed small size for those added names (never more)
 
@@ -61,7 +64,10 @@ def _earnings_soon(note: str | None, today: date) -> bool:
 def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                overlay: dict | None = None, profile: str = "momentum",
                hold_through_earnings: bool = False, settings: RiskSettings | None = None,
-               today: date | None = None) -> dict:
+               today: date | None = None, evidence: dict | None = None) -> dict:
+    """evidence: {symbol: {"sentiment": float, "articles": int}} from the news
+    server. When given, the Portfolio Manager's adjustments and vetoes are
+    checked against it, so an LLM misreading cannot move money on its own."""
     rs = settings or RiskSettings()
     overlay = overlay or {}
     if today is None:
@@ -83,15 +89,29 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
     by_sym = {r["symbol"]: r for r in rows}
     targets: dict[str, Target] = {}
     for sym, r in by_sym.items():
-        a = adjustments.get(sym, {})
+        a = dict(adjustments.get(sym, {}))
         adj = max(-rs.max_llm_adjust, min(rs.max_llm_adjust, float(a.get("adjust", 0) or 0)))
+        checks = []
+        if evidence is not None:
+            sent = float((evidence.get(sym) or {}).get("sentiment", 0) or 0)
+            if adj > rs.unsupported_adjust and sent < rs.news_support:
+                checks.append(f"capped {adj:+.0f}->{rs.unsupported_adjust:+.0f}, news {sent:+.2f} does not support it")
+                adj = rs.unsupported_adjust
+            elif adj < -rs.unsupported_adjust and sent > -rs.news_support and not r.get("breakdown"):
+                checks.append(f"capped {adj:+.0f}->{-rs.unsupported_adjust:+.0f}, news {sent:+.2f} does not support it")
+                adj = -rs.unsupported_adjust
+            if a.get("veto_buy") and sent > rs.veto_news and not r.get("breakdown"):
+                checks.append(f"veto ignored, news {sent:+.2f} not negative enough")
+                a["veto_buy"] = False
+            adjustments[sym] = a
         final = max(0.0, min(100.0, r["alpha_score"] + adj))
         held = positions.get(sym, {})
         t = Target(sym, r["alpha_score"], adj, round(final, 1),
                    current_value=float(held.get("market_value", 0)),
                    current_weight=float(held.get("market_value", 0)) / equity)
-        if adj:
+        if adj or checks:
             t.reasons.append(f"PM adjust {adj:+.0f}: {a.get('note', '')[:80]}")
+        t.reasons += [f"Risk check: {c}" for c in checks]
         targets[sym] = t
 
     # held stocks we have no data for: keep untouched and say so

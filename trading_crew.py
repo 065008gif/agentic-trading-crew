@@ -168,10 +168,13 @@ def build_crew(llm, model_name, symbols, profile, families, holdings_text, rec, 
                   "Using the regime, Alpha Score table and news above:\n"
                   "1. exposure: start from the regime invest_fraction; you may move it by at most 0.10 "
                   "(range 0.50-0.98). The team is judged on total % profit, so idle cash is a cost.\n"
-                  "2. adjustments: for EVERY symbol give adjust between -15 and +15. Use +5..+15 for strong news, "
-                  "a clean breakout with volume, or a pre-earnings run-up the profile wants; -5..-15 for bad news, "
-                  "broken trends or a falling knife. 0 when you have no extra information. Set veto_buy=true only "
-                  "for clearly dangerous new buys.\n"
+                  "2. adjustments: for EVERY symbol give adjust between -15 and +15. The Alpha Score already "
+                  "contains trend, breakouts and volume, so do not add points for those again. Use +6..+15 only "
+                  "for clearly good news ABOUT THAT COMPANY (upgrade, target raise, contract, guidance raise) and "
+                  "-6..-15 only for clearly bad news about it; otherwise stay within -5..+5. A headline about a "
+                  "different company is not news for this one. Set veto_buy=true only when a headline about the "
+                  "company itself is clearly bad. The Risk Manager checks every move bigger than 5 and every veto "
+                  "against the news sentiment numbers and cancels the ones they do not support.\n"
                   "3. summary: 2-4 sentences.\n"
                   "Do NOT size positions or place orders; the Risk Manager does that from your output."),
               expected_output="exposure, one adjustment per symbol, and a summary.",
@@ -267,16 +270,19 @@ def run_once(account: str | None = None, symbols: list[str] | None = None, profi
     rec.model = model_name
 
     # deterministic numbers for the Risk Manager (same MCP server, one more data call)
-    scores, regime = bridge.call_many(bridge.MARKET_SERVER, [
+    scores, regime, news = bridge.call_many(bridge.MARKET_SERVER, [
         ("alpha_scores_data", {"symbols": syms, "profile": profile, "families": families}),
-        ("get_market_regime", {})], env)
+        ("get_market_regime", {"benchmarks": ["SPY", "QQQ"]}),
+        ("news_data", {"symbols": syms, "days": 3})], env)
+    # no news data means no evidence: big PM moves are then capped at +/-5
+    evidence = {r["symbol"]: r for r in news.get("rows", [])} if isinstance(news, dict) else {}
     if not isinstance(scores, dict) or "rows" not in scores:
         raise RuntimeError(f"Indicator server failed: {scores}")
     if not use_llm or not overlay:
         rec.write("Quantitative Signal Analyst", "Alpha Scores (rule-based run)", "```\n" + scores["table"] + "\n```")
 
     plan = build_plan(scores["rows"], regime, positions, acct_info, overlay, profile,
-                      prof["hold_through_earnings"], RiskSettings())
+                      prof["hold_through_earnings"], RiskSettings(), evidence=evidence)
     plan.update({"account": label, "model": model_name, "mode": mode, "families": families,
                  "alpha_table": scores["table"], "missing": scores.get("missing", []),
                  "errors": log["errors"], "created": datetime.now().isoformat(timespec="seconds")})

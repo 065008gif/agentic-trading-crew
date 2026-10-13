@@ -12,7 +12,7 @@ POS = {
     "buy rating": 1.5, "price target raised": 2, "raises price target": 2, "strong demand": 1.5,
     "rally": 1.5, "rallies": 1.5, "jumps": 1.5, "gains": 1, "partnership": 1, "contract": 1,
     "wins": 1, "approval": 1.5, "approved": 1.5, "buyback": 1.5, "repurchase": 1.5,
-    "expands": 1, "breakout": 1, "all-time high": 1.5, "bullish": 1.5, "accelerat": 1,
+    "expands": 1, "overweight": 1, "initiates buy": 1.5, "beats estimates": 1, "breakout": 1, "all-time high": 1.5, "bullish": 1.5, "accelerat": 1,
 }
 NEG = {
     "miss": 2, "misses": 2, "plunge": 2.5, "plunges": 2.5, "tumble": 2, "tumbles": 2, "sinks": 2,
