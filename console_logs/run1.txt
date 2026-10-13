@@ -1,0 +1,349 @@
+[10/13/26 20:37:27] INFO     Processing request of type            server.py:733
+                             CallToolRequest                                    
+[10/13/26 20:37:28] INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+                    INFO     Processing request of type            server.py:733
+                             CallToolRequest                                    
+[10/13/26 20:37:30] INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+                    INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+[10/13/26 20:37:30] INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+                    INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+/home/ashok/agentic-trading-crew/.venv/lib/python3.13/site-packages/pydantic/main.py:250: UserWarning: function callbacks cannot be serialized and will prevent checkpointing. Use a module-level named function instead.
+  validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+
+======================================================================
+ Account A | profile momentum | 13 stocks | mode analyze
+ Equity $100,000 | cash $100,000
+======================================================================
+
+>>> Running crew on groq:openai/gpt-oss-120b
+╭───────────────────────────────────────────────────────────────────── 🚀 Crew Execution Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Crew Execution Started                                                                                                                                              │
+│  Name: crew                                                                                                                                                          │
+│  ID: ccc9b967-9312-48d3-9f13-17ee0774d9ca                                                                                                                            │
+│                                                                                                                                                                      │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────── 📋 Task Started ───────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Task Started                                                                                                                                                        │
+│  Name: Regime                                                                                                                                                        │
+│  ID: 91c4c1fe-28bb-4569-87a9-19a724728dee                                                                                                                            │
+│                                                                                                                                                                      │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Agent: Market Regime Strategist                                                                                                                                     │
+│                                                                                                                                                                      │
+│  Task: Step 1: call fetch_ohlcv_batch ONCE with symbols=["MU", "LRCX", "SNDK", "AMD", "NVDA", "AVGO", "TSM", "ANET", "VRT", "PLTR", "GEV", "GOOGL", "META"]. Step    │
+│  2: call get_market_regime with no arguments. Report: regime label, regime_score, invest_fraction, SPY RSI and trend, high-beta vs low-vol reading, and any missing  │
+│  symbols. Max 120 words.                                                                                                                                             │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:root:OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}
+ERROR:root:OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}
+[CrewAIEventsBus] Warning: Event pairing mismatch. 'llm_call_failed' closed 'flow_started' (expected 'llm_call_started')
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required'    │
+│  present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}                            │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}[0m
+
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required'    │
+│  present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}                            │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:crewai.flow.runtime:Error executing listener call_llm_native_tools: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}[0m
+╭────────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Agent: Market Regime Strategist                                                                                                                                     │
+│                                                                                                                                                                      │
+│  Task: Step 1: call fetch_ohlcv_batch ONCE with symbols=["MU", "LRCX", "SNDK", "AMD", "NVDA", "AVGO", "TSM", "ANET", "VRT", "PLTR", "GEV", "GOOGL", "META"]. Step    │
+│  2: call get_market_regime with no arguments. Report: regime label, regime_score, invest_fraction, SPY RSI and trend, high-beta vs low-vol reading, and any missing  │
+│  symbols. Max 120 words.                                                                                                                                             │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:root:OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}
+ERROR:root:OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}
+[CrewAIEventsBus] Warning: Event pairing mismatch. 'llm_call_failed' closed 'flow_started' (expected 'llm_call_started')
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}[0m
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required'    │
+│  present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}                            │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:crewai.flow.runtime:Error executing listener call_llm_native_tools: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required'    │
+│  present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}                            │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}[0m
+╭────────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Agent: Market Regime Strategist                                                                                                                                     │
+│                                                                                                                                                                      │
+│  Task: Step 1: call fetch_ohlcv_batch ONCE with symbols=["MU", "LRCX", "SNDK", "AMD", "NVDA", "AVGO", "TSM", "ANET", "VRT", "PLTR", "GEV", "GOOGL", "META"]. Step    │
+│  2: call get_market_regime with no arguments. Report: regime label, regime_score, invest_fraction, SPY RSI and trend, high-beta vs low-vol reading, and any missing  │
+│  symbols. Max 120 words.                                                                                                                                             │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:root:OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}
+ERROR:root:OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}
+[CrewAIEventsBus] Warning: Event pairing mismatch. 'llm_call_failed' closed 'flow_started' (expected 'llm_call_started')
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}[0m
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required'    │
+│  present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}                            │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:crewai.flow.runtime:Error executing listener call_llm_native_tools: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: OpenAI API call failed: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required'    │
+│  present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}                            │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}[0m
+╭────────────────────────────────────────────────────────────────────────── 📋 Task Failure ───────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Task Failed                                                                                                                                                         │
+│  Name: Regime                                                                                                                                                        │
+│  Agent: Market Regime Strategist                                                                                                                                     │
+│                                                                                                                                                                      │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────────── Crew Failure ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Crew Execution Failed                                                                                                                                               │
+│  Name: crew                                                                                                                                                          │
+│  ID: ccc9b967-9312-48d3-9f13-17ee0774d9ca                                                                                                                            │
+│                                                                                                                                                                      │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[10/13/26 20:37:43] INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+                    INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+[10/13/26 20:37:43] INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+                    INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+/home/ashok/agentic-trading-crew/.venv/lib/python3.13/site-packages/pydantic/main.py:250: UserWarning: function callbacks cannot be serialized and will prevent checkpointing. Use a module-level named function instead.
+  validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+WARNING: groq:openai/gpt-oss-120b failed: BadRequestError: Error code: 400 - {'error': {'message': "invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}
+
+>>> Running crew on groq:llama-3.3-70b-versatile
+╭───────────────────────────────────────────────────────────────────── 🚀 Crew Execution Started ──────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Crew Execution Started                                                                                                                                              │
+│  Name: crew                                                                                                                                                          │
+│  ID: 99349fea-6d5d-4060-b7bd-2bc8b2f9a6f0                                                                                                                            │
+│                                                                                                                                                                      │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────── 📋 Task Started ───────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Task Started                                                                                                                                                        │
+│  Name: Regime                                                                                                                                                        │
+│  ID: 3cf59c44-8336-4d17-a9dd-601efb3aa2c5                                                                                                                            │
+│                                                                                                                                                                      │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Agent: Market Regime Strategist                                                                                                                                     │
+│                                                                                                                                                                      │
+│  Task: Step 1: call fetch_ohlcv_batch ONCE with symbols=["MU", "LRCX", "SNDK", "AMD", "NVDA", "AVGO", "TSM", "ANET", "VRT", "PLTR", "GEV", "GOOGL", "META"]. Step    │
+│  2: call get_market_regime with no arguments. Report: regime label, regime_score, invest_fraction, SPY RSI and trend, high-beta vs low-vol reading, and any missing  │
+│  symbols. Max 120 words.                                                                                                                                             │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:root:Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+ERROR:root:OpenAI API call failed: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+[CrewAIEventsBus] Warning: Event pairing mismatch. 'llm_call_failed' closed 'flow_started' (expected 'llm_call_started')
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}[0m
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have      │
+│  access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}                                                                                        │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: OpenAI API call failed: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not       │
+│  exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}                                                               │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ERROR:crewai.flow.runtime:Error executing listener call_llm_native_tools: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}[0m
+╭────────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Agent: Market Regime Strategist                                                                                                                                     │
+│                                                                                                                                                                      │
+│  Task: Step 1: call fetch_ohlcv_batch ONCE with symbols=["MU", "LRCX", "SNDK", "AMD", "NVDA", "AVGO", "TSM", "ANET", "VRT", "PLTR", "GEV", "GOOGL", "META"]. Step    │
+│  2: call get_market_regime with no arguments. Report: regime label, regime_score, invest_fraction, SPY RSI and trend, high-beta vs low-vol reading, and any missing  │
+│  symbols. Max 120 words.                                                                                                                                             │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:root:Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+ERROR:root:OpenAI API call failed: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+[CrewAIEventsBus] Warning: Event pairing mismatch. 'llm_call_failed' closed 'flow_started' (expected 'llm_call_started')
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}[0m
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have      │
+│  access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}                                                                                        │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: OpenAI API call failed: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not       │
+│  exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}                                                               │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:crewai.flow.runtime:Error executing listener call_llm_native_tools: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}[0m
+╭────────────────────────────────────────────────────────────────────────── 🤖 Agent Started ──────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Agent: Market Regime Strategist                                                                                                                                     │
+│                                                                                                                                                                      │
+│  Task: Step 1: call fetch_ohlcv_batch ONCE with symbols=["MU", "LRCX", "SNDK", "AMD", "NVDA", "AVGO", "TSM", "ANET", "VRT", "PLTR", "GEV", "GOOGL", "META"]. Step    │
+│  2: call get_market_regime with no arguments. Report: regime label, regime_score, invest_fraction, SPY RSI and trend, high-beta vs low-vol reading, and any missing  │
+│  symbols. Max 120 words.                                                                                                                                             │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:root:Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+ERROR:root:OpenAI API call failed: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+[CrewAIEventsBus] Warning: Event pairing mismatch. 'llm_call_failed' closed 'flow_started' (expected 'llm_call_started')
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}[0m
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: OpenAI API call failed: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not       │
+│  exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}                                                               │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ERROR:crewai.flow.runtime:Error executing listener call_llm_native_tools: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+╭──────────────────────────────────────────────────────────────────────────── ❌ LLM Error ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  LLM Call Failed                                                                                                                                                     │
+│  Error: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have      │
+│  access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}                                                                                        │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[91mAn unknown error occurred. Please check the details below.[0m
+[91mError details: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}[0m
+╭────────────────────────────────────────────────────────────────────────── 📋 Task Failure ───────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Task Failed                                                                                                                                                         │
+│  Name: Regime                                                                                                                                                        │
+│  Agent: Market Regime Strategist                                                                                                                                     │
+│                                                                                                                                                                      │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭──────────────────────────────────────────────────────────────────────────── Crew Failure ────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                      │
+│  Crew Execution Failed                                                                                                                                               │
+│  Name: crew                                                                                                                                                          │
+│  ID: 99349fea-6d5d-4060-b7bd-2bc8b2f9a6f0                                                                                                                            │
+│                                                                                                                                                                      │
+│                                                                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+[10/13/26 20:37:52] INFO     Processing request of type            server.py:733
+                             CallToolRequest                                    
+[10/13/26 20:37:55] INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+                    INFO     Processing request of type            server.py:733
+                             CallToolRequest                                    
+WARNING: groq:llama-3.3-70b-versatile failed: ValueError: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+
+**Equity:** $100,000 | **Cash:** $100,000 | **Regime:** RISK-ON (95.0) | **Target exposure:** 97% | **Invested after plan:** 97.0%
+
+| Symbol | Alpha | PM adj | Final | Now | Target | Action | Why |
+|---|---|---|---|---|---|---|---|
+| PLTR | 88.2 | +0 | 88.2 | 0.0% | 15.0% | BUY |  |
+| META | 81.6 | +0 | 81.6 | 0.0% | 15.0% | BUY |  |
+| GOOGL | 67.6 | +0 | 67.6 | 0.0% | 15.0% | BUY |  |
+| GEV | 64.9 | +0 | 64.9 | 0.0% | 15.0% | BUY |  |
+| AMD | 47.6 | +0 | 47.6 | 0.0% | 15.0% | BUY | added to reach minimum holdings |
+| ANET | 42.2 | +0 | 42.2 | 0.0% | 11.0% | BUY | added to reach minimum holdings |
+| NVDA | 41.0 | +0 | 41.0 | 0.0% | 11.0% | BUY | added to reach minimum holdings |
+| TSM | 39.3 | +0 | 39.3 | 0.0% | 0.0% | AVOID | score 39.3 below entry 52 |
+| AVGO | 33.6 | +0 | 33.6 | 0.0% | 0.0% | AVOID | score 33.6 below entry 52 |
+| LRCX | 33.2 | +0 | 33.2 | 0.0% | 0.0% | AVOID | score 33.2 below entry 52 |
+| MU | 24.4 | +0 | 24.4 | 0.0% | 0.0% | AVOID | score 24.4 below entry 52 |
+| SNDK | 19.1 | +0 | 19.1 | 0.0% | 0.0% | AVOID | score 19.1 below entry 52 |
+| VRT | 13.7 | +0 | 13.7 | 0.0% | 0.0% | AVOID | score 13.7 below entry 52 |
+
+**Orders (sells first):**
+
+- BUY PLTR $15,000  - score 88.2; target 15.0%
+- BUY META $15,000  - score 81.6; target 15.0%
+- BUY GOOGL $15,000  - score 67.6; target 15.0%
+- BUY GEV $15,000  - score 64.9; target 15.0%
+- BUY AMD $15,000  - score 47.6; target 15.0%
+- BUY ANET $11,000  - score 42.2; target 11.0%
+- BUY NVDA $11,000  - score 41.0; target 11.0%
+
+No orders placed (analysis only or not approved).

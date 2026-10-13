@@ -1,0 +1,328 @@
+{
+  "date": "2026-10-13",
+  "profile": "momentum",
+  "equity": 100000.0,
+  "cash": 100000.0,
+  "regime": "RISK-ON",
+  "regime_score": 95.0,
+  "exposure_target": 0.98,
+  "invested_after_pct": 98.0,
+  "settings": {
+    "max_position_pct": 0.2,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.015,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05
+  },
+  "targets": [
+    {
+      "symbol": "MSFT",
+      "alpha": 86.9,
+      "adjust": 10.0,
+      "final": 96.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.11592005763216118,
+      "action": "BUY",
+      "dollars": 11592.01,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +10: Barclays raises price target to $600"
+      ]
+    },
+    {
+      "symbol": "SHOP",
+      "alpha": 86.2,
+      "adjust": 8.0,
+      "final": 94.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.10699296077772631,
+      "action": "BUY",
+      "dollars": 10699.3,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Stock gains on Monday"
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "alpha": 89.7,
+      "adjust": 4.0,
+      "final": 93.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.10536612134349987,
+      "action": "BUY",
+      "dollars": 10536.61,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +4: Strong trend and RS, neutral news"
+      ]
+    },
+    {
+      "symbol": "DDOG",
+      "alpha": 82.5,
+      "adjust": 9.0,
+      "final": 91.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.09830757447030518,
+      "action": "BUY",
+      "dollars": 9830.76,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Barclays lifts price target to $300"
+      ]
+    },
+    {
+      "symbol": "META",
+      "alpha": 79.7,
+      "adjust": 9.0,
+      "final": 88.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.08956322165188393,
+      "action": "BUY",
+      "dollars": 8956.32,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: New AI tools unveiled"
+      ]
+    },
+    {
+      "symbol": "MRNA",
+      "alpha": 85.1,
+      "adjust": 3.0,
+      "final": 88.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0877250161520746,
+      "action": "BUY",
+      "dollars": 8772.5,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: High trend score, neutral news"
+      ]
+    },
+    {
+      "symbol": "ZBRA",
+      "alpha": 79.5,
+      "adjust": 7.0,
+      "final": 86.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.08288571661889581,
+      "action": "BUY",
+      "dollars": 8288.57,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +7: Barclays raises price target to $416"
+      ]
+    },
+    {
+      "symbol": "XOM",
+      "alpha": 79.4,
+      "adjust": 2.0,
+      "final": 81.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.06808628323145928,
+      "action": "BUY",
+      "dollars": 6808.63,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +2: Breakout signal, neutral news"
+      ]
+    },
+    {
+      "symbol": "VST",
+      "alpha": 77.8,
+      "adjust": 2.0,
+      "final": 79.8,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0636467771698034,
+      "action": "BUY",
+      "dollars": 6364.68,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +2: Solid momentum, neutral news"
+      ]
+    },
+    {
+      "symbol": "HPE",
+      "alpha": 76.2,
+      "adjust": 2.0,
+      "final": 78.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.059308190951563214,
+      "action": "BUY",
+      "dollars": 5930.82,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +2: Good trend, neutral news"
+      ]
+    },
+    {
+      "symbol": "WMT",
+      "alpha": 73.2,
+      "adjust": 3.0,
+      "final": 76.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.05403055674385013,
+      "action": "BUY",
+      "dollars": 5403.06,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: Breakout, neutral news"
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "alpha": 72.9,
+      "adjust": 1.0,
+      "final": 73.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.048167523256777124,
+      "action": "BUY",
+      "dollars": 4816.75,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +1: New 52\u2011week high, neutral news"
+      ]
+    },
+    {
+      "symbol": "DELL",
+      "alpha": 68.3,
+      "adjust": -5,
+      "final": 63.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -5: CEO cites AI supply shortage",
+        "Risk check: capped -6->-5, news +0.00 does not support it",
+        "target below the 3% minimum position; its money goes to stronger names"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "PLTR",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 10536.61,
+      "reason": "score 93.7; target 10.5%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "MSFT",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 11592.01,
+      "reason": "score 96.9; target 11.6%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "SHOP",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 10699.3,
+      "reason": "score 94.2; target 10.7%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "MRNA",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 8772.5,
+      "reason": "score 88.1; target 8.8%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "DDOG",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 9830.76,
+      "reason": "score 91.5; target 9.8%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "META",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 8956.32,
+      "reason": "score 88.7; target 9.0%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "ZBRA",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 8288.57,
+      "reason": "score 86.5; target 8.3%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "XOM",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 6808.63,
+      "reason": "score 81.4; target 6.8%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "VST",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 6364.68,
+      "reason": "score 79.8; target 6.4%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "HPE",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 5930.82,
+      "reason": "score 78.2; target 5.9%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "WMT",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 5403.06,
+      "reason": "score 76.2; target 5.4%; scaled x1.00 to available cash"
+    },
+    {
+      "symbol": "AAPL",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 4816.75,
+      "reason": "score 73.9; target 4.8%; scaled x1.00 to available cash"
+    }
+  ],
+  "pm_summary": "The market remains in a strong risk\u2011on regime, so we keep exposure near the maximum at 98%. Momentum leaders receive modest to strong positive adjustments, especially those with bullish news like MSFT, SHOP, DDOG, META, and ZBRA. DELL gets a slight negative tilt due to supply\u2011chain concerns, while all other names stay lightly positive.",
+  "account": "A",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "analyze",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 PLTR 89.7 BULLISH | 100 92 100 77 64 30 | 71.7 55.5 10.34 16.61 1.68 3.04 | \n2 MSFT 86.9 BULLISH | 100 92 74 60 90 26 | 71.6 92.8 7.3 6.93 2.0 2.07 | BREAKOUT, earnings 2026-10-28 AMC (15d)\n3 SHOP 86.2 BULLISH | 90 86 100 72 71 29 | 74.8 78.6 19.88 33.89 1.77 1.65 | \n4 MRNA 85.1 BULLISH | 100 86 100 67 51 34 | 66.1 60.4 5.79 46.78 1.29 4.15 | earnings 2026-10-29 BMO (16d)\n5 DDOG 82.5 BULLISH | 100 86 84 67 55 37 | 66.1 49.9 6.27 21.07 1.12 1.39 | \n6 META 79.7 BULLISH | 98 76 82 57 67 35 | 65.7 94.1 3.0 10.68 1.24 1.01 | earnings 2026-10-28 AMC (15d)\n7 ZBRA 79.5 BULLISH | 100 79 62 78 71 39 | 63.5 31.8 2.17 9.25 0.95 2.52 | \n8 XOM 79.4 BULLISH | 79 89 69 57 90 15 | 71.5 99.3 7.76 -0.17 2.52 -0.96 | BREAKOUT\n9 VST 77.8 BULLISH | 90 88 69 70 55 32 | 62.5 62.2 14.17 10.85 1.5 1.14 | \n10 HPE 76.2 BULLISH | 90 92 61 68 48 78 | 60.3 22.3 12.42 21.13 0.83 2.8 | \n11 WMT 73.2 BULLISH | 59 82 74 55 90 26 | 65.1 99.5 6.08 1.89 1.96 0.18 | BREAKOUT\n12 AAPL 72.9 BULLISH | 75 83 59 62 74 25 | 63.0 86.0 4.48 1.0 2.11 0.08 | \n13 DELL 68.3 BULLISH | 90 70 48 46 70 41 | 58.0 32.8 6.37 2.71 0.75 3.95 | ",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-13T22:23:56"
+}

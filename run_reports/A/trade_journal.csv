@@ -1,0 +1,13 @@
+timestamp,symbol,side,dollars,qty,reason,status,order_id
+2026-10-13T22:52:18,PLTR,buy,9308.41,,score 90.7; target 9.3%,pending_new,dfacc9e1-254a-4a2b-88cd-4e6b02362e49
+2026-10-13T22:52:18,MRNA,buy,9247.37,,score 90.5; target 9.2%,pending_new,b2713fab-3c2e-419c-91ef-2a882fa5adc7
+2026-10-13T22:52:18,MSFT,buy,11527.02,,score 97.7; target 11.5%,pending_new,17572bd2-f96d-485c-afb9-9f3c91a20bab
+2026-10-13T22:52:18,SHOP,buy,11070.75,,score 96.3; target 11.1%,pending_new,4afe0c6f-f74f-4b7a-b514-23fa766364e5
+2026-10-13T22:52:18,DDOG,buy,9308.41,,score 90.7; target 9.3%,pending_new,405ceefd-3d16-4ee7-94a2-2952ff3627d6
+2026-10-13T22:52:18,META,buy,9156.06,,score 90.2; target 9.2%,pending_new,b89f1afd-c489-4513-9d1c-6ccdb6d57883
+2026-10-13T22:52:18,ZBRA,buy,9065.06,,score 89.9; target 9.1%,pending_new,17deca1f-4955-40d8-8a7d-6fa0d8abb0de
+2026-10-13T22:52:18,XOM,buy,6946.77,,score 82.6; target 6.9%,pending_new,7f2bf645-eb86-4806-a205-ece604cefacd
+2026-10-13T22:52:18,VST,buy,6238.83,,score 80.0; target 6.2%,pending_new,674290bf-60fc-41bb-a215-afd85e025a27
+2026-10-13T22:52:18,HPE,buy,5920.74,,score 78.8; target 5.9%,pending_new,7bf0d55e-2a6a-4a6e-9a67-50c4232b8642
+2026-10-13T22:52:18,AAPL,buy,5556.72,,score 77.4; target 5.6%,pending_new,455083d0-1850-4af1-9b6f-3d173302c155
+2026-10-13T22:52:18,WMT,buy,3653.85,,score 69.5; target 3.7%,pending_new,26f15829-3b2f-4f6f-9590-1a2962a6ab59

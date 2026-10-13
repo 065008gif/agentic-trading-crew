@@ -1,0 +1,101 @@
+Universe: 79 stocks | regime RISK-ON (85.0) | data as of 2026-10-13
+
+=== profile: momentum | top 30 ===
+ # sym    score lean     trend mom  rs vol brk stat   rsi  roc10   rs20  beta  flags
+ 1 PLTR    90.3 BULLISH   100  92 100  77  67   28  74.3   11.2   17.7  3.04  hb?
+ 2 SHOP    88.6 BULLISH    90  92 100  73  74   28  76.4   20.7   35.0  1.65  
+ 3 MSFT    87.1 BULLISH   100  92  76  58  90   26  71.7    7.3    7.2  2.06  BRKOUT earnings 2026-10-28 AMC (15d)
+ 4 MRNA    82.0 BULLISH   100  75 100  75  46   36  65.2    4.6   45.3  4.17  HB
+ 5 META    81.2 BULLISH    99  77  88  55  70   34  66.3    3.5   11.4  0.98  earnings 2026-10-28 AMC (15d)
+ 6 DDOG    80.5 BULLISH   100  84  80  67  50   38  63.8    5.2   20.1  1.40  hb?
+ 7 XOM     79.6 BULLISH    79  89  71  55  90   15  71.9    8.0    0.2 -0.96  BRKOUT
+ 8 ZBRA    79.1 BULLISH   100  78  62  78  70   39  62.6    1.9    9.2  2.53  hb?
+ 9 VST     78.2 BULLISH    90  88  71  68  56   32  62.6   14.3   11.2  1.12  
+10 ISRG    75.6 BULLISH    65  78  88  75  72   33  64.3    2.6    9.4  0.88  earnings 2026-10-20 AMC (7d)
+11 HPE     74.6 BULLISH    90  91  57  68  44   78  58.9   11.4   20.2  2.81  HB
+12 WMT     73.7 BULLISH    59  83  76  53  90   25  66.1    6.6    2.6  0.18  BRKOUT
+13 AAPL    73.6 BULLISH    75  84  63  59  76   23  63.7    4.7    1.4  0.07  
+14 CEG     73.6 BULLISH    90  84  60  58  54   33  60.0   11.5   10.8  1.37  
+15 EL      72.6 BULLISH    75  76  65  74  70   37  55.6    4.0   -0.7  1.28  hb?
+16 CCL     71.0 BULLISH    65  80  73  49  76   35  65.7    5.9   17.7  1.50  hb?
+17 NOW     70.8 BULLISH    77  87  54  41  70   29  59.7    9.8   -2.1  0.71  earnings 2026-10-28 AMC (15d)
+18 AMZN    70.1 BULLISH    76  80  56  48  74   31  57.0    5.8    2.3  1.75  
+19 SPOT    69.9 BULLISH    89  81  53  49  53   34  58.7    8.5   -6.9 -0.50  earnings 2026-10-22 BMO (9d)
+20 COST    69.4 BULLISH    57  75  64  83  76   28  67.0    3.8    3.7 -0.02  
+21 GOOGL   68.3 BULLISH    75  79  56  42  70   27  60.4    4.5    0.6  1.33  earnings 2026-10-27 AMC (14d)
+22 DELL    65.5 BULLISH    90  68  37  48  70   78  55.1    4.6    1.1  3.97  HB
+23 GEV     63.8 BULLISH    76  64  42  66  70   78  52.8    2.2    8.8  1.57  
+24 LLY     63.7 BULLISH    83  56  50  55  70   44  51.9   -1.0    0.5 -0.22  
+25 TSLA    63.4 BULLISH    62  77  44  55  70   42  55.6    6.8    2.9  2.75  HB earnings 2026-10-20 AMC (7d)
+26 CIEN    54.9 NEUTRAL    60  74  50  78   0   78  50.0    8.8   12.8  3.16  HB
+27 UBER    54.7 NEUTRAL    36  62  51  56  74   34  52.1    2.8   -3.0  0.48  
+28 GNRC    53.9 NEUTRAL    65  53  50  71  30   45  49.5   -1.8   16.2  2.21  hb?
+29 NCLH    53.0 NEUTRAL    40  58  46  60  70   37  50.2    3.3    4.4  1.18  hb?
+30 MRVL    51.7 NEUTRAL    70  55  50  69   6   95  51.5   -1.6   14.2  3.37  HB
+
+=== profile: catalyst | top 30 ===
+ # sym    score lean     trend mom  rs vol brk stat   rsi  roc10   rs20  beta  flags
+ 1 PLTR    81.3 BULLISH   100  92 100  77  67   28  74.3   11.2   17.7  3.04  hb?
+ 2 SHOP    80.1 BULLISH    90  92 100  73  74   28  76.4   20.7   35.0  1.65  
+ 3 MSFT    77.0 BULLISH   100  92  76  58  90   26  71.7    7.3    7.2  2.06  BRKOUT earnings 2026-10-28 AMC (15d)
+ 4 MRNA    74.4 BULLISH   100  75 100  75  46   36  65.2    4.6   45.3  4.17  HB
+ 5 ZBRA    73.9 BULLISH   100  78  62  78  70   39  62.6    1.9    9.2  2.53  hb?
+ 6 DDOG    72.9 BULLISH   100  84  80  67  50   38  63.8    5.2   20.1  1.40  hb?
+ 7 HPE     72.8 BULLISH    90  91  57  68  44   78  58.9   11.4   20.2  2.81  HB
+ 8 META    71.9 BULLISH    99  77  88  55  70   34  66.3    3.5   11.4  0.98  earnings 2026-10-28 AMC (15d)
+ 9 ISRG    71.6 BULLISH    65  78  88  75  72   33  64.3    2.6    9.4  0.88  earnings 2026-10-20 AMC (7d)
+10 VST     71.2 BULLISH    90  88  71  68  56   32  62.6   14.3   11.2  1.12  
+11 XOM     70.7 BULLISH    79  89  71  55  90   15  71.9    8.0    0.2 -0.96  BRKOUT
+12 EL      69.1 BULLISH    75  76  65  74  70   37  55.6    4.0   -0.7  1.28  hb?
+13 COST    67.9 BULLISH    57  75  64  83  76   28  67.0    3.8    3.7 -0.02  
+14 WMT     67.7 BULLISH    59  83  76  53  90   25  66.1    6.6    2.6  0.18  BRKOUT
+15 AAPL    66.9 BULLISH    75  84  63  59  76   23  63.7    4.7    1.4  0.07  
+16 CEG     66.4 BULLISH    90  84  60  58  54   33  60.0   11.5   10.8  1.37  
+17 CCL     65.2 BULLISH    65  80  73  49  76   35  65.7    5.9   17.7  1.50  hb?
+18 GEV     65.2 BULLISH    76  64  42  66  70   78  52.8    2.2    8.8  1.57  
+19 DELL    63.9 BULLISH    90  68  37  48  70   78  55.1    4.6    1.1  3.97  HB
+20 AMZN    63.5 BULLISH    76  80  56  48  74   31  57.0    5.8    2.3  1.75  
+21 NOW     63.0 BULLISH    77  87  54  41  70   29  59.7    9.8   -2.1  0.71  earnings 2026-10-28 AMC (15d)
+22 SPOT    62.6 BULLISH    89  81  53  49  53   34  58.7    8.5   -6.9 -0.50  earnings 2026-10-22 BMO (9d)
+23 GOOGL   61.0 BULLISH    75  79  56  42  70   27  60.4    4.5    0.6  1.33  earnings 2026-10-27 AMC (14d)
+24 TSLA    60.9 BULLISH    62  77  44  55  70   42  55.6    6.8    2.9  2.75  HB earnings 2026-10-20 AMC (7d)
+25 LLY     60.0 BULLISH    83  56  50  55  70   44  51.9   -1.0    0.5 -0.22  
+26 CIEN    58.3 NEUTRAL    60  74  50  78   0   78  50.0    8.8   12.8  3.16  HB
+27 MRVL    55.9 NEUTRAL    70  55  50  69   6   95  51.5   -1.6   14.2  3.37  HB
+28 UBER    54.4 NEUTRAL    36  62  51  56  74   34  52.1    2.8   -3.0  0.48  
+29 GNRC    53.9 NEUTRAL    65  53  50  71  30   45  49.5   -1.8   16.2  2.21  hb?
+30 NCLH    53.5 NEUTRAL    40  58  46  60  70   37  50.2    3.3    4.4  1.18  hb?
+
+=== profile: rebound | top 30 ===
+ # sym    score lean     trend mom  rs vol brk stat   rsi  roc10   rs20  beta  flags
+ 1 HPE     75.9 BULLISH    90  91  57  68  44   78  58.9   11.4   20.2  2.81  HB
+ 2 MRVL    74.4 BULLISH    70  55  50  69   6   95  51.5   -1.6   14.2  3.37  HB
+ 3 AMD     70.5 BULLISH    47  53  50  62  21   95  50.4   -3.7   13.3  3.13  HB
+ 4 GEV     70.5 BULLISH    76  64  42  66  70   78  52.8    2.2    8.8  1.57  
+ 5 DELL    69.8 BULLISH    90  68  37  48  70   78  55.1    4.6    1.1  3.97  HB
+ 6 SMCI    68.9 BULLISH    62  38  34  64   0   95  44.4   -5.8    5.7  3.99  HB
+ 7 CIEN    68.2 BULLISH    60  74  50  78   0   78  50.0    8.8   12.8  3.16  HB
+ 8 MPWR    67.4 BULLISH    42  39  45  64   9   95  44.6   -4.9   10.2  1.66  HB
+ 9 NVDA    66.5 BULLISH    41  44  28  57  39   95  47.2   -1.2    3.1  1.92  hb?
+10 TSM     66.3 BULLISH    40  43  30  58  29   95  46.1   -3.5    4.0  1.85  
+11 AMAT    64.2 BULLISH    41  28  36  59   0   95  39.6  -10.1    6.5  2.65  HB
+12 TER     64.0 BULLISH    36  33  38  58   0   95  42.2   -9.3    7.1  2.87  HB
+13 LRCX    63.6 BULLISH    37  33  35  57   0   95  40.1   -9.3    5.9  3.04  HB earnings 2026-10-21 AMC (8d)
+14 APH     62.5 BULLISH    45  54  34  64  44   78  50.0   -0.6    5.5  1.63  hb?
+15 MRNA    62.2 BULLISH   100  75 100  75  46   36  65.2    4.6   45.3  4.17  HB
+16 KLAC    62.1 BULLISH    21  34  34  60  12   95  41.7   -7.5    5.5  2.28  HB earnings 2026-10-28 AMC (15d)
+17 PLTR    61.9 BULLISH   100  92 100  77  67   28  74.3   11.2   17.7  3.04  hb?
+18 ZBRA    61.9 BULLISH   100  78  62  78  70   39  62.6    1.9    9.2  2.53  hb?
+19 DDOG    61.2 BULLISH   100  84  80  67  50   38  63.8    5.2   20.1  1.40  hb?
+20 LITE    60.4 BULLISH    50  45  49  57   0   78  47.5   -1.6   11.4  3.19  HB
+21 ANET    60.1 BULLISH    47  44  21  65  34   78  45.4   -2.1    0.3  2.32  hb?
+22 SHOP    59.9 NEUTRAL    90  92 100  73  74   28  76.4   20.7   35.0  1.65  
+23 MU      59.1 NEUTRAL    35  26  15  47   0   95  38.4  -12.2   -1.9  2.91  HB
+24 DAL     58.9 NEUTRAL    16  24  13  55  35   95  38.3   -7.0   -2.7  1.72  hb?
+25 FIX     58.6 NEUTRAL    19  34  11  54   5   95  40.4   -6.0   -3.5  1.86  HB BRKDN
+26 META    58.2 NEUTRAL    99  77  88  55  70   34  66.3    3.5   11.4  0.98  earnings 2026-10-28 AMC (15d)
+27 INTC    57.6 NEUTRAL    35  25  21  34   0   95  38.9  -13.8    0.2  3.42  HB
+28 VST     56.7 NEUTRAL    90  88  71  68  56   32  62.6   14.3   11.2  1.12  
+29 NEM     56.7 NEUTRAL    35  40  15  64  25   78  42.8   -1.9  -10.2  1.53  
+30 MSFT    56.6 NEUTRAL   100  92  76  58  90   26  71.7    7.3    7.2  2.06  BRKOUT earnings 2026-10-28 AMC (15d)
+

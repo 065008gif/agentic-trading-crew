@@ -1,0 +1,283 @@
+{
+  "date": "2026-10-13",
+  "profile": "momentum",
+  "equity": 100000.0,
+  "cash": 100000.0,
+  "regime": "RISK-ON",
+  "regime_score": 95.0,
+  "exposure_target": 0.97,
+  "invested_after_pct": 97.0,
+  "settings": {
+    "max_position_pct": 0.15,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.015,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "min_holdings": 8
+  },
+  "targets": [
+    {
+      "symbol": "PLTR",
+      "alpha": 88.2,
+      "adjust": 0.0,
+      "final": 88.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.15,
+      "action": "BUY",
+      "dollars": 15000.0,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "META",
+      "alpha": 81.6,
+      "adjust": 0.0,
+      "final": 81.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.15,
+      "action": "BUY",
+      "dollars": 15000.0,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "GOOGL",
+      "alpha": 67.6,
+      "adjust": 0.0,
+      "final": 67.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.15,
+      "action": "BUY",
+      "dollars": 15000.0,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "GEV",
+      "alpha": 64.9,
+      "adjust": 0.0,
+      "final": 64.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.15,
+      "action": "BUY",
+      "dollars": 15000.0,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "AMD",
+      "alpha": 47.6,
+      "adjust": 0.0,
+      "final": 47.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.15,
+      "action": "BUY",
+      "dollars": 15000.0,
+      "qty": 0.0,
+      "reasons": [
+        "added to reach minimum holdings"
+      ]
+    },
+    {
+      "symbol": "ANET",
+      "alpha": 42.2,
+      "adjust": 0.0,
+      "final": 42.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.10999999999999995,
+      "action": "BUY",
+      "dollars": 11000.0,
+      "qty": 0.0,
+      "reasons": [
+        "added to reach minimum holdings"
+      ]
+    },
+    {
+      "symbol": "NVDA",
+      "alpha": 41.0,
+      "adjust": 0.0,
+      "final": 41.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.10999999999999995,
+      "action": "BUY",
+      "dollars": 11000.0,
+      "qty": 0.0,
+      "reasons": [
+        "added to reach minimum holdings"
+      ]
+    },
+    {
+      "symbol": "TSM",
+      "alpha": 39.3,
+      "adjust": 0.0,
+      "final": 39.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 39.3 below entry 52"
+      ]
+    },
+    {
+      "symbol": "AVGO",
+      "alpha": 33.6,
+      "adjust": 0.0,
+      "final": 33.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 33.6 below entry 52"
+      ]
+    },
+    {
+      "symbol": "LRCX",
+      "alpha": 33.2,
+      "adjust": 0.0,
+      "final": 33.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 33.2 below entry 52"
+      ]
+    },
+    {
+      "symbol": "MU",
+      "alpha": 24.4,
+      "adjust": 0.0,
+      "final": 24.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 24.4 below entry 52"
+      ]
+    },
+    {
+      "symbol": "SNDK",
+      "alpha": 19.1,
+      "adjust": 0.0,
+      "final": 19.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 19.1 below entry 52"
+      ]
+    },
+    {
+      "symbol": "VRT",
+      "alpha": 13.7,
+      "adjust": 0.0,
+      "final": 13.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 13.7 below entry 52"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "PLTR",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 15000.0,
+      "reason": "score 88.2; target 15.0%"
+    },
+    {
+      "symbol": "META",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 15000.0,
+      "reason": "score 81.6; target 15.0%"
+    },
+    {
+      "symbol": "GOOGL",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 15000.0,
+      "reason": "score 67.6; target 15.0%"
+    },
+    {
+      "symbol": "GEV",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 15000.0,
+      "reason": "score 64.9; target 15.0%"
+    },
+    {
+      "symbol": "AMD",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 15000.0,
+      "reason": "score 47.6; target 15.0%"
+    },
+    {
+      "symbol": "ANET",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 11000.0,
+      "reason": "score 42.2; target 11.0%"
+    },
+    {
+      "symbol": "NVDA",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 11000.0,
+      "reason": "score 41.0; target 11.0%"
+    }
+  ],
+  "pm_summary": "",
+  "account": "A",
+  "model": "rule-based (LLMs unavailable)",
+  "mode": "analyze",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 PLTR 88.2 BULLISH | 100 85 100 78 66 29 | 73.5 68.1 10.95 17.34 1.77 3.04 | \n2 META 81.6 BULLISH | 99 77 88 54 71 33 | 66.6 94.9 3.7 11.53 1.4 0.99 | earnings 2026-10-28 AMC (15d)\n3 GOOGL 67.6 BULLISH | 75 79 53 41 70 29 | 59.8 93.7 4.3 0.23 1.78 1.34 | earnings 2026-10-27 AMC (14d)\n4 GEV 64.9 BULLISH | 77 65 46 66 70 78 | 54.2 18.9 2.81 9.33 0.72 1.56 | \n5 AMD 47.6 NEUTRAL | 47 54 50 63 23 95 | 51.1 3.5 -3.28 13.71 -0.59 3.12 | \n6 ANET 42.2 NEUTRAL | 47 45 22 67 38 78 | 46.6 11.0 -1.36 0.96 -1.14 2.29 | \n7 NVDA 41.0 BEARISH | 42 44 28 57 40 95 | 47.9 2.9 -0.95 3.23 -0.51 1.92 | \n8 TSM 39.3 BEARISH | 40 43 30 59 30 95 | 46.4 2.9 -3.36 4.05 -0.71 1.84 | \n9 AVGO 33.6 BEARISH | 6 48 24 64 43 53 | 46.2 14.6 -0.27 1.73 -0.24 1.85 | \n10 LRCX 33.2 BEARISH | 38 34 40 58 0 95 | 42.2 0.7 -7.56 7.79 -0.68 3.01 | earnings 2026-10-21 AMC (8d)\n11 MU 24.4 BEARISH | 35 26 16 48 0 95 | 38.8 3.4 -11.92 -1.69 -2.14 2.89 | \n12 SNDK 19.1 BEARISH | 35 22 0 30 5 95 | 36.0 1.8 -16.99 -9.04 -2.24 3.61 | BREAKDOWN\n13 VRT 13.7 BEARISH | 0 22 12 39 5 45 | 38.7 1.1 -5.84 -3.22 -2.31 3.09 | BREAKDOWN",
+  "missing": [],
+  "errors": [
+    "groq:openai/gpt-oss-120b failed: BadRequestError: Error code: 400 - {'error': {'message': \"invalid JSON schema for tool get_market_regime, tools[1].function.parameters: 'required' present but 'properties' is missing\", 'type': 'invalid_request_error', 'param': 'tool get_market_regime, tools[1].function.parameters'}}",
+    "groq:llama-3.3-70b-versatile failed: ValueError: Model llama-3.3-70b-versatile not found: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "All LLM providers failed: plan is purely rule-based this run."
+  ],
+  "created": "2026-10-13T20:37:55"
+}
