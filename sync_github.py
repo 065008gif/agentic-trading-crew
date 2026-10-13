@@ -83,6 +83,12 @@ def main() -> int:
     if git("rev-parse", "--is-inside-work-tree", check=False).returncode != 0:
         print("[FAIL] This folder is not a git clone.")
         return 1
+    if not git("config", "user.email", check=False).stdout.strip():
+        print("[FAIL] Git does not know your name and email yet (needed once per computer).\n"
+              "Run these two lines, then run  python sync_github.py  again:\n\n"
+              '  git config user.name "Your Name"\n'
+              '  git config user.email "the-email-of-your-github-account"')
+        return 1
     imported = import_teammate_zips()
     if imported:
         print("Imported teammate records:", ", ".join(imported))

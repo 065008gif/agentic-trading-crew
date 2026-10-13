@@ -271,7 +271,8 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
         scale = max(0.0, available / need)
         for o in buys:
             o["dollars"] = round(o["dollars"] * scale, 2)
-            o["reason"] += f"; scaled x{scale:.2f} to available cash"
+            if scale < 0.995:   # rounding-level trims are not worth a note
+                o["reason"] += f"; scaled x{scale:.2f} to available cash"
         orders = [o for o in orders if o["side"] == "sell" or o["dollars"] >= rs.min_order_dollars]
 
     orders.sort(key=lambda o: 0 if o["side"] == "sell" else 1)  # sells first
