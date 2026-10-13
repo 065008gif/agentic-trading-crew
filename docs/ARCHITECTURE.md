@@ -61,7 +61,7 @@ The Portfolio Manager can move any stock's score by at most 15 points, veto a ne
 
 ## 7. Resilience
 
-- LLM fallback chain: Groq `gpt-oss-120b`, then Groq `llama-3.3-70b-versatile` (separate quota), then OpenRouter and Ollama Cloud free models. If all fail, the plan is built from the Alpha Score alone and the report records it.
+- LLM fallback chain: Groq `gpt-oss-120b`, then Groq `gpt-oss-20b` (separate quota), then OpenRouter and Ollama Cloud free models. If all fail, the plan is built from the Alpha Score alone and the report records it.
 - Alpaca calls retry on rate limits and short network errors.
 - A mock market mode (`MOCK_MARKET=1`) and 11 unit tests allow testing without keys or network.
 

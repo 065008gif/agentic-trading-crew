@@ -140,8 +140,9 @@ def build_crew(llm, model_name, symbols, profile, families, holdings_text, rec, 
         tools=[tools["get_positions"]], **common)
 
     t1 = Task(name="Regime",
-              description=(f"Step 1: call fetch_ohlcv_batch ONCE with symbols={sym_json}. "
-                           "Step 2: call get_market_regime with no arguments. "
+              description=(f"Step 1: call fetch_ohlcv_batch ONCE with symbols={sym_json} and lookback_days=400. "
+                           'Step 2: call get_market_regime ONCE with benchmarks=["SPY", "QQQ"]. '
+                           "Pass exactly these arguments. "
                            "Report: regime label, regime_score, invest_fraction, SPY RSI and trend, high-beta vs "
                            "low-vol reading, and any missing symbols. Max 120 words."),
               expected_output="Short regime report with the tool's numbers.",
@@ -153,7 +154,8 @@ def build_crew(llm, model_name, symbols, profile, families, holdings_text, rec, 
               expected_output="The ranked Alpha Score table plus a short explanation.",
               agent=quant_agent, context=[t1], callback=cb("Quantitative Signal Analyst", "Alpha Scores"))
     t3 = Task(name="News",
-              description=(f"Call get_news_digest ONCE with symbols={sym_json}. For each symbol give one line: "
+              description=(f"Call get_news_digest ONCE with symbols={sym_json}, days=3 and per_symbol=2. "
+                           "For each symbol give one line: "
                            "sentiment (bullish/neutral/bearish), the key headline in a few words, and EARNINGS RISK "
                            "if a report is due in the next 2 sessions. Max 200 words."),
               expected_output="One line per symbol.",
@@ -162,7 +164,7 @@ def build_crew(llm, model_name, symbols, profile, families, holdings_text, rec, 
     t4 = Task(name="Portfolio decisions",
               description=(
                   f"Strategy profile: {PROFILES[profile]['label']}.\n{holdings_text}\n"
-                  "You may call get_positions once to confirm holdings.\n"
+                  'You may call get_positions once with sort_by="value" to confirm holdings.\n'
                   "Using the regime, Alpha Score table and news above:\n"
                   "1. exposure: start from the regime invest_fraction; you may move it by at most 0.10 "
                   "(range 0.50-0.98). The team is judged on total % profit, so idle cash is a cost.\n"
@@ -181,6 +183,17 @@ def build_crew(llm, model_name, symbols, profile, families, holdings_text, rec, 
     return crew, market, trading
 
 
+def parse_overlay(text: str) -> dict:
+    """Portfolio Manager JSON found anywhere in a text reply, validated; {} if none."""
+    import re
+    for match in re.finditer(r"\{.*\}", text or "", re.S):
+        try:
+            return PMOverlay.model_validate_json(match.group(0)).model_dump()
+        except Exception:
+            continue
+    return {}
+
+
 def run_crew_with_fallback(symbols, profile, families, holdings_text, rec, log, alp_env):
     """Try each configured free LLM in order; return (overlay dict, model name)."""
     providers = llm_factory.chain()
@@ -197,6 +210,8 @@ def run_crew_with_fallback(symbols, profile, families, holdings_text, rec, log, 
                                                rec, llm_factory.pause_seconds(name), log, alp_env)
             result = crew.kickoff()
             overlay = result.pydantic.model_dump() if getattr(result, "pydantic", None) else {}
+            if not overlay:                      # structured output missing: read JSON from the text
+                overlay = parse_overlay(getattr(result, "raw", "") or "")
             if not overlay:
                 raise RuntimeError("Portfolio Manager returned no structured output")
             return overlay, model_name
@@ -231,7 +246,7 @@ def run_once(account: str | None = None, symbols: list[str] | None = None, profi
 
     # current holdings first, so held stocks are always analysed too
     acct_info, pos = bridge.call_many(bridge.TRADING_SERVER,
-                                      [("get_account_info", {}), ("get_positions", {"include_rows": True})], env)
+                                      [("get_account_info", {}), ("positions_data", {})], env)
     if isinstance(acct_info, dict) and "error" in acct_info:
         raise RuntimeError(f"Cannot reach Alpaca: {acct_info['error']}")
     positions = pos.get("positions", {}) if isinstance(pos, dict) else {}
@@ -253,7 +268,7 @@ def run_once(account: str | None = None, symbols: list[str] | None = None, profi
 
     # deterministic numbers for the Risk Manager (same MCP server, one more data call)
     scores, regime = bridge.call_many(bridge.MARKET_SERVER, [
-        ("compute_alpha_scores", {"symbols": syms, "profile": profile, "families": families, "include_rows": True}),
+        ("alpha_scores_data", {"symbols": syms, "profile": profile, "families": families}),
         ("get_market_regime", {})], env)
     if not isinstance(scores, dict) or "rows" not in scores:
         raise RuntimeError(f"Indicator server failed: {scores}")

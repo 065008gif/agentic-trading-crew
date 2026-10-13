@@ -98,12 +98,64 @@ def test_earnings_cap_for_non_catalyst_profile():
     assert tb["TSLA"]["target_weight"] > 0.05
 
 
-def test_min_holdings_top_up_gets_real_weight():
+def test_fillers_get_fixed_small_weight_and_never_outnumber_strong_names():
     rows = [row("AAA", 80), row("BBB", 75)] + [row(s, 46) for s in "CDEFGH"]
     plan = build_plan(rows, REGIME, {}, ACCT)
-    bought = [t for t in plan["targets"] if t["target_weight"] > 0]
-    assert len(bought) >= RiskSettings().min_holdings
-    assert sum(t["target_weight"] for t in plan["targets"]) <= 0.98 + 1e-9
+    t = {x["symbol"]: x for x in plan["targets"]}
+    fillers = [x for x in plan["targets"] if "added to reach minimum holdings" in x["reasons"]]
+    assert len(fillers) == 2                      # no more fillers than qualified names
+    assert all(abs(f["target_weight"] - 0.05) < 1e-9 for f in fillers)
+    assert t["AAA"]["target_weight"] == t["BBB"]["target_weight"] == RiskSettings().max_position_pct
+    assert sum(x["target_weight"] for x in plan["targets"]) <= 0.98 + 1e-9
+
+
+def test_first_live_run_13_oct_sizing():
+    # real Alpha Scores from the first analysis run on 13 Oct 2026 (risk-on, 97% exposure)
+    scores = {"PLTR": 88.2, "META": 81.6, "GOOGL": 67.6, "GEV": 64.9, "AMD": 47.6, "ANET": 42.2,
+              "NVDA": 41.0, "TSM": 39.3, "AVGO": 33.6, "LRCX": 33.2, "MU": 24.4, "SNDK": 19.1, "VRT": 13.7}
+    rows = [row(s, v) for s, v in scores.items()]
+    reg = {"regime": "RISK-ON", "regime_score": 95, "invest_fraction": 0.97}
+    plan = build_plan(rows, reg, {}, ACCT)
+    w = {x["symbol"]: x["target_weight"] for x in plan["targets"]}
+    for strong in ("PLTR", "META", "GOOGL", "GEV"):
+        assert abs(w[strong] - 0.20) < 1e-9, (strong, w[strong])
+    for filler in ("AMD", "ANET", "NVDA"):
+        assert abs(w[filler] - 0.05) < 1e-9, (filler, w[filler])
+    assert w["TSM"] == w["VRT"] == 0
+    assert 0.94 <= sum(w.values()) <= 0.98
+
+
+def test_agent_tools_have_inputs_for_groq_strict_mode():
+    """Groq rejects a tool whose strict schema has no properties (seen live on 13 Oct)."""
+    import json
+    import subprocess
+    import sys as _sys
+    root = Path(__file__).resolve().parent.parent
+    code = (
+        "import sys, json; sys.path.insert(0, '.')\n"
+        "from crewai_tools import MCPServerAdapter\n"
+        "from mcp import StdioServerParameters\n"
+        "from trading import mcp_bridge as b\n"
+        "from crewai.utilities.pydantic_schema_utils import sanitize_tool_params_for_openai_strict as s\n"
+        "out = {}\n"
+        "for srv, names in [(b.MARKET_SERVER, ['fetch_ohlcv_batch','get_market_regime','compute_alpha_scores','get_news_digest']),\n"
+        "                   (b.TRADING_SERVER, ['get_positions'])]:\n"
+        "    ad = MCPServerAdapter(StdioServerParameters(command=sys.executable, args=[srv], env=b.server_env()), *names)\n"
+        "    for t in ad.tools:\n"
+        "        out[t.name] = s(t.args_schema.model_json_schema())\n"
+        "    ad.stop()\n"
+        "print('JSON' + json.dumps(out))\n"
+    )
+    env = dict(os.environ, MOCK_MARKET="1", PYTHONWARNINGS="ignore")
+    res = subprocess.run([_sys.executable, "-c", code], cwd=root, env=env, capture_output=True, text=True, timeout=120)
+    line = [x for x in res.stdout.splitlines() if x.startswith("JSON")]
+    assert line, res.stderr[-2000:]
+    schemas = json.loads(line[-1][4:])
+    assert set(schemas) == {"fetch_ohlcv_batch", "get_market_regime", "compute_alpha_scores",
+                            "get_news_digest", "get_positions"}
+    for name, sch in schemas.items():
+        assert sch.get("properties"), f"{name} has no input properties"
+        assert "include_rows" not in sch["properties"], name
 
 
 def test_regime_labels():

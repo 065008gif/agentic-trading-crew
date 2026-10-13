@@ -23,7 +23,7 @@ from mcp.server.fastmcp import FastMCP  # noqa: E402
 
 from trading import alpaca_rest as ar  # noqa: E402
 
-mcp = FastMCP("AlpacaPaperTrading")
+mcp = FastMCP("AlpacaPaperTrading", log_level="WARNING")
 
 
 @mcp.tool()
@@ -36,14 +36,21 @@ def get_account_info() -> str:
 
 
 @mcp.tool()
-def get_positions(include_rows: bool = False):
-    """All open long positions: qty, average entry, market value, unrealized P/L %."""
+def get_positions(sort_by: str = "value") -> str:
+    """All open long positions: qty, average entry, market value, unrealized P/L %.
+    Argument: sort_by - "value" (largest first) or "pl" (best P/L first)."""
     pos = ar.get_positions()
+    key = (lambda x: -x[1]["pl_pct"]) if str(sort_by).lower() == "pl" else (lambda x: -x[1]["market_value"])
     lines = [f"{s}: {p['qty']:g} sh, avg ${p['avg_entry']:.2f}, value ${p['market_value']:,.0f}, "
-             f"P/L {p['pl_pct']:+.1f}%" for s, p in sorted(pos.items(), key=lambda x: -x[1]["market_value"])]
-    if include_rows:
-        return {"count": len(pos), "positions": pos}
+             f"P/L {p['pl_pct']:+.1f}%" for s, p in sorted(pos.items(), key=key)]
     return f"{len(pos)} open positions\n" + ("\n".join(lines) or "(none)")
+
+
+@mcp.tool()
+def positions_data() -> dict:
+    """Open positions as data (used by the rule-based executor, not by LLM agents)."""
+    pos = ar.get_positions()
+    return {"count": len(pos), "positions": pos}
 
 
 @mcp.tool()

@@ -31,7 +31,7 @@ from trading.indicators import snapshot  # noqa: E402
 from trading.scoring import FAMILIES, alpha_score, regime_score  # noqa: E402
 from trading.sentiment import score_headline  # noqa: E402
 
-mcp = FastMCP("MarketData")
+mcp = FastMCP("MarketData", log_level="WARNING")
 
 BENCHMARKS = ["SPY", "QQQ", "SPHB", "SPLV"]
 _cache: dict = {}   # symbol -> DataFrame
@@ -90,18 +90,8 @@ def fetch_ohlcv_batch(symbols: list[str], lookback_days: int = 400) -> str:
             f"in 1 Alpaca call.\n" + "\n".join(lines) + (f"\nMISSING: {', '.join(missing)}" if missing else ""))
 
 
-@mcp.tool()
-def compute_alpha_scores(symbols: list[str], profile: str = "momentum",
-                         families: list[str] | None = None, include_rows: bool = False):
-    """
-    Compute 20+ technical indicators and the composite Alpha Score (0-100)
-    for EVERY symbol in one call, ranked best first.
-    Arguments: symbols (list of tickers); profile (momentum | catalyst |
-    rebound | balanced); families (optional subset of trend, momentum, rs,
-    volume, volatility, stats - leave empty to use all).
-    Returns a compact text table ranked best first. Copy numbers exactly.
-    Columns: trend mom rs vol brk stat are the six family sub-scores (0-100).
-    """
+def _scores(symbols, profile, families):
+    """Indicators + Alpha Score for every symbol: (rows, text table, families used, missing)."""
     syms = _clean(symbols)
     missing = _ensure(syms)
     fams = [f for f in (families or FAMILIES) if f in FAMILIES] or FAMILIES
@@ -133,25 +123,51 @@ def compute_alpha_scores(symbols: list[str], profile: str = "momentum",
         lines.append(f"{i} {r['symbol']} {r['alpha_score']} {r['lean']} | {f['trend']:.0f} {f['momentum']:.0f} "
                      f"{f['rs']:.0f} {f['volume']:.0f} {f['volatility']:.0f} {f['stats']:.0f} | "
                      f"{r['rsi14']} {r['rsi2']} {r['roc10']} {r['rs20']} {r['zscore']} {r['beta60']} | {note}")
-    table = "\n".join(lines)
-    miss = sorted(set(missing))
-    if include_rows:
-        return {"profile": profile, "families_used": fams, "table": table, "rows": rows, "missing": miss}
+    return rows, "\n".join(lines), fams, sorted(set(missing))
+
+
+@mcp.tool()
+def compute_alpha_scores(symbols: list[str], profile: str = "momentum",
+                         families: list[str] | None = None) -> str:
+    """
+    Compute 20+ technical indicators and the composite Alpha Score (0-100)
+    for EVERY symbol in one call, ranked best first.
+    Arguments: symbols (list of tickers); profile (momentum | catalyst |
+    rebound | balanced); families (subset of trend, momentum, rs, volume,
+    volatility, stats).
+    Returns a compact text table ranked best first. Copy numbers exactly.
+    Columns: trend mom rs vol brk stat are the six family sub-scores (0-100).
+    """
+    rows, table, fams, miss = _scores(symbols, profile, families)
     return (f"Alpha Scores (profile={profile}, families={','.join(fams)})\n{table}"
             + (f"\nMISSING DATA: {', '.join(miss)}" if miss else ""))
 
 
 @mcp.tool()
-def get_market_regime() -> str:
+def alpha_scores_data(symbols: list[str], profile: str = "momentum",
+                      families: list[str] | None = None) -> dict:
+    """Same as compute_alpha_scores but returns every row as data (used by the
+    rule-based Risk Manager, not by the LLM agents)."""
+    rows, table, fams, miss = _scores(symbols, profile, families)
+    return {"profile": profile, "families_used": fams, "table": table, "rows": rows, "missing": miss}
+
+
+@mcp.tool()
+def get_market_regime(benchmarks: list[str] = ["SPY", "QQQ"]) -> str:  # noqa: B006
     """
-    Market regime from SPY and QQQ trend plus risk appetite (SPHB high-beta
-    vs SPLV low-volatility ratio, 20-day change). No arguments.
+    Market regime from index trend plus risk appetite (SPHB high-beta vs
+    SPLV low-volatility ratio, 20-day change).
+    Argument: benchmarks - the index ETFs whose trend is scored; use
+    ["SPY", "QQQ"] (allowed: SPY, QQQ).
     Returns regime_score 0-100, regime label (RISK-ON / NEUTRAL / CAUTION /
     RISK-OFF) and invest_fraction (share of the account to keep invested).
     """
+    use = [b for b in _clean(benchmarks or []) if b in ("SPY", "QQQ")] or ["SPY", "QQQ"]
     _ensure([])
-    spy = snapshot(_cache["SPY"]) if "SPY" in _cache else None
-    qqq = snapshot(_cache["QQQ"]) if "QQQ" in _cache else None
+    spy = snapshot(_cache["SPY"]) if "SPY" in _cache and "SPY" in use else None
+    qqq = snapshot(_cache["QQQ"]) if "QQQ" in _cache and "QQQ" in use else None
+    if spy is None and qqq is not None:   # regime_score expects a primary index
+        spy, qqq = qqq, None
     ratio_roc = None
     if "SPHB" in _cache and "SPLV" in _cache:
         r = (_cache["SPHB"]["close"] / _cache["SPLV"]["close"]).dropna()
@@ -166,8 +182,7 @@ def get_market_regime() -> str:
 
 
 @mcp.tool()
-def get_news_digest(symbols: list[str], days: int = 3, per_symbol: int = 2,
-                    include_rows: bool = False):
+def get_news_digest(symbols: list[str], days: int = 3, per_symbol: int = 2) -> str:
     """
     Recent news for ALL symbols in one Alpaca call, with a sentiment score
     per symbol (-1 bearish .. +1 bullish), the top headlines, and any
@@ -195,8 +210,6 @@ def get_news_digest(symbols: list[str], days: int = 3, per_symbol: int = 2,
         rows.append({"symbol": s, "articles": len(items), "sentiment": avg, "headlines": heads, "earnings": earn})
         lines.append(f"{s}: sent {avg:+.2f} ({len(items)} art){' | ' + earn if earn else ''}"
                      + "".join(f"\n   - {h}" for h in heads))
-    if include_rows:
-        return {"digest": "\n".join(lines), "rows": rows, "error": err}
     head = f"News digest, last {days} days" + (f" (news unavailable: {err[:80]})" if err else "")
     return head + "\n" + "\n".join(lines)
 

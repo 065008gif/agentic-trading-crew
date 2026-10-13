@@ -16,8 +16,12 @@ rule-based Alpha Score plan, so a run never ends without a decision.
 from __future__ import annotations
 
 import os
+import warnings
 
 from crewai import LLM
+
+# harmless CrewAI notice about callbacks and checkpoints; hide it from the run output
+warnings.filterwarnings("ignore", message="function callbacks cannot be serialized")
 
 
 def _env(k: str, d: str = "") -> str:
@@ -27,7 +31,7 @@ def _env(k: str, d: str = "") -> str:
 def describe(name: str) -> str:
     return {
         "groq": f"groq:{_env('GROQ_MODEL', 'openai/gpt-oss-120b')}",
-        "groq_backup": f"groq:{_env('GROQ_BACKUP_MODEL', 'llama-3.3-70b-versatile')}",
+        "groq_backup": f"groq:{_env('GROQ_BACKUP_MODEL', 'openai/gpt-oss-20b')}",
         "openrouter": f"openrouter:{_env('OPENROUTER_MODEL', 'openai/gpt-oss-20b:free')}",
         "ollama_cloud": f"ollama-cloud:{_env('OLLAMA_CLOUD_MODEL', 'gpt-oss:120b')}",
         "ollama": f"ollama-local:{_env('OLLAMA_MODEL', 'qwen3:8b')}",
@@ -42,7 +46,7 @@ def make_llm(name: str) -> LLM | None:
         if not key:
             return None
         model = _env("GROQ_MODEL", "openai/gpt-oss-120b") if name == "groq" \
-            else _env("GROQ_BACKUP_MODEL", "llama-3.3-70b-versatile")
+            else _env("GROQ_BACKUP_MODEL", "openai/gpt-oss-20b")
         # CrewAI strips one leading "openai/" when routing; add it back so Groq
         # receives its exact model id (e.g. "openai/gpt-oss-120b").
         return LLM(model=f"openai/{model}", custom_openai=True,

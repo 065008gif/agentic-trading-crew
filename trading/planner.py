@@ -16,7 +16,7 @@ from datetime import date, timedelta
 
 @dataclass
 class RiskSettings:
-    max_position_pct: float = 0.15      # cap per stock
+    max_position_pct: float = 0.20      # cap per stock (the professor's sample also uses 20%)
     min_position_pct: float = 0.03      # smaller targets are dropped (not worth the noise)
     entry_score: float = 52             # new buys need at least this final score
     exit_score: float = 40              # held stocks are sold below this (hysteresis)
@@ -27,6 +27,7 @@ class RiskSettings:
     overextended_cap_pct: float = 0.07  # RSI>82 and z>2.5: lock in gains
     max_llm_adjust: float = 15
     min_holdings: int = 8               # if fewer qualify, add the next-best names scoring >= exit_score
+    filler_weight_pct: float = 0.05     # fixed small size for those added names (never more)
 
 
 @dataclass
@@ -132,41 +133,42 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
 
     # top up to min_holdings with the next-best names that are not broken
     forced: set[str] = set()
-    if len(raw) < rs.min_holdings:
+    # fillers never outnumber the stocks that genuinely qualified
+    if raw and len(raw) < rs.min_holdings:
         spare_names = sorted((t for s, t in targets.items() if s not in raw and t.alpha >= 0
                               and t.action not in ("EXIT",) and t.final >= rs.exit_score
                               and not adjustments.get(s, {}).get("veto_buy")
                               and not by_sym[s].get("breakdown")), key=lambda t: -t.final)
-        for t in spare_names[: rs.min_holdings - len(raw)]:
-            raw[t.symbol] = max(t.final - 45, 2) ** 1.5
+        for t in spare_names[: min(rs.min_holdings - len(raw), len(raw))]:
             forced.add(t.symbol)
             t.reasons = [r for r in t.reasons if "below entry" not in r] + ["added to reach minimum holdings"]
 
     # ---------------- weights: score-tilted, capped, renormalised
+    # Qualified stocks share the budget by score, each capped at max_position_pct.
+    # Fillers get a fixed small weight and never absorb leftover money: if the
+    # strong names are all at their cap, the remainder stays in cash.
     weights = {}
     if raw:
+        filler_w = min(rs.filler_weight_pct, rs.max_position_pct)
+        budget = max(0.0, exposure - filler_w * len(forced))
         tot = sum(raw.values())
-        weights = {s: exposure * v / tot for s, v in raw.items()}
-        for _ in range(10):  # redistribute anything above the cap
+        weights = {s: budget * v / tot for s, v in raw.items()}
+        for _ in range(10):  # redistribute anything above the cap among qualified names only
             over = {s: w for s, w in weights.items() if w > rs.max_position_pct + 1e-9}
             if not over:
                 break
             spare = sum(w - rs.max_position_pct for w in over.values())
             for s in over:
                 weights[s] = rs.max_position_pct
-            free = {s: raw[s] for s in weights if weights[s] < rs.max_position_pct}
+            free = {s: raw[s] for s in weights if weights[s] < rs.max_position_pct - 1e-9}
             if not free:
                 break
             ft = sum(free.values())
             for s, v in free.items():
                 weights[s] += spare * v / ft
-        for s in forced:                      # minimum-holding names get the minimum size
-            weights[s] = max(weights[s], rs.min_position_pct)
         weights = {s: w for s, w in weights.items() if w >= rs.min_position_pct - 1e-9}
-        total, fixed = sum(weights.values()), sum(weights[s] for s in forced if s in weights)
-        if total > exposure and total > fixed:   # shrink the others to stay within exposure
-            k = (exposure - fixed) / (total - fixed)
-            weights = {s: (w if s in forced else w * k) for s, w in weights.items()}
+        for s in forced:
+            weights[s] = filler_w
 
     for sym, w in weights.items():
         t, r = targets[sym], by_sym[sym]

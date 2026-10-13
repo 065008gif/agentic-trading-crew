@@ -90,7 +90,7 @@ def account(keys: Keys, x_app_password: str | None = Header(None)):
     _auth(x_app_password)
     env = tc.alpaca_env(keys.model_dump())
     acct, pos, clock = bridge.call_many(bridge.TRADING_SERVER, [
-        ("get_account_info", {}), ("get_positions", {"include_rows": True}), ("get_market_clock", {})], env)
+        ("get_account_info", {}), ("positions_data", {}), ("get_market_clock", {})], env)
     if isinstance(acct, dict) and "error" in acct:
         raise HTTPException(400, acct["error"])
     return {"account": acct, "positions": (pos or {}).get("positions", {}), "clock": clock}
