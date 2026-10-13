@@ -1,0 +1,262 @@
+{
+  "date": "2026-10-13",
+  "profile": "momentum",
+  "equity": 100258.34,
+  "cash": 3000.13,
+  "regime": "RISK-ON",
+  "regime_score": 95.0,
+  "exposure_target": 0.98,
+  "invested_after_pct": 98.0,
+  "settings": {
+    "max_position_pct": 0.2,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.015,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05
+  },
+  "targets": [
+    {
+      "symbol": "MSFT",
+      "alpha": 87.2,
+      "adjust": 9.0,
+      "final": 96.2,
+      "current_value": 11545.76178,
+      "current_weight": 0.11516011316365303,
+      "target_weight": 0.1138340867174108,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Barclays raises price target to $600",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "alpha": 90.6,
+      "adjust": 3.0,
+      "final": 93.6,
+      "current_value": 9388.900705,
+      "current_weight": 0.09364707918563184,
+      "target_weight": 0.10527416126399032,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: Record price, but no fundamental upgrade",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "DDOG",
+      "alpha": 82.4,
+      "adjust": 8.0,
+      "final": 90.4,
+      "current_value": 9377.659905,
+      "current_weight": 0.09353496083218614,
+      "target_weight": 0.0950497908139339,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Barclays lifts price target to $300",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "SHOP",
+      "alpha": 86.2,
+      "adjust": 4.0,
+      "final": 90.2,
+      "current_value": 11052.725666,
+      "current_weight": 0.11024245629839872,
+      "target_weight": 0.09442240072510694,
+      "action": "TRIM",
+      "dollars": -1586.09,
+      "qty": 8.9146,
+      "reasons": [
+        "PM adjust +4: Positive sentiment on Monday gain"
+      ]
+    },
+    {
+      "symbol": "MRNA",
+      "alpha": 88.4,
+      "adjust": 0.0,
+      "final": 88.4,
+      "current_value": 9303.892322,
+      "current_weight": 0.09279918580339551,
+      "target_weight": 0.08883865614472804,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "ZBRA",
+      "alpha": 79.4,
+      "adjust": 8.0,
+      "final": 87.4,
+      "current_value": 9044.327194,
+      "current_weight": 0.09021022285028857,
+      "target_weight": 0.0857859511792536,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Barclays lifts price target to $416",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "META",
+      "alpha": 81.4,
+      "adjust": 5.0,
+      "final": 86.4,
+      "current_value": 9189.827291,
+      "current_weight": 0.09166147465637273,
+      "target_weight": 0.08276903614154486,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: New AI models boost outlook",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "VST",
+      "alpha": 79.9,
+      "adjust": 0.0,
+      "final": 79.9,
+      "current_value": 6288.097327,
+      "current_weight": 0.06271894514710696,
+      "target_weight": 0.06406274247962448,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "XOM",
+      "alpha": 79.8,
+      "adjust": 0.0,
+      "final": 79.8,
+      "current_value": 6951.153145,
+      "current_weight": 0.06933241808112922,
+      "target_weight": 0.06378759850974938,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "HPE",
+      "alpha": 75.9,
+      "adjust": 0.0,
+      "final": 75.9,
+      "current_value": 5924.159822,
+      "current_weight": 0.05908894783217037,
+      "target_weight": 0.05337097113311715,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "WMT",
+      "alpha": 73.0,
+      "adjust": 2.0,
+      "final": 75.0,
+      "current_value": 3653.194217,
+      "current_weight": 0.03643780873491423,
+      "target_weight": 0.051056291710215175,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +2: GLP\u20111/insulin coverage for workers",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "alpha": 71.4,
+      "adjust": 2.0,
+      "final": 73.4,
+      "current_value": 5541.992595,
+      "current_weight": 0.055277123030363355,
+      "target_weight": 0.04702674245545807,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +2: 52\u2011week high but no concrete upgrade",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "DELL",
+      "alpha": 68.2,
+      "adjust": 0.0,
+      "final": 68.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.03472157072586726,
+      "action": "BUY",
+      "dollars": 3481.13,
+      "qty": 0.0,
+      "reasons": []
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "SHOP",
+      "side": "sell",
+      "type": "qty",
+      "qty": 8.9146,
+      "dollars": 1586.09,
+      "reason": "score 90.2; target 9.4%; PM adjust +4: Positive sentiment on Monday gain"
+    },
+    {
+      "symbol": "DELL",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 2581.05,
+      "reason": "score 68.2; target 3.5%; scaled x0.74 to available cash"
+    }
+  ],
+  "pm_summary": "The market remains firmly risk\u2011on, supporting a high\u2011beta, momentum\u2011driven stance. We keep exposure near the maximum at 98% and nudge scores modestly, rewarding clear analyst upgrades on DDOG, MSFT, and ZBRA while leaving neutral stocks unchanged. Minor positive tweaks reflect upbeat product news for META and Shopify, and the overall plan is to ride the strongest trends over the next two weeks.",
+  "account": "A",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 PLTR 90.6 BULLISH | 100 92 100 76 70 27 | 75.9 93.3 11.66 18.03 1.88 3.03 | \n2 MRNA 88.4 BULLISH | 100 94 100 69 57 33 | 66.7 65.5 6.91 48.37 1.39 4.15 | earnings 2026-10-29 BMO (16d)\n3 MSFT 87.2 BULLISH | 100 92 74 62 90 26 | 71.7 93.0 7.37 6.99 2.01 2.07 | BREAKOUT, earnings 2026-10-28 AMC (15d)\n4 SHOP 86.2 BULLISH | 90 86 100 72 71 29 | 75.1 80.8 20.03 34.06 1.78 1.65 | \n5 DDOG 82.4 BULLISH | 100 86 84 66 55 37 | 66.1 49.9 6.27 21.07 1.12 1.39 | \n6 META 81.4 BULLISH | 99 77 86 59 70 34 | 66.4 94.7 3.5 11.23 1.36 1.0 | earnings 2026-10-28 AMC (15d)\n7 VST 79.9 BULLISH | 90 88 76 71 59 31 | 63.4 67.6 15.13 11.8 1.61 1.13 | \n8 XOM 79.8 BULLISH | 79 89 70 59 90 15 | 71.7 99.3 7.84 -0.1 2.54 -0.96 | BREAKOUT\n9 ZBRA 79.4 BULLISH | 100 79 62 76 71 39 | 63.6 32.1 2.19 9.26 0.95 2.52 | \n10 HPE 75.9 BULLISH | 90 92 60 67 48 78 | 60.2 21.9 12.32 21.02 0.81 2.8 | \n11 WMT 73.0 BULLISH | 59 82 73 57 90 27 | 64.8 99.5 5.94 1.74 1.92 0.18 | BREAKOUT\n12 AAPL 71.4 BULLISH | 75 82 55 63 72 29 | 61.6 81.6 3.94 0.46 1.74 0.08 | \n13 DELL 68.2 BULLISH | 90 70 48 44 70 41 | 58.0 33.0 6.38 2.72 0.75 3.95 | ",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-13T23:48:14"
+}

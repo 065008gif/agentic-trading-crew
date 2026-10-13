@@ -1,0 +1,5 @@
+13-10-2026 23:48 IST  run 1: model groq:openai/gpt-oss-120b, regime RISK-ON, 2 order(s) sent, 0 error(s), invested after plan 98.0%
+14-10-2026 00:18 IST  run 2: model groq:openai/gpt-oss-120b, regime RISK-ON, 4 order(s) sent, 0 error(s), invested after plan 97.0%
+14-10-2026 00:48 IST  run 3: model groq:openai/gpt-oss-120b, regime RISK-ON, 2 order(s) sent, 0 error(s), invested after plan 97.0%
+14-10-2026 01:18 IST  run 4: model groq:openai/gpt-oss-120b, regime RISK-ON, 1 order(s) sent, 0 error(s), invested after plan 97.0%
+14-10-2026 01:31 IST  session ended after 4 run(s)

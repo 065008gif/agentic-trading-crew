@@ -11,3 +11,12 @@ timestamp,symbol,side,dollars,qty,reason,status,order_id
 2026-10-13T22:52:18,HPE,buy,5920.74,,score 78.8; target 5.9%,pending_new,7bf0d55e-2a6a-4a6e-9a67-50c4232b8642
 2026-10-13T22:52:18,AAPL,buy,5556.72,,score 77.4; target 5.6%,pending_new,455083d0-1850-4af1-9b6f-3d173302c155
 2026-10-13T22:52:18,WMT,buy,3653.85,,score 69.5; target 3.7%,pending_new,26f15829-3b2f-4f6f-9590-1a2962a6ab59
+2026-10-13T23:48:22,SHOP,sell,1586.09,8.9146,score 90.2; target 9.4%; PM adjust +4: Positive sentiment on Monday gain,pending_new,e443306d-7efe-4143-967a-55fb16600cbb
+2026-10-13T23:48:22,DELL,buy,2581.05,,score 68.2; target 3.5%; scaled x0.74 to available cash,pending_new,8bfbe87a-b773-425f-80a2-adcc8819adda
+2026-10-14T00:18:28,XOM,sell,1809.64,10.3823,"score 75.0; target 5.1%; PM adjust -5: Potential scale‑back of Guyana LNG plans; Risk check: capped -7->-5, news +0.00 does not support it",pending_new,71f80df3-6448-4a2e-aab2-edf2585f2f37
+2026-10-14T00:18:28,DELL,sell,2568.590965,,score 62.4 no longer earns a position,pending_new,9c3ac5e2-822b-475f-974c-ec7091fb8029
+2026-10-14T00:18:28,PLTR,buy,1767.2,,score 95.1; target 11.1%,pending_new,e6bbcf32-e47d-49cd-b55f-66a87776b9e2
+2026-10-14T00:18:28,WMT,buy,1933.76,,score 76.7; target 5.6%,pending_new,dcee6b57-04e0-49bc-9a67-809d43ad4be9
+2026-10-14T00:48:23,WMT,sell,1889.94,16.7222,"score 69.1; target 3.7%; PM adjust +2: Coverage of GLP‑1s, insulin for workers",pending_new,d8069c42-5b83-44b4-a779-7b5175c9d515
+2026-10-14T00:48:23,DELL,buy,2568.69,,score 67.7; target 3.4%; scaled x0.76 to available cash,pending_new,635978b0-2464-4a81-adc3-cb9e266a9424
+2026-10-14T01:18:21,MRNA,sell,1826.88,8.5229,score 82.4; target 7.3%,pending_new,3a343d7a-f368-47b2-8fe2-2c8a3828a875

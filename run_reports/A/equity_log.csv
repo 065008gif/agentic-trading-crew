@@ -5,3 +5,7 @@ timestamp,equity,cash,last_equity,regime,exposure_target,orders,model
 2026-10-13T21:56:41,100000.0,100000.0,100000.0,RISK-ON,0.98,12,groq:openai/gpt-oss-120b
 2026-10-13T22:23:56,100000.0,100000.0,100000.0,RISK-ON,0.98,12,groq:openai/gpt-oss-120b
 2026-10-13T22:51:05,100000.0,100000.0,100000.0,RISK-ON,0.97,12,groq:openai/gpt-oss-120b
+2026-10-13T23:48:14,100258.34,3000.13,100000.0,RISK-ON,0.98,2,groq:openai/gpt-oss-120b
+2026-10-14T00:18:16,100175.54,2004.97,100000.0,RISK-ON,0.97,4,groq:openai/gpt-oss-120b
+2026-10-14T00:48:15,100051.18,2679.77,100000.0,RISK-ON,0.97,2,groq:openai/gpt-oss-120b
+2026-10-14T01:18:18,99994.76,2000.65,100000.0,RISK-ON,0.97,1,groq:openai/gpt-oss-120b
