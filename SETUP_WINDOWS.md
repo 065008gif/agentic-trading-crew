@@ -39,7 +39,7 @@ Both should print a version number.
 
 ```powershell
 cd $HOME
-git clone https://github.com/YOUR-GITHUB-NAME/agentic-trading-crew.git
+git clone https://github.com/065008gif/agentic-trading-crew.git
 cd agentic-trading-crew
 ```
 

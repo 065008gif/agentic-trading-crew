@@ -20,7 +20,7 @@ The last line should print something like `uv 0.9.x`. If it says "command not fo
 
 ```bash
 cd ~
-git clone https://github.com/YOUR-GITHUB-NAME/agentic-trading-crew.git
+git clone https://github.com/065008gif/agentic-trading-crew.git
 cd agentic-trading-crew
 ```
 
