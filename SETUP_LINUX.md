@@ -94,6 +94,12 @@ the save step at the end imports them into `teammate_reports/`.
 If the final save says it timed out (GitHub wanted a login), run `python sync_github.py` the next time you are at the PC.
 On weekends and US holidays the session says "no trading session" and exits.
 
+**Booking profit:** every run applies a *profit lock*: once a stock has been up 8% or more from our buy
+price, it is sold if it falls back below half of its best gain (so at least half the gain is kept), and it
+is not bought back the same day. On the **last day, 27 Oct**, the session sells **everything** at
+1:00 AM IST (30 min before the close) so all gains are booked as cash. Make sure the session runs that
+evening. Manual version: `python close_all.py --account A` (asks y/N).
+
 Single manual run instead (asks y/N): `python trading_crew.py --account A`.
 
 ## Getting code updates

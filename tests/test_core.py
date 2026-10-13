@@ -217,3 +217,24 @@ def test_dropped_small_position_money_is_reinvested():
     t = {x["symbol"]: x for x in plan["targets"]}
     assert t["DELL"]["action"] == "AVOID" and any("minimum position" in r for r in t["DELL"]["reasons"])
     assert abs(sum(x["target_weight"] for x in plan["targets"]) - 0.98) < 1e-6
+
+
+def test_profit_lock_books_half_of_the_best_gain():
+    """Bought at 100, ran to 120 (+20%), now back to 109: lock is 110, so sell and book +9%."""
+    pos = {"AAA": {"qty": 100, "market_value": 10900, "avg_entry": 100, "pl_pct": 9.0}}
+    plan = build_plan([row("AAA", 85, close=109, stop=95)], REGIME, pos, ACCT, peaks={"AAA": 120})
+    t = plan["targets"][0]
+    assert t["action"] == "EXIT" and any("profit lock" in r for r in t["reasons"])
+    # still above the lock: hold, and the plan says where the lock is
+    plan2 = build_plan([row("AAA", 85, close=115, stop=95)], REGIME, pos, ACCT, peaks={"AAA": 120})
+    t2 = plan2["targets"][0]
+    assert t2["action"] != "EXIT" and any("profit lock active" in r for r in t2["reasons"])
+    # small gains (peak under +8%) are left to the normal stop
+    plan3 = build_plan([row("AAA", 85, close=101, stop=95)], REGIME, pos, ACCT, peaks={"AAA": 106})
+    assert plan3["targets"][0]["action"] != "EXIT"
+
+
+def test_no_rebuy_same_day_after_stop_or_lock():
+    plan = build_plan([row("AAA", 90)] + [row(s, 80) for s in "BCDEFGHI"], REGIME, {}, ACCT, no_rebuy={"AAA"})
+    t = {x["symbol"]: x for x in plan["targets"]}
+    assert t["AAA"]["action"] == "AVOID" and t["AAA"]["target_weight"] == 0

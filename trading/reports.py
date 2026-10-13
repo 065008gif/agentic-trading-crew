@@ -17,7 +17,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-REPORTS = ROOT / "run_reports"
+REPORTS = Path(os.environ.get("RUN_REPORTS_DIR") or ROOT / "run_reports")   # tests can point elsewhere
 SEP = "." if os.name == "nt" else ":"
 
 

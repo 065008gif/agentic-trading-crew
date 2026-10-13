@@ -54,6 +54,7 @@ Every agent's output is saved as `run_reports/<account>/<AgentName><DDMMYYYY>-<H
 | Custom stocks / profile / indicator families | `--symbols MU AMD NVDA --profile rebound --families trend momentum` |
 | Web interface | `uv run python app.py`, then http://localhost:8000 (`ngrok http 8000` for the phone) |
 | Offline tests | `uv run python -m pytest -q` |
+| Sell everything now (book all profits) | `python close_all.py --account A` |
 | Zip run records for the report (teammates) | `uv run python export_reports.py` |
 | Save records and code to GitHub (Akshit) | `python sync_github.py` |
 
@@ -88,6 +89,7 @@ In VS Code the same commands are one click away: **Run and Debug** (`Ctrl+Shift+
 - Paper trading endpoint only; no margin (exposure is capped at 98% of equity).
 - The LLM can only nudge scores (+/-15) and exposure (+/-10 points); position sizes, stops and cash checks are plain Python.
 - If every LLM is unavailable, the run still produces a rule-based plan.
+- Profit booking: a chandelier trailing stop on every holding, a profit lock (after an 8%+ gain, never give back more than half of the best gain; no same-day re-buy), a trim of over-extended winners (RSI > 82 and z > 2.5), and on the last trading day (27 Oct) `run_session.py` sells every position 30 minutes before the close.
 - Keys live in `.env` (never committed) or only in the browser tab when typed into the web page.
 - Set `APP_PASSWORD` before exposing the web page with ngrok.
 

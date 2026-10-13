@@ -5,7 +5,9 @@
       10,
       15
     ],
-    "min_high_beta_share": 0.3
+    "min_high_beta_share": 0.3,
+    "last_trading_day": "2026-10-27",
+    "book_profits_minutes_before_close": 30
   },
   "high_beta_index_members": [
     "MRNA",

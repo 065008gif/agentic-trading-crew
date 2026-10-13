@@ -31,6 +31,8 @@ class RiskSettings:
     veto_news: float = -0.25            # a buy veto needs news at least this negative (or a breakdown)
     min_holdings: int = 8               # if fewer qualify, add the next-best names scoring >= exit_score
     filler_weight_pct: float = 0.05     # fixed small size for those added names (never more)
+    lock_trigger: float = 0.08          # once a holding has been up 8%+ from our entry ...
+    lock_keep: float = 0.50             # ... never give back more than half of the best gain (profit lock)
 
 
 @dataclass
@@ -85,10 +87,13 @@ def _capped_split(raw: dict, budget: float, cap: float) -> dict:
 def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                overlay: dict | None = None, profile: str = "momentum",
                hold_through_earnings: bool = False, settings: RiskSettings | None = None,
-               today: date | None = None, evidence: dict | None = None) -> dict:
+               today: date | None = None, evidence: dict | None = None,
+               peaks: dict | None = None, no_rebuy: set | None = None) -> dict:
     """evidence: {symbol: {"sentiment": float, "articles": int}} from the news
     server. When given, the Portfolio Manager's adjustments and vetoes are
-    checked against it, so an LLM misreading cannot move money on its own."""
+    checked against it, so an LLM misreading cannot move money on its own.
+    peaks: {symbol: highest price seen while we held it} for the profit lock.
+    no_rebuy: symbols sold today by a stop or the profit lock (not bought back today)."""
     rs = settings or RiskSettings()
     overlay = overlay or {}
     if today is None:
@@ -155,6 +160,20 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
         veto = bool(adjustments.get(sym, {}).get("veto_buy"))
         if held and close and stop and close < stop:
             t.action = "EXIT"; t.reasons.append(f"stop hit: close {close} < chandelier stop {stop}")
+            continue
+        avg = float(positions.get(sym, {}).get("avg_entry") or 0)
+        peak = max(float((peaks or {}).get(sym) or 0), float(close or 0))
+        if held and close and avg and peak >= avg * (1 + rs.lock_trigger):
+            floor = avg + rs.lock_keep * (peak - avg)
+            if close < floor:
+                t.action = "EXIT"
+                t.reasons.append(f"profit lock: best gain {peak / avg - 1:+.1%}, now {close / avg - 1:+.1%}; "
+                                 f"price {close} fell below the lock {floor:.2f}, booking the profit")
+                continue
+            t.reasons.append(f"profit lock active: sells below {floor:.2f} (keeps at least "
+                             f"{floor / avg - 1:+.1%})")
+        if not held and no_rebuy and sym in no_rebuy:
+            t.action = "AVOID"; t.reasons.append("sold today by a stop or the profit lock; no re-buy until tomorrow")
             continue
         if held and t.final < rs.exit_score:
             t.action = "EXIT"; t.reasons.append(f"score {t.final} below exit level {rs.exit_score}")

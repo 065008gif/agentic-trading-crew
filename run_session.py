@@ -12,6 +12,10 @@ One command for a whole trading evening:
   (--sync, Akshit's computer) or zips the run records to send to Akshit
   (teammates). Ctrl + C stops it early and still does that final step.
 - If today is a weekend or US holiday, it says so and exits.
+- On the last trading day (config/portfolios.json > group_rules >
+  last_trading_day, 27 Oct 2026) it sells EVERY position 30 minutes before
+  the close (1:00 AM IST), so all gains are booked as cash, and makes no
+  further trades. After that date it refuses to trade.
 - A failed run (network, AI busy) is logged and the session carries on.
 - A one-line summary of every run goes to run_reports/<account>/session_log.txt.
 
@@ -71,7 +75,8 @@ def sleep_until(target: datetime, now: datetime, label: str) -> None:
 
 
 def log_line(account: str, text: str) -> None:
-    d = ROOT / "run_reports" / account
+    from trading.reports import REPORTS
+    d = REPORTS / account
     d.mkdir(parents=True, exist_ok=True)
     with (d / "session_log.txt").open("a", encoding="utf-8") as f:
         f.write(f"{datetime.now(IST):%d-%m-%Y %H:%M} IST  {text}\n")
@@ -105,7 +110,10 @@ def main() -> int:
     print(" Stops by itself at the market close. Ctrl + C stops it early.")
     print("=" * 70)
 
-    runs, opened = 0, False
+    rules = tc.CONFIG.get("group_rules", {})
+    last_day = rules.get("last_trading_day")                     # e.g. "2026-10-27"
+    book_min = int(rules.get("book_profits_minutes_before_close", 30))
+    runs, opened, booked = 0, False, False
     try:
         while True:
             c = get_clock()
@@ -128,6 +136,25 @@ def main() -> int:
 
             opened = True
             close = parse(c["next_close"])
+            if last_day and now.date().isoformat() > last_day:
+                print(f"The trading competition ended on {last_day}. No trades placed.")
+                return 0
+            is_last = bool(last_day) and now.date().isoformat() == last_day
+            book_at = close - timedelta(minutes=book_min)
+            if is_last and now >= book_at:
+                if not booked:
+                    print(f"\n{'#' * 70}\n# LAST TRADING DAY: selling everything to book the profit ({ist(now)})\n{'#' * 70}")
+                    try:
+                        from close_all import close_all
+                        res = close_all(a.account, confirm=False)
+                        log_line(a.account, f"final day: sold all {len(res)} position(s) to book the profit")
+                    except Exception as e:
+                        traceback.print_exc()
+                        log_line(a.account, f"final day: close-all FAILED ({str(e)[:120]})")
+                        print("!! Selling failed. Run  python close_all.py --account " + a.account + "  now.")
+                    booked = True
+                sleep_until(close + timedelta(minutes=1), now, "All sold. Stopping after the close")
+                continue
             open_today = now.replace(hour=9, minute=30, second=0, microsecond=0)   # New York time
             first_ok = open_today + timedelta(minutes=a.start_delay)
             if runs == 0 and now < first_ok:
@@ -156,6 +183,9 @@ def main() -> int:
             c2 = get_clock()
             now2 = parse(c2["timestamp"]) if c2 else now
             nxt_run = started + every
+            if is_last and nxt_run >= book_at:
+                sleep_until(book_at, now2, "Last day: next step is selling everything at")
+                continue
             if nxt_run >= close:
                 sleep_until(close + timedelta(minutes=1), now2, "That was the last run today. Stopping after the close")
             else:

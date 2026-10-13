@@ -85,6 +85,9 @@ It waits for the open, runs the agents every 30 minutes (auto mode, no questions
 stops by itself, and creates `reports_B_....zip` in the project folder. Send that zip to Akshit
 (the next morning is fine). Ctrl + C stops it early and still creates the zip.
 
+On the **last day, 27 Oct**, the session sells everything at 1:00 AM IST to book the profit, so it must
+run that evening.
+
 ## If something goes wrong
 
 | You see | Do this |

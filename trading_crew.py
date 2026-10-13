@@ -56,6 +56,8 @@ from trading import mcp_bridge as bridge  # noqa: E402
 from trading.planner import RiskSettings, build_plan, plan_markdown  # noqa: E402
 from trading.reports import RunRecorder, log_equity, log_trade  # noqa: E402
 from trading.scoring import FAMILIES, PROFILES  # noqa: E402
+from trading import state  # noqa: E402
+from trading.alpaca_rest import market_today  # noqa: E402
 
 CONFIG = json.loads((ROOT / "config" / "portfolios.json").read_text(encoding="utf-8"))
 
@@ -288,8 +290,12 @@ def run_once(account: str | None = None, symbols: list[str] | None = None, profi
     if not use_llm or not overlay:
         rec.write("Quantitative Signal Analyst", "Alpha Scores (rule-based run)", "```\n" + scores["table"] + "\n```")
 
+    st = state.load(label)
+    today = market_today()
+    peaks = state.update_peaks(st, positions, scores["rows"])
     plan = build_plan(scores["rows"], regime, positions, acct_info, overlay, profile,
-                      prof["hold_through_earnings"], RiskSettings(), evidence=evidence)
+                      prof["hold_through_earnings"], RiskSettings(), evidence=evidence,
+                      peaks=peaks, no_rebuy=state.blocked_today(st, today))
     plan.update({"account": label, "model": model_name, "mode": mode, "families": families,
                  "alpha_table": scores["table"], "missing": scores.get("missing", []),
                  "errors": log["errors"], "created": datetime.now().isoformat(timespec="seconds")})
@@ -302,10 +308,12 @@ def run_once(account: str | None = None, symbols: list[str] | None = None, profi
 
     if mode == "auto" or (mode == "approve" and plan["orders"] and (confirm or _ask)(plan)):
         plan["executions"] = execute_plan(plan, keys, rec)
+        state.record_exits(st, plan, today)
     else:
         plan["executions"] = []
         if plan["orders"]:
             print("\nNo orders placed (analysis only or not approved).")
+    state.save(label, st)
     return plan
 
 
