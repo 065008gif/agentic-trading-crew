@@ -1,5 +1,5 @@
 {
-  "_note": "Earnings dates inside the trading window (13-27 Oct 2026). Source: tickzen.app October 2026 earnings calendar, checked 12 Oct 2026. BMO = before market open, AMC = after market close. Re-check a date on the company's investor-relations page before relying on it. Add or edit rows freely. Added 13 Oct 2026 (tickzen): MRNA, LLY, AMZN, MPWR, NEM (NEM time not stated, AMC assumed). TSM and TER usually report mid/late October but no date was found: check before holding them through a report.",
+  "_note": "Earnings dates inside the trading window (13-27 Oct 2026). Source: tickzen.app October 2026 earnings calendar, checked 12 Oct 2026. BMO = before market open, AMC = after market close. Re-check a date on the company's investor-relations page before relying on it. Add or edit rows freely. Added 13 Oct 2026 (tickzen): MRNA, LLY, AMZN, MPWR, NEM (NEM time not stated, AMC assumed). TSM: 15 Oct 2026, 14:00 Taiwan time = before the US open (investor.tsmc.com). TER: 27 Oct 2026 (unusualwhales.com; after the close assumed).",
   "JPM": {
     "date": "2026-10-13",
     "time": "BMO"
@@ -166,6 +166,14 @@
   },
   "MPWR": {
     "date": "2026-10-29",
+    "time": "AMC"
+  },
+  "TSM": {
+    "date": "2026-10-15",
+    "time": "BMO"
+  },
+  "TER": {
+    "date": "2026-10-27",
     "time": "AMC"
   }
 }
