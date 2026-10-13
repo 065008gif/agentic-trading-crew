@@ -6,6 +6,12 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "0. Trading SESSION: every 30 min until the close (auto)",
+      "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/run_session.py",
+      "args": ["--account", "${input:account}", "--every", "30"],
+      "console": "integratedTerminal", "cwd": "${workspaceFolder}", "justMyCode": true
+    },
+    {
       "name": "1. Check setup (no orders)",
       "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/check_setup.py",
       "console": "integratedTerminal", "cwd": "${workspaceFolder}", "justMyCode": true

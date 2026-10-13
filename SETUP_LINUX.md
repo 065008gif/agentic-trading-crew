@@ -57,23 +57,44 @@ drop-down at the top (they are numbered 1-6), press the green play button, and c
 | **Trade** (asks y/N before placing the orders) | `python trading_crew.py --account A` |
 | Screener (scores ~80 stocks) | `python screen.py --top 30` |
 | Web interface | `python app.py`, then http://localhost:8000 |
+| **Whole evening, every 30 min** | `python run_session.py --account A --every 30 --sync` |
 | Tests | `python -m pytest -q` |
 | **Save everything to GitHub** | `python sync_github.py` |
 
 Web interface on the phone: with `app.py` running, open a second terminal and run `ngrok http 8000`
 (free ngrok account), then open the `https://....ngrok-free.app` link it prints.
 
-## Daily routine (US market: 7:00 PM to 1:30 AM India time, Monday to Friday, until 27 October)
+## Daily routine (Monday to Friday, until 27 October)
 
-| India time | Do this |
-|---|---|
-| ~7:30 PM | `git pull`, then trade: `python trading_crew.py --account A`, approve with `y` |
-| ~10:30 PM | run again (it only trades what changed) |
-| ~1:00 AM (if awake) | run again |
-| End of the session | put the teammates' zips (from WhatsApp/email) in Downloads, then `python sync_github.py` |
+**Once (do it now):** Settings > Power > **Automatic Suspend: Off** (screen blanking/locking is fine;
+suspend would pause the session).
 
-`sync_github.py` unpacks the teammates' `reports_B_...zip` / `reports_C_...zip` into `teammate_reports/B` and `teammate_reports/C`,
-moves loose `run*.txt` / `screen*.txt` files into `console_logs/`, commits everything, pulls and pushes.
+**Every trading evening, about 7:00 PM IST:**
+
+```bash
+cd ~/agentic-trading-crew
+code .
+```
+
+In the VS Code terminal (**Terminal > New Terminal**, the line starts with `(.venv)`; if not, `source .venv/bin/activate`):
+
+```bash
+git pull
+python run_session.py --account A --every 30 --sync
+```
+
+That is all. It waits for the 7:00 PM open, makes the first run at 7:10 PM, then runs the full crew every
+30 minutes (auto mode, no y/N questions) until the 1:30 AM close, stops by itself, and saves everything
+to GitHub. Leave VS Code open; you can lock the screen. To stop early press **Ctrl + C**: it still saves.
+One line per run is written to `run_reports/A/session_log.txt`.
+
+Before starting, put any teammates' zips (`reports_B_...zip`, `reports_C_...zip`) in **Downloads**;
+the save step at the end imports them into `teammate_reports/`.
+
+If the final save says it timed out (GitHub wanted a login), run `python sync_github.py` the next time you are at the PC.
+On weekends and US holidays the session says "no trading session" and exits.
+
+Single manual run instead (asks y/N): `python trading_crew.py --account A`.
 
 ## Getting code updates
 

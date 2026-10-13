@@ -70,16 +70,20 @@ uv run python trading_crew.py --account B
 The last one asks `Place these orders on your PAPER account? [y/N]`: type `y` and Enter.
 Or use **Run and Debug** (`Ctrl + Shift + D`): pick **3. TRADE** in the drop-down, press the green play button, choose your letter.
 
-## Daily routine (US market: 7:00 PM to 1:30 AM India time, Monday to Friday, until 27 October)
+## Daily routine (Monday to Friday, until 27 October)
 
-| India time | Do this |
-|---|---|
-| ~7:30 PM | `git pull`, then `uv run python trading_crew.py --account B`, approve with `y` |
-| ~10:30 PM | run again |
-| ~1:00 AM (if awake) | run again |
-| Before sleeping | `uv run python export_reports.py` and send the `reports_B_....zip` to Akshit |
+Once: Settings > System > Power > set **Sleep** to **Never** when plugged in. Keep the laptop plugged in.
 
-Hands-free alternative (laptop on and plugged in, sleep turned off): `uv run python trading_crew.py --account B --mode auto --loop 60`. Stop with `Ctrl + C`.
+Every trading evening at about **7:00 PM IST**, open the project in VS Code, then in the VS Code terminal:
+
+```powershell
+git pull
+uv run python run_session.py --account B --every 30
+```
+
+It waits for the open, runs the agents every 30 minutes (auto mode, no questions) until the 1:30 AM close,
+stops by itself, and creates `reports_B_....zip` in the project folder. Send that zip to Akshit
+(the next morning is fine). Ctrl + C stops it early and still creates the zip.
 
 ## If something goes wrong
 

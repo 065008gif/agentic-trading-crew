@@ -34,7 +34,14 @@ ROOT = Path(__file__).resolve().parent
 
 
 def git(*args: str, check: bool = True) -> subprocess.CompletedProcess:
-    res = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
+    try:
+        # a push that waits for a login nobody types (e.g. at 1:31 AM) gives up after 2 minutes
+        res = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, timeout=120)
+    except subprocess.TimeoutExpired:
+        print(f"\n[FAIL] git {' '.join(args)} timed out (probably waiting for a GitHub login).\n"
+              "Your records are committed on this computer. Next time, run  python sync_github.py  "
+              "while you are at the PC.")
+        sys.exit(1)
     if check and res.returncode != 0:
         print(f"\n[FAIL] git {' '.join(args)}\n{res.stdout}{res.stderr}")
         print("Nothing was lost. Screenshot this and send it to Claude.")

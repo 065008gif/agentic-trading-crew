@@ -49,7 +49,7 @@ Every agent's output is saved as `run_reports/<account>/<AgentName><DDMMYYYY>-<H
 | Analyse only | `uv run python trading_crew.py --account A --mode analyze` |
 | Analyse, then approve orders | `uv run python trading_crew.py --account A` |
 | Trade without asking | `uv run python trading_crew.py --account A --mode auto` |
-| Repeat every hour while the market is open | `uv run python trading_crew.py --account A --mode auto --loop 60` |
+| **Whole evening: every 30 min until the close, then save** | `python run_session.py --account A --every 30 --sync` |
 | Rules only, no LLM | add `--no-llm` |
 | Custom stocks / profile / indicator families | `--symbols MU AMD NVDA --profile rebound --families trend momentum` |
 | Web interface | `uv run python app.py`, then http://localhost:8000 (`ngrok http 8000` for the phone) |
