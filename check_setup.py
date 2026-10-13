@@ -59,8 +59,13 @@ def main():
             reply = llm.call([{"role": "user", "content": "Reply with the single word READY."}])
             print(f"{OK} LLM {L.describe(name)} answered: {str(reply).strip()[:40]}")
         except Exception as e:
-            print(f"{BAD} LLM {L.describe(name)}: {str(e)[:160]}")
-            failed += (1 if name == chain[0][0] else 0)
+            if name == chain[0][0]:
+                print(f"{BAD} Main LLM {L.describe(name)}: {str(e)[:160]}")
+                failed += 1
+            else:  # backups are optional: trading still works with the main model
+                print(f"[WARN] Backup LLM {L.describe(name)} unavailable for this key: {str(e)[:110]}")
+                print("       Optional fix: run  python list_groq_models.py  and put one of the listed"
+                      " ids in GROQ_BACKUP_MODEL in .env")
 
     if failed:
         print(f"\n{failed} problem(s) above. Fix them, then run this again.")
