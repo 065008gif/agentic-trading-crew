@@ -61,6 +61,27 @@ def _earnings_soon(note: str | None, today: date) -> bool:
     return d == today or (d == nxt and when == "BMO") or (d == today and when == "AMC")
 
 
+def _capped_split(raw: dict, budget: float, cap: float) -> dict:
+    """Split `budget` by score weight, cap each name, and pass the excess to the
+    names still under the cap (if every name is capped, the rest stays cash)."""
+    tot = sum(raw.values())
+    weights = {s: budget * v / tot for s, v in raw.items()}
+    for _ in range(10):
+        over = {s: w for s, w in weights.items() if w > cap + 1e-9}
+        if not over:
+            break
+        spare = sum(w - cap for w in over.values())
+        for s in over:
+            weights[s] = cap
+        free = {s: raw[s] for s in weights if weights[s] < cap - 1e-9}
+        if not free:
+            break
+        ft = sum(free.values())
+        for s, v in free.items():
+            weights[s] += spare * v / ft
+    return weights
+
+
 def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                overlay: dict | None = None, profile: str = "momentum",
                hold_through_earnings: bool = False, settings: RiskSettings | None = None,
@@ -171,22 +192,19 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
     if raw:
         filler_w = min(rs.filler_weight_pct, rs.max_position_pct)
         budget = max(0.0, exposure - filler_w * len(forced))
-        tot = sum(raw.values())
-        weights = {s: budget * v / tot for s, v in raw.items()}
-        for _ in range(10):  # redistribute anything above the cap among qualified names only
-            over = {s: w for s, w in weights.items() if w > rs.max_position_pct + 1e-9}
-            if not over:
+        pool = dict(raw)
+        while pool:
+            weights = _capped_split(pool, budget, rs.max_position_pct)
+            small = [s for s, w in weights.items() if w < rs.min_position_pct - 1e-9]
+            if not small:
                 break
-            spare = sum(w - rs.max_position_pct for w in over.values())
-            for s in over:
-                weights[s] = rs.max_position_pct
-            free = {s: raw[s] for s in weights if weights[s] < rs.max_position_pct - 1e-9}
-            if not free:
-                break
-            ft = sum(free.values())
-            for s, v in free.items():
-                weights[s] += spare * v / ft
-        weights = {s: w for s, w in weights.items() if w >= rs.min_position_pct - 1e-9}
+            # too small to be worth holding: drop the weakest and share its money
+            # among the rest instead of leaving it as idle cash
+            drop = min(small, key=lambda s: pool[s])
+            targets[drop].reasons.append(f"target below the {rs.min_position_pct:.0%} minimum position; "
+                                         "its money goes to stronger names")
+            del pool[drop]
+            weights = {}
         for s in forced:
             weights[s] = filler_w
 

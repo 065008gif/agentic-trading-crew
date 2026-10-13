@@ -205,3 +205,15 @@ def test_news_filter_drops_roundups_and_shrinks_single_headlines():
     assert rows["MSFT"]["articles"] == 0
     assert -0.25 < rows["SHOP"]["sentiment"] < 0     # half weight, shrunk: too weak for a veto
     assert rows["DDOG"]["sentiment"] > 0.3
+
+
+def test_dropped_small_position_money_is_reinvested():
+    """Run 4 (13 Oct): DELL's share was under 3%, got dropped, and its money sat in cash (95.7% vs 98%)."""
+    scores = {"MSFT": 96.9, "PLTR": 93.1, "DDOG": 92.8, "SHOP": 90.5, "ZBRA": 87.9, "META": 86.6, "MRNA": 81.8,
+              "XOM": 79.4, "VST": 77.7, "HPE": 75.6, "AAPL": 75.6, "WMT": 75.3, "DELL": 62.3}
+    rows = [row(s, v) for s, v in scores.items()]
+    reg = {"regime": "RISK-ON", "regime_score": 95, "invest_fraction": 0.98}
+    plan = build_plan(rows, reg, {}, ACCT)
+    t = {x["symbol"]: x for x in plan["targets"]}
+    assert t["DELL"]["action"] == "AVOID" and any("minimum position" in r for r in t["DELL"]["reasons"])
+    assert abs(sum(x["target_weight"] for x in plan["targets"]) - 0.98) < 1e-6
