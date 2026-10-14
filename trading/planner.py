@@ -23,7 +23,7 @@ class RiskSettings:
     min_position_pct: float = 0.03      # smaller targets are dropped (not worth the noise)
     entry_score: float = 52             # new buys need at least this final score
     exit_score: float = 40              # held stocks are sold below this (hysteresis)
-    rebalance_band_pct: float = 0.015   # ignore changes smaller than 1.5% of equity
+    rebalance_band_pct: float = 0.02    # ignore changes smaller than 2% of equity (less churn)
     min_order_dollars: float = 300
     max_exposure: float = 0.98          # never use margin
     earnings_cap_pct: float = 0.05      # A/C profiles shrink to 5% the day before a report
@@ -91,12 +91,15 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                overlay: dict | None = None, profile: str = "momentum",
                hold_through_earnings: bool = False, settings: RiskSettings | None = None,
                today: date | None = None, evidence: dict | None = None,
-               peaks: dict | None = None, no_rebuy: set | None = None) -> dict:
+               peaks: dict | None = None, no_rebuy: set | None = None,
+               bought_today: set | None = None) -> dict:
     """evidence: {symbol: {"sentiment": float, "articles": int}} from the news
     server. When given, the Portfolio Manager's adjustments and vetoes are
     checked against it, so an LLM misreading cannot move money on its own.
     peaks: {symbol: highest price seen while we held it} for the profit lock.
-    no_rebuy: symbols sold today by a stop or the profit lock (not bought back today)."""
+    no_rebuy: symbols fully sold today (not bought back today).
+    bought_today: symbols first bought today; not sold or trimmed again today unless a
+    stop, the profit lock or a score below the exit level says so (no flip-flopping)."""
     rs = settings or RiskSettings()
     overlay = overlay or {}
     if today is None:
@@ -176,7 +179,7 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             t.reasons.append(f"profit lock active: sells below {floor:.2f} (keeps at least "
                              f"{floor / avg - 1:+.1%})")
         if not held and no_rebuy and sym in no_rebuy:
-            t.action = "AVOID"; t.reasons.append("sold today by a stop or the profit lock; no re-buy until tomorrow")
+            t.action = "AVOID"; t.reasons.append("sold earlier today; no re-buy until tomorrow")
             continue
         if held and t.final < rs.exit_score:
             t.action = "EXIT"; t.reasons.append(f"score {t.final} below exit level {rs.exit_score}")
@@ -270,6 +273,12 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             t.action = "HOLD"
             if t.current_value:
                 t.reasons.append("within rebalance band")
+            continue
+        if delta < 0 and bought_today and sym in bought_today:
+            # soft reasons only (ranking, sizing): hard exits were handled above
+            t.action = "HOLD"
+            t.target_weight = t.current_weight
+            t.reasons.append("bought today: kept until tomorrow unless a stop, the profit lock or a weak score fires")
             continue
         if delta > 0:
             t.action = "BUY" if t.current_value == 0 else "ADD"

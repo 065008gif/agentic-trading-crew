@@ -262,3 +262,17 @@ def test_every_file_in_the_repo_can_be_checked_out_on_windows():
     assert not bad, bad
     from trading.reports import SEP
     assert SEP == "."
+
+
+def test_no_flip_flop_within_a_day():
+    """13 Oct night: DELL bought 23:47, sold 00:17, bought again 00:47."""
+    # bought today and now out of the top names: kept (soft reason)
+    pos = {"DELL": {"qty": 5, "market_value": 2600, "avg_entry": 520, "pl_pct": 0}}
+    rows = [row("DELL", 60, close=520, stop=480)] + [row(s, 90) for s in "ABCDEFGH"]
+    plan = build_plan(rows, REGIME, pos, ACCT, bought_today={"DELL"})
+    t = {x["symbol"]: x for x in plan["targets"]}
+    assert t["DELL"]["action"] == "HOLD" and not any(o["symbol"] == "DELL" for o in plan["orders"])
+    # ... but a stop still sells it the same day
+    rows[0] = row("DELL", 60, close=470, stop=480)
+    plan2 = build_plan(rows, REGIME, pos, ACCT, bought_today={"DELL"})
+    assert {x["symbol"]: x for x in plan2["targets"]}["DELL"]["action"] == "EXIT"

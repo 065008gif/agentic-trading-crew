@@ -1,8 +1,9 @@
 """
 Small per-account memory between runs, kept in run_reports/<account>/state.json:
 - peaks: the highest price seen for each stock while we held it (for the profit lock)
-- no_rebuy: stocks sold by a stop or the profit lock, with the day they were sold,
-  so the next run (30 minutes later) does not buy them straight back.
+- no_rebuy: stocks fully sold today, so a later run does not buy them straight back
+- bought: stocks first bought today, so a later run does not sell them again
+  today for a soft reason (prevents buy-sell-buy flip-flops seen on 13 Oct)
 """
 
 from __future__ import annotations
@@ -24,6 +25,7 @@ def load(account: str) -> dict:
         st = {}
     st.setdefault("peaks", {})
     st.setdefault("no_rebuy", {})
+    st.setdefault("bought", {})
     return st
 
 
@@ -49,10 +51,20 @@ def blocked_today(st: dict, today: date) -> set:
     return {s for s, d in st["no_rebuy"].items() if d == today.isoformat()}
 
 
+def bought_today(st: dict, today: date) -> set:
+    return {s for s, d in st["bought"].items() if d == today.isoformat()}
+
+
 def record_exits(st: dict, plan: dict, today: date) -> None:
-    """After orders were sent: remember stop / profit-lock sales for today."""
-    st["no_rebuy"] = {s: d for s, d in st["no_rebuy"].items() if d == today.isoformat()}
+    """After orders were sent: remember today's full sales and first buys."""
+    t = today.isoformat()
+    st["no_rebuy"] = {s: d for s, d in st["no_rebuy"].items() if d == t}
+    st["bought"] = {s: d for s, d in st["bought"].items() if d == t}
+    new_buys = {x["symbol"] for x in plan.get("targets", []) if x.get("action") == "BUY"}
     for o in plan.get("orders", []):
-        if o.get("side") == "sell" and ("stop hit" in o.get("reason", "") or "profit lock" in o.get("reason", "")):
-            st["no_rebuy"][o["symbol"]] = today.isoformat()
+        if o.get("side") == "sell" and o.get("type") == "close":
+            st["no_rebuy"][o["symbol"]] = t
             st["peaks"].pop(o["symbol"], None)
+            st["bought"].pop(o["symbol"], None)
+        elif o.get("side") == "buy" and o["symbol"] in new_buys:
+            st["bought"][o["symbol"]] = t
