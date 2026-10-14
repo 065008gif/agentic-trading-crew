@@ -20,6 +20,7 @@ class RiskSettings:
     max_holdings: int = 8               # concentrate on the strongest 8 of the 13 (all 13 stay tradable)
     weight_power: float = 2.5           # how hard money tilts to the top scores (1.5 = gentler)
     hold_bonus: float = 5.0             # a held stock keeps its slot unless a newcomer beats it by 5+
+    same_day_drop: float = 15.0         # a stock bought today may be sold today if its score fell this much
     min_position_pct: float = 0.03      # smaller targets are dropped (not worth the noise)
     entry_score: float = 52             # new buys need at least this final score
     exit_score: float = 40              # held stocks are sold below this (hysteresis)
@@ -91,15 +92,19 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                overlay: dict | None = None, profile: str = "momentum",
                hold_through_earnings: bool = False, settings: RiskSettings | None = None,
                today: date | None = None, evidence: dict | None = None,
-               peaks: dict | None = None, no_rebuy: set | None = None,
-               bought_today: set | None = None) -> dict:
+               peaks: dict | None = None, no_rebuy: dict | None = None,
+               bought_today: dict | None = None) -> dict:
     """evidence: {symbol: {"sentiment": float, "articles": int}} from the news
     server. When given, the Portfolio Manager's adjustments and vetoes are
     checked against it, so an LLM misreading cannot move money on its own.
     peaks: {symbol: highest price seen while we held it} for the profit lock.
-    no_rebuy: symbols fully sold today (not bought back today).
-    bought_today: symbols first bought today; not sold or trimmed again today unless a
-    stop, the profit lock or a score below the exit level says so (no flip-flopping)."""
+    no_rebuy: {symbol: score when sold, or None} for stocks fully sold today. After a stop or
+    the profit lock (None) no re-buy today; after a soft sale, a re-buy today only if the
+    score is now 15+ points higher than when it was sold.
+    bought_today: {symbol: final score when it was bought} for stocks first bought today.
+    They are not sold or trimmed again today for a small wobble in the AI score; they CAN
+    be sold the same day if the stop, the profit lock, a score below the exit level, or a
+    real deterioration (final score 15+ points below the buy score) says so."""
     rs = settings or RiskSettings()
     overlay = overlay or {}
     if today is None:
@@ -179,8 +184,16 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             t.reasons.append(f"profit lock active: sells below {floor:.2f} (keeps at least "
                              f"{floor / avg - 1:+.1%})")
         if not held and no_rebuy and sym in no_rebuy:
-            t.action = "AVOID"; t.reasons.append("sold earlier today; no re-buy until tomorrow")
-            continue
+            sold_at = no_rebuy[sym]
+            if sold_at is None:
+                t.action = "AVOID"; t.reasons.append("sold today by a stop or the profit lock; no re-buy until tomorrow")
+                continue
+            if t.final < float(sold_at) + rs.same_day_drop:
+                t.action = "AVOID"
+                t.reasons.append(f"sold earlier today at score {sold_at}; re-buy only if the score rises "
+                                 f"{rs.same_day_drop:.0f}+ points (now {t.final})")
+                continue
+            t.reasons.append(f"sold earlier today at score {sold_at}, now {t.final}: clearly stronger, re-buy allowed")
         if held and t.final < rs.exit_score:
             t.action = "EXIT"; t.reasons.append(f"score {t.final} below exit level {rs.exit_score}")
             continue
@@ -275,11 +288,15 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                 t.reasons.append("within rebalance band")
             continue
         if delta < 0 and bought_today and sym in bought_today:
-            # soft reasons only (ranking, sizing): hard exits were handled above
-            t.action = "HOLD"
-            t.target_weight = t.current_weight
-            t.reasons.append("bought today: kept until tomorrow unless a stop, the profit lock or a weak score fires")
-            continue
+            buy_score = bought_today[sym]
+            if buy_score is None or t.final > float(buy_score) - rs.same_day_drop:
+                # only a small wobble since the buy: do not flip-flop (hard exits were handled above)
+                t.action = "HOLD"
+                t.target_weight = t.current_weight
+                t.reasons.append(f"bought today at score {buy_score}; score {t.final} has not dropped "
+                                 f"{rs.same_day_drop:.0f}+ points, so kept (stop and profit lock still apply)")
+                continue
+            t.reasons.append(f"bought today at score {buy_score} but now {t.final}: real deterioration, selling allowed")
         if delta > 0:
             t.action = "BUY" if t.current_value == 0 else "ADD"
             t.dollars = round(delta, 2)

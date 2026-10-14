@@ -238,9 +238,14 @@ def test_profit_lock_books_most_of_the_best_gain():
 
 
 def test_no_rebuy_same_day_after_stop_or_lock():
-    plan = build_plan([row("AAA", 90)] + [row(s, 80) for s in "BCDEFGHI"], REGIME, {}, ACCT, no_rebuy={"AAA"})
+    rows = [row("AAA", 90)] + [row(s, 80) for s in "BCDEFGHI"]
+    plan = build_plan(rows, REGIME, {}, ACCT, no_rebuy={"AAA": None})          # after a stop / lock
     t = {x["symbol"]: x for x in plan["targets"]}
     assert t["AAA"]["action"] == "AVOID" and t["AAA"]["target_weight"] == 0
+    plan2 = build_plan(rows, REGIME, {}, ACCT, no_rebuy={"AAA": 82})            # soft sale, small rise
+    assert {x["symbol"]: x for x in plan2["targets"]}["AAA"]["action"] == "AVOID"
+    plan3 = build_plan(rows, REGIME, {}, ACCT, no_rebuy={"AAA": 70})            # now 20 points stronger
+    assert {x["symbol"]: x for x in plan3["targets"]}["AAA"]["action"] == "BUY"
 
 
 def test_aggressive_sizing_concentrates_on_the_best():
@@ -269,10 +274,13 @@ def test_no_flip_flop_within_a_day():
     # bought today and now out of the top names: kept (soft reason)
     pos = {"DELL": {"qty": 5, "market_value": 2600, "avg_entry": 520, "pl_pct": 0}}
     rows = [row("DELL", 60, close=520, stop=480)] + [row(s, 90) for s in "ABCDEFGH"]
-    plan = build_plan(rows, REGIME, pos, ACCT, bought_today={"DELL"})
+    plan = build_plan(rows, REGIME, pos, ACCT, bought_today={"DELL": 66})   # small wobble 66 -> 60
     t = {x["symbol"]: x for x in plan["targets"]}
     assert t["DELL"]["action"] == "HOLD" and not any(o["symbol"] == "DELL" for o in plan["orders"])
+    # a real deterioration (bought at 80, now 60) may still be sold the same day
+    plan3 = build_plan(rows, REGIME, pos, ACCT, bought_today={"DELL": 80})
+    assert {x["symbol"]: x for x in plan3["targets"]}["DELL"]["action"] == "EXIT"
     # ... but a stop still sells it the same day
     rows[0] = row("DELL", 60, close=470, stop=480)
-    plan2 = build_plan(rows, REGIME, pos, ACCT, bought_today={"DELL"})
+    plan2 = build_plan(rows, REGIME, pos, ACCT, bought_today={"DELL": 66})
     assert {x["symbol"]: x for x in plan2["targets"]}["DELL"]["action"] == "EXIT"

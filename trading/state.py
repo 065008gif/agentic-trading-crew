@@ -18,6 +18,10 @@ def _path(account: str):
     return REPORTS / account / "state.json"
 
 
+def _bought_day(v):
+    return v.get("date") if isinstance(v, dict) else v
+
+
 def load(account: str) -> dict:
     try:
         st = json.loads(_path(account).read_text(encoding="utf-8"))
@@ -47,24 +51,30 @@ def update_peaks(st: dict, positions: dict, rows: list[dict]) -> dict:
     return peaks
 
 
-def blocked_today(st: dict, today: date) -> set:
-    return {s for s, d in st["no_rebuy"].items() if d == today.isoformat()}
+def blocked_today(st: dict, today: date) -> dict:
+    """{symbol: score when sold (None after a stop / profit lock)} for stocks sold today."""
+    return {s: (v.get("score") if isinstance(v, dict) else None)
+            for s, v in st["no_rebuy"].items() if _bought_day(v) == today.isoformat()}
 
 
-def bought_today(st: dict, today: date) -> set:
-    return {s for s, d in st["bought"].items() if d == today.isoformat()}
+def bought_today(st: dict, today: date) -> dict:
+    """{symbol: final score at purchase} for stocks first bought today."""
+    return {s: (v.get("score") if isinstance(v, dict) else None)
+            for s, v in st["bought"].items() if _bought_day(v) == today.isoformat()}
 
 
 def record_exits(st: dict, plan: dict, today: date) -> None:
     """After orders were sent: remember today's full sales and first buys."""
     t = today.isoformat()
-    st["no_rebuy"] = {s: d for s, d in st["no_rebuy"].items() if d == t}
-    st["bought"] = {s: d for s, d in st["bought"].items() if d == t}
-    new_buys = {x["symbol"] for x in plan.get("targets", []) if x.get("action") == "BUY"}
+    st["no_rebuy"] = {s: v for s, v in st["no_rebuy"].items() if _bought_day(v) == t}
+    finals = {x["symbol"]: x.get("final") for x in plan.get("targets", [])}
+    st["bought"] = {s: v for s, v in st["bought"].items() if _bought_day(v) == t}
+    new_buys = {x["symbol"]: x.get("final") for x in plan.get("targets", []) if x.get("action") == "BUY"}
     for o in plan.get("orders", []):
         if o.get("side") == "sell" and o.get("type") == "close":
-            st["no_rebuy"][o["symbol"]] = t
+            hard = "stop hit" in o.get("reason", "") or "profit lock" in o.get("reason", "")
+            st["no_rebuy"][o["symbol"]] = {"date": t, "score": None if hard else finals.get(o["symbol"])}
             st["peaks"].pop(o["symbol"], None)
             st["bought"].pop(o["symbol"], None)
         elif o.get("side") == "buy" and o["symbol"] in new_buys:
-            st["bought"][o["symbol"]] = t
+            st["bought"][o["symbol"]] = {"date": t, "score": new_buys[o["symbol"]]}
