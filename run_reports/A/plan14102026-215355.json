@@ -1,0 +1,268 @@
+{
+  "date": "2026-10-14",
+  "profile": "momentum",
+  "equity": 97789.42,
+  "cash": 3183.92,
+  "regime": "RISK-ON",
+  "regime_score": 66.1,
+  "exposure_target": 0.97,
+  "invested_after_pct": 97.0,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.5,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "SHOP",
+      "alpha": 86.2,
+      "adjust": 10.0,
+      "final": 96.2,
+      "current_value": 20079.134207,
+      "current_weight": 0.20533033335303552,
+      "target_weight": 0.18801629705861075,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +10: Baird raises target, strong bullish catalyst",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "MRNA",
+      "alpha": 90.2,
+      "adjust": 3.0,
+      "final": 93.2,
+      "current_value": 14464.857082,
+      "current_weight": 0.14791842596059984,
+      "target_weight": 0.16167325727413923,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: No news, but high alpha score keeps modest upside",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "alpha": 87.8,
+      "adjust": 0.0,
+      "final": 87.8,
+      "current_value": 13592.661989,
+      "current_weight": 0.13899931085591877,
+      "target_weight": 0.1201240635836431,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "MSFT",
+      "alpha": 79.8,
+      "adjust": 8.0,
+      "final": 87.8,
+      "current_value": 7789.605549,
+      "current_weight": 0.07965693578098736,
+      "target_weight": 0.1201240635836431,
+      "action": "ADD",
+      "dollars": 3957.26,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: OpenAI hire boosts AI outlook"
+      ]
+    },
+    {
+      "symbol": "META",
+      "alpha": 76.4,
+      "adjust": 9.0,
+      "final": 85.4,
+      "current_value": 10141.39329,
+      "current_weight": 0.10370644687329161,
+      "target_weight": 0.10398579235718554,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: UBS lifts target, reinforcing strong trend",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "ZBRA",
+      "alpha": 76.9,
+      "adjust": 8.0,
+      "final": 84.9,
+      "current_value": 11926.662482,
+      "current_weight": 0.12196270805164812,
+      "target_weight": 0.10079821278582754,
+      "action": "TRIM",
+      "dollars": -2069.66,
+      "qty": 5.4575,
+      "reasons": [
+        "PM adjust +8: Barclays raises target, supporting momentum"
+      ]
+    },
+    {
+      "symbol": "DDOG",
+      "alpha": 74.9,
+      "adjust": 9.0,
+      "final": 83.9,
+      "current_value": 8961.936349,
+      "current_weight": 0.09164525517177625,
+      "target_weight": 0.09460075358133978,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Barclays raises target, confirming bullish momentum",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "XOM",
+      "alpha": 84.5,
+      "adjust": -3.0,
+      "final": 81.5,
+      "current_value": 7656.992367,
+      "current_weight": 0.07830082607095941,
+      "target_weight": 0.08067755977561088,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -3: Potential scale\u2011back in Guyana LNG adds slight downside",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "WMT",
+      "alpha": 76.2,
+      "adjust": 0.0,
+      "final": 76.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 75.6; re-buy only if the score rises 15+ points (now 76.2)"
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "alpha": 72.7,
+      "adjust": 0.0,
+      "final": 72.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 73.0; re-buy only if the score rises 15+ points (now 72.7)"
+      ]
+    },
+    {
+      "symbol": "VST",
+      "alpha": 60.1,
+      "adjust": 0.0,
+      "final": 60.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 61.4; re-buy only if the score rises 15+ points (now 60.1)"
+      ]
+    },
+    {
+      "symbol": "HPE",
+      "alpha": 49.1,
+      "adjust": 0.0,
+      "final": 49.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 45.1; re-buy only if the score rises 15+ points (now 49.1)"
+      ]
+    },
+    {
+      "symbol": "DELL",
+      "alpha": 27.4,
+      "adjust": 0.0,
+      "final": 27.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 20.3; re-buy only if the score rises 15+ points (now 27.4)"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "ZBRA",
+      "side": "sell",
+      "type": "qty",
+      "qty": 5.4575,
+      "dollars": 2069.66,
+      "reason": "score 84.9; target 10.1%; PM adjust +8: Barclays raises target, supporting momentum"
+    },
+    {
+      "symbol": "MSFT",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 3297.79,
+      "reason": "score 87.8; target 12.0%; scaled x0.83 to available cash"
+    }
+  ],
+  "pm_summary": "The market remains risk\u2011on with momentum leaders firmly in play, so we keep a high 97% exposure. Adjustments reflect clear company\u2011specific news: strong target upgrades for SHOP, MSFT, META, DDOG and ZBRA earn sizable positive bumps, while XOM\u2019s project scale\u2011back drags it slightly lower. PLTR\u2019s settlement is neutral and MRNA lacks news, so only modest tweaks are applied.",
+  "account": "A",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 MRNA 90.2 BULLISH | 100 100 100 64 60 33 | 67.1 71.3 13.66 47.95 1.4 4.2 | earnings 2026-10-29 BMO (15d)\n2 PLTR 87.8 BULLISH | 100 90 100 72 58 35 | 67.6 25.7 8.97 14.73 1.28 3.13 | \n3 SHOP 86.2 BULLISH | 90 94 96 80 56 34 | 68.1 37.3 16.46 30.8 1.32 1.76 | \n4 XOM 84.5 BULLISH | 90 84 85 63 90 20 | 74.7 99.7 8.48 5.94 2.5 -1.03 | BREAKOUT\n5 MSFT 79.8 BULLISH | 100 82 69 66 66 35 | 64.2 35.9 4.52 7.05 1.28 2.13 | earnings 2026-10-28 AMC (14d)\n6 ZBRA 76.9 BULLISH | 99 78 58 76 64 78 | 58.2 11.2 1.51 8.88 0.52 2.59 | \n7 META 76.4 BULLISH | 99 67 72 67 70 48 | 57.3 35.8 1.3 6.91 0.17 1.16 | earnings 2026-10-28 AMC (14d)\n8 WMT 76.2 BULLISH | 60 89 81 63 80 24 | 66.7 88.7 10.42 4.49 2.15 0.13 | \n9 DDOG 74.9 BULLISH | 100 76 78 66 33 78 | 56.3 15.7 -0.45 15.95 0.37 1.6 | \n10 AAPL 72.7 BULLISH | 75 82 61 59 75 25 | 63.5 90.8 3.45 1.43 2.05 0.03 | \n11 VST 60.1 BULLISH | 75 76 34 82 25 45 | 52.1 20.5 9.28 5.61 0.44 1.32 | \n12 HPE 49.1 NEUTRAL | 70 50 46 60 9 95 | 49.4 5.8 -0.23 10.45 -0.46 2.94 | \n13 DELL 27.4 BEARISH | 46 38 0 37 5 95 | 42.1 2.9 -5.4 -11.82 -2.49 4.18 | BREAKDOWN",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-14T21:55:14"
+}

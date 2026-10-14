@@ -1,0 +1,332 @@
+{
+  "date": "2026-10-14",
+  "profile": "momentum",
+  "equity": 98135.15,
+  "cash": 3825.46,
+  "regime": "RISK-ON",
+  "regime_score": 79.9,
+  "exposure_target": 0.98,
+  "invested_after_pct": 98.0,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.5,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "SHOP",
+      "alpha": 86.7,
+      "adjust": 10.0,
+      "final": 96.7,
+      "current_value": 9229.261971,
+      "current_weight": 0.09404644483653411,
+      "target_weight": 0.2053547875385172,
+      "action": "ADD",
+      "dollars": 10923.26,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +10: Baird raises price target to $190."
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "alpha": 88.9,
+      "adjust": 3.0,
+      "final": 91.9,
+      "current_value": 10984.352483,
+      "current_weight": 0.11193086761471299,
+      "target_weight": 0.16095726404223687,
+      "action": "ADD",
+      "dollars": 4811.21,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: Record high wipes 50% drawdown."
+      ]
+    },
+    {
+      "symbol": "MRNA",
+      "alpha": 90.3,
+      "adjust": 0.0,
+      "final": 90.3,
+      "current_value": 7488.385123,
+      "current_weight": 0.07630685970317466,
+      "target_weight": 0.14757880165217413,
+      "action": "ADD",
+      "dollars": 6994.28,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "ZBRA",
+      "alpha": 77.0,
+      "adjust": 10.0,
+      "final": 87.0,
+      "current_value": 8971.915118,
+      "current_weight": 0.091424073005442,
+      "target_weight": 0.12215231456794731,
+      "action": "ADD",
+      "dollars": 3015.52,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +10: Barclays raises target to $416."
+      ]
+    },
+    {
+      "symbol": "DDOG",
+      "alpha": 74.9,
+      "adjust": 10.0,
+      "final": 84.9,
+      "current_value": 8953.401954,
+      "current_weight": 0.09123542333200695,
+      "target_weight": 0.10745106236746658,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +10: Barclays raises target to $300.",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "XOM",
+      "alpha": 83.5,
+      "adjust": 0.0,
+      "final": 83.5,
+      "current_value": 5199.973497,
+      "current_weight": 0.05298787943973184,
+      "target_weight": 0.09827211393296109,
+      "action": "ADD",
+      "dollars": 4443.98,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "MSFT",
+      "alpha": 80.4,
+      "adjust": 0.0,
+      "final": 80.4,
+      "current_value": 11366.220084,
+      "current_weight": 0.11582210944804182,
+      "target_weight": 0.07966849802304284,
+      "action": "TRIM",
+      "dollars": -3547.94,
+      "qty": 6.5954,
+      "reasons": []
+    },
+    {
+      "symbol": "META",
+      "alpha": 78.3,
+      "adjust": -2.0,
+      "final": 76.3,
+      "current_value": 8925.979767,
+      "current_weight": 0.09095599045805709,
+      "target_weight": 0.058565157875654,
+      "action": "TRIM",
+      "dollars": -3178.68,
+      "qty": 4.2783,
+      "reasons": [
+        "PM adjust -2: Senators question data\u2011center tax strategy."
+      ]
+    },
+    {
+      "symbol": "WMT",
+      "alpha": 75.6,
+      "adjust": 0.0,
+      "final": 75.6,
+      "current_value": 3742.789828,
+      "current_weight": 0.038139135956892105,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -3742.79,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 8: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "alpha": 73.0,
+      "adjust": 0.0,
+      "final": 73.0,
+      "current_value": 5592.29054,
+      "current_weight": 0.05698560138747432,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -5592.29,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 8: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "VST",
+      "alpha": 61.4,
+      "adjust": 0.0,
+      "final": 61.4,
+      "current_value": 5925.691688,
+      "current_weight": 0.06038296867126611,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -5925.69,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 8: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "HPE",
+      "alpha": 55.1,
+      "adjust": -10.0,
+      "final": 45.1,
+      "current_value": 5591.467101,
+      "current_weight": 0.05697721052038949,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -5591.47,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -10: Barclays downgrade, target cut to $77.",
+        "not in the top 8: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "DELL",
+      "alpha": 30.3,
+      "adjust": -10.0,
+      "final": 20.3,
+      "current_value": 2338.354429,
+      "current_weight": 0.02382789886192664,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -2338.354429,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -10: Barclays downgrade and lower target.",
+        "Risk check: veto ignored, news -0.15 not negative enough",
+        "score 20.3 below exit level 40"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "MSFT",
+      "side": "sell",
+      "type": "qty",
+      "qty": 6.5954,
+      "dollars": 3547.94,
+      "reason": "score 80.4; target 8.0%"
+    },
+    {
+      "symbol": "META",
+      "side": "sell",
+      "type": "qty",
+      "qty": 4.2783,
+      "dollars": 3178.68,
+      "reason": "score 76.3; target 5.9%; PM adjust -2: Senators question data\u2011center tax strategy."
+    },
+    {
+      "symbol": "WMT",
+      "side": "sell",
+      "type": "close",
+      "dollars": 3742.789828,
+      "reason": "score 75.6 no longer earns a position"
+    },
+    {
+      "symbol": "AAPL",
+      "side": "sell",
+      "type": "close",
+      "dollars": 5592.29054,
+      "reason": "score 73.0 no longer earns a position"
+    },
+    {
+      "symbol": "VST",
+      "side": "sell",
+      "type": "close",
+      "dollars": 5925.691688,
+      "reason": "score 61.4 no longer earns a position"
+    },
+    {
+      "symbol": "HPE",
+      "side": "sell",
+      "type": "close",
+      "dollars": 5591.467101,
+      "reason": "score 45.1 no longer earns a position"
+    },
+    {
+      "symbol": "DELL",
+      "side": "sell",
+      "type": "close",
+      "dollars": 2338.35,
+      "reason": "PM adjust -10: Barclays downgrade and lower target.; Risk check: veto ignored, news -0.15 not negative enough; score 20.3 below exit level 40"
+    },
+    {
+      "symbol": "MRNA",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 6994.28,
+      "reason": "score 90.3; target 14.8%"
+    },
+    {
+      "symbol": "PLTR",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 4811.21,
+      "reason": "score 91.9; target 16.1%"
+    },
+    {
+      "symbol": "SHOP",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 10923.26,
+      "reason": "score 96.7; target 20.5%"
+    },
+    {
+      "symbol": "XOM",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 4443.98,
+      "reason": "score 83.5; target 9.8%"
+    },
+    {
+      "symbol": "ZBRA",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 3015.52,
+      "reason": "score 87.0; target 12.2%"
+    }
+  ],
+  "pm_summary": "The market remains in a strong risk\u2011on regime, supporting high\u2011beta, momentum\u2011driven positions. Good news on SHOP, DDOG, and ZBRA justifies stronger bullish tilts, while downgrades at DELL and HPE call for defensive cuts. Overall exposure is raised to 98% to capture the prevailing upside.",
+  "account": "A",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 MRNA 90.3 BULLISH | 100 100 100 62 61 33 | 67.3 73.0 14.02 48.04 1.44 4.27 | earnings 2026-10-29 BMO (15d)\n2 PLTR 88.9 BULLISH | 100 91 100 74 61 33 | 70.0 33.5 9.79 15.23 1.42 3.15 | \n3 SHOP 86.7 BULLISH | 90 94 96 80 58 34 | 69.1 41.1 16.97 31.01 1.36 1.76 | \n4 XOM 83.5 BULLISH | 90 84 83 59 90 21 | 74.0 99.7 8.06 5.14 2.4 -1.03 | BREAKOUT\n5 MSFT 80.4 BULLISH | 100 83 69 67 67 33 | 65.7 42.3 4.88 7.05 1.38 2.15 | earnings 2026-10-28 AMC (14d)\n6 META 78.3 BULLISH | 99 69 78 68 70 44 | 59.7 43.9 2.44 7.76 0.49 1.11 | earnings 2026-10-28 AMC (14d)\n7 ZBRA 77.0 BULLISH | 99 78 57 77 65 78 | 59.0 12.2 1.72 8.73 0.57 2.62 | \n8 WMT 75.6 BULLISH | 60 89 80 60 80 24 | 66.7 88.6 10.38 4.08 2.15 0.17 | \n9 DDOG 74.9 BULLISH | 100 76 77 68 33 78 | 56.5 15.9 -0.35 15.68 0.38 1.59 | \n10 AAPL 73.0 BULLISH | 75 83 60 58 76 23 | 64.4 92.3 3.78 1.38 2.26 0.04 | \n11 VST 61.4 BULLISH | 75 77 35 83 28 43 | 53.1 22.1 10.13 6.06 0.55 1.25 | \n12 HPE 55.1 NEUTRAL | 70 61 50 63 20 95 | 52.0 7.4 2.07 12.66 -0.13 2.85 | \n13 DELL 30.3 BEARISH | 47 42 0 39 15 95 | 44.5 3.5 -3.08 -9.99 -2.04 4.07 | ",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-14T20:55:07"
+}

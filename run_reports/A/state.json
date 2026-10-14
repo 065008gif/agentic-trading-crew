@@ -1,0 +1,108 @@
+{
+ "ai": {
+  "model": "groq:openai/gpt-oss-120b",
+  "overlay": {
+   "adjustments": [
+    {
+     "adjust": 10,
+     "note": "Barclays lifts target, strong upgrade",
+     "symbol": "DDOG",
+     "veto_buy": false
+    },
+    {
+     "adjust": 8,
+     "note": "BlackRock bullish outlook on AI spend",
+     "symbol": "META",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "No material news",
+     "symbol": "MRNA",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "Mixed news, lawsuit not a clear catalyst",
+     "symbol": "MSFT",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "Settlement neutral",
+     "symbol": "PLTR",
+     "veto_buy": false
+    },
+    {
+     "adjust": 10,
+     "note": "Baird raises target, maintains outperform",
+     "symbol": "SHOP",
+     "veto_buy": false
+    },
+    {
+     "adjust": -3,
+     "note": "Guyana LNG scale\u2011back adds slight downside",
+     "symbol": "XOM",
+     "veto_buy": false
+    },
+    {
+     "adjust": 10,
+     "note": "Barclays raises target, overweight",
+     "symbol": "ZBRA",
+     "veto_buy": false
+    }
+   ],
+   "exposure": 0.9,
+   "summary": "The market remains in a neutral regime with a modest risk\u2011on tilt, so we keep the portfolio fully invested at 90% of capital. Momentum leaders with strong upgrades\u2014Datadog, Shopify, and Zebra\u2014receive positive score bumps, while XOM gets a slight downgrade due to uncertain LNG plans. No company faces a veto to buy, and neutral\u2011news stocks stay unchanged."
+  },
+  "symbols": [
+   "MRNA",
+   "HPE",
+   "DELL",
+   "PLTR",
+   "SHOP",
+   "MSFT",
+   "META",
+   "DDOG",
+   "XOM",
+   "ZBRA",
+   "VST",
+   "WMT",
+   "AAPL"
+  ],
+  "time": "2026-10-15T00:55:22"
+ },
+ "bought": {},
+ "no_rebuy": {
+  "AAPL": {
+   "date": "2026-10-14",
+   "score": 73.0
+  },
+  "DELL": {
+   "date": "2026-10-14",
+   "score": 20.3
+  },
+  "HPE": {
+   "date": "2026-10-14",
+   "score": 45.1
+  },
+  "VST": {
+   "date": "2026-10-14",
+   "score": 61.4
+  },
+  "WMT": {
+   "date": "2026-10-14",
+   "score": 75.6
+  }
+ },
+ "peaks": {
+  "DDOG": 283.58,
+  "META": 761.71,
+  "MRNA": 226.62,
+  "MSFT": 545.56,
+  "PLTR": 207.1262,
+  "SHOP": 178.22,
+  "XOM": 177.3,
+  "ZBRA": 384.95
+ }
+}

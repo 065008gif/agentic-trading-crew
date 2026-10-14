@@ -1,0 +1,268 @@
+{
+  "date": "2026-10-14",
+  "profile": "momentum",
+  "equity": 97753.86,
+  "cash": 11670.17,
+  "regime": "NEUTRAL",
+  "regime_score": 51.4,
+  "exposure_target": 0.9,
+  "invested_after_pct": 90.0,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.5,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "MRNA",
+      "alpha": 92.1,
+      "adjust": 3.0,
+      "final": 95.1,
+      "current_value": 14773.197204,
+      "current_weight": 0.15112648445800503,
+      "target_weight": 0.1719969550945843,
+      "action": "ADD",
+      "dollars": 2040.17,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: No news, strong momentum keeps bias positive"
+      ]
+    },
+    {
+      "symbol": "SHOP",
+      "alpha": 84.4,
+      "adjust": 8.0,
+      "final": 92.4,
+      "current_value": 14751.95163,
+      "current_weight": 0.15090914701475727,
+      "target_weight": 0.14975188510204226,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Baird raises target to $190, clear bullish catalyst",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "alpha": 85.7,
+      "adjust": 5.0,
+      "final": 90.7,
+      "current_value": 11186.881805,
+      "current_weight": 0.11443928459704815,
+      "target_weight": 0.13668376845548486,
+      "action": "ADD",
+      "dollars": 2174.48,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Settles London mayor dispute, removes risk"
+      ]
+    },
+    {
+      "symbol": "MSFT",
+      "alpha": 79.5,
+      "adjust": 7.0,
+      "final": 86.5,
+      "current_value": 11072.673857,
+      "current_weight": 0.11327096297783024,
+      "target_weight": 0.10741048699513525,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +7: OpenAI appoints new data\u2011center lead, supportive",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "META",
+      "alpha": 77.0,
+      "adjust": 8.0,
+      "final": 85.0,
+      "current_value": 10158.50351,
+      "current_weight": 0.10391920595258336,
+      "target_weight": 0.09796623600803951,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Anthropic partnership and Guggenheim upbeat",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "DDOG",
+      "alpha": 74.9,
+      "adjust": 8.0,
+      "final": 82.9,
+      "current_value": 8955.207307,
+      "current_weight": 0.09160975645360706,
+      "target_weight": 0.08560999443173753,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Barclays lifts target to $300, clear upside",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "XOM",
+      "alpha": 85.3,
+      "adjust": -4.0,
+      "final": 81.3,
+      "current_value": 7681.473597,
+      "current_weight": 0.07857974710154668,
+      "target_weight": 0.07685869504599364,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -4: Guyana LNG scale\u2011back hints at softer demand",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "ZBRA",
+      "alpha": 72.7,
+      "adjust": 8.0,
+      "final": 80.7,
+      "current_value": 7496.978111,
+      "current_weight": 0.07669239977838216,
+      "target_weight": 0.07372197886698262,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Barclays raises target to $416, strong upside",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "WMT",
+      "alpha": 78.9,
+      "adjust": 0.0,
+      "final": 78.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 75.6; re-buy only if the score rises 15+ points (now 78.9)"
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "alpha": 71.0,
+      "adjust": 0.0,
+      "final": 71.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 73.0; re-buy only if the score rises 15+ points (now 71.0)"
+      ]
+    },
+    {
+      "symbol": "VST",
+      "alpha": 59.5,
+      "adjust": 0.0,
+      "final": 59.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 61.4; re-buy only if the score rises 15+ points (now 59.5)"
+      ]
+    },
+    {
+      "symbol": "HPE",
+      "alpha": 48.2,
+      "adjust": 0.0,
+      "final": 48.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 45.1; re-buy only if the score rises 15+ points (now 48.2)"
+      ]
+    },
+    {
+      "symbol": "DELL",
+      "alpha": 26.3,
+      "adjust": 0.0,
+      "final": 26.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 20.3; re-buy only if the score rises 15+ points (now 26.3)"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "MRNA",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 2040.17,
+      "reason": "score 95.1; target 17.2%"
+    },
+    {
+      "symbol": "PLTR",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 2174.48,
+      "reason": "score 90.7; target 13.7%"
+    }
+  ],
+  "pm_summary": "The market remains neutral with a slight upside bias, so we keep 90% of capital deployed. All momentum leaders retain positive scores; we add modest boosts for companies with clear bullish news and trim XOM modestly on the LNG uncertainty. No vetoes are needed.",
+  "account": "A",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 MRNA 92.1 BULLISH | 100 100 100 66 71 31 | 68.4 80.0 16.11 51.37 1.62 4.05 | earnings 2026-10-29 BMO (15d)\n2 PLTR 85.7 BULLISH | 100 89 96 70 53 78 | 64.7 19.8 7.91 13.78 1.09 3.15 | \n3 XOM 85.3 BULLISH | 90 85 86 67 90 15 | 75.2 99.7 8.78 6.43 2.56 -1.04 | BREAKOUT\n4 SHOP 84.4 BULLISH | 90 93 92 79 51 35 | 66.1 31.1 15.34 29.71 1.22 1.8 | \n5 MSFT 79.5 BULLISH | 100 82 69 64 65 35 | 63.7 33.9 4.38 7.09 1.24 2.12 | earnings 2026-10-28 AMC (14d)\n6 WMT 78.9 BULLISH | 60 90 83 68 90 22 | 67.8 90.3 11.0 5.24 2.3 0.09 | BREAKOUT\n7 META 77.0 BULLISH | 99 67 75 66 70 47 | 57.8 37.2 1.54 7.35 0.24 1.16 | earnings 2026-10-28 AMC (14d)\n8 DDOG 74.9 BULLISH | 100 76 79 64 33 78 | 56.3 15.6 -0.47 16.11 0.36 1.6 | \n9 ZBRA 72.7 BULLISH | 98 68 56 74 61 95 | 56.3 9.2 0.96 8.46 0.36 2.59 | \n10 AAPL 71.0 BULLISH | 75 81 56 61 71 32 | 61.2 82.2 2.65 0.81 1.48 0.06 | \n11 VST 59.5 NEUTRAL | 75 75 34 81 23 45 | 51.6 19.8 8.88 5.4 0.39 1.36 | \n12 HPE 48.2 NEUTRAL | 70 50 45 56 7 95 | 49.0 5.6 -0.64 10.17 -0.52 2.96 | \n13 DELL 26.3 BEARISH | 45 37 0 31 5 95 | 41.4 2.7 -6.22 -12.42 -2.63 4.22 | BREAKDOWN",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-14T23:25:16"
+}

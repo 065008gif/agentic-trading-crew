@@ -20,3 +20,35 @@ timestamp,symbol,side,dollars,qty,reason,status,order_id
 2026-10-14T00:48:23,WMT,sell,1889.94,16.7222,"score 69.1; target 3.7%; PM adjust +2: Coverage of GLP‑1s, insulin for workers",pending_new,d8069c42-5b83-44b4-a779-7b5175c9d515
 2026-10-14T00:48:23,DELL,buy,2568.69,,score 67.7; target 3.4%; scaled x0.76 to available cash,pending_new,635978b0-2464-4a81-adc3-cb9e266a9424
 2026-10-14T01:18:21,MRNA,sell,1826.88,8.5229,score 82.4; target 7.3%,pending_new,3a343d7a-f368-47b2-8fe2-2c8a3828a875
+2026-10-14T20:55:34,MSFT,sell,3547.94,6.5954,score 80.4; target 8.0%,pending_new,f53fcbd8-aed9-48e1-ad2a-0690a53afc6a
+2026-10-14T20:55:34,META,sell,3178.68,4.2783,score 76.3; target 5.9%; PM adjust -2: Senators question data‑center tax strategy.,pending_new,c7e6c91f-6c4f-40eb-8773-a849fe219942
+2026-10-14T20:55:34,WMT,sell,3742.789828,,score 75.6 no longer earns a position,pending_new,a2758f47-8315-499b-b485-7fafb4c33446
+2026-10-14T20:55:34,AAPL,sell,5592.29054,,score 73.0 no longer earns a position,pending_new,68b8bf47-7876-48ef-b902-b77042421621
+2026-10-14T20:55:34,VST,sell,5925.691688,,score 61.4 no longer earns a position,pending_new,6495b5f4-e456-4d7d-8f57-0db3f4676426
+2026-10-14T20:55:34,HPE,sell,5591.467101,,score 45.1 no longer earns a position,pending_new,b09c5146-1076-4b57-be79-0cfc745636e4
+2026-10-14T20:55:34,DELL,sell,2338.35,,"PM adjust -10: Barclays downgrade and lower target.; Risk check: veto ignored, news -0.15 not negative enough; score 20.3 below exit level 40",pending_new,391ffbae-312c-471b-a31a-83e1c3f3acf6
+2026-10-14T20:55:34,MRNA,buy,6994.28,,score 90.3; target 14.8%,pending_new,c42fb2b1-13c7-4c34-97e7-a3d97cf8d79b
+2026-10-14T20:55:34,PLTR,buy,4811.21,,score 91.9; target 16.1%,pending_new,3a46b4a3-6671-4311-b96c-f44491ee5eaf
+2026-10-14T20:55:34,SHOP,buy,10923.26,,score 96.7; target 20.5%,pending_new,e92a8df0-205a-480f-b57a-bd6ff472cb94
+2026-10-14T20:55:34,XOM,buy,4443.98,,score 83.5; target 9.8%,pending_new,a58a7dc7-c17b-4a4f-95df-1e59e8a6706e
+2026-10-14T20:55:34,ZBRA,buy,3015.52,,score 87.0; target 12.2%,pending_new,c4304b93-bbb0-4eed-894d-8af2a7d429fb
+2026-10-14T21:25:18,PLTR,sell,2102.11,10.2908,"score 90.1; target 13.9%; PM adjust +2: Record high wipes drawdown, momentum boost",pending_new,6ae73ee4-9aa5-4020-b913-1092d432fbd2
+2026-10-14T21:25:18,XOM,sell,2017.79,11.4498,"score 80.8; target 7.8%; PM adjust -3: Potential scaling back of LNG plans, slight downside",pending_new,1add2f9b-2bb2-4559-8b06-055970a4f066
+2026-10-14T21:25:18,META,buy,4475.08,,score 85.2; target 10.4%,pending_new,3fb97b92-f1db-4d70-a769-2429c5738493
+2026-10-14T21:55:22,ZBRA,sell,2069.66,5.4575,"score 84.9; target 10.1%; PM adjust +8: Barclays raises target, supporting momentum",pending_new,ed59f1c6-bb95-4061-8cdb-07c134cd1775
+2026-10-14T21:55:22,MSFT,buy,3297.79,,score 87.8; target 12.0%; scaled x0.83 to available cash,pending_new,a3e6ef56-70c2-49a1-8f0c-7f98adfd5d5d
+2026-10-14T22:09:06,PLTR,sell,2279.97,11.2225,score 86.9; target 11.5%,pending_new,d2f01747-9607-4a83-ab65-8ca82c2d7ee3
+2026-10-14T22:09:06,SHOP,sell,2285.01,13.2803,"score 95.2; target 18.1%; PM adjust +10: Baird raises target, strong bullish catalyst",pending_new,7446484e-f81b-455d-bebe-5f7a60026915
+2026-10-14T22:55:42,SHOP,sell,2855.3,16.6606,"score 92.5; target 15.1%; PM adjust +8: Baird raises target, confirming bullish view",pending_new,fa5cf633-d075-4f43-bd13-5637b3b7774c
+2026-10-14T23:09:10,ZBRA,sell,2293.82,6.0763,"score 80.9; target 7.7%; PM adjust +8: Barclays raises target, backing momentum",pending_new,48548994-636e-467c-938d-7b9ba0fc53bd
+2026-10-14T23:25:21,MRNA,buy,2040.17,,score 95.1; target 17.2%,pending_new,deb378b3-203f-4060-9a25-891232487b03
+2026-10-14T23:25:21,PLTR,buy,2174.48,,score 90.7; target 13.7%,pending_new,1d6b88ef-2021-47be-8532-849eca6d3dd4
+2026-10-14T23:55:33,PLTR,sell,2677.37,13.3057,score 84.8; target 10.9%,pending_new,5f3b999c-d508-4fbd-9f3a-8d6dfcbbacd9
+2026-10-14T23:55:33,META,sell,6098.2,8.2772,"score 72.1; target 4.2%; PM adjust -5: Goldman Sachs lowers price target, dampening upside; Risk check: capped -6->-5, news +0.17 does not support it",pending_new,5cec3cdd-5d7c-45e7-9b8f-93393aa898aa
+2026-10-14T23:55:33,ZBRA,buy,2450.04,,score 83.8; target 10.2%,pending_new,38690d74-fb5d-4c81-8a55-d48e02ac7dfc
+2026-10-15T00:09:18,XOM,buy,2254.18,,score 83.4; target 10.2%,pending_new,ee3ef956-651a-4195-ba25-0de5d95d78bf
+2026-10-15T00:09:18,SHOP,buy,2124.4,,score 92.5; target 17.3%,pending_new,3a275562-9945-4e5e-9c96-021847267488
+2026-10-15T00:25:30,MSFT,sell,2147.58,4.0201,"score 82.7; target 9.1%; PM adjust +4: OpenAI appoints data‑center lead, positive catalyst",pending_new,53118d42-a438-4a99-bbbf-a57ee7315d5f
+2026-10-15T00:25:30,META,buy,2853.79,,score 79.1; target 7.1%,pending_new,b1b26480-6d76-40f9-b8fb-4f545fe1caeb
+2026-10-15T00:55:39,MSFT,sell,2409.43,4.512,score 78.4; target 6.6%,pending_new,8ddfef0b-18ca-4573-b911-b0c878ca9fd6
+2026-10-15T00:55:39,META,buy,3502.85,,score 85.4; target 10.7%,pending_new,56530cd9-46a6-489a-9cff-7d48c0787f94
