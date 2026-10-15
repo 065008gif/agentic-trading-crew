@@ -52,3 +52,35 @@ timestamp,symbol,side,dollars,qty,reason,status,order_id
 2026-10-15T00:25:30,META,buy,2853.79,,score 79.1; target 7.1%,pending_new,b1b26480-6d76-40f9-b8fb-4f545fe1caeb
 2026-10-15T00:55:39,MSFT,sell,2409.43,4.512,score 78.4; target 6.6%,pending_new,8ddfef0b-18ca-4573-b911-b0c878ca9fd6
 2026-10-15T00:55:39,META,buy,3502.85,,score 85.4; target 10.7%,pending_new,56530cd9-46a6-489a-9cff-7d48c0787f94
+2026-10-15T19:11:40,MRNA,sell,4692.33,21.0409,score 100.0; target 12.4%; PM adjust +10: Goldman raises Moderna price target,pending_new,d816de47-9887-4c0c-98a7-db7a362133c1
+2026-10-15T19:11:40,XOM,sell,5020.99,28.4218,score 80.0; target 5.0%; PM adjust -4: Guyana LNG plans may be scaled back,pending_new,b5ff2f88-57d2-44f4-8b07-1c84e674a15e
+2026-10-15T19:11:40,SHOP,sell,6472.98,38.119,"score 95.8; target 10.6%; PM adjust +12: Baird upgrades Shopify, lifts price target",pending_new,f80f3b56-fab9-4ca6-8160-bc1ffa70b916
+2026-10-15T19:11:40,PLTR,sell,4157.68,21.0026,score 84.9; target 6.5%; PM adjust +7: Palantir partners with Customers Bancorp on AI deposits,pending_new,853c37be-8511-4a85-98cd-6e257315d717
+2026-10-15T19:11:40,META,sell,6731.55,9.2073,"score 75.1; target 3.7%; PM adjust +4: Goldman maintains buy, target unchanged",pending_new,3382af81-1187-4d04-9c1e-b72eede9d034
+2026-10-15T19:11:40,ZBRA,sell,9848.329027,,score 67.3 no longer earns a position,pending_new,ec79cc03-9f74-4347-8116-351d4f2c50d6
+2026-10-15T19:11:40,DDOG,sell,8742.5039,,score 63.9 no longer earns a position,pending_new,c12be16d-952b-4f43-8277-20948c9a729c
+2026-10-15T19:11:40,WMT,buy,4259.26,,score 77.7; target 4.4%,pending_new,a88d49d2-60b9-4121-8d63-bbc6963ad391
+2026-10-15T19:25:19,PLTR,sell,6149.383363,,score 70.9 no longer earns a position,pending_new,ba7cfc50-8fc6-49df-be8a-9980080695be
+2026-10-15T19:25:19,AAPL,buy,3229.5,,score 72.5; target 3.3%,pending_new,28412ce2-40e6-45f5-9411-7126d93fcd86
+2026-10-15T19:41:28,WMT,buy,6131.55,,score 94.5; target 10.7%,pending_new,739a6684-9955-41d4-bcfb-88e86b19bc2c
+2026-10-15T20:41:43,META,sell,3614.111045,,score 65.5 no longer earns a position,pending_new,3c6419c1-5ee8-4749-b64c-e65970b41d55
+2026-10-15T20:41:43,MRNA,buy,7453.6,,score 100.0; target 21.0%,pending_new,8e87efc2-e7b6-4c01-82dc-b6e4beb6b1e8
+2026-10-15T20:41:43,SHOP,buy,6171.46,,score 94.5; target 17.0%,pending_new,164551a9-f423-44e5-ad0b-8825223b6459
+2026-10-15T20:41:43,WMT,buy,6325.26,,score 94.5; target 17.0%,pending_new,242667f7-3fc5-411e-947e-281f2bd2fcf3
+2026-10-15T20:41:43,MSFT,buy,6135.05,,score 88.2; target 13.0%,pending_new,2e2c95e8-7787-4d5d-8ffa-d39fd8713acd
+2026-10-15T20:41:43,AAPL,buy,2338.48,,score 73.6; target 5.7%,pending_new,56bf7a16-c9fa-43d1-a360-64fd7164f81e
+2026-10-15T20:55:21,VST,buy,4738.82,,score 50.8; target 4.9%,pending_new,6bce08c4-c479-483e-9cd9-c4ce39a8ca15
+2026-10-15T21:11:29,XOM,buy,2766.48,,score 80.5; target 7.8%,pending_new,88a11184-57d4-42f4-8d19-ba7f31156df2
+2026-10-15T22:11:42,MRNA,sell,6227.66,26.1194,score 100.0; target 14.4%; PM adjust +8: Goldman Sachs raises price target; profit lock active: sells below 235.77 (keeps at least +3.9%),pending_new,4644bc7e-07f9-44ad-92b6-b6f363fc64ab
+2026-10-15T22:11:42,SHOP,sell,6015.7,34.9729,score 92.6; target 10.8%; PM adjust +7: Baird upgrades target to $190,pending_new,4d97756c-411c-4b69-9592-8328370ba731
+2026-10-15T22:11:42,MSFT,sell,4035.94,7.4795,score 88.2; target 8.9%; PM adjust +7: TD Cowen lifts target to $625,pending_new,100f98bc-8f5e-4e14-a8d3-05dce43d88c8
+2026-10-15T23:11:54,XOM,buy,2265.74,,score 88.2; target 10.1%,pending_new,b4698de5-3efb-485d-aba7-d4668efec807
+2026-10-15T23:42:16,SHOP,buy,2663.05,,score 93.8; target 13.5%,pending_new,406de033-9805-47c4-bbe7-80f9ab778af2
+2026-10-15T23:55:37,PLTR,buy,5724.78,,score 79.3; target 5.9%,pending_new,88bf567b-ce20-4535-96ff-d40a4934bcdb
+2026-10-16T00:11:52,PLTR,buy,2820.42,,score 87.3; target 8.8%,pending_new,ef01656a-1dac-48d5-bb41-b95f94d90ac6
+2026-10-16T00:41:54,SHOP,sell,4121.11,23.3332,score 93.9; target 9.5%; PM adjust +6: Target raise by Baird,pending_new,342d0b62-41f2-4776-8282-890a3051f9f3
+2026-10-16T00:41:54,PLTR,sell,2192.46,10.9579,score 85.4; target 6.5%; PM adjust +6: Target raise by Mizuho,pending_new,db3f1b94-a491-437e-b9d7-7d2bfa6ca84b
+2026-10-16T00:41:54,XOM,sell,3160.92,18.111,score 86.4; target 6.8%; PM adjust +7: Target raise by Morgan Stanley,pending_new,5bf9ed88-bbc9-4799-a6ed-39ff2b61aa1d
+2026-10-16T01:11:54,SHOP,buy,6385.54,,score 97.3; target 16.1%,pending_new,ce7424c4-c441-4515-a522-bc3aeb5cb060
+2026-10-16T01:11:54,PLTR,buy,3667.64,,score 86.8; target 10.3%,pending_new,794a477a-a3c1-42bb-a416-b9685f520049
+2026-10-16T01:11:54,XOM,buy,2682.42,,score 85.3; target 9.6%,pending_new,bbbf660e-533c-4a72-812c-273033de37fc

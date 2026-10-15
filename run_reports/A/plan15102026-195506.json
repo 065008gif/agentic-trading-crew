@@ -1,0 +1,285 @@
+{
+  "date": "2026-10-15",
+  "profile": "momentum",
+  "equity": 97164.43,
+  "cash": 45697.07,
+  "regime": "RISK-OFF",
+  "regime_score": 26.7,
+  "exposure_target": 0.55,
+  "invested_after_pct": 55.0,
+  "brake": null,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.25
+      ],
+      [
+        70,
+        0.18
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "MRNA",
+      "alpha": 94.6,
+      "adjust": 10.0,
+      "final": 100.0,
+      "current_value": 12504.832135,
+      "current_weight": 0.1286976328168652,
+      "target_weight": 0.13528303528376712,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +10: Goldman raises target, strong bullish catalyst",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "WMT",
+      "alpha": 86.1,
+      "adjust": 9.0,
+      "final": 95.1,
+      "current_value": 10404.168889,
+      "current_weight": 0.10707795938287294,
+      "target_weight": 0.11225182525375478,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Deutsche Bank upgrades to buy, adds upside",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "SHOP",
+      "alpha": 85.7,
+      "adjust": 8.0,
+      "final": 93.7,
+      "current_value": 10394.898931,
+      "current_weight": 0.1069825545315297,
+      "target_weight": 0.10606592461228352,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Baird lifts target, confirms strong trend",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "MSFT",
+      "alpha": 79.5,
+      "adjust": 7.0,
+      "final": 86.5,
+      "current_value": 6490.494649,
+      "current_weight": 0.06679908119668895,
+      "target_weight": 0.07702188678263402,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +7: TD Cowen raises target, reinforces momentum",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "XOM",
+      "alpha": 82.1,
+      "adjust": -4.0,
+      "final": 78.1,
+      "current_value": 4847.448571,
+      "current_weight": 0.04988912682346822,
+      "target_weight": 0.04899750290487539,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -4: Guyana LNG scale\u2011back hints at slower growth",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "alpha": 73.3,
+      "adjust": 0.0,
+      "final": 73.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at technical score 63.9; re-buy only if it rises 15+ points (now 73.3)"
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "alpha": 71.3,
+      "adjust": 2.0,
+      "final": 73.3,
+      "current_value": 3218.427149,
+      "current_weight": 0.03312351185510994,
+      "target_weight": 0.035817133926749165,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +2: Neutral news on China debut, modest upside",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "META",
+      "alpha": 69.8,
+      "adjust": 3.0,
+      "final": 72.8,
+      "current_value": 3606.865078,
+      "current_weight": 0.03712124980304007,
+      "target_weight": 0.034562691235936055,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: Goldman maintains buy, slight positive sentiment",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "ZBRA",
+      "alpha": 56.1,
+      "adjust": 0.0,
+      "final": 56.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at technical score 61.3; re-buy only if it rises 15+ points (now 56.1)"
+      ]
+    },
+    {
+      "symbol": "DDOG",
+      "alpha": 47.9,
+      "adjust": 0.0,
+      "final": 47.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at technical score 55.9; re-buy only if it rises 15+ points (now 47.9)"
+      ]
+    },
+    {
+      "symbol": "VST",
+      "alpha": 46.0,
+      "adjust": 0.0,
+      "final": 46.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 146.28 is below its trailing stop 148.48 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "HPE",
+      "alpha": 27.3,
+      "adjust": 0.0,
+      "final": 27.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -8.9% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "DELL",
+      "alpha": 20.2,
+      "adjust": 0.0,
+      "final": 20.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -9.1% today: not catching a falling knife"
+      ]
+    }
+  ],
+  "orders": [],
+  "pm_summary": "The market is in a risk\u2011off regime, so we keep exposure at the regime\u2011suggested 55%. Momentum leaders with strong bullish news (MRNA, SHOP, WMT, MSFT) receive sizable positive adjustments, while XOM\u2019s scaling\u2011back news drags a modest negative tweak. Neutral or mildly positive news for AAPL, META, and the rest stay near\u2011flat. This plan leans into the strongest trend\u2011driven stocks while respecting the cautious environment.",
+  "account": "A",
+  "model": "groq:openai/gpt-oss-120b (AI view from 19:41, reused)",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 MRNA 94.6 BULLISH | 100 100 100 61 90 28 | 70.4 89.0 22.16 45.17 1.83 4.07 | BREAKOUT, earnings 2026-10-29 BMO (14d)\n2 WMT 86.1 BULLISH | 80 87 100 67 90 15 | 74.6 96.9 15.38 11.8 2.78 0.04 | BREAKOUT\n3 SHOP 85.7 BULLISH | 90 94 96 81 53 36 | 66.7 30.0 15.23 32.62 1.15 1.76 | \n4 XOM 82.1 BULLISH | 90 85 81 75 70 27 | 70.2 61.3 7.03 6.56 1.88 -1.02 | \n5 MSFT 79.5 BULLISH | 100 81 70 65 63 38 | 62.4 29.5 4.1 6.36 1.03 2.14 | earnings 2026-10-28 AMC (13d)\n6 PLTR 73.3 BULLISH | 100 80 59 71 35 95 | 55.7 7.9 2.6 9.81 0.26 3.2 | \n7 AAPL 71.3 BULLISH | 75 84 55 50 76 26 | 64.1 93.8 4.47 1.53 1.96 0.05 | \n8 META 69.8 BULLISH | 99 66 68 48 47 51 | 56.4 29.4 0.81 6.41 -0.08 1.14 | earnings 2026-10-28 AMC (13d)\n9 ZBRA 56.1 NEUTRAL | 76 47 38 79 49 95 | 48.8 3.7 -1.92 4.89 -0.48 2.65 | \n10 DDOG 47.9 NEUTRAL | 80 43 44 44 11 95 | 48.9 7.0 -5.66 9.6 -0.47 1.67 | \n11 VST 46.0 NEUTRAL | 55 61 23 81 9 51 | 48.0 12.4 4.65 1.18 -0.08 1.35 | \n12 HPE 27.3 BEARISH | 45 37 4 41 0 95 | 40.4 2.2 -10.86 -6.59 -1.79 3.08 | \n13 DELL 20.2 BEARISH | 35 26 0 30 5 95 | 34.6 1.2 -14.82 -22.49 -3.23 4.33 | BREAKDOWN",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-15T19:55:13"
+}

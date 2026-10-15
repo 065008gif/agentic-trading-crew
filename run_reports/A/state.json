@@ -4,56 +4,56 @@
   "overlay": {
    "adjustments": [
     {
-     "adjust": 10,
-     "note": "Barclays lifts target, strong upgrade",
-     "symbol": "DDOG",
-     "veto_buy": false
+     "adjust": -8,
+     "note": "Apple\u2011Meta partnership scrutiny raises risk",
+     "symbol": "AAPL",
+     "veto_buy": true
     },
     {
      "adjust": 8,
-     "note": "BlackRock bullish outlook on AI spend",
-     "symbol": "META",
-     "veto_buy": false
-    },
-    {
-     "adjust": 0,
-     "note": "No material news",
+     "note": "Goldman Sachs lifts price target",
      "symbol": "MRNA",
      "veto_buy": false
     },
     {
-     "adjust": 0,
-     "note": "Mixed news, lawsuit not a clear catalyst",
+     "adjust": 6,
+     "note": "OpenAI\u2011Meta ad\u2011price sprint fuels buzz",
      "symbol": "MSFT",
      "veto_buy": false
     },
     {
-     "adjust": 0,
-     "note": "Settlement neutral",
+     "adjust": 7,
+     "note": "Mizuho raises target, maintains outperformance",
      "symbol": "PLTR",
      "veto_buy": false
     },
     {
-     "adjust": 10,
-     "note": "Baird raises target, maintains outperform",
+     "adjust": 9,
+     "note": "Baird upgrades and hikes price target",
      "symbol": "SHOP",
      "veto_buy": false
     },
     {
-     "adjust": -3,
-     "note": "Guyana LNG scale\u2011back adds slight downside",
-     "symbol": "XOM",
+     "adjust": 0,
+     "note": "Neutral earnings call transcript",
+     "symbol": "VST",
      "veto_buy": false
     },
     {
-     "adjust": 10,
-     "note": "Barclays raises target, overweight",
-     "symbol": "ZBRA",
+     "adjust": 8,
+     "note": "Deutsche Bank upgrades to Buy, raises target",
+     "symbol": "WMT",
+     "veto_buy": false
+    },
+    {
+     "adjust": 7,
+     "note": "Morgan Stanley overweight, lifts target",
+     "symbol": "XOM",
      "veto_buy": false
     }
    ],
    "exposure": 0.9,
-   "summary": "The market remains in a neutral regime with a modest risk\u2011on tilt, so we keep the portfolio fully invested at 90% of capital. Momentum leaders with strong upgrades\u2014Datadog, Shopify, and Zebra\u2014receive positive score bumps, while XOM gets a slight downgrade due to uncertain LNG plans. No company faces a veto to buy, and neutral\u2011news stocks stay unchanged."
+   "summary": "The market remains neutral overall, but momentum leaders like MRNA, SHOP, and WMT show strong bullish catalysts, while AAPL faces heightened scrutiny. We'll keep 90% of capital deployed, boost scores on the clear upgrade/target\u2011raise stories, and place a veto on new AAPL purchases."
   },
   "symbols": [
    "MRNA",
@@ -70,39 +70,52 @@
    "WMT",
    "AAPL"
   ],
-  "time": "2026-10-15T00:55:22"
+  "time": "2026-10-16T01:11:39"
  },
- "bought": {},
- "no_rebuy": {
+ "bought": {
   "AAPL": {
-   "date": "2026-10-14",
-   "score": 73.0
+   "date": "2026-10-15",
+   "score": 72.5
   },
-  "DELL": {
-   "date": "2026-10-14",
-   "score": 20.3
-  },
-  "HPE": {
-   "date": "2026-10-14",
-   "score": 45.1
+  "PLTR": {
+   "date": "2026-10-15",
+   "score": 79.3
   },
   "VST": {
-   "date": "2026-10-14",
-   "score": 61.4
+   "date": "2026-10-15",
+   "score": 50.8
   },
   "WMT": {
-   "date": "2026-10-14",
-   "score": 75.6
+   "date": "2026-10-15",
+   "score": 77.7
+  }
+ },
+ "no_rebuy": {
+  "DDOG": {
+   "date": "2026-10-15",
+   "score": 55.9
+  },
+  "META": {
+   "date": "2026-10-15",
+   "score": 69.5
+  },
+  "PLTR": {
+   "date": "2026-10-15",
+   "score": 63.9
+  },
+  "ZBRA": {
+   "date": "2026-10-15",
+   "score": 61.3
   }
  },
  "peaks": {
-  "DDOG": 283.58,
-  "META": 761.71,
-  "MRNA": 226.62,
+  "AAPL": 346.1357,
+  "MRNA": 241.68,
   "MSFT": 545.56,
-  "PLTR": 207.1262,
+  "PLTR": 200.71,
   "SHOP": 178.22,
-  "XOM": 177.3,
-  "ZBRA": 384.95
+  "VST": 153.91,
+  "WMT": 120.69,
+  "XOM": 177.3
  }
 }
