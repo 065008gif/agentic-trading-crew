@@ -309,3 +309,16 @@ def test_small_resize_of_a_held_stock_is_skipped():
     plan = build_plan(rows, REGIME, pos, ACCT)
     t = {x["symbol"]: x for x in plan["targets"]}
     assert not any(o["symbol"] == "AAA" for o in plan["orders"]) or abs(t["AAA"]["dollars"]) >= 2500
+
+
+def test_intraday_brake_and_falling_knife():
+    rows = [row(s, 88) for s in "ABCDEFGH"] + [row("KNIFE", 90, day_pct=-5.2)]
+    calm = build_plan(rows, {**REGIME, "qqq_day_pct": -0.3}, {}, ACCT)
+    assert calm["exposure_target"] == 0.97 and not calm.get("brake")
+    rout = build_plan(rows, {**REGIME, "qqq_day_pct": -1.8}, {}, ACCT)
+    assert rout["exposure_target"] == 0.55 and "QQQ" in rout["brake"]
+    assert sum(x["target_weight"] for x in rout["targets"]) <= 0.55 + 1e-9
+    t = {x["symbol"]: x for x in rout["targets"]}
+    assert t["KNIFE"]["action"] == "AVOID" and t["KNIFE"]["target_weight"] == 0
+    crash = build_plan(rows, {**REGIME, "qqq_day_pct": -3.0}, {}, ACCT)
+    assert crash["exposure_target"] == 0.35

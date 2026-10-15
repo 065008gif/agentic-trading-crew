@@ -18,11 +18,14 @@ from datetime import date, timedelta
 class RiskSettings:
     max_position_pct: float = 0.25      # cap per stock (aggressive: the brief says "MUST take risks")
     max_holdings: int = 8               # concentrate on the strongest 8 of the 13 (all 13 stay tradable)
-    weight_power: float = 2.5           # how hard money tilts to the top scores (1.5 = gentler)
+    weight_power: float = 2.0           # how hard money tilts to the top scores (2.5 swung too much on AI-score noise)
     hold_bonus: float = 5.0             # a held stock keeps its slot unless a newcomer beats it by 5+
     same_day_drop: float = 15.0         # same-day sell/re-buy needs the technical score to move this much
     rel_band: float = 0.25              # resize a held stock only if the change is 25%+ of the position
     conviction_caps: tuple = ((80, 0.25), (70, 0.18), (0, 0.12))   # (min final score, max weight)
+    # intraday brake: today's Nasdaq-100 (QQQ) move -> most of the account allowed in stocks
+    day_brake: tuple = ((-2.5, 0.35), (-1.5, 0.55), (-0.75, 0.75))
+    knife_day_pct: float = -4.0         # no NEW buy in a stock already down 4%+ today
     min_position_pct: float = 0.03      # smaller targets are dropped (not worth the noise)
     entry_score: float = 52             # new buys need at least this final score
     exit_score: float = 40              # held stocks are sold below this (hysteresis)
@@ -127,6 +130,17 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
         want = max(exposure - 0.10, min(exposure + 0.10, want))
         exposure = max(0.5, min(rs.max_exposure, want))
     exposure = min(exposure, rs.max_exposure)
+    # 14-15 Oct: the daily regime lagged a fast AI/tech sell-off. Today's live index move caps
+    # exposure; when the index recovers, the cap lifts and the money goes back in.
+    qd = regime.get("qqq_day_pct")
+    brake_note = None
+    if isinstance(qd, (int, float)):
+        for lim, cap in rs.day_brake:
+            if qd <= lim:
+                if exposure > cap:
+                    brake_note = f"Nasdaq-100 (QQQ) {qd:+.2f}% today: exposure capped at {cap:.0%} (was {exposure:.0%})"
+                    exposure = cap
+                break
 
     by_sym = {r["symbol"]: r for r in rows}
     targets: dict[str, Target] = {}
@@ -201,6 +215,11 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                                  f"{rs.same_day_drop:.0f}+ points (now {t.alpha})")
                 continue
             t.reasons.append(f"sold earlier today at technical score {sold_at}, now {t.alpha}: clearly stronger, re-buy allowed")
+        dp = r.get("day_pct")
+        if not held and isinstance(dp, (int, float)) and dp <= rs.knife_day_pct:
+            t.action = "AVOID"; blocked.add(sym)
+            t.reasons.append(f"down {dp:+.1f}% today: not catching a falling knife")
+            continue
         if not held and close and stop and close < stop:
             # 14 Oct: stocks below their trailing stop were bought, stopped out on the next run,
             # then re-bought as fillers, again and again. Never open a position that the stop
@@ -383,6 +402,7 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
         "date": today.isoformat(), "profile": profile, "equity": round(equity, 2), "cash": round(cash, 2),
         "regime": regime.get("regime"), "regime_score": regime.get("regime_score"),
         "exposure_target": round(exposure, 3), "invested_after_pct": round(100 * invested_after, 1),
+        "brake": brake_note,
         "settings": asdict(rs),
         "targets": [asdict(t) for t in sorted(targets.values(), key=lambda x: -x.final)],
         "orders": orders,
@@ -394,6 +414,7 @@ def plan_markdown(plan: dict) -> str:
     L = [f"**Equity:** ${plan['equity']:,.0f} | **Cash:** ${plan['cash']:,.0f} | "
          f"**Regime:** {plan['regime']} ({plan['regime_score']}) | "
          f"**Target exposure:** {plan['exposure_target']:.0%} | **Invested after plan:** {plan['invested_after_pct']}%",
+         *([f"", f"**Intraday brake:** {plan['brake']}"] if plan.get("brake") else []),
          "", "| Symbol | Alpha | PM adj | Final | Now | Target | Action | Why |", "|---|---|---|---|---|---|---|---|"]
     for t in plan["targets"]:
         L.append(f"| {t['symbol']} | {t['alpha']} | {t['adjust']:+.0f} | {t['final']} | {t['current_weight']:.1%} | "

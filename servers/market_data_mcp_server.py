@@ -91,6 +91,16 @@ def fetch_ohlcv_batch(symbols: list[str], lookback_days: int = 400) -> str:
             f"in 1 Alpaca call.\n" + "\n".join(lines) + (f"\nMISSING: {', '.join(missing)}" if missing else ""))
 
 
+def _day_pct(df) -> float | None:
+    """Today's % move (latest price vs yesterday's close) if the last bar is today's."""
+    try:
+        if len(df) < 2 or df.index[-1].date() != ar.market_today():
+            return None
+        return round(float(100 * (df["close"].iloc[-1] / df["close"].iloc[-2] - 1)), 2)
+    except Exception:
+        return None
+
+
 def _scores(symbols, profile, families):
     """Indicators + Alpha Score for every symbol: (rows, text table, families used, missing)."""
     syms = _clean(symbols)
@@ -113,7 +123,7 @@ def _scores(symbols, profile, families):
                      "zscore": snap["zscore20"], "atr_pct": snap["atr_pct"],
                      "beta60": snap.get("beta60"), "stop": snap["chandelier_stop"],
                      "breakout": snap["donchian_breakout"], "breakdown": snap["donchian_breakdown"],
-                     "earnings": _earnings_note(s), "as_of": snap["as_of"]})
+                     "earnings": _earnings_note(s), "as_of": snap["as_of"], "day_pct": _day_pct(df)})
     rows.sort(key=lambda r: r["alpha_score"], reverse=True)
     lines = ["rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note"]
     for i, r in enumerate(rows, 1):
@@ -178,6 +188,8 @@ def get_market_regime(benchmarks: list[str] = ["SPY", "QQQ"]) -> str:  # noqa: B
     out.update({"spy_close": spy and spy["close"], "spy_rsi14": spy and spy["rsi14"],
                 "spy_vs_ema50_pct": spy and spy["ema50"] and round(100 * (spy["close"] / spy["ema50"] - 1), 2),
                 "qqq_roc10": qqq and qqq["roc10"], "high_beta_vs_low_vol_20d_pct": ratio_roc,
+                "spy_day_pct": _day_pct(_cache["SPY"]) if "SPY" in _cache else None,
+                "qqq_day_pct": _day_pct(_cache["QQQ"]) if "QQQ" in _cache else None,
                 "as_of": spy and spy["as_of"]})
     return json.dumps(out)
 
