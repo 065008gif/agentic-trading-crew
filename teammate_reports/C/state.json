@@ -1,0 +1,170 @@
+{
+ "ai": {
+  "model": "groq:openai/gpt-oss-120b",
+  "overlay": {
+   "adjustments": [
+    {
+     "adjust": 5,
+     "note": "Trader buying indicates mild bullish sentiment",
+     "symbol": "MRVL",
+     "veto_buy": false
+    },
+    {
+     "adjust": -3,
+     "note": "Earnings risk, no clear catalyst",
+     "symbol": "TSM",
+     "veto_buy": false
+    },
+    {
+     "adjust": 10,
+     "note": "Partnership with FormFactor",
+     "symbol": "TER",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "No material news",
+     "symbol": "NEM",
+     "veto_buy": false
+    },
+    {
+     "adjust": 8,
+     "note": "RBC reiterates Outperform",
+     "symbol": "AMAT",
+     "veto_buy": false
+    },
+    {
+     "adjust": -4,
+     "note": "Stock falling, bearish pressure",
+     "symbol": "AMD",
+     "veto_buy": false
+    },
+    {
+     "adjust": -4,
+     "note": "Stock falling, bearish pressure",
+     "symbol": "SMCI",
+     "veto_buy": false
+    },
+    {
+     "adjust": 6,
+     "note": "AI tool expansion supports growth",
+     "symbol": "NVDA",
+     "veto_buy": false
+    },
+    {
+     "adjust": 5,
+     "note": "Trader buying suggests bullish bias",
+     "symbol": "LLY",
+     "veto_buy": false
+    },
+    {
+     "adjust": -10,
+     "note": "Delta launch delay hurts outlook",
+     "symbol": "DAL",
+     "veto_buy": true
+    },
+    {
+     "adjust": 0,
+     "note": "No material news",
+     "symbol": "UBER",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "No recent news",
+     "symbol": "GNRC",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "No recent news",
+     "symbol": "MPWR",
+     "veto_buy": false
+    }
+   ],
+   "exposure": 0.9,
+   "summary": "The market remains neutral with a slight risk\u2011on tilt, favoring rebound opportunities in high\u2011beta chip stocks. We keep overall exposure at 90% and add modest upside to TER and AMAT on partnership and analyst upgrade, while trimming exposure to AMD and SMCI due to price weakness. No new positions will be taken in DAL given its adverse news, and other holdings stay largely unchanged."
+  },
+  "symbols": [
+   "MRVL",
+   "AMD",
+   "SMCI",
+   "MPWR",
+   "AMAT",
+   "TER",
+   "NVDA",
+   "TSM",
+   "LLY",
+   "NEM",
+   "DAL",
+   "UBER",
+   "GNRC"
+  ],
+  "time": "2026-10-15T01:16:13"
+ },
+ "bought": {
+  "AMAT": {
+   "date": "2026-10-14",
+   "score": 63.3
+  },
+  "LLY": "2026-10-14",
+  "NEM": {
+   "date": "2026-10-14",
+   "score": 63.5
+  },
+  "NVDA": {
+   "date": "2026-10-14",
+   "score": 61.4
+  }
+ },
+ "no_rebuy": {
+  "AMAT": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "AMD": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "DAL": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "GNRC": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "MPWR": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "MRVL": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "NVDA": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "SMCI": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "TER": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "TSM": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "UBER": {
+   "date": "2026-10-14",
+   "score": 38.5
+  }
+ },
+ "peaks": {
+  "LLY": 1216.42,
+  "NEM": 112.7
+ }
+}

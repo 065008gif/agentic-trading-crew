@@ -1,0 +1,246 @@
+{
+  "date": "2026-10-14",
+  "profile": "catalyst",
+  "equity": 99020.21,
+  "cash": 1970.44,
+  "regime": "RISK-ON",
+  "regime_score": 82.0,
+  "exposure_target": 0.97,
+  "invested_after_pct": 105.4,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.5,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "COST",
+      "alpha": 71.9,
+      "adjust": 0.0,
+      "final": 71.9,
+      "current_value": 22860.091756,
+      "current_weight": 0.2308628890607281,
+      "target_weight": 0.21717192879438102,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "EL",
+      "alpha": 71.3,
+      "adjust": 0.0,
+      "final": 71.3,
+      "current_value": 18069.523156,
+      "current_weight": 0.1824831835440462,
+      "target_weight": 0.2052637976841142,
+      "action": "ADD",
+      "dollars": 2255.74,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "CCL",
+      "alpha": 68.5,
+      "adjust": 0.0,
+      "final": 68.5,
+      "current_value": 16224.266512,
+      "current_weight": 0.16384803175028612,
+      "target_weight": 0.1549147049463463,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "alpha": 59.2,
+      "adjust": 8.0,
+      "final": 67.2,
+      "current_value": 12672.048669,
+      "current_weight": 0.1279743667378609,
+      "target_weight": 0.13437096145008462,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: AI\u2011driven app creator launch adds upside",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "NOW",
+      "alpha": 56.7,
+      "adjust": 9.0,
+      "final": 65.7,
+      "current_value": 7469.454085,
+      "current_weight": 0.07543363203329906,
+      "target_weight": 0.11281032545407396,
+      "action": "ADD",
+      "dollars": 3701.05,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Evercore upgrades to Outperform, raises target"
+      ]
+    },
+    {
+      "symbol": "CEG",
+      "alpha": 61.5,
+      "adjust": 0.0,
+      "final": 61.5,
+      "current_value": 7858.719041,
+      "current_weight": 0.07936479877188707,
+      "target_weight": 0.06399305578901276,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "alpha": 59.4,
+      "adjust": 0.0,
+      "final": 59.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.04553330965127332,
+      "action": "BUY",
+      "dollars": 4508.72,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "ISRG",
+      "alpha": 68.1,
+      "adjust": -10.0,
+      "final": 58.1,
+      "current_value": 11898.393127,
+      "current_weight": 0.1201612592722233,
+      "target_weight": 0.1201612592722233,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -10: BTIG cuts price target, bearish signal",
+        "bought today at score 66.3; score 58.1 has not dropped 15+ points, so kept (stop and profit lock still apply)"
+      ]
+    },
+    {
+      "symbol": "CIEN",
+      "alpha": 56.1,
+      "adjust": 0.0,
+      "final": 56.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold today by a stop or the profit lock; no re-buy until tomorrow"
+      ]
+    },
+    {
+      "symbol": "SPOT",
+      "alpha": 54.3,
+      "adjust": 0.0,
+      "final": 54.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 8: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "GEV",
+      "alpha": 51.7,
+      "adjust": -8.0,
+      "final": 43.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -8: Susquehanna trims target, bearish outlook",
+        "sold earlier today at score 47.0; re-buy only if the score rises 15+ points (now 43.7)"
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "alpha": 43.7,
+      "adjust": 0.0,
+      "final": 43.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 43.7 below entry 52"
+      ]
+    },
+    {
+      "symbol": "LRCX",
+      "alpha": 38.1,
+      "adjust": 0.0,
+      "final": 38.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 38.1 below entry 52"
+      ]
+    }
+  ],
+  "orders": [],
+  "pm_summary": "The market remains firmly risk\u2011on, so we keep a high 97% exposure. Existing positions are largely unchanged except for news\u2011driven tweaks: we penalize ISRG and GEV on their target cuts, and boost GOOGL and NOW on strong product and upgrade news. No new buys are vetoed beyond the flagged bearish cases.",
+  "account": "B",
+  "model": "groq:openai/gpt-oss-120b (AI view from 19:41, reused)",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 COST 71.9 BULLISH | 78 86 69 61 90 27 | 68.0 85.9 6.1 5.38 1.9 -0.03 | BREAKOUT\n2 EL 71.3 BULLISH | 78 84 77 53 90 28 | 61.8 92.6 8.86 2.9 1.81 1.29 | BREAKOUT\n3 CCL 68.5 BULLISH | 85 80 70 59 64 40 | 59.0 22.1 5.88 13.67 0.86 1.57 | \n4 ISRG 68.1 BULLISH | 65 78 64 77 66 38 | 60.7 27.9 2.88 6.7 1.01 0.93 | earnings 2026-10-20 AMC (6d)\n5 CEG 61.5 BULLISH | 75 76 35 84 33 43 | 52.7 17.6 11.22 6.15 0.62 1.41 | \n6 AMZN 59.4 NEUTRAL | 74 62 39 43 70 78 | 51.7 24.1 2.85 1.4 0.63 1.82 | earnings 2026-10-29 AMC (15d)\n7 GOOGL 59.2 NEUTRAL | 74 78 49 37 70 34 | 58.4 91.3 2.85 0.43 1.35 1.39 | earnings 2026-10-27 AMC (13d)\n8 NOW 56.7 NEUTRAL | 76 80 43 23 70 38 | 55.7 61.9 4.38 -2.73 0.99 0.81 | earnings 2026-10-28 AMC (14d)\n9 CIEN 56.1 NEUTRAL | 60 65 44 83 0 78 | 48.9 10.9 8.64 9.47 -0.03 3.04 | \n10 SPOT 54.3 NEUTRAL | 63 65 29 66 47 42 | 52.1 18.2 6.48 -7.94 0.7 -0.45 | earnings 2026-10-22 BMO (8d)\n11 GEV 51.7 NEUTRAL | 54 53 20 68 28 95 | 45.2 7.6 0.13 -0.05 -0.76 1.69 | \n12 TSLA 43.7 NEUTRAL | 29 49 29 53 51 45 | 49.5 9.6 3.58 -0.13 -0.37 2.75 | earnings 2026-10-20 AMC (6d)\n13 LRCX 38.1 BEARISH | 35 25 36 59 0 95 | 39.7 0.4 -10.7 6.24 -1.14 2.93 | earnings 2026-10-21 AMC (7d)",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-14T19:55:21"
+}

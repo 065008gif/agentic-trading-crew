@@ -1,0 +1,307 @@
+{
+  "date": "2026-10-14",
+  "profile": "rebound",
+  "equity": 100000.0,
+  "cash": 100000.0,
+  "regime": "RISK-ON",
+  "regime_score": 95.0,
+  "exposure_target": 0.98,
+  "invested_after_pct": 85.4,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.5,
+    "hold_bonus": 5.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "GNRC",
+      "alpha": 81.9,
+      "adjust": 0.0,
+      "final": 81.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.25,
+      "action": "BUY",
+      "dollars": 25000.0,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "TER",
+      "alpha": 65.0,
+      "adjust": 9.0,
+      "final": 74.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.21206436394071987,
+      "action": "BUY",
+      "dollars": 21206.44,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Collaboration launch, positive"
+      ]
+    },
+    {
+      "symbol": "TSM",
+      "alpha": 66.9,
+      "adjust": 5.0,
+      "final": 71.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.05,
+      "action": "BUY",
+      "dollars": 5000.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Potential benefit from smartphone shift",
+        "earnings next session (earnings 2026-10-15 BMO (1d)): capped at 5%"
+      ]
+    },
+    {
+      "symbol": "LLY",
+      "alpha": 54.7,
+      "adjust": 11.0,
+      "final": 65.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.09128481991627072,
+      "action": "BUY",
+      "dollars": 9128.48,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +11: Regulatory approval for diabetes drug"
+      ]
+    },
+    {
+      "symbol": "MRVL",
+      "alpha": 60.4,
+      "adjust": 4.0,
+      "final": 64.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0776206051553581,
+      "action": "BUY",
+      "dollars": 7762.06,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +4: Investor buying interest"
+      ]
+    },
+    {
+      "symbol": "SMCI",
+      "alpha": 68.4,
+      "adjust": -5,
+      "final": 63.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.06800130652938303,
+      "action": "BUY",
+      "dollars": 6800.13,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -5: Stock falls, negative sentiment",
+        "Risk check: capped -9->-5, news +0.00 does not support it",
+        "Risk check: veto ignored, news +0.00 not negative enough"
+      ]
+    },
+    {
+      "symbol": "MPWR",
+      "alpha": 62.7,
+      "adjust": 0.0,
+      "final": 62.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.06171715036550159,
+      "action": "BUY",
+      "dollars": 6171.72,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "AMD",
+      "alpha": 55.4,
+      "adjust": 5,
+      "final": 60.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.04357872317499873,
+      "action": "BUY",
+      "dollars": 4357.87,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Contract backing for Texas AI",
+        "Risk check: capped +10->+5, news +0.00 does not support it"
+      ]
+    },
+    {
+      "symbol": "NVDA",
+      "alpha": 51.3,
+      "adjust": 5.0,
+      "final": 56.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Partnership with Danaher",
+        "not in the top 8: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "AMAT",
+      "alpha": 63.2,
+      "adjust": -9.0,
+      "final": 54.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -9: High cash payout reduces growth",
+        "not in the top 8: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "UBER",
+      "alpha": 42.2,
+      "adjust": 8.0,
+      "final": 50.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Ex\u2011Tesla exec hired, freight turnaround",
+        "score 50.2 below entry 52"
+      ]
+    },
+    {
+      "symbol": "DAL",
+      "alpha": 59.5,
+      "adjust": -11.0,
+      "final": 48.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -11: Launch delay due to attacks",
+        "PM vetoed new buy"
+      ]
+    },
+    {
+      "symbol": "NEM",
+      "alpha": 48.0,
+      "adjust": 0.0,
+      "final": 48.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 48.0 below entry 52"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "GNRC",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 25000.0,
+      "reason": "score 81.9; target 25.0%"
+    },
+    {
+      "symbol": "SMCI",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 6800.13,
+      "reason": "score 63.4; target 6.8%"
+    },
+    {
+      "symbol": "TSM",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 5000.0,
+      "reason": "score 71.9; target 5.0%"
+    },
+    {
+      "symbol": "TER",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 21206.44,
+      "reason": "score 74.0; target 21.2%"
+    },
+    {
+      "symbol": "MPWR",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 6171.72,
+      "reason": "score 62.7; target 6.2%"
+    },
+    {
+      "symbol": "MRVL",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 7762.06,
+      "reason": "score 64.4; target 7.8%"
+    },
+    {
+      "symbol": "AMD",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 4357.87,
+      "reason": "score 60.4; target 4.4%"
+    },
+    {
+      "symbol": "LLY",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 9128.48,
+      "reason": "score 65.7; target 9.1%"
+    }
+  ],
+  "pm_summary": "The market remains in a strong risk\u2011on regime, so we keep capital fully deployed at 98% exposure. Positive contract, collaboration, and regulatory news lift AMD, TER, LLY and UBER, while clear downside headlines on SMCI and DAL trigger sizable negative adjustments and vetoes. Neutral or no\u2011news names stay near their baseline scores.",
+  "account": "C",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "approve",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 GNRC 81.9 BULLISH | 100 65 50 69 45 95 | 54.1 9.9 1.05 19.48 0.39 2.17 | \n2 SMCI 68.4 BULLISH | 63 39 37 57 2 95 | 45.5 4.8 -4.77 6.65 -1.34 3.96 | \n3 TSM 66.9 BULLISH | 41 44 32 58 34 95 | 48.1 8.4 -2.65 4.7 -0.52 1.84 | earnings 2026-10-15 BMO (1d)\n4 TER 65.0 BULLISH | 38 37 48 53 0 95 | 45.9 7.5 -5.68 11.29 -0.65 2.82 | earnings 2026-10-27 AMC (13d)\n5 AMAT 63.2 BULLISH | 41 34 38 47 0 95 | 40.5 0.5 -9.38 7.17 -0.72 2.59 | \n6 MPWR 62.7 BULLISH | 43 42 50 73 20 78 | 47.8 11.9 -2.5 12.75 -0.27 1.64 | earnings 2026-10-29 AMC (15d)\n7 MRVL 60.4 BULLISH | 90 67 50 76 70 45 | 56.8 36.5 2.07 18.23 0.41 3.34 | \n8 DAL 59.5 NEUTRAL | 16 31 15 51 39 95 | 40.0 1.2 -6.29 -2.16 -1.42 1.71 | \n9 AMD 55.4 NEUTRAL | 68 66 50 59 37 51 | 55.8 46.9 -0.36 17.1 -0.08 3.11 | \n10 LLY 54.7 NEUTRAL | 83 56 44 46 70 49 | 50.1 27.2 -1.51 -0.3 0.11 -0.23 | earnings 2026-10-29 BMO (15d)\n11 NVDA 51.3 NEUTRAL | 62 54 32 50 70 50 | 52.0 44.3 0.56 4.72 0.03 1.91 | \n12 NEM 48.0 NEUTRAL | 35 41 17 57 28 60 | 43.9 28.9 -1.28 -9.93 -0.84 1.51 | earnings 2026-10-22 AMC (8d)\n13 UBER 42.2 NEUTRAL | 36 62 49 45 74 34 | 52.0 69.9 2.77 -3.2 1.37 0.48 | ",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-14T17:01:18"
+}

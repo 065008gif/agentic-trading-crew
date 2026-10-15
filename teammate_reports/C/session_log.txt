@@ -1,0 +1,26 @@
+14-10-2026 19:12 IST  run 1: model groq:openai/gpt-oss-120b, regime RISK-ON, 11 order(s) sent, 0 error(s), invested after plan 127.7%
+14-10-2026 19:26 IST  run 2: model groq:openai/gpt-oss-120b (AI view from 19:11, reused), regime RISK-ON, 9 order(s) sent, 0 error(s), invested after plan 118.1%
+14-10-2026 19:42 IST  run 3: model groq:openai/gpt-oss-120b, regime RISK-ON, 9 order(s) sent, 0 error(s), invested after plan 115.6%
+14-10-2026 19:56 IST  run 4: model groq:openai/gpt-oss-120b (AI view from 19:41, reused), regime RISK-ON, 8 order(s) sent, 0 error(s), invested after plan 116.0%
+14-10-2026 20:12 IST  run 5: model groq:openai/gpt-oss-120b, regime RISK-ON, 8 order(s) sent, 0 error(s), invested after plan 121.6%
+14-10-2026 20:26 IST  run 6: model groq:openai/gpt-oss-120b (AI view from 20:11, reused), regime RISK-ON, 8 order(s) sent, 0 error(s), invested after plan 121.6%
+14-10-2026 20:42 IST  run 7: model groq:openai/gpt-oss-120b, regime RISK-ON, 6 order(s) sent, 0 error(s), invested after plan 118.7%
+14-10-2026 20:56 IST  run 8: model groq:openai/gpt-oss-120b (AI view from 20:42, reused), regime RISK-ON, 7 order(s) sent, 0 error(s), invested after plan 121.7%
+14-10-2026 21:13 IST  run 9: model groq:openai/gpt-oss-120b, regime RISK-ON, 10 order(s) sent, 0 error(s), invested after plan 100.7%
+14-10-2026 21:26 IST  run 10: model groq:openai/gpt-oss-120b (AI view from 21:12, reused), regime RISK-ON, 8 order(s) sent, 0 error(s), invested after plan 102.4%
+14-10-2026 21:43 IST  run 11: model groq:openai/gpt-oss-120b, regime RISK-ON, 8 order(s) sent, 0 error(s), invested after plan 99.1%
+14-10-2026 21:57 IST  run 12: model groq:openai/gpt-oss-120b (AI view from 21:42, reused), regime NEUTRAL, 8 order(s) sent, 0 error(s), invested after plan 99.8%
+14-10-2026 22:13 IST  run 13: model groq:openai/gpt-oss-120b, regime NEUTRAL, 8 order(s) sent, 0 error(s), invested after plan 98.7%
+14-10-2026 22:27 IST  run 14: model groq:openai/gpt-oss-120b (AI view from 22:12, reused), regime NEUTRAL, 8 order(s) sent, 0 error(s), invested after plan 98.7%
+14-10-2026 22:45 IST  run 15: model groq:openai/gpt-oss-120b, regime NEUTRAL, 8 order(s) sent, 0 error(s), invested after plan 98.7%
+14-10-2026 22:59 IST  run 16: model groq:openai/gpt-oss-120b (AI view from 22:44, reused), regime NEUTRAL, 8 order(s) sent, 0 error(s), invested after plan 98.7%
+14-10-2026 23:16 IST  run 17: model groq:openai/gpt-oss-120b, regime NEUTRAL, 9 order(s) sent, 0 error(s), invested after plan 90.0%
+14-10-2026 23:29 IST  run 18: model groq:openai/gpt-oss-120b (AI view from 23:15, reused), regime NEUTRAL, 6 order(s) sent, 0 error(s), invested after plan 90.0%
+14-10-2026 23:46 IST  run 19: model groq:openai/gpt-oss-120b, regime NEUTRAL, 6 order(s) sent, 0 error(s), invested after plan 90.0%
+14-10-2026 23:59 IST  run 20: model groq:openai/gpt-oss-120b (AI view from 23:45, reused), regime NEUTRAL, 6 order(s) sent, 0 error(s), invested after plan 90.0%
+15-10-2026 00:16 IST  run 21: model groq:openai/gpt-oss-120b, regime NEUTRAL, 6 order(s) sent, 0 error(s), invested after plan 90.0%
+15-10-2026 00:30 IST  run 22: model groq:openai/gpt-oss-120b (AI view from 00:15, reused), regime NEUTRAL, 6 order(s) sent, 0 error(s), invested after plan 90.0%
+15-10-2026 00:46 IST  run 23: model groq:openai/gpt-oss-120b, regime NEUTRAL, 6 order(s) sent, 0 error(s), invested after plan 60.0%
+15-10-2026 01:00 IST  run 24: model groq:openai/gpt-oss-120b (AI view from 00:45, reused), regime NEUTRAL, 4 order(s) sent, 0 error(s), invested after plan 60.0%
+15-10-2026 01:16 IST  run 25: model groq:openai/gpt-oss-120b, regime NEUTRAL, 4 order(s) sent, 0 error(s), invested after plan 60.0%
+15-10-2026 01:31 IST  session ended after 25 run(s)

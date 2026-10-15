@@ -368,6 +368,17 @@ def execute_plan(plan: dict, keys: dict | None = None, rec: RunRecorder | None =
     """Send the plan's orders through the trading MCP server: sells first, then buys."""
     env = alpaca_env(keys)
     label = plan.get("account", "CUSTOM")
+    # 14 Oct: a run at 5 PM IST (market closed) queued orders that filled at the next open at
+    # prices the plan never saw. Orders are only sent while the US market is open.
+    clock0 = bridge.call(bridge.TRADING_SERVER, "get_market_clock", {}, env)
+    if (isinstance(clock0, dict) and clock0.get("is_open") is False
+            and os.environ.get("ALLOW_CLOSED_MARKET", "0") != "1"):
+        msg = (f"US market is closed: no orders sent. Run again between 7:00 PM and 1:30 AM IST "
+               f"(next open {clock0.get('next_open')}).")
+        print("\n" + msg)
+        if rec:
+            rec.write("Executor", "No orders: market closed", msg)
+        return []
     sells = [o for o in plan["orders"] if o["side"] == "sell"]
     buys = [o for o in plan["orders"] if o["side"] == "buy"]
     calls = []

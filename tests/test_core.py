@@ -100,12 +100,13 @@ def test_earnings_cap_for_non_catalyst_profile():
 
 def test_fillers_get_fixed_small_weight_and_never_outnumber_strong_names():
     rows = [row("AAA", 80), row("BBB", 75)] + [row(s, 46) for s in "CDEFGH"]
-    plan = build_plan(rows, REGIME, {}, ACCT)
+    flat = RiskSettings(conviction_caps=((0, 0.25),))
+    plan = build_plan(rows, REGIME, {}, ACCT, settings=flat)
     t = {x["symbol"]: x for x in plan["targets"]}
     fillers = [x for x in plan["targets"] if "added to reach minimum holdings" in x["reasons"]]
     assert len(fillers) == 2                      # no more fillers than qualified names
     assert all(abs(f["target_weight"] - 0.05) < 1e-9 for f in fillers)
-    assert t["AAA"]["target_weight"] == t["BBB"]["target_weight"] == RiskSettings().max_position_pct
+    assert t["AAA"]["target_weight"] == t["BBB"]["target_weight"] == flat.max_position_pct
     assert sum(x["target_weight"] for x in plan["targets"]) <= 0.98 + 1e-9
 
 
@@ -115,7 +116,7 @@ def test_first_live_run_13_oct_sizing():
               "NVDA": 41.0, "TSM": 39.3, "AVGO": 33.6, "LRCX": 33.2, "MU": 24.4, "SNDK": 19.1, "VRT": 13.7}
     rows = [row(s, v) for s, v in scores.items()]
     reg = {"regime": "RISK-ON", "regime_score": 95, "invest_fraction": 0.97}
-    legacy = RiskSettings(max_position_pct=0.20, weight_power=1.5)   # settings used that day
+    legacy = RiskSettings(max_position_pct=0.20, weight_power=1.5, conviction_caps=((0, 0.20),))   # settings that day
     plan = build_plan(rows, reg, {}, ACCT, settings=legacy)
     w = {x["symbol"]: x["target_weight"] for x in plan["targets"]}
     for strong in ("PLTR", "META", "GOOGL", "GEV"):
@@ -284,3 +285,27 @@ def test_no_flip_flop_within_a_day():
     rows[0] = row("DELL", 60, close=470, stop=480)
     plan2 = build_plan(rows, REGIME, pos, ACCT, bought_today={"DELL": 66})
     assert {x["symbol"]: x for x in plan2["targets"]}["DELL"]["action"] == "EXIT"
+
+
+def test_14_oct_bugs_buy_below_stop_fillers_and_overinvestment():
+    """14 Oct, account C: stocks below their trailing stop were bought, stopped out the next run,
+    re-bought as 'fillers' despite the no-re-buy rule; plans added up to 104-128% invested."""
+    rows = [row("MRVL", 74, close=100, stop=90), row("NEM", 63, close=100, stop=90),
+            row("TSM", 62, close=438, stop=459), row("AMAT", 60, close=456, stop=493),
+            row("MPWR", 68, close=100, stop=90), row("GNRC", 50, close=100, stop=90)]
+    pos = {"GNRC": {"qty": 250, "market_value": 25000, "avg_entry": 100, "pl_pct": 0}}
+    plan = build_plan(rows, REGIME, pos, ACCT, no_rebuy={"MPWR": None}, bought_today={"GNRC": 50})
+    t = {x["symbol"]: x for x in plan["targets"]}
+    for s in ("TSM", "AMAT", "MPWR"):                       # below stop / stopped out today: never bought
+        assert t[s]["target_weight"] == 0 and t[s]["action"] == "AVOID", s
+    assert t["GNRC"]["target_weight"] == 0.25 and t["GNRC"]["action"] == "HOLD"   # locked, not sold
+    assert sum(x["target_weight"] for x in plan["targets"]) <= 0.98 + 1e-9         # never above exposure
+    assert t["NEM"]["target_weight"] <= 0.12 + 1e-9                                 # mediocre score: small cap
+
+
+def test_small_resize_of_a_held_stock_is_skipped():
+    pos = {"AAA": {"qty": 100, "market_value": 10000, "avg_entry": 100, "pl_pct": 0}}
+    rows = [row("AAA", 82)] + [row(s, 81) for s in "BCDEFGH"]
+    plan = build_plan(rows, REGIME, pos, ACCT)
+    t = {x["symbol"]: x for x in plan["targets"]}
+    assert not any(o["symbol"] == "AAA" for o in plan["orders"]) or abs(t["AAA"]["dollars"]) >= 2500

@@ -58,7 +58,7 @@ def blocked_today(st: dict, today: date) -> dict:
 
 
 def bought_today(st: dict, today: date) -> dict:
-    """{symbol: final score at purchase} for stocks first bought today."""
+    """{symbol: technical (alpha) score at purchase} for stocks first bought today."""
     return {s: (v.get("score") if isinstance(v, dict) else None)
             for s, v in st["bought"].items() if _bought_day(v) == today.isoformat()}
 
@@ -67,13 +67,13 @@ def record_exits(st: dict, plan: dict, today: date) -> None:
     """After orders were sent: remember today's full sales and first buys."""
     t = today.isoformat()
     st["no_rebuy"] = {s: v for s, v in st["no_rebuy"].items() if _bought_day(v) == t}
-    finals = {x["symbol"]: x.get("final") for x in plan.get("targets", [])}
+    alphas = {x["symbol"]: x.get("alpha") for x in plan.get("targets", [])}
     st["bought"] = {s: v for s, v in st["bought"].items() if _bought_day(v) == t}
-    new_buys = {x["symbol"]: x.get("final") for x in plan.get("targets", []) if x.get("action") == "BUY"}
+    new_buys = {x["symbol"]: x.get("alpha") for x in plan.get("targets", []) if x.get("action") == "BUY"}
     for o in plan.get("orders", []):
         if o.get("side") == "sell" and o.get("type") == "close":
             hard = "stop hit" in o.get("reason", "") or "profit lock" in o.get("reason", "")
-            st["no_rebuy"][o["symbol"]] = {"date": t, "score": None if hard else finals.get(o["symbol"])}
+            st["no_rebuy"][o["symbol"]] = {"date": t, "score": None if hard else alphas.get(o["symbol"])}
             st["peaks"].pop(o["symbol"], None)
             st["bought"].pop(o["symbol"], None)
         elif o.get("side") == "buy" and o["symbol"] in new_buys:

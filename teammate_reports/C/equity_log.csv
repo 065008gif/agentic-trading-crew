@@ -1,0 +1,28 @@
+timestamp,equity,cash,last_equity,regime,exposure_target,orders,model
+2026-10-14T15:41:33,100000.0,100000.0,100000.0,RISK-ON,0.98,8,groq:openai/gpt-oss-120b
+2026-10-14T17:01:18,100000.0,100000.0,100000.0,RISK-ON,0.98,8,groq:openai/gpt-oss-120b
+2026-10-14T19:11:49,99330.41,14573.38,100000.0,RISK-ON,0.98,11,groq:openai/gpt-oss-120b
+2026-10-14T19:25:27,98900.54,1989.85,100000.0,RISK-ON,0.98,9,"groq:openai/gpt-oss-120b (AI view from 19:11, reused)"
+2026-10-14T19:41:51,98482.18,1967.77,100000.0,RISK-ON,0.95,9,groq:openai/gpt-oss-120b
+2026-10-14T19:55:37,98178.38,1958.09,100000.0,RISK-ON,0.95,8,"groq:openai/gpt-oss-120b (AI view from 19:41, reused)"
+2026-10-14T20:12:04,98050.56,1961.31,100000.0,RISK-ON,0.97,8,groq:openai/gpt-oss-120b
+2026-10-14T20:25:50,97956.88,1966.59,100000.0,RISK-ON,0.97,8,"groq:openai/gpt-oss-120b (AI view from 20:11, reused)"
+2026-10-14T20:42:15,97530.17,1959.99,100000.0,RISK-ON,0.98,6,groq:openai/gpt-oss-120b
+2026-10-14T20:56:05,97404.95,2224.84,100000.0,RISK-ON,0.98,7,"groq:openai/gpt-oss-120b (AI view from 20:42, reused)"
+2026-10-14T21:12:27,96888.83,1948.26,100000.0,RISK-ON,0.98,10,groq:openai/gpt-oss-120b
+2026-10-14T21:26:15,97191.65,1958.44,100000.0,RISK-ON,0.98,8,"groq:openai/gpt-oss-120b (AI view from 21:12, reused)"
+2026-10-14T21:42:48,97177.97,1940.83,100000.0,RISK-ON,0.97,8,groq:openai/gpt-oss-120b
+2026-10-14T21:56:30,96723.06,1895.96,100000.0,NEUTRAL,0.97,8,"groq:openai/gpt-oss-120b (AI view from 21:42, reused)"
+2026-10-14T22:13:11,97175.88,1922.62,100000.0,NEUTRAL,0.9,8,groq:openai/gpt-oss-120b
+2026-10-14T22:26:54,96981.49,1916.76,100000.0,NEUTRAL,0.9,8,"groq:openai/gpt-oss-120b (AI view from 22:12, reused)"
+2026-10-14T22:44:52,96969.88,1944.73,100000.0,NEUTRAL,0.9,8,groq:openai/gpt-oss-120b
+2026-10-14T22:58:34,96666.99,1921.91,100000.0,NEUTRAL,0.9,8,"groq:openai/gpt-oss-120b (AI view from 22:44, reused)"
+2026-10-14T23:15:16,96639.74,1932.57,100000.0,NEUTRAL,0.95,9,groq:openai/gpt-oss-120b
+2026-10-14T23:28:55,96369.75,11416.44,100000.0,NEUTRAL,0.95,6,"groq:openai/gpt-oss-120b (AI view from 23:15, reused)"
+2026-10-14T23:45:48,96576.98,11407.93,100000.0,NEUTRAL,0.9,6,groq:openai/gpt-oss-120b
+2026-10-14T23:59:16,96457.38,11409.79,100000.0,NEUTRAL,0.9,6,"groq:openai/gpt-oss-120b (AI view from 23:45, reused)"
+2026-10-15T00:16:01,96443.6,11397.53,100000.0,NEUTRAL,0.9,6,groq:openai/gpt-oss-120b
+2026-10-15T00:29:35,96328.32,11344.31,100000.0,NEUTRAL,0.9,6,"groq:openai/gpt-oss-120b (AI view from 00:15, reused)"
+2026-10-15T00:46:04,96195.14,11358.64,100000.0,NEUTRAL,0.95,6,groq:openai/gpt-oss-120b
+2026-10-15T00:59:52,96231.1,39995.22,100000.0,NEUTRAL,0.95,4,"groq:openai/gpt-oss-120b (AI view from 00:45, reused)"
+2026-10-15T01:16:26,96181.39,40029.69,100000.0,NEUTRAL,0.9,4,groq:openai/gpt-oss-120b

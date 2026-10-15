@@ -20,7 +20,9 @@ class RiskSettings:
     max_holdings: int = 8               # concentrate on the strongest 8 of the 13 (all 13 stay tradable)
     weight_power: float = 2.5           # how hard money tilts to the top scores (1.5 = gentler)
     hold_bonus: float = 5.0             # a held stock keeps its slot unless a newcomer beats it by 5+
-    same_day_drop: float = 15.0         # a stock bought today may be sold today if its score fell this much
+    same_day_drop: float = 15.0         # same-day sell/re-buy needs the technical score to move this much
+    rel_band: float = 0.25              # resize a held stock only if the change is 25%+ of the position
+    conviction_caps: tuple = ((80, 0.25), (70, 0.18), (0, 0.12))   # (min final score, max weight)
     min_position_pct: float = 0.03      # smaller targets are dropped (not worth the noise)
     entry_score: float = 52             # new buys need at least this final score
     exit_score: float = 40              # held stocks are sold below this (hysteresis)
@@ -67,19 +69,20 @@ def _earnings_soon(note: str | None, today: date) -> bool:
     return d == today or (d == nxt and when == "BMO") or (d == today and when == "AMC")
 
 
-def _capped_split(raw: dict, budget: float, cap: float) -> dict:
-    """Split `budget` by score weight, cap each name, and pass the excess to the
-    names still under the cap (if every name is capped, the rest stays cash)."""
+def _capped_split(raw: dict, budget: float, cap) -> dict:
+    """Split `budget` by score weight, cap each name (cap: number or {symbol: cap}),
+    and pass the excess to names still under their cap (else it stays cash)."""
+    capof = (lambda s: cap[s]) if isinstance(cap, dict) else (lambda s: cap)
     tot = sum(raw.values())
     weights = {s: budget * v / tot for s, v in raw.items()}
-    for _ in range(10):
-        over = {s: w for s, w in weights.items() if w > cap + 1e-9}
+    for _ in range(12):
+        over = {s: w for s, w in weights.items() if w > capof(s) + 1e-9}
         if not over:
             break
-        spare = sum(w - cap for w in over.values())
+        spare = sum(w - capof(s) for s, w in over.items())
         for s in over:
-            weights[s] = cap
-        free = {s: raw[s] for s in weights if weights[s] < cap - 1e-9}
+            weights[s] = capof(s)
+        free = {s: raw[s] for s in weights if weights[s] < capof(s) - 1e-9}
         if not free:
             break
         ft = sum(free.values())
@@ -98,13 +101,15 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
     server. When given, the Portfolio Manager's adjustments and vetoes are
     checked against it, so an LLM misreading cannot move money on its own.
     peaks: {symbol: highest price seen while we held it} for the profit lock.
-    no_rebuy: {symbol: score when sold, or None} for stocks fully sold today. After a stop or
-    the profit lock (None) no re-buy today; after a soft sale, a re-buy today only if the
-    score is now 15+ points higher than when it was sold.
-    bought_today: {symbol: final score when it was bought} for stocks first bought today.
-    They are not sold or trimmed again today for a small wobble in the AI score; they CAN
-    be sold the same day if the stop, the profit lock, a score below the exit level, or a
-    real deterioration (final score 15+ points below the buy score) says so."""
+    no_rebuy: {symbol: technical (alpha) score when sold, or None} for stocks fully sold
+    today. After a stop or the profit lock (None) no re-buy today; after a soft sale, a
+    re-buy today only if the technical score is now 15+ points higher.
+    bought_today: {symbol: technical (alpha) score when bought} for stocks first bought today.
+    They keep at least their current size today (no flip-flop on AI-score wobble); they ARE
+    sold the same day on the stop, the profit lock, a score below the exit level, or a real
+    deterioration (technical score 15+ points below the buy score).
+    The technical score is used for these comparisons because the AI adjustment can swing
+    by up to 15 points between two AI refreshes without anything happening in the market."""
     rs = settings or RiskSettings()
     overlay = overlay or {}
     if today is None:
@@ -162,6 +167,7 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
 
     # ---------------- eligibility and exits
     raw = {}
+    blocked: set[str] = set()       # explicitly not buyable this run (fillers must respect it too)
     for sym, t in targets.items():
         if t.alpha < 0:
             continue
@@ -186,14 +192,22 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
         if not held and no_rebuy and sym in no_rebuy:
             sold_at = no_rebuy[sym]
             if sold_at is None:
-                t.action = "AVOID"; t.reasons.append("sold today by a stop or the profit lock; no re-buy until tomorrow")
+                t.action = "AVOID"; blocked.add(sym)
+                t.reasons.append("sold today by a stop or the profit lock; no re-buy until tomorrow")
                 continue
-            if t.final < float(sold_at) + rs.same_day_drop:
-                t.action = "AVOID"
-                t.reasons.append(f"sold earlier today at score {sold_at}; re-buy only if the score rises "
-                                 f"{rs.same_day_drop:.0f}+ points (now {t.final})")
+            if t.alpha < float(sold_at) + rs.same_day_drop:
+                t.action = "AVOID"; blocked.add(sym)
+                t.reasons.append(f"sold earlier today at technical score {sold_at}; re-buy only if it rises "
+                                 f"{rs.same_day_drop:.0f}+ points (now {t.alpha})")
                 continue
-            t.reasons.append(f"sold earlier today at score {sold_at}, now {t.final}: clearly stronger, re-buy allowed")
+            t.reasons.append(f"sold earlier today at technical score {sold_at}, now {t.alpha}: clearly stronger, re-buy allowed")
+        if not held and close and stop and close < stop:
+            # 14 Oct: stocks below their trailing stop were bought, stopped out on the next run,
+            # then re-bought as fillers, again and again. Never open a position that the stop
+            # would close at the next run.
+            t.action = "AVOID"; blocked.add(sym)
+            t.reasons.append(f"price {close} is below its trailing stop {stop} (downtrend): not buying")
+            continue
         if held and t.final < rs.exit_score:
             t.action = "EXIT"; t.reasons.append(f"score {t.final} below exit level {rs.exit_score}")
             continue
@@ -203,6 +217,8 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
         threshold = rs.exit_score if held else rs.entry_score
         if t.final < threshold or (veto and not held) or (r.get("breakdown") and not held):
             t.action = "AVOID" if not held else t.action
+            if not held and (veto or r.get("breakdown")):
+                blocked.add(sym)
             if veto and not held:
                 t.reasons.append("PM vetoed new buy")
             elif not held:
@@ -223,6 +239,7 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
     # fillers never outnumber the stocks that genuinely qualified
     if raw and len(raw) < rs.min_holdings:
         spare_names = sorted((t for s, t in targets.items() if s not in raw and t.alpha >= 0
+                              and s not in blocked
                               and t.action not in ("EXIT",) and t.final >= rs.exit_score
                               and not adjustments.get(s, {}).get("veto_buy")
                               and not by_sym[s].get("breakdown")), key=lambda t: -t.final)
@@ -239,8 +256,13 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
         filler_w = min(rs.filler_weight_pct, rs.max_position_pct)
         budget = max(0.0, exposure - filler_w * len(forced))
         pool = dict(raw)
+        # conviction caps: only high scores may take the biggest slots (14 Oct: in a weak tape
+        # four mediocre names each got the full 25%)
+        caps = {}
+        for s_ in pool:
+            caps[s_] = min(rs.max_position_pct, next(c for lim, c in rs.conviction_caps if targets[s_].final >= lim))
         while pool:
-            weights = _capped_split(pool, budget, rs.max_position_pct)
+            weights = _capped_split(pool, budget, {s_: caps[s_] for s_ in pool})
             small = [s for s, w in weights.items() if w < rs.min_position_pct - 1e-9]
             if not small:
                 break
@@ -263,6 +285,35 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             w = rs.overextended_cap_pct
             t.reasons.append("overextended (RSI>82, z>2.5): trimmed to lock gains")
         t.target_weight = w
+
+    # ---------------- no flip-flop: stocks first bought today keep at least their current size
+    # (unless a hard exit fired), and the money for that comes out of the other targets, so the
+    # plan never adds up to more than the exposure target
+    locked = {}
+    for sym, buy_alpha in (bought_today or {}).items():
+        t = targets.get(sym)
+        if not t or t.current_value <= 0 or t.action == "EXIT" or t.alpha < 0:
+            continue
+        if buy_alpha is not None and t.alpha <= float(buy_alpha) - rs.same_day_drop:
+            t.reasons.append(f"bought today at technical score {buy_alpha}, now {t.alpha}: "
+                             "real deterioration, selling allowed")
+            continue
+        if not hold_through_earnings and _earnings_soon(by_sym[sym].get("earnings"), today):
+            continue
+        if t.target_weight < t.current_weight:
+            locked[sym] = t.current_weight
+            t.reasons.append(f"bought today (technical score {buy_alpha}): kept at its size until tomorrow; "
+                             "stop and profit lock still apply")
+    if locked:
+        extra = sum(w - targets[s].target_weight for s, w in locked.items())
+        for s, w in locked.items():
+            targets[s].target_weight = w
+        others = [t for s, t in targets.items() if s not in locked and t.target_weight > 0]
+        tot = sum(t.target_weight for t in others)
+        if tot > 0:
+            f = max(0.0, (tot - extra) / tot)
+            for t in others:
+                t.target_weight *= f
 
     # ---------------- orders
     band = max(rs.rebalance_band_pct * equity, rs.min_order_dollars)
@@ -287,16 +338,11 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             if t.current_value:
                 t.reasons.append("within rebalance band")
             continue
-        if delta < 0 and bought_today and sym in bought_today:
-            buy_score = bought_today[sym]
-            if buy_score is None or t.final > float(buy_score) - rs.same_day_drop:
-                # only a small wobble since the buy: do not flip-flop (hard exits were handled above)
-                t.action = "HOLD"
-                t.target_weight = t.current_weight
-                t.reasons.append(f"bought today at score {buy_score}; score {t.final} has not dropped "
-                                 f"{rs.same_day_drop:.0f}+ points, so kept (stop and profit lock still apply)")
-                continue
-            t.reasons.append(f"bought today at score {buy_score} but now {t.final}: real deterioration, selling allowed")
+        if t.current_value > 0 and t.target_weight > 0 and abs(delta) < rs.rel_band * t.current_value:
+            # resize a held stock only for a real change (25%+ of the position), not AI-score noise
+            t.action = "HOLD"
+            t.reasons.append("change smaller than 25% of the position: kept")
+            continue
         if delta > 0:
             t.action = "BUY" if t.current_value == 0 else "ADD"
             t.dollars = round(delta, 2)

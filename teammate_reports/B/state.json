@@ -1,0 +1,121 @@
+{
+ "ai": {
+  "model": "groq:openai/gpt-oss-120b",
+  "overlay": {
+   "adjustments": [
+    {
+     "adjust": 8,
+     "note": "Live\u2011sports rights bid adds upside",
+     "symbol": "AMZN",
+     "veto_buy": false
+    },
+    {
+     "adjust": 2,
+     "note": "No news, modest positive bias",
+     "symbol": "CCL",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "No recent news",
+     "symbol": "CEG",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "No recent news",
+     "symbol": "COST",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "No recent news",
+     "symbol": "EL",
+     "veto_buy": false
+    },
+    {
+     "adjust": 8,
+     "note": "UBS raises price target",
+     "symbol": "GOOGL",
+     "veto_buy": false
+    },
+    {
+     "adjust": -8,
+     "note": "BTIG cuts price target",
+     "symbol": "ISRG",
+     "veto_buy": false
+    },
+    {
+     "adjust": 8,
+     "note": "Citi raises price target",
+     "symbol": "NOW",
+     "veto_buy": false
+    }
+   ],
+   "exposure": 0.9,
+   "summary": "The market remains neutral with a slight bullish beta edge, so we keep 90% of capital deployed. Positive catalysts from Amazon's live\u2011sports bid, Alphabet's target raise, and ServiceNow's upgraded target justify modest score lifts, while Intuitive Surgical's target cut drags its score down. No new information on the remaining holdings, so we leave them unchanged."
+  },
+  "symbols": [
+   "TSLA",
+   "CIEN",
+   "LRCX",
+   "ISRG",
+   "SPOT",
+   "NOW",
+   "GOOGL",
+   "CEG",
+   "EL",
+   "COST",
+   "CCL",
+   "GEV",
+   "AMZN"
+  ],
+  "time": "2026-10-15T01:12:52"
+ },
+ "bought": {
+  "AMZN": {
+   "date": "2026-10-14",
+   "score": 58.7
+  },
+  "CEG": {
+   "date": "2026-10-14",
+   "score": 58.7
+  },
+  "ISRG": {
+   "date": "2026-10-14",
+   "score": 66.3
+  },
+  "NOW": {
+   "date": "2026-10-14",
+   "score": 62.4
+  }
+ },
+ "no_rebuy": {
+  "CEG": {
+   "date": "2026-10-14",
+   "score": 55.5
+  },
+  "CIEN": {
+   "date": "2026-10-14",
+   "score": null
+  },
+  "GEV": {
+   "date": "2026-10-14",
+   "score": 47.0
+  },
+  "NOW": {
+   "date": "2026-10-14",
+   "score": 56.6
+  }
+ },
+ "peaks": {
+  "AMZN": 255.97,
+  "CCL": 26.75,
+  "CEG": 279.38,
+  "COST": 978.48,
+  "EL": 101.24,
+  "GOOGL": 357.67,
+  "ISRG": 423.97,
+  "NOW": 140.68
+ }
+}

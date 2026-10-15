@@ -1,0 +1,194 @@
+timestamp,symbol,side,dollars,qty,reason,status,order_id
+2026-10-14T17:02:02,GNRC,buy,25000.0,,score 81.9; target 25.0%,pending_new,f8d07035-d848-4bea-a9fd-e22ecca3d249
+2026-10-14T17:02:02,SMCI,buy,6800.13,,score 63.4; target 6.8%,pending_new,f4d1c96a-207c-48f6-9e9d-32d5af7144a9
+2026-10-14T17:02:02,TSM,buy,5000.0,,score 71.9; target 5.0%,pending_new,d33e7fb2-41a0-4832-a47c-b50399ee28df
+2026-10-14T17:02:02,TER,buy,21206.44,,score 74.0; target 21.2%,pending_new,86d22003-173e-407b-9ae1-6d98d7282b54
+2026-10-14T17:02:02,MPWR,buy,6171.72,,score 62.7; target 6.2%,pending_new,adee8447-d0fd-482a-81a7-1bb8841d1f98
+2026-10-14T17:02:02,MRVL,buy,7762.06,,score 64.4; target 7.8%,pending_new,9d2510c0-7558-467e-848a-286e0948af29
+2026-10-14T17:02:02,AMD,buy,4357.87,,score 60.4; target 4.4%,pending_new,dbafa9e1-01bb-4051-94ea-efe20e856043
+2026-10-14T17:02:02,LLY,buy,9128.48,,score 65.7; target 9.1%,pending_new,499c81bc-92b3-49f8-8b72-f94ac11b84ad
+2026-10-14T19:12:21,MPWR,sell,6124.08,,stop hit: close 1290.64 < chandelier stop 1351.93,pending_new,6651e35b-7ec9-443f-9740-e3eb4c6c1bd1
+2026-10-14T19:12:21,TSM,sell,5018.54,,PM adjust +5: Potential benefit from cheap‑phone shift; stop hit: close 440.25 < chandelier stop 459.08,pending_new,94d4b63c-ed4d-4d2d-866d-ff776bdbbd54
+2026-10-14T19:12:21,TER,sell,20976.56,,PM adjust +9: Tech collaboration launch; stop hit: close 368.04 < chandelier stop 399.99,pending_new,ebe7ce44-e752-4521-8e9b-62f6160d7c6f
+2026-10-14T19:12:21,AMD,sell,4347.5,,"PM adjust +5: AI project backing boosts outlook; Risk check: capped +8->+5, news +0.00 does not support it; stop hit: close 588.6 < chandelier stop 589.15",pending_new,829a6615-61e8-463d-9c4c-03caf57de3db
+2026-10-14T19:12:21,SMCI,sell,6714.56,,"PM adjust -5: Stock fell amid concerns; Risk check: capped -8->-5, news +0.00 does not support it; stop hit: close 37.26 < chandelier stop 39.25",pending_new,95a5b39d-bba4-46eb-8039-8c28e2a5d9ab
+2026-10-14T19:12:21,MRVL,buy,11214.1,,score 77.7; target 25.0%; scaled x0.65 to available cash,pending_new,ea22f531-19cf-495f-8cd5-557a70493fd4
+2026-10-14T19:12:21,NEM,buy,16092.79,,score 63.5; target 24.8%; scaled x0.65 to available cash,pending_new,fdf6402b-d016-4cac-a803-fff1d3a3af72
+2026-10-14T19:12:21,AMAT,buy,11194.43,,score 61.0; target 17.2%; scaled x0.65 to available cash,pending_new,363edb38-a42e-4ecc-ac9b-5565e3cb1483
+2026-10-14T19:12:21,NVDA,buy,7733.92,,score 58.8; target 11.9%; scaled x0.65 to available cash,pending_new,76966ca5-c428-46ca-927f-105c473a09b3
+2026-10-14T19:12:21,DAL,buy,6283.64,,score 57.7; target 9.7%; scaled x0.65 to available cash,pending_new,24853372-60b7-4ca7-8d01-e7b83290169f
+2026-10-14T19:12:21,UBER,buy,3249.13,,score 45.9; target 5.0%; scaled x0.65 to available cash,pending_new,ec4618ae-5407-4b67-a053-6cba793216d3
+2026-10-14T19:25:57,AMAT,sell,11084.86,,stop hit: close 452.71 < chandelier stop 493.27,pending_new,f4586094-8e01-4079-96ae-6447368739ed
+2026-10-14T19:25:57,NVDA,sell,7720.4,,stop hit: close 225.34 < chandelier stop 225.55,pending_new,c8ed2034-8159-4bdc-b6b8-62bd1222c83c
+2026-10-14T19:25:57,DAL,sell,6220.79,,stop hit: close 77.19 < chandelier stop 78.38,pending_new,ef14e052-dc70-4c00-85b2-d590febaf024
+2026-10-14T19:25:57,MRVL,buy,3344.7,,score 77.1; target 25.0%; scaled x0.56 to available cash,pending_new,ec930907-de2c-4298-96f3-569292ec6420
+2026-10-14T19:25:57,TSM,buy,2753.68,,score 70.3; target 5.0%; scaled x0.56 to available cash,pending_new,35200506-8ec0-457e-b468-67a567851cc7
+2026-10-14T19:25:57,TER,buy,2753.68,,score 72.7; target 5.0%; scaled x0.56 to available cash,pending_new,f2b1548a-1dda-4fb8-a596-7ad7335aae1a
+2026-10-14T19:25:57,NEM,buy,4853.91,,score 63.2; target 25.0%; scaled x0.56 to available cash,pending_new,9820f9ba-3f9f-4b26-ae9f-40d4e7366d41
+2026-10-14T19:25:57,AMD,buy,2753.68,,score 67.5; target 5.0%; scaled x0.56 to available cash,pending_new,cf013220-f7a8-4f2b-936e-0ffc1dee64fa
+2026-10-14T19:25:57,LLY,buy,8578.24,,score 55.4; target 25.0%; scaled x0.56 to available cash,pending_new,894be2cb-1511-4fab-b73a-a108a76c7c38
+2026-10-14T19:42:21,TSM,sell,2749.53,,"PM adjust -3: Earnings risk flagged, slight downside bias; stop hit: close 438.04 < chandelier stop 459.08",pending_new,dacffd0f-5a5a-4335-917e-69de2a1206ff
+2026-10-14T19:42:21,TER,sell,2750.12,,"PM adjust +8: Broad tech collaboration announced, clear positive catalyst; stop hit: close 364.48 < chandelier stop 399.54",pending_new,6bf2c6f6-eb35-49f6-8f9f-85603da02682
+2026-10-14T19:42:21,AMD,sell,2747.57,,PM adjust +3: Competitive AI inference challenge seen as modest upside; stop hit: close 585.36 < chandelier stop 589.15,pending_new,f6da5268-d19c-44db-b80e-dbadeeace472
+2026-10-14T19:42:21,MPWR,buy,1593.07,,score 68.2; target 5.0%; scaled x0.32 to available cash,pending_new,3d230558-25fb-4572-b4c3-9dfb2f9f7fcd
+2026-10-14T19:42:21,MRVL,buy,867.76,,score 73.6; target 25.0%; scaled x0.32 to available cash,pending_new,bfcea8e4-f3ad-40bf-b34a-4be9b7dabf11
+2026-10-14T19:42:21,NEM,buy,1244.73,,score 62.6; target 25.0%; scaled x0.32 to available cash,pending_new,af2261cc-097f-466c-aca2-1afc4bd458cd
+2026-10-14T19:42:21,AMAT,buy,1593.07,,score 60.4; target 5.0%; scaled x0.32 to available cash,pending_new,15711077-53d4-4e36-9715-a0fec0074fea
+2026-10-14T19:42:21,SMCI,buy,1593.07,,score 58.9; target 5.0%; scaled x0.32 to available cash,pending_new,e9683fc4-9f48-457a-9d7e-e434cf5ab614
+2026-10-14T19:42:21,LLY,buy,1353.63,,score 54.8; target 22.4%; scaled x0.32 to available cash,pending_new,64ca70b9-3644-499a-8455-84e927517c6c
+2026-10-14T19:56:04,AMAT,sell,1590.19,,stop hit: close 455.47 < chandelier stop 493.27,pending_new,5911444b-9404-4443-9109-c35cce5c5d2d
+2026-10-14T19:56:04,SMCI,sell,1610.4,,stop hit: close 37.25 < chandelier stop 39.14,pending_new,caa5cb5d-5ad3-4999-871c-8352a8796fd9
+2026-10-14T19:56:04,MPWR,sell,1588.79,,stop hit: close 1270.29 < chandelier stop 1348.21,pending_new,a25dfff8-aca3-4ceb-b3ec-fdb880433ebc
+2026-10-14T19:56:04,TSM,buy,1131.2,,score 61.9; target 5.0%; scaled x0.23 to available cash,pending_new,e6789c63-c01f-4e66-8dcb-30d641e4e42e
+2026-10-14T19:56:04,TER,buy,1131.2,,score 71.2; target 5.0%; scaled x0.23 to available cash,pending_new,931bb8a5-8076-41cb-99e0-3604afc57bd2
+2026-10-14T19:56:04,NEM,buy,585.81,,score 62.6; target 25.0%; scaled x0.23 to available cash,pending_new,ccf15b2d-a671-40cc-a9cc-a9796bcbc260
+2026-10-14T19:56:04,AMD,buy,1131.2,,score 64.1; target 5.0%; scaled x0.23 to available cash,pending_new,26edac29-db9f-4159-bfd5-38ff87dc26a9
+2026-10-14T19:56:04,LLY,buy,804.48,,score 54.9; target 23.2%; scaled x0.23 to available cash,pending_new,5bfad4af-09f5-48d9-b698-7bfd93917dd9
+2026-10-14T20:12:31,TSM,sell,1127.57,,"PM adjust +2: Potential profit from shift away from cheap smartphones, earnings risk noted; stop hit: close 436.32 < chandelier stop 459.08",pending_new,61c61849-135a-4c32-ae72-d8172109dfa4
+2026-10-14T20:12:31,TER,sell,1136.35,,PM adjust +9: FormFactor‑Teradyne collaboration accelerates tech development; stop hit: close 365.28 < chandelier stop 399.51,pending_new,33df6619-011b-4fd1-ae37-2cfb53d1a523
+2026-10-14T20:12:31,AMD,sell,1130.22,,PM adjust +2: Challenging Nvidia’s AI lead – modest upside; stop hit: close 584.32 < chandelier stop 589.15,pending_new,100a5522-97d9-4be4-9f9c-517c36255bb9
+2026-10-14T20:12:31,AMAT,buy,726.63,,score 65.4; target 5.0%; scaled x0.15 to available cash,pending_new,d75246f0-1792-42a1-a387-d1c0c8a70cfd
+2026-10-14T20:12:31,SMCI,buy,726.63,,score 57.7; target 5.0%; scaled x0.15 to available cash,pending_new,47e53dc5-a70c-4e12-8b05-b837266fb698
+2026-10-14T20:12:31,NVDA,buy,726.63,,score 61.0; target 5.0%; scaled x0.15 to available cash,pending_new,23b14565-9108-4ecd-8630-0e82997db978
+2026-10-14T20:12:31,LLY,buy,670.24,,score 55.9; target 25.0%; scaled x0.15 to available cash,pending_new,efea20fa-666e-46e7-abe3-686f4f0c95ce
+2026-10-14T20:12:31,UBER,buy,544.3,,score 51.4; target 7.0%; scaled x0.15 to available cash,pending_new,7e17bd29-e8b1-4e5d-bdca-cdc0e89dc862
+2026-10-14T20:26:16,AMAT,sell,723.7,,"PM adjust +5: RBC Capital reiterates outperform – analyst upgrade; Risk check: capped +9->+5, news +0.00 does not support it; stop hit: close 456.62 < chandelier stop 493.27",pending_new,109dd1cb-86a3-4e1a-8b04-901e08099ac6
+2026-10-14T20:26:16,SMCI,sell,723.93,,"PM adjust -2: Stock falling on Tuesday, slight bearish pressure; stop hit: close 37.27 < chandelier stop 39.14",pending_new,75fee6d4-c24d-4267-ac16-8a46d3a6f722
+2026-10-14T20:26:16,NVDA,sell,727.31,,PM adjust +3: Honeywell AI platform built with Nvidia – positive partnership; stop hit: close 223.88 < chandelier stop 225.4,pending_new,6a89d0a8-8e83-4935-90ac-e833c9d0b512
+2026-10-14T20:26:16,TSM,buy,493.63,,score 66.6; target 5.0%; scaled x0.10 to available cash,pending_new,a83be945-5828-47d0-ac1f-51bb26683828
+2026-10-14T20:26:16,TER,buy,493.63,,score 72.0; target 5.0%; scaled x0.10 to available cash,pending_new,f617b559-ce42-487d-8617-4d927463600c
+2026-10-14T20:26:16,AMD,buy,493.63,,score 62.9; target 5.0%; scaled x0.10 to available cash,pending_new,e8516156-1fd2-49d5-95f4-56c7cb940879
+2026-10-14T20:26:16,LLY,buy,359.78,,score 56.1; target 24.7%; scaled x0.10 to available cash,pending_new,d7a85491-b7d6-4798-aad3-ac734657336a
+2026-10-14T20:26:16,UBER,buy,341.71,,score 51.8; target 7.3%; scaled x0.10 to available cash,pending_new,ce740881-d089-47fc-a211-ed7959e0bf82
+2026-10-14T20:42:38,TSM,sell,491.07,,stop hit: close 434.6 < chandelier stop 458.81,pending_new,dab0a2b8-7a58-4f0c-86c2-e04b8ba78326
+2026-10-14T20:42:38,TER,sell,490.5,,PM adjust +6: Technology collaboration is positive news; stop hit: close 362.69 < chandelier stop 399.51,pending_new,65a0148f-ff99-47aa-ac8b-e7285529c6b2
+2026-10-14T20:42:38,AMD,sell,490.93,,stop hit: close 580.23 < chandelier stop 588.68,pending_new,59bd7484-3053-49e5-b00f-e1d4da109bdf
+2026-10-14T20:42:38,AMAT,buy,402.69,,score 65.0; target 5.0%; scaled x0.08 to available cash,pending_new,33997fa6-53ec-4dc1-b1a1-e3f7f42d1bef
+2026-10-14T20:42:38,SMCI,buy,402.69,,score 54.4; target 5.0%; scaled x0.08 to available cash,pending_new,48a266c0-e85d-4193-9ff7-5cd4a31b140d
+2026-10-14T20:42:38,NVDA,buy,402.69,,score 62.9; target 5.0%; scaled x0.08 to available cash,pending_new,abb2ee49-2d11-4a09-ab51-aee5b84f8a1a
+2026-10-14T20:56:32,AMAT,sell,400.94,,"PM adjust +5: RBC reiterates Outperform rating; Risk check: capped +6->+5, news +0.00 does not support it; stop hit: close 452.59 < chandelier stop 493.27",pending_new,53e54140-ec25-4d17-8566-81e264941e47
+2026-10-14T20:56:32,SMCI,sell,402.14,,PM adjust -5: Stock falling on Tuesday suggests weakness; stop hit: close 37.1 < chandelier stop 39.14,pending_new,709a202f-b80d-49c8-bf55-5d828a3876f3
+2026-10-14T20:56:32,NVDA,sell,402.26,,"PM adjust +5: Honeywell AI platform partnership boosts outlook; Risk check: capped +6->+5, news +0.00 does not support it; stop hit: close 223.22 < chandelier stop 225.33",pending_new,f68a7e30-eeef-4737-be46-6f7f6853b85d
+2026-10-14T20:56:32,TSM,buy,344.59,,score 64.2; target 5.0%; scaled x0.07 to available cash,pending_new,1dad5361-bacc-4e06-a8bd-08c6d9b326b9
+2026-10-14T20:56:32,TER,buy,344.59,,score 68.5; target 5.0%; scaled x0.07 to available cash,pending_new,db40ec55-064d-4edb-a52c-bffcf64f0b91
+2026-10-14T20:56:32,AMD,buy,344.59,,score 60.6; target 5.0%; scaled x0.07 to available cash,pending_new,ba6be790-87b2-409d-8622-5ffb4ffda094
+2026-10-14T20:56:32,UBER,buy,448.31,,score 51.1; target 10.7%; scaled x0.07 to available cash,pending_new,8a8f6882-6b7e-49d6-b087-8e6653848b4c
+2026-10-14T21:12:59,TSM,sell,343.09,,"PM adjust -2: Earnings risk on 10/15, slight caution; stop hit: close 433.22 < chandelier stop 458.61",pending_new,aca3ccef-dbd6-4d0c-8426-6fee7f3b1bf8
+2026-10-14T21:12:59,TER,sell,341.15,,PM adjust +9: FormFactor collaboration launch; stop hit: close 357.91 < chandelier stop 398.74,pending_new,528d76cb-dda1-4dff-8f0d-ff3fb9ece4d9
+2026-10-14T21:12:59,AMD,sell,342.01,,"PM adjust +2: Neutral challenge to Nvidia, modest upside; stop hit: close 576.6 < chandelier stop 588.06",pending_new,a3f6a5f5-1bde-4ead-9afc-53a78eb2fc6b
+2026-10-14T21:12:59,GNRC,sell,23521.62,,stop hit: close 199.8 < chandelier stop 201.05,pending_new,e4e93096-beb4-47e2-9ef8-9a0c91b2a343
+2026-10-14T21:12:59,MRVL,buy,1873.75,,score 80.9; target 25.0%; scaled x0.97 to available cash,pending_new,c7624058-17c3-4fd6-b76d-b9f4ff13d371
+2026-10-14T21:12:59,AMAT,buy,4683.58,,score 59.6; target 5.0%; scaled x0.97 to available cash,pending_new,2b473c0e-1ea3-420f-a25c-9d33433efb00
+2026-10-14T21:12:59,SMCI,buy,4683.58,,score 58.5; target 5.0%; scaled x0.97 to available cash,pending_new,a7a59461-9021-4f2b-9a53-e7170d7f8c64
+2026-10-14T21:12:59,NVDA,buy,4683.58,,score 57.4; target 5.0%; scaled x0.97 to available cash,pending_new,66d1cfe5-a338-485d-a1c9-71a4f14e2622
+2026-10-14T21:12:59,UBER,buy,3950.29,,score 53.9; target 8.9%; scaled x0.97 to available cash,pending_new,b3264812-3b13-4d97-9969-7cf544c327e0
+2026-10-14T21:12:59,MPWR,buy,4683.58,,score 42.4; target 5.0%; scaled x0.97 to available cash,pending_new,1a112397-9374-4d03-8f7d-2b56620a1e68
+2026-10-14T21:26:43,AMAT,sell,4695.87,,stop hit: close 450.63 < chandelier stop 492.86,pending_new,c2b9b4ed-dd40-4b8c-a76a-23f33025111a
+2026-10-14T21:26:43,SMCI,sell,4691.18,,stop hit: close 36.98 < chandelier stop 39.14,pending_new,3dd1a852-ce42-43d7-9269-26ca97f4ed23
+2026-10-14T21:26:43,NVDA,sell,4687.67,,stop hit: close 222.58 < chandelier stop 225.18,pending_new,43967ed2-5265-45dc-9dfd-04bafa40e7fb
+2026-10-14T21:26:43,MPWR,sell,4704.94,,stop hit: close 1259.76 < chandelier stop 1344.77,pending_new,a36ec4a2-fb34-4624-aa0f-7508ced1b5bb
+2026-10-14T21:26:43,TSM,buy,4698.57,,score 61.8; target 5.0%; scaled x0.97 to available cash,pending_new,45284af5-8269-41b7-b1f4-caa94b586453
+2026-10-14T21:26:43,TER,buy,4698.57,,score 71.7; target 5.0%; scaled x0.97 to available cash,pending_new,2f79f925-2d93-492c-b339-3346e42567ee
+2026-10-14T21:26:43,AMD,buy,4698.57,,score 62.1; target 5.0%; scaled x0.97 to available cash,pending_new,e2f740a5-bebd-458d-b3ba-c731b80dba3d
+2026-10-14T21:26:43,GNRC,buy,4698.57,,score 48.1; target 5.0%; scaled x0.97 to available cash,pending_new,fbf8558b-51d4-491d-b560-d67f1a5862e3
+2026-10-14T21:43:16,TSM,sell,4692.93,,stop hit: close 432.85 < chandelier stop 458.55,pending_new,2070a9cd-cfff-43a1-afc1-61818bea94d5
+2026-10-14T21:43:16,TER,sell,4677.06,,PM adjust +8: Collaboration with FormFactor boosts growth; stop hit: close 358.55 < chandelier stop 398.74,pending_new,c4dcf53f-2210-42a1-bd08-511da49b04ea
+2026-10-14T21:43:16,AMD,sell,4678.39,,PM adjust +4: Challenging Nvidia in AI inference; stop hit: close 574.58 < chandelier stop 587.78,pending_new,42f34cfa-7ffb-4d2b-beb0-9ecf3aca9980
+2026-10-14T21:43:16,GNRC,sell,4718.29,,stop hit: close 200.62 < chandelier stop 200.9,pending_new,171bb5d2-2597-48ab-b208-e507aa250fda
+2026-10-14T21:43:16,AMAT,buy,4690.99,,score 64.4; target 5.0%; scaled x0.97 to available cash,pending_new,54379443-6d2d-4c68-948b-539d32895dc1
+2026-10-14T21:43:16,SMCI,buy,4690.99,,score 54.3; target 5.0%; scaled x0.97 to available cash,pending_new,488f90d6-e06b-44d9-af12-68ae347232c2
+2026-10-14T21:43:16,NVDA,buy,4690.99,,score 62.4; target 5.0%; scaled x0.97 to available cash,pending_new,67a19e1b-bc9a-40dc-a606-d08e69be7061
+2026-10-14T21:43:16,MPWR,buy,4690.99,,score 42.5; target 5.0%; scaled x0.97 to available cash,pending_new,2d8c639e-994e-4ea2-bec9-7b76fb58fdc9
+2026-10-14T21:56:58,AMAT,sell,4672.97,,"PM adjust +5: RBC reiterates Outperform; Risk check: capped +8->+5, news +0.00 does not support it; stop hit: close 446.91 < chandelier stop 492.53",pending_new,d88cadd2-366b-4005-8b14-d62b8196fe0e
+2026-10-14T21:56:58,SMCI,sell,4683.94,,PM adjust -4: Stock falling on Wednesday; stop hit: close 36.57 < chandelier stop 39.14,pending_new,a7cbaf34-dfda-446e-99f1-202bcad6df1b
+2026-10-14T21:56:58,NVDA,sell,4677.47,,PM adjust +5: AI‑powered design tool launch; stop hit: close 221.46 < chandelier stop 225.04,pending_new,275878be-f62c-48f7-899f-887d3a46b176
+2026-10-14T21:56:58,MPWR,sell,4673.87,,stop hit: close 1246.55 < chandelier stop 1344.57,pending_new,f5a57e5f-6ba3-491e-94e8-a2ed6431cc39
+2026-10-14T21:56:58,TSM,buy,4667.44,,score 63.1; target 5.0%; scaled x0.97 to available cash,pending_new,e7c20b2f-3c68-40d4-9fe7-efabc29bc12b
+2026-10-14T21:56:58,TER,buy,4667.44,,score 69.6; target 5.0%; scaled x0.97 to available cash,pending_new,93bde951-8835-4b05-9165-9d334e0a43cb
+2026-10-14T21:56:58,AMD,buy,4667.44,,score 62.8; target 5.0%; scaled x0.97 to available cash,pending_new,329d8278-90d4-4b1b-9f5e-3c0c491498f9
+2026-10-14T21:56:58,GNRC,buy,4667.44,,score 48.3; target 5.0%; scaled x0.97 to available cash,pending_new,378b756b-d300-4288-bf37-1431a2d99edd
+2026-10-14T22:13:45,TSM,sell,4692.77,,stop hit: close 432.88 < chandelier stop 458.1,pending_new,389a7958-b080-4e76-a976-0337980866c5
+2026-10-14T22:13:45,TER,sell,4698.08,,PM adjust +9: Partnership with FormFactor adds growth upside; stop hit: close 357.91 < chandelier stop 398.25,pending_new,56d94739-ca08-420a-ad91-fbf4cf75dfe6
+2026-10-14T22:13:45,AMD,sell,4712.35,,PM adjust +4: Challenging Nvidia's AI lead is a modest positive catalyst; stop hit: close 572.25 < chandelier stop 586.43,pending_new,3927c04b-aa8e-402d-bd87-9509aa13cdd2
+2026-10-14T22:13:45,GNRC,sell,4686.79,,stop hit: close 200.89 < chandelier stop 200.9,pending_new,87a00a6a-db1b-41a1-8ce0-4dbc5d2c8f1b
+2026-10-14T22:13:45,AMAT,buy,4692.27,,score 64.3; target 5.0%; scaled x0.97 to available cash,pending_new,297fa633-a795-45f3-97f3-57433d5276e9
+2026-10-14T22:13:45,SMCI,buy,4692.27,,score 53.1; target 5.0%; scaled x0.97 to available cash,pending_new,26f43732-330b-49ca-b934-61979f5249f9
+2026-10-14T22:13:45,NVDA,buy,4692.27,,score 62.2; target 5.0%; scaled x0.97 to available cash,pending_new,e9c592bb-4047-4ebe-8213-a9425ffb8268
+2026-10-14T22:13:45,MPWR,buy,4692.27,,score 42.4; target 5.0%; scaled x0.97 to available cash,pending_new,68c728c8-65da-4d77-9245-330209dfd91f
+2026-10-14T22:27:28,AMAT,sell,4696.02,,"PM adjust +5: RBC reiterates Outperform, clear analyst upgrade; Risk check: capped +8->+5, news +0.00 does not support it; stop hit: close 448.87 < chandelier stop 492.48",pending_new,2d3237d3-3388-4943-97b5-5cc45b07ec7b
+2026-10-14T22:27:28,SMCI,sell,4668.61,,"PM adjust -5: Stock falling headline signals downside risk; Risk check: capped -8->-5, news +0.00 does not support it; Risk check: veto ignored, news +0.00 not negative enough; stop hit: close 36.53 <",pending_new,b043471b-475b-4cc7-b05e-51029bf2f151
+2026-10-14T22:27:28,NVDA,sell,4692.47,,"PM adjust +5: CUDA‑X AI tools expansion is strong bullish catalyst; Risk check: capped +10->+5, news +0.05 does not support it; stop hit: close 222.17 < chandelier stop 224.99",pending_new,c8ab7529-1b66-44e8-b0ef-7ac5cc7ab32c
+2026-10-14T22:27:28,MPWR,sell,4682.65,,stop hit: close 1251.29 < chandelier stop 1344.43,pending_new,e9b18962-dedb-4d96-b28c-c8d309f95845
+2026-10-14T22:27:28,TSM,buy,4679.22,,score 63.1; target 5.0%; scaled x0.96 to available cash,pending_new,870157d8-3d70-4027-b67d-6bde05ab97f8
+2026-10-14T22:27:28,TER,buy,4679.22,,score 70.6; target 5.0%; scaled x0.96 to available cash,pending_new,5662b91d-3370-4bd0-aff5-68a4244849e9
+2026-10-14T22:27:28,AMD,buy,4679.22,,score 62.8; target 5.0%; scaled x0.96 to available cash,pending_new,dca6adc2-4cd0-4511-bc44-d58b64a2a627
+2026-10-14T22:27:28,GNRC,buy,4679.22,,score 48.7; target 5.0%; scaled x0.96 to available cash,pending_new,e1ab8c03-cd2e-496a-a272-09e36fd2bca3
+2026-10-14T22:45:28,TSM,sell,4674.02,,PM adjust -3: Earnings risk from broader chip cycle; stop hit: close 432.11 < chandelier stop 458.1,pending_new,ee43b537-e0ff-4128-bdb6-23b0e7f6788e
+2026-10-14T22:45:28,TER,sell,4679.6,,PM adjust +7: Partnership with FormFactor; stop hit: close 358.87 < chandelier stop 398.25,pending_new,1423e755-3a26-4ce3-9bfb-b8d42dd7dba5
+2026-10-14T22:45:28,AMD,sell,4684.85,,PM adjust +3: Competitive AI inference challenge to Nvidia; stop hit: close 573.25 < chandelier stop 586.43,pending_new,57f8b8d6-5a44-4742-b276-3da2b0ea4ad0
+2026-10-14T22:45:28,GNRC,sell,4649.42,,stop hit: close 200.53 < chandelier stop 200.9,pending_new,a29de112-74d9-4da8-bafd-931a7abacdf6
+2026-10-14T22:45:28,AMAT,buy,4673.31,,score 59.2; target 5.0%; scaled x0.96 to available cash,pending_new,aa8a0c2f-dfb8-490f-9f39-674462e60e80
+2026-10-14T22:45:28,SMCI,buy,4673.31,,score 57.9; target 5.0%; scaled x0.96 to available cash,pending_new,3b6f51ce-56c0-41f1-b3f0-7e75f5f6a74a
+2026-10-14T22:45:28,NVDA,buy,4673.31,,score 57.3; target 5.0%; scaled x0.96 to available cash,pending_new,4ea2cf26-d43b-4da1-8569-c746d2dc3ef2
+2026-10-14T22:45:28,MPWR,buy,4673.31,,score 42.4; target 5.0%; scaled x0.96 to available cash,pending_new,3b095a6f-a13b-4d3b-99ca-551e47dd5354
+2026-10-14T22:59:08,AMAT,sell,4659.15,,stop hit: close 447.8 < chandelier stop 492.48,pending_new,d4813671-713e-4b9b-b574-2dd2c98464aa
+2026-10-14T22:59:08,SMCI,sell,4647.05,,stop hit: close 36.3 < chandelier stop 39.12,pending_new,bf2585cc-f0fb-40ac-bd39-1d4a048a6f15
+2026-10-14T22:59:08,NVDA,sell,4653.84,,stop hit: close 221.5 < chandelier stop 224.99,pending_new,bad26a73-29ca-46bc-a8ee-63f8288e3ab7
+2026-10-14T22:59:08,MPWR,sell,4658.29,,stop hit: close 1249.96 < chandelier stop 1344.43,pending_new,c06e38ed-2716-41e6-b059-37a851b77a2a
+2026-10-14T22:59:08,TSM,buy,4651.73,,score 59.7; target 5.0%; scaled x0.96 to available cash,pending_new,a4910d49-ca4a-40f0-8b82-d49f188863aa
+2026-10-14T22:59:08,TER,buy,4651.73,,score 68.5; target 5.0%; scaled x0.96 to available cash,pending_new,a24fbd57-0817-4808-8380-6ca773829fc4
+2026-10-14T22:59:08,AMD,buy,4651.73,,score 61.7; target 5.0%; scaled x0.96 to available cash,pending_new,9b5b3b9c-6b8c-40d1-abd4-0da3c7e11e98
+2026-10-14T22:59:08,GNRC,buy,4651.73,,score 48.3; target 5.0%; scaled x0.96 to available cash,pending_new,cdab4f9a-3a97-4532-a441-d9b388038ed9
+2026-10-14T23:15:52,TSM,sell,4645.13,,stop hit: close 430.04 < chandelier stop 458.0,pending_new,94518ade-1650-4b6c-8530-514c6cdd9194
+2026-10-14T23:15:52,TER,sell,4645.73,,PM adjust +8: Teradyne‑FormFactor collaboration; stop hit: close 356.64 < chandelier stop 398.25,pending_new,61140463-00b4-493b-a1a1-6b91f7f4f15d
+2026-10-14T23:15:52,AMD,sell,4661.89,,PM adjust +4: Competitive AI push but no clear catalyst; stop hit: close 573.05 < chandelier stop 586.43,pending_new,ca16bacd-578d-41f5-9a1b-cb1694f13ea9
+2026-10-14T23:15:52,GNRC,sell,4634.19,,stop hit: close 198.14 < chandelier stop 200.71,pending_new,a7f8fd05-1510-4e3b-a07d-30dbf0552bcf
+2026-10-14T23:15:52,UBER,sell,8424.25,,score 38.5 below exit level 40,pending_new,ca0b34e0-a701-47ff-86b4-6a336a264331
+2026-10-14T23:15:52,AMAT,buy,4831.99,,score 64.0; target 5.0%,pending_new,65f5da7d-ca11-4362-b0eb-d81095a39941
+2026-10-14T23:15:52,SMCI,buy,4831.99,,score 52.5; target 5.0%,pending_new,569ce86c-6716-4e7f-ba97-168b4bcdd94f
+2026-10-14T23:15:52,NVDA,buy,4831.99,,score 61.9; target 5.0%,pending_new,ba63daa3-fc0d-4222-9979-db371bb8d3ff
+2026-10-14T23:15:52,LLY,buy,3028.09,,score 58.5; target 25.0%,pending_new,871027b6-69e2-4412-b43d-7faaf02ddad8
+2026-10-14T23:29:24,AMAT,sell,4827.99,,"PM adjust +5: RBC reiterates Outperform; Risk check: capped +7->+5, news +0.00 does not support it; stop hit: close 447.42 < chandelier stop 492.48",pending_new,33910fea-0591-474c-9ca3-3941249c7f4d
+2026-10-14T23:29:24,SMCI,sell,4801.6,,"PM adjust -5: Stock falling on consecutive days; Risk check: capped -8->-5, news +0.00 does not support it; stop hit: close 35.91 < chandelier stop 39.04",pending_new,ed3bfafa-a3f5-4994-a953-2cc0661d34f8
+2026-10-14T23:29:24,NVDA,sell,4822.12,,"PM adjust +5: CUDA‑X AI tools expansion; Risk check: capped +6->+5, news +0.03 does not support it; stop hit: close 220.68 < chandelier stop 224.88",pending_new,bd0244b9-aea2-4d93-8414-f33c93343da0
+2026-10-14T23:29:24,TSM,buy,4818.49,,score 62.3; target 5.0%,pending_new,53a0de5e-e672-4f7c-8596-24a241afffd1
+2026-10-14T23:29:24,TER,buy,4818.49,,score 69.3; target 5.0%,pending_new,464e2abc-0572-408e-bc36-6f33063f695d
+2026-10-14T23:29:24,AMD,buy,4818.49,,score 62.4; target 5.0%,pending_new,c263c9f1-182d-4826-9f6b-9ff212ecef0c
+2026-10-14T23:46:17,TSM,sell,4822.34,,stop hit: close 429.78 < chandelier stop 457.86,pending_new,f0000c1b-7780-4720-adf9-77139f6b4cb6
+2026-10-14T23:46:17,TER,sell,4829.95,,PM adjust +7: Partnership with FormFactor adds upside; stop hit: close 358.22 < chandelier stop 398.25,pending_new,ea2b5ffb-d38e-4723-b927-cc18907a6dd8
+2026-10-14T23:46:17,AMD,sell,4834.65,,PM adjust +5: Challenging Nvidia AI lead seen as positive; stop hit: close 572.72 < chandelier stop 586.43,pending_new,b2f51c98-ed0d-428c-bb8a-c9ab1b5d4015
+2026-10-14T23:46:17,AMAT,buy,4828.85,,score 63.9; target 5.0%,pending_new,1e290bb0-f5d7-4513-af6f-570712f32bda
+2026-10-14T23:46:17,SMCI,buy,4828.85,,score 52.4; target 5.0%,pending_new,2f02cc10-499a-4bee-935b-2aa199a90c70
+2026-10-14T23:46:17,NVDA,buy,4828.85,,score 61.7; target 5.0%,pending_new,efc8f3a4-7baa-491d-9de8-a1aefd7e7e4d
+2026-10-14T23:59:44,AMAT,sell,4818.08,,"PM adjust +5: RBC reiterates Outperform, strong upgrade; Risk check: capped +8->+5, news +0.00 does not support it; stop hit: close 447.68 < chandelier stop 492.48",pending_new,17a56652-78dc-419d-9437-dc05f80a522d
+2026-10-14T23:59:44,SMCI,sell,4809.89,,"PM adjust -5: Headline reports stock falling, bearish; Risk check: capped -7->-5, news +0.00 does not support it; Risk check: veto ignored, news +0.00 not negative enough; stop hit: close 35.9 < chand",pending_new,71b1720e-00b1-4cf3-bcc7-4c72f119621b
+2026-10-14T23:59:44,NVDA,sell,4826.65,,"PM adjust +5: CUDA‑X AI tool expansion adds upside; Risk check: capped +6->+5, news +0.03 does not support it; stop hit: close 220.67 < chandelier stop 224.85",pending_new,f53c30e4-da9d-4fb3-8fe3-b9c5bbd50c5b
+2026-10-14T23:59:44,TSM,buy,4822.87,,score 62.2; target 5.0%,pending_new,493d25ba-9586-408b-8dc2-515639b4d39c
+2026-10-14T23:59:44,TER,buy,4822.87,,score 68.9; target 5.0%,pending_new,7b76b407-ebdb-41a7-99de-d5624e65ad46
+2026-10-14T23:59:44,AMD,buy,4822.87,,score 63.5; target 5.0%,pending_new,3e7a58ef-75b3-42dc-bd1c-ee35c1baf07d
+2026-10-15T00:16:31,TSM,sell,4813.04,,"PM adjust -5: Earnings risk from ASML cycle outlook; Risk check: capped -6->-5, news +0.00 does not support it; stop hit: close 428.95 < chandelier stop 457.81",pending_new,f15554f4-6ea5-426c-b847-0af1fc3b2473
+2026-10-15T00:16:31,TER,sell,4810.98,,PM adjust +8: Partners with FormFactor; stop hit: close 357.0 < chandelier stop 398.25,pending_new,2d6e4614-82f8-4429-a481-a27ed3ea505b
+2026-10-15T00:16:31,AMD,sell,4807.37,,"PM adjust +5: Challenges Nvidia AI inference lead; Risk check: capped +6->+5, news +0.00 does not support it; stop hit: close 570.6 < chandelier stop 586.43",pending_new,7f11af2f-f718-412d-ad7f-cabdbf3c6a41
+2026-10-15T00:16:31,AMAT,buy,4822.18,,score 58.7; target 5.0%,pending_new,d870e241-26ab-4109-ab79-d7ac84259f64
+2026-10-15T00:16:31,SMCI,buy,4822.18,,score 57.1; target 5.0%,pending_new,4298b30d-0498-44e0-8960-193d15587187
+2026-10-15T00:16:31,NVDA,buy,4822.18,,score 56.5; target 5.0%,pending_new,58f92f63-cefd-402e-953e-ad4c8df63b96
+2026-10-15T00:30:05,AMAT,sell,4828.25,,stop hit: close 448.42 < chandelier stop 492.48,pending_new,215eada7-4c55-4e3c-80e7-8d70bb27ad83
+2026-10-15T00:30:05,SMCI,sell,4818.8,,stop hit: close 35.83 < chandelier stop 39.03,pending_new,1d2a95ae-7205-4ce9-b776-063754e896df
+2026-10-15T00:30:05,NVDA,sell,4821.84,,stop hit: close 220.45 < chandelier stop 224.83,pending_new,c61d06a3-d34f-41a5-a91b-993858ca5d75
+2026-10-15T00:30:05,TSM,buy,4816.42,,score 57.0; target 5.0%,pending_new,f90f7145-d5c9-44d3-a265-94814c1c6567
+2026-10-15T00:30:05,TER,buy,4816.42,,score 69.9; target 5.0%,pending_new,71c448c5-7128-449f-b41e-af8b05a851c2
+2026-10-15T00:30:05,AMD,buy,4816.42,,score 63.1; target 5.0%,pending_new,44bf43da-b3a3-4b47-b9f3-c761c2411e19
+2026-10-15T00:46:31,MRVL,sell,23837.54,,PM adjust +9: Investor buying pressure lifts outlook; stop hit: close 248.33 < chandelier stop 248.47,pending_new,90ee418a-6eb9-4ae1-b998-4646da22b1ed
+2026-10-15T00:46:31,TSM,sell,4813.83,,PM adjust -4: Earnings risk highlighted by ASML timeline mention; stop hit: close 429.07 < chandelier stop 457.71,pending_new,f5dbbe09-e6a7-4ed8-8301-55a91ac8988c
+2026-10-15T00:46:31,TER,sell,4799.32,,PM adjust +9: Partnership with FormFactor adds growth catalyst; stop hit: close 356.73 < chandelier stop 398.25,pending_new,e6ffaf93-b520-47da-8bb9-32bc04d93fd4
+2026-10-15T00:46:31,AMD,sell,4822.93,,PM adjust +3: Challenging Nvidia AI inference adds modest upside; stop hit: close 570.15 < chandelier stop 586.43,pending_new,b29538f8-068f-4004-8cab-961aaeb41720
+2026-10-15T00:46:31,AMAT,buy,4809.76,,score 63.4; target 5.0%,pending_new,d664b40d-3050-44d9-98a7-a2b3b62b7a42
+2026-10-15T00:46:31,NVDA,buy,4809.76,,score 60.4; target 5.0%,pending_new,2ffb875b-1921-4aa5-9f17-f8dbe25f6b4b
+2026-10-15T01:00:17,AMAT,sell,4832.78,,"PM adjust +5: RBC reiterates Outperform rating; Risk check: capped +8->+5, news +0.00 does not support it; stop hit: close 447.69 < chandelier stop 492.35",pending_new,bbe9c43d-f147-4290-b53d-62ab1bcf7a81
+2026-10-15T01:00:17,NVDA,sell,4830.5,,PM adjust +4: CUDA‑X AI tools expansion supports demand; stop hit: close 221.04 < chandelier stop 224.73,pending_new,ddf1b3ab-f323-41e8-b529-84ad07e3de91
+2026-10-15T01:00:17,MRVL,buy,4811.56,,score 79.4; target 5.0%,pending_new,b2d72f0e-76bb-4a24-91be-3f723ab5b8d3
+2026-10-15T01:00:17,TER,buy,4811.56,,score 70.8; target 5.0%,pending_new,b162e8de-a7ae-45cc-8ee4-247ec9277517
+2026-10-15T01:16:51,MRVL,sell,4795.89,,PM adjust +5: Trader buying indicates mild bullish sentiment; stop hit: close 247.69 < chandelier stop 248.47,pending_new,7c0da2c7-b4eb-4109-8edb-2d6804ace12f
+2026-10-15T01:16:51,TER,sell,4828.27,,PM adjust +10: Partnership with FormFactor; stop hit: close 360.84 < chandelier stop 398.25,pending_new,481ace16-597e-4c54-897d-6e59c0d52822
+2026-10-15T01:16:51,AMAT,buy,4809.07,,score 63.3; target 5.0%,pending_new,e79974a5-fe97-414d-bae2-000e9d3eed44
+2026-10-15T01:16:51,NVDA,buy,4809.07,,score 61.4; target 5.0%,pending_new,7c7e147c-f35c-45a5-8ae4-06c4ed069930

@@ -1,0 +1,252 @@
+{
+  "date": "2026-10-14",
+  "profile": "catalyst",
+  "equity": 98897.32,
+  "cash": 1970.9,
+  "regime": "RISK-ON",
+  "regime_score": 66.1,
+  "exposure_target": 0.95,
+  "invested_after_pct": 104.3,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.5,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "COST",
+      "alpha": 76.3,
+      "adjust": 0.0,
+      "final": 76.3,
+      "current_value": 23096.497127,
+      "current_weight": 0.23354017203904007,
+      "target_weight": 0.25,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "EL",
+      "alpha": 70.0,
+      "adjust": 0.0,
+      "final": 70.0,
+      "current_value": 21586.79516,
+      "current_weight": 0.2182748244340696,
+      "target_weight": 0.20521985275520258,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "CCL",
+      "alpha": 69.3,
+      "adjust": 0.0,
+      "final": 69.3,
+      "current_value": 17277.692499,
+      "current_weight": 0.1747033438216526,
+      "target_weight": 0.1911547234684906,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "alpha": 61.0,
+      "adjust": 8.0,
+      "final": 69.0,
+      "current_value": 14613.860357,
+      "current_weight": 0.14776801188343627,
+      "target_weight": 0.18530940186845535,
+      "action": "ADD",
+      "dollars": 3712.74,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: UBS raises price target to $380"
+      ]
+    },
+    {
+      "symbol": "CEG",
+      "alpha": 60.3,
+      "adjust": 0.0,
+      "final": 60.3,
+      "current_value": 5415.79057,
+      "current_weight": 0.054761752593497984,
+      "target_weight": 0.06013093086232714,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "ISRG",
+      "alpha": 67.1,
+      "adjust": -7.0,
+      "final": 60.1,
+      "current_value": 11876.443528,
+      "current_weight": 0.12008862856951026,
+      "target_weight": 0.12008862856951026,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -7: BTIG cuts target to $454 despite buy rating",
+        "bought today at score 66.3; score 60.1 has not dropped 15+ points, so kept (stop and profit lock still apply)"
+      ]
+    },
+    {
+      "symbol": "NOW",
+      "alpha": 56.9,
+      "adjust": 0.0,
+      "final": 56.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 56.6; re-buy only if the score rises 15+ points (now 56.9)"
+      ]
+    },
+    {
+      "symbol": "SPOT",
+      "alpha": 53.5,
+      "adjust": 0.0,
+      "final": 53.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "target below the 3% minimum position; its money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "alpha": 53.5,
+      "adjust": -5,
+      "final": 48.5,
+      "current_value": 3059.85982,
+      "current_weight": 0.030939764798479878,
+      "target_weight": 0.030939764798479878,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -5: FAA environmental review pressure weighs on Amazon flights",
+        "Risk check: capped -8->-5, news -0.07 does not support it",
+        "Risk check: veto ignored, news -0.07 not negative enough",
+        "target below the 3% minimum position; its money goes to stronger names",
+        "bought today at score 58.7; score 48.5 has not dropped 15+ points, so kept (stop and profit lock still apply)"
+      ]
+    },
+    {
+      "symbol": "CIEN",
+      "alpha": 47.1,
+      "adjust": 0.0,
+      "final": 47.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold today by a stop or the profit lock; no re-buy until tomorrow"
+      ]
+    },
+    {
+      "symbol": "GEV",
+      "alpha": 44.2,
+      "adjust": 0.0,
+      "final": 44.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at score 47.0; re-buy only if the score rises 15+ points (now 44.2)"
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "alpha": 40.6,
+      "adjust": 0.0,
+      "final": 40.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 40.6 below entry 52"
+      ]
+    },
+    {
+      "symbol": "LRCX",
+      "alpha": 36.7,
+      "adjust": 0.0,
+      "final": 36.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 36.7 below entry 52"
+      ]
+    }
+  ],
+  "orders": [],
+  "pm_summary": "The market remains risk\u2011on with a high invest fraction, so we stay fully invested at 95% of capital. Positive target raise on Alphabet justifies a modest boost, while regulatory pressure on Amazon and a target cut for Intuitive Surgical merit downgrades and vetoes on new buying. All other holdings lack fresh catalysts, so we keep their scores unchanged.",
+  "account": "B",
+  "model": "groq:openai/gpt-oss-120b (AI view from 21:41, reused)",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 COST 76.3 BULLISH | 88 87 81 66 90 23 | 70.8 90.8 7.18 7.01 2.22 -0.1 | BREAKOUT\n2 EL 70.0 BULLISH | 78 84 78 56 77 29 | 61.3 91.7 8.57 3.15 1.74 1.24 | \n3 CCL 69.3 BULLISH | 85 79 70 65 61 40 | 58.0 19.6 5.39 13.66 0.8 1.58 | \n4 ISRG 67.1 BULLISH | 65 77 65 74 64 40 | 59.3 23.1 2.41 6.73 0.86 0.94 | earnings 2026-10-20 AMC (6d)\n5 GOOGL 61.0 BULLISH | 74 70 47 55 70 39 | 55.2 33.9 2.08 0.18 0.88 1.37 | earnings 2026-10-27 AMC (13d)\n6 CEG 60.3 BULLISH | 75 75 35 81 30 44 | 51.8 16.1 10.53 6.0 0.52 1.47 | \n7 NOW 56.9 NEUTRAL | 76 64 44 42 70 40 | 55.0 51.9 3.96 -2.61 0.81 0.79 | earnings 2026-10-28 AMC (14d)\n8 SPOT 53.5 NEUTRAL | 63 64 30 62 45 43 | 51.3 15.6 6.09 -7.76 0.6 -0.38 | earnings 2026-10-22 BMO (8d)\n9 AMZN 53.5 NEUTRAL | 54 53 38 40 70 78 | 49.8 18.0 2.15 1.22 0.27 1.81 | earnings 2026-10-29 AMC (15d)\n10 CIEN 47.1 NEUTRAL | 45 60 35 78 0 45 | 46.1 7.9 4.74 5.97 -0.41 3.16 | \n11 GEV 44.2 NEUTRAL | 43 41 16 64 19 95 | 41.9 5.8 -1.86 -1.57 -1.37 1.81 | \n12 TSLA 40.6 BEARISH | 29 47 26 44 47 45 | 47.7 7.6 2.69 -0.49 -0.68 2.73 | earnings 2026-10-20 AMC (6d)\n13 LRCX 36.7 BEARISH | 35 25 30 56 0 95 | 37.1 0.3 -12.95 4.02 -1.47 2.99 | earnings 2026-10-21 AMC (7d)",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-14T21:55:48"
+}

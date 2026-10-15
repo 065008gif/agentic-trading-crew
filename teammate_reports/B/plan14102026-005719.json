@@ -1,0 +1,293 @@
+{
+  "date": "2026-10-13",
+  "profile": "catalyst",
+  "equity": 100000.0,
+  "cash": 100000.0,
+  "regime": "RISK-ON",
+  "regime_score": 95.0,
+  "exposure_target": 0.92,
+  "invested_after_pct": 92.0,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.5,
+    "hold_bonus": 5.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.015,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "EL",
+      "alpha": 69.5,
+      "adjust": 0.0,
+      "final": 69.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.15442172134045776,
+      "action": "BUY",
+      "dollars": 15442.17,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "GOOGL",
+      "alpha": 61.1,
+      "adjust": 8.0,
+      "final": 69.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.14819576220090222,
+      "action": "BUY",
+      "dollars": 14819.58,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: AI chips upside \u2013 bullish"
+      ]
+    },
+    {
+      "symbol": "CCL",
+      "alpha": 68.9,
+      "adjust": 0.0,
+      "final": 68.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.14514027134959628,
+      "action": "BUY",
+      "dollars": 14514.03,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "CEG",
+      "alpha": 68.7,
+      "adjust": 0.0,
+      "final": 68.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.1421228943424815,
+      "action": "BUY",
+      "dollars": 14212.29,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "NOW",
+      "alpha": 59.6,
+      "adjust": 9.0,
+      "final": 68.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.14062844861675503,
+      "action": "BUY",
+      "dollars": 14062.84,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Evercore raises price target \u2013 bullish"
+      ]
+    },
+    {
+      "symbol": "COST",
+      "alpha": 66.7,
+      "adjust": 0.0,
+      "final": 66.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.11400988640008322,
+      "action": "BUY",
+      "dollars": 11400.99,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "CIEN",
+      "alpha": 63.4,
+      "adjust": 0.0,
+      "final": 63.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.07548101574972398,
+      "action": "BUY",
+      "dollars": 7548.1,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "ISRG",
+      "alpha": 70.5,
+      "adjust": -10.0,
+      "final": 60.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -10: BTIG cuts price target \u2013 downgrade",
+        "PM vetoed new buy"
+      ]
+    },
+    {
+      "symbol": "GEV",
+      "alpha": 64.8,
+      "adjust": -7.0,
+      "final": 57.8,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -7: Guggenheim maintains price target \u2013 bearish view",
+        "Risk check: veto ignored, news -0.14 not negative enough",
+        "target below the 3% minimum position; its money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "alpha": 63.3,
+      "adjust": -6.0,
+      "final": 57.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -6: Army demo seen as bearish",
+        "Risk check: veto ignored, news -0.18 not negative enough",
+        "not in the top 8: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "alpha": 57.4,
+      "adjust": -2.0,
+      "final": 55.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -2: Musk comments on robot hands \u2013 neutral/slight negative",
+        "not in the top 8: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "SPOT",
+      "alpha": 61.7,
+      "adjust": -8.0,
+      "final": 53.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -8: Historical underperformance \u2013 bearish",
+        "PM vetoed new buy"
+      ]
+    },
+    {
+      "symbol": "LRCX",
+      "alpha": 39.9,
+      "adjust": 0.0,
+      "final": 39.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 39.9 below entry 52"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "EL",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 15442.17,
+      "reason": "score 69.5; target 15.4%"
+    },
+    {
+      "symbol": "CCL",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 14514.03,
+      "reason": "score 68.9; target 14.5%"
+    },
+    {
+      "symbol": "CEG",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 14212.29,
+      "reason": "score 68.7; target 14.2%"
+    },
+    {
+      "symbol": "COST",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 11400.99,
+      "reason": "score 66.7; target 11.4%"
+    },
+    {
+      "symbol": "CIEN",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 7548.1,
+      "reason": "score 63.4; target 7.5%"
+    },
+    {
+      "symbol": "GOOGL",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 14819.58,
+      "reason": "score 69.1; target 14.8%"
+    },
+    {
+      "symbol": "NOW",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 14062.84,
+      "reason": "score 68.6; target 14.1%"
+    }
+  ],
+  "pm_summary": "The market remains in a strong risk\u2011on regime, but several bearish headlines (ISRG, GEV, AMZN, SPOT) warrant a modest reduction in overall exposure to 92%. Positive news on GOOGL and NOW offset some downside, while most other names have neutral news. We keep earnings\u2011catalyst positions and hold through upcoming reports, letting the Risk Manager size the trades.",
+  "account": "B",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "approve",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 ISRG 70.5 BULLISH | 65 78 85 73 71 33 | 63.8 47.2 2.47 8.97 1.4 0.87 | earnings 2026-10-20 AMC (7d)\n2 EL 69.5 BULLISH | 75 78 69 73 70 34 | 57.4 62.8 4.83 -0.22 1.37 1.27 | \n3 CCL 68.9 BULLISH | 80 81 74 53 78 34 | 66.4 92.9 6.4 17.92 1.32 1.51 | \n4 CEG 68.7 BULLISH | 90 85 62 64 58 31 | 60.8 65.0 12.2 11.19 1.55 1.37 | \n5 COST 66.7 BULLISH | 57 75 59 82 75 30 | 65.0 69.5 3.44 3.09 1.69 -0.02 | \n6 GEV 64.8 BULLISH | 77 74 52 64 70 38 | 56.7 49.3 3.82 10.27 1.03 1.56 | \n7 CIEN 63.4 BULLISH | 80 78 50 74 13 78 | 52.4 19.7 11.94 15.85 0.46 3.12 | \n8 AMZN 63.3 BULLISH | 76 72 49 62 71 34 | 55.2 49.3 5.1 1.31 1.29 1.76 | earnings 2026-10-29 AMC (16d)\n9 SPOT 61.7 BULLISH | 88 80 50 51 48 36 | 57.1 93.9 7.5 -8.03 1.15 -0.49 | earnings 2026-10-22 BMO (9d)\n10 GOOGL 61.1 BULLISH | 74 78 50 46 70 30 | 59.1 92.4 4.04 -0.18 1.64 1.35 | earnings 2026-10-27 AMC (14d)\n11 NOW 59.6 NEUTRAL | 76 77 35 46 70 40 | 55.5 38.1 7.4 -4.62 0.85 0.73 | earnings 2026-10-28 AMC (15d)\n12 TSLA 57.4 NEUTRAL | 61 69 37 52 70 45 | 54.0 25.8 6.11 1.98 0.41 2.76 | earnings 2026-10-20 AMC (7d)\n13 LRCX 39.9 BEARISH | 38 33 38 53 0 95 | 41.9 0.7 -7.75 7.39 -0.71 3.0 | earnings 2026-10-21 AMC (8d)",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-14T00:58:44"
+}

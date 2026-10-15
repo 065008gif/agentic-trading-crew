@@ -58,8 +58,12 @@ def import_teammate_zips() -> list[str]:
         for z in sorted(place.glob("reports_*.zip")):
             try:
                 with zipfile.ZipFile(z) as f:
+                    # reports_B_....zip -> only run_reports/B/ (older zips also carried a copy of
+                    # account A's files from the teammate's clone; those are skipped)
+                    parts = z.stem.split("_")
+                    want = f"run_reports/{parts[1]}/" if len(parts) > 2 and len(parts[1]) == 1 else "run_reports/"
                     names = [n for n in f.namelist()
-                             if n.startswith("run_reports/") and ".." not in n and not n.endswith("/")]
+                             if n.startswith(want) and ".." not in n and not n.endswith("/")]
                     for n in names:
                         rel = "".join("." if c in BAD_CHARS else c for c in n[len("run_reports/"):])
                         dest = ROOT / "teammate_reports" / rel

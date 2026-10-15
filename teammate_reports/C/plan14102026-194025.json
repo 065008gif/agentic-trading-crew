@@ -1,0 +1,316 @@
+{
+  "date": "2026-10-14",
+  "profile": "rebound",
+  "equity": 98482.18,
+  "cash": 1967.77,
+  "regime": "RISK-ON",
+  "regime_score": 81.8,
+  "exposure_target": 0.95,
+  "invested_after_pct": 115.6,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.5,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "MRVL",
+      "alpha": 66.6,
+      "adjust": 7.0,
+      "final": 73.6,
+      "current_value": 21938.345565,
+      "current_weight": 0.22276462163002486,
+      "target_weight": 0.25,
+      "action": "ADD",
+      "dollars": 2682.2,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +7: Investor Business Daily swing\u2011trader buying adds bullish sentiment"
+      ]
+    },
+    {
+      "symbol": "TER",
+      "alpha": 63.6,
+      "adjust": 8.0,
+      "final": 71.6,
+      "current_value": 2750.119607,
+      "current_weight": 0.027925048034070737,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -2750.119607,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Broad tech collaboration announced, clear positive catalyst",
+        "stop hit: close 364.48 < chandelier stop 399.54"
+      ]
+    },
+    {
+      "symbol": "MPWR",
+      "alpha": 68.2,
+      "adjust": 0.0,
+      "final": 68.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.05,
+      "action": "BUY",
+      "dollars": 4924.11,
+      "qty": 0.0,
+      "reasons": [
+        "sold today by a stop or the profit lock; no re-buy until tomorrow",
+        "added to reach minimum holdings"
+      ]
+    },
+    {
+      "symbol": "AMD",
+      "alpha": 62.1,
+      "adjust": 3.0,
+      "final": 65.1,
+      "current_value": 2747.572621,
+      "current_weight": 0.027899185629318927,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -2747.572621,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: Competitive AI inference challenge seen as modest upside",
+        "stop hit: close 585.36 < chandelier stop 589.15"
+      ]
+    },
+    {
+      "symbol": "NEM",
+      "alpha": 62.6,
+      "adjust": 0.0,
+      "final": 62.6,
+      "current_value": 20773.148379,
+      "current_weight": 0.21093306808399245,
+      "target_weight": 0.25,
+      "action": "ADD",
+      "dollars": 3847.4,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "TSM",
+      "alpha": 65.1,
+      "adjust": -3.0,
+      "final": 62.1,
+      "current_value": 2749.52801,
+      "current_weight": 0.02791904088638168,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -2749.52801,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -3: Earnings risk flagged, slight downside bias",
+        "stop hit: close 438.04 < chandelier stop 459.08"
+      ]
+    },
+    {
+      "symbol": "AMAT",
+      "alpha": 60.4,
+      "adjust": 0.0,
+      "final": 60.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.05,
+      "action": "BUY",
+      "dollars": 4924.11,
+      "qty": 0.0,
+      "reasons": [
+        "sold today by a stop or the profit lock; no re-buy until tomorrow",
+        "added to reach minimum holdings"
+      ]
+    },
+    {
+      "symbol": "SMCI",
+      "alpha": 58.9,
+      "adjust": 0.0,
+      "final": 58.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.05,
+      "action": "BUY",
+      "dollars": 4924.11,
+      "qty": 0.0,
+      "reasons": [
+        "sold today by a stop or the profit lock; no re-buy until tomorrow",
+        "added to reach minimum holdings"
+      ]
+    },
+    {
+      "symbol": "NVDA",
+      "alpha": 58.6,
+      "adjust": 0.0,
+      "final": 58.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold today by a stop or the profit lock; no re-buy until tomorrow"
+      ]
+    },
+    {
+      "symbol": "DAL",
+      "alpha": 57.1,
+      "adjust": 0.0,
+      "final": 57.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold today by a stop or the profit lock; no re-buy until tomorrow"
+      ]
+    },
+    {
+      "symbol": "LLY",
+      "alpha": 46.8,
+      "adjust": 8.0,
+      "final": 54.8,
+      "current_value": 17915.649044,
+      "current_weight": 0.1819176732684025,
+      "target_weight": 0.224402561301185,
+      "action": "ADD",
+      "dollars": 4184.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: UK regulator approval of Onswik boosts outlook"
+      ]
+    },
+    {
+      "symbol": "GNRC",
+      "alpha": 50.0,
+      "adjust": 0.0,
+      "final": 50.0,
+      "current_value": 24415.760954,
+      "current_weight": 0.24792059795995583,
+      "target_weight": 0.24792059795995583,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "bought today at score None; score 50.0 has not dropped 15+ points, so kept (stop and profit lock still apply)"
+      ]
+    },
+    {
+      "symbol": "UBER",
+      "alpha": 44.6,
+      "adjust": 5.0,
+      "final": 49.6,
+      "current_value": 3224.759644,
+      "current_weight": 0.03274460053585329,
+      "target_weight": 0.033873275905561946,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Ex\u2011Tesla exec driving freight turnaround, modest upside",
+        "within rebalance band"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "TSM",
+      "side": "sell",
+      "type": "close",
+      "dollars": 2749.53,
+      "reason": "PM adjust -3: Earnings risk flagged, slight downside bias; stop hit: close 438.04 < chandelier stop 459.08"
+    },
+    {
+      "symbol": "TER",
+      "side": "sell",
+      "type": "close",
+      "dollars": 2750.12,
+      "reason": "PM adjust +8: Broad tech collaboration announced, clear positive catalyst; stop hit: close 364.48 < chandelier stop 399.54"
+    },
+    {
+      "symbol": "AMD",
+      "side": "sell",
+      "type": "close",
+      "dollars": 2747.57,
+      "reason": "PM adjust +3: Competitive AI inference challenge seen as modest upside; stop hit: close 585.36 < chandelier stop 589.15"
+    },
+    {
+      "symbol": "MPWR",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 1593.07,
+      "reason": "score 68.2; target 5.0%; scaled x0.32 to available cash"
+    },
+    {
+      "symbol": "MRVL",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 867.76,
+      "reason": "score 73.6; target 25.0%; scaled x0.32 to available cash"
+    },
+    {
+      "symbol": "NEM",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 1244.73,
+      "reason": "score 62.6; target 25.0%; scaled x0.32 to available cash"
+    },
+    {
+      "symbol": "AMAT",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 1593.07,
+      "reason": "score 60.4; target 5.0%; scaled x0.32 to available cash"
+    },
+    {
+      "symbol": "SMCI",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 1593.07,
+      "reason": "score 58.9; target 5.0%; scaled x0.32 to available cash"
+    },
+    {
+      "symbol": "LLY",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 1353.63,
+      "reason": "score 54.8; target 22.4%; scaled x0.32 to available cash"
+    }
+  ],
+  "pm_summary": "The market remains risk\u2011on with a strong uptrend in high\u2011beta chip names, supporting a high overall exposure. We keep capital largely deployed (95%) while nudging scores toward the rebound bias: positive news on LLY, MRVL, TER and UBER earn modest boosts, AMD gets a small lift, and TSM is trimmed slightly due to earnings risk. GNRC and NEM stay unchanged as no new catalysts appear.",
+  "account": "C",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 MPWR 68.2 BULLISH | 37 37 41 79 4 95 | 43.0 4.2 -5.18 8.33 -1.0 1.62 | earnings 2026-10-29 AMC (15d)\n2 MRVL 66.6 BULLISH | 67 53 44 78 4 78 | 50.3 11.2 -2.39 9.43 -0.59 3.3 | \n3 TSM 65.1 BULLISH | 37 40 25 60 26 95 | 44.5 3.3 -3.97 2.03 -1.13 1.74 | earnings 2026-10-15 BMO (1d)\n4 TER 63.6 BULLISH | 35 32 30 62 0 95 | 41.6 2.7 -9.07 3.98 -1.43 2.62 | earnings 2026-10-27 AMC (13d)\n5 NEM 62.6 BULLISH | 35 25 14 70 5 95 | 37.8 7.9 -3.27 -11.14 -1.63 1.53 | BREAKDOWN, earnings 2026-10-22 AMC (8d)\n6 AMD 62.1 BULLISH | 42 52 48 64 21 78 | 50.0 18.1 -4.3 11.37 -1.05 3.0 | \n7 AMAT 60.4 BULLISH | 15 26 37 61 0 95 | 38.3 0.4 -11.04 6.72 -1.12 2.44 | \n8 SMCI 58.9 NEUTRAL | 35 27 13 46 0 95 | 39.9 1.7 -10.25 -2.77 -2.56 3.97 | \n9 NVDA 58.6 NEUTRAL | 39 43 26 58 39 78 | 47.5 17.5 -1.55 2.27 -0.8 1.92 | \n10 DAL 57.1 NEUTRAL | 15 22 11 51 24 95 | 34.0 0.3 -7.53 -3.74 -2.51 1.79 | \n11 GNRC 50.0 NEUTRAL | 54 46 50 72 26 45 | 47.9 3.4 -0.28 15.01 -0.65 2.24 | \n12 LLY 46.8 NEUTRAL | 83 78 60 45 78 22 | 60.7 83.8 4.35 3.49 2.36 -0.39 | earnings 2026-10-29 BMO (15d)\n13 UBER 44.6 NEUTRAL | 17 48 45 59 70 45 | 47.1 18.0 2.39 -4.0 0.4 0.54 | ",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-14T19:41:51"
+}

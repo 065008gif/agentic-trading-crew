@@ -21,7 +21,9 @@ if not src.exists():
 label = os.environ.get("ACCOUNT_LABEL", "")
 out = ROOT / f"reports_{label or 'all'}_{datetime.now():%d%m%Y-%H%M}.zip"
 with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
-    for p in src.rglob("*"):
+    # only this computer's own account (a clone also contains other accounts' records from GitHub)
+    base = src / label if label and (src / label).is_dir() else src
+    for p in base.rglob("*"):
         if p.is_file():
             z.write(p, p.relative_to(ROOT))
 print(f"Created {out.name} ({out.stat().st_size // 1024} KB). Send this file to Akshit.")
