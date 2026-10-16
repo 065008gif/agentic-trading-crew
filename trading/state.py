@@ -4,6 +4,9 @@ Small per-account memory between runs, kept in run_reports/<account>/state.json:
 - no_rebuy: stocks fully sold today, so a later run does not buy them straight back
 - bought: stocks first bought today, so a later run does not sell them again
   today for a soft reason (prevents buy-sell-buy flip-flops seen on 13 Oct)
+- trimmed: stocks partly sold today, so a later run does not buy them straight back
+- exposure: today's exposure level, so it only rises for a real improvement
+  (16 Oct: the target jumped 75/58/65/75/55% run to run and every jump traded)
 """
 
 from __future__ import annotations
@@ -30,6 +33,7 @@ def load(account: str) -> dict:
     st.setdefault("peaks", {})
     st.setdefault("no_rebuy", {})
     st.setdefault("bought", {})
+    st.setdefault("trimmed", {})
     return st
 
 
@@ -63,6 +67,18 @@ def bought_today(st: dict, today: date) -> dict:
             for s, v in st["bought"].items() if _bought_day(v) == today.isoformat()}
 
 
+def trimmed_today(st: dict, today: date) -> dict:
+    """{symbol: technical score when trimmed} for stocks partly sold today."""
+    return {s: (v.get("score") if isinstance(v, dict) else None)
+            for s, v in st.get("trimmed", {}).items() if _bought_day(v) == today.isoformat()}
+
+
+def exposure_today(st: dict, today: date):
+    """Exposure level of today's last executed run, or None (first run of the day)."""
+    e = st.get("exposure") or {}
+    return e.get("level") if e.get("date") == today.isoformat() else None
+
+
 def record_exits(st: dict, plan: dict, today: date) -> None:
     """After orders were sent: remember today's full sales and first buys."""
     t = today.isoformat()
@@ -70,11 +86,16 @@ def record_exits(st: dict, plan: dict, today: date) -> None:
     alphas = {x["symbol"]: x.get("alpha") for x in plan.get("targets", [])}
     st["bought"] = {s: v for s, v in st["bought"].items() if _bought_day(v) == t}
     new_buys = {x["symbol"]: x.get("alpha") for x in plan.get("targets", []) if x.get("action") == "BUY"}
+    st["trimmed"] = {s: v for s, v in st.get("trimmed", {}).items() if _bought_day(v) == t}
+    if plan.get("exposure_target") is not None:
+        st["exposure"] = {"date": t, "level": plan["exposure_target"]}
     for o in plan.get("orders", []):
         if o.get("side") == "sell" and o.get("type") == "close":
             hard = "stop hit" in o.get("reason", "") or "profit lock" in o.get("reason", "")
             st["no_rebuy"][o["symbol"]] = {"date": t, "score": None if hard else alphas.get(o["symbol"])}
             st["peaks"].pop(o["symbol"], None)
             st["bought"].pop(o["symbol"], None)
+        elif o.get("side") == "sell":
+            st["trimmed"][o["symbol"]] = {"date": t, "score": alphas.get(o["symbol"])}
         elif o.get("side") == "buy" and o["symbol"] in new_buys:
             st["bought"][o["symbol"]] = {"date": t, "score": new_buys[o["symbol"]]}

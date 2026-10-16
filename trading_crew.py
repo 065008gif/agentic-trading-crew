@@ -345,7 +345,9 @@ def run_once(account: str | None = None, symbols: list[str] | None = None, profi
                       prof["hold_through_earnings"], RiskSettings(), evidence=evidence,
                       peaks=peaks, no_rebuy=state.blocked_today(st, today),
                       bought_today=state.bought_today(st, today),
-                      minutes_to_close=minutes_to_close)
+                      minutes_to_close=minutes_to_close,
+                      trimmed_today=state.trimmed_today(st, today),
+                      last_exposure=state.exposure_today(st, today))
     plan.update({"account": label, "model": model_name, "mode": mode, "families": families,
                  "alpha_table": scores["table"], "missing": scores.get("missing", []),
                  "errors": log["errors"], "created": datetime.now().isoformat(timespec="seconds")})

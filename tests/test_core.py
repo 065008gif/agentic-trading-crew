@@ -330,7 +330,7 @@ def test_intraday_brake_and_falling_knife():
 
 def test_weak_day_no_new_buys_just_before_the_close():
     rows = [row("AAA", 90), row("BBB", 85)]
-    weak = dict(REGIME, qqq_day_pct=-0.8)
+    weak = dict(REGIME, qqq_day_pct=-0.5)
     plan = build_plan(rows, weak, {}, ACCT, minutes_to_close=20)
     assert not [o for o in plan["orders"] if o["side"] == "buy"]
     assert "no new buys" in (plan["brake"] or "")
@@ -356,3 +356,42 @@ def test_overnight_cap_trims_only_on_weak_days():
     strong = dict(weak, qqq_day_pct=+0.6)
     plan = build_plan(rows, strong, pos, acct, minutes_to_close=30)
     assert not [o for o in plan["orders"] if o["side"] == "sell"]
+
+
+
+def test_16_oct_replay_no_buying_into_a_falling_market():
+    # 16 Oct: Nasdaq-100 -0.84% at the first run and -2.6% by the close; buys were sold lower
+    rows = [row("SHOP", 88), row("MSFT", 84), row("MRNA", 82), row("XOM", 80)]
+    reg = {"regime": "CAUTION", "regime_score": 35, "invest_fraction": 0.75, "qqq_day_pct": -0.94}
+    plan = build_plan(rows, reg, {}, ACCT)
+    assert not [o for o in plan["orders"] if o["side"] == "buy"]
+    assert "market is falling" in plan["brake"]
+    calm = dict(reg, qqq_day_pct=-0.3)
+    assert [o for o in build_plan(rows, calm, {}, ACCT)["orders"] if o["side"] == "buy"]
+
+
+def test_exposure_cuts_fast_and_rises_slowly():
+    rows = [row(s, 85) for s in ("AAA", "BBB", "CCC", "DDD", "EEE")]
+    reg = {"regime": "CAUTION", "regime_score": 35, "invest_fraction": 0.65, "qqq_day_pct": -0.1}
+    plan = build_plan(rows, reg, {}, ACCT, last_exposure=0.55)       # +10 points, steady: allowed
+    assert abs(plan["exposure_target"] - 0.65) < 1e-9
+    reg2 = dict(reg, invest_fraction=0.58)
+    plan = build_plan(rows, reg2, {}, ACCT, last_exposure=0.55)      # +3 points: kept at 55%
+    assert abs(plan["exposure_target"] - 0.55) < 1e-9
+    reg3 = dict(reg, qqq_day_pct=-0.5)
+    plan = build_plan(rows, reg3, {}, ACCT, last_exposure=0.55)      # Nasdaq still falling: kept
+    assert abs(plan["exposure_target"] - 0.55) < 1e-9
+    reg4 = dict(reg, invest_fraction=0.55)
+    plan = build_plan(rows, reg4, {}, ACCT, last_exposure=0.75)      # cuts apply at once
+    assert abs(plan["exposure_target"] - 0.55) < 1e-9
+
+
+def test_partly_sold_stock_is_not_bought_back_the_same_day():
+    rows = [row("SHOP", 88), row("AAA", 60)]
+    pos = {"SHOP": held(5000)}
+    reg = dict(REGIME, qqq_day_pct=0.2)
+    plan = build_plan(rows, reg, pos, ACCT, trimmed_today={"SHOP": 86})
+    t = {x["symbol"]: x for x in plan["targets"]}
+    assert t["SHOP"]["action"] == "HOLD" and not [o for o in plan["orders"] if o["symbol"] == "SHOP"]
+    plan = build_plan(rows, reg, pos, ACCT, trimmed_today={"SHOP": 70})   # now 18 points stronger
+    assert [o for o in plan["orders"] if o["symbol"] == "SHOP" and o["side"] == "buy"]

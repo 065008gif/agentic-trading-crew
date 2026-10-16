@@ -49,6 +49,11 @@ class RiskSettings:
     late_no_buy_min: float = 30         # weak day: no new buys in the last 30 minutes
     overnight_min: float = 40           # weak day, final run(s): trim to the overnight cap
     overnight_caps: tuple = (("RISK-ON", 0.85), ("NEUTRAL", 0.70), ("CAUTION", 0.50), ("RISK-OFF", 0.35))
+    # 16 Oct (Nasdaq-100 -2.6%): buys at -0.8%..-2.3% were sold lower within the hour, and the
+    # exposure target flickered between 55% and 75% run to run, trading on every flicker.
+    no_buy_qqq_day: float = -0.75       # Nasdaq-100 down this much today: no new buys (hold / trim / exit)
+    exposure_step: float = 0.10         # within a day, exposure rises only by 10+ points at once ...
+    reentry_qqq_day: float = -0.25      # ... and only while the Nasdaq-100 is not falling
 
 
 @dataclass
@@ -106,7 +111,8 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                hold_through_earnings: bool = False, settings: RiskSettings | None = None,
                today: date | None = None, evidence: dict | None = None,
                peaks: dict | None = None, no_rebuy: dict | None = None,
-               bought_today: dict | None = None, minutes_to_close: float | None = None) -> dict:
+               bought_today: dict | None = None, minutes_to_close: float | None = None,
+               trimmed_today: dict | None = None, last_exposure: float | None = None) -> dict:
     """evidence: {symbol: {"sentiment": float, "articles": int}} from the news
     server. When given, the Portfolio Manager's adjustments and vetoes are
     checked against it, so an LLM misreading cannot move money on its own.
@@ -167,6 +173,17 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             exposure = cap
     if late:
         notes.append(f"weak day, {minutes_to_close:.0f} min to the close: no new buys (overnight risk)")
+    # cut fast, add slowly: falls in exposure apply at once; rises need a real improvement
+    if last_exposure is not None and exposure > last_exposure + 1e-9:
+        steady = not isinstance(qd, (int, float)) or qd > rs.reentry_qqq_day
+        if exposure - last_exposure < rs.exposure_step - 1e-9 or not steady:
+            notes.append(f"exposure kept at {last_exposure:.0%} (would be {exposure:.0%}): it rises only by "
+                         f"{rs.exposure_step:.0%}+ while the Nasdaq-100 is steady")
+            exposure = last_exposure
+    falling = isinstance(qd, (int, float)) and qd <= rs.no_buy_qqq_day
+    if falling:
+        notes.append(f"Nasdaq-100 {qd:+.2f}% today: no new buys while the market is falling")
+    no_buys = late or falling
     overnight_note = "; ".join(notes) or None
 
     by_sym = {r["symbol"]: r for r in rows}
@@ -396,10 +413,17 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             t.action = "HOLD"
             t.reasons.append("change smaller than 25% of the position: kept")
             continue
-        if delta > 0 and late:
+        if delta > 0 and no_buys:
             t.action = "HOLD"
-            t.reasons.append("weak day, last 30 min before the close: no new buys (overnight risk)")
+            t.reasons.append("no new buys now (falling market or last minutes before the close)")
             continue
+        if delta > 0 and t.current_value > 0 and sym in (trimmed_today or {}):
+            sold_at = (trimmed_today or {}).get(sym)
+            if sold_at is None or t.alpha < float(sold_at) + rs.same_day_drop:
+                t.action = "HOLD"
+                t.reasons.append(f"partly sold earlier today: not bought back today unless its technical score "
+                                 f"rises {rs.same_day_drop:.0f}+ points")
+                continue
         if delta > 0:
             t.action = "BUY" if t.current_value == 0 else "ADD"
             t.dollars = round(delta, 2)
