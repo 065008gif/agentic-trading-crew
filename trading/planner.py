@@ -42,6 +42,11 @@ class RiskSettings:
     filler_weight_pct: float = 0.05     # fixed small size for those added names (never more)
     lock_trigger: float = 0.06          # once a holding has been up 6%+ from our entry ...
     lock_keep: float = 0.60             # ... keep at least 60% of the best gain (profit lock)
+    # 13-16 Oct: the sessions themselves were net positive (+$326) but the account lost
+    # $4,128 between sessions, holding ~90% overnight and buying 20 min before the close.
+    late_no_buy_min: float = 60         # no new buys/adds in the last hour before the close
+    overnight_min: float = 40           # the final run(s): trim to the overnight cap
+    overnight_caps: tuple = (("RISK-ON", 0.80), ("NEUTRAL", 0.60), ("CAUTION", 0.45), ("RISK-OFF", 0.30))
 
 
 @dataclass
@@ -99,7 +104,7 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                hold_through_earnings: bool = False, settings: RiskSettings | None = None,
                today: date | None = None, evidence: dict | None = None,
                peaks: dict | None = None, no_rebuy: dict | None = None,
-               bought_today: dict | None = None) -> dict:
+               bought_today: dict | None = None, minutes_to_close: float | None = None) -> dict:
     """evidence: {symbol: {"sentiment": float, "articles": int}} from the news
     server. When given, the Portfolio Manager's adjustments and vetoes are
     checked against it, so an LLM misreading cannot move money on its own.
@@ -112,7 +117,10 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
     sold the same day on the stop, the profit lock, a score below the exit level, or a real
     deterioration (technical score 15+ points below the buy score).
     The technical score is used for these comparisons because the AI adjustment can swing
-    by up to 15 points between two AI refreshes without anything happening in the market."""
+    by up to 15 points between two AI refreshes without anything happening in the market.
+    minutes_to_close: minutes until the US close. In the last hour no new buys are made;
+    in the final run(s) the portfolio is trimmed to the overnight cap for the regime, so
+    less is exposed to the gap at the next open (bought back at the next session if strong)."""
     rs = settings or RiskSettings()
     overlay = overlay or {}
     if today is None:
@@ -141,6 +149,18 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                     brake_note = f"Nasdaq-100 (QQQ) {qd:+.2f}% today: exposure capped at {cap:.0%} (was {exposure:.0%})"
                     exposure = cap
                 break
+
+    late = minutes_to_close is not None and minutes_to_close <= rs.late_no_buy_min
+    overnight = minutes_to_close is not None and minutes_to_close <= rs.overnight_min
+    overnight_note = None
+    if overnight:
+        cap = dict(rs.overnight_caps).get(str(regime.get("regime", "")).upper(), 0.60)
+        if exposure > cap:
+            overnight_note = (f"{minutes_to_close:.0f} min to the close: exposure cut to {cap:.0%} for the night "
+                              f"({regime.get('regime')}); strong names are bought back at the next session")
+            exposure = cap
+    elif late:
+        overnight_note = f"{minutes_to_close:.0f} min to the close: no new buys (overnight risk)"
 
     by_sym = {r["symbol"]: r for r in rows}
     targets: dict[str, Target] = {}
@@ -334,6 +354,12 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             for t in others:
                 t.target_weight *= f
 
+    if overnight:
+        tot = sum(t.target_weight for t in targets.values())
+        if tot > exposure > 0:
+            for t in targets.values():
+                t.target_weight *= exposure / tot
+
     # ---------------- orders
     band = max(rs.rebalance_band_pct * equity, rs.min_order_dollars)
     orders = []
@@ -357,10 +383,15 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             if t.current_value:
                 t.reasons.append("within rebalance band")
             continue
-        if t.current_value > 0 and t.target_weight > 0 and abs(delta) < rs.rel_band * t.current_value:
+        if (t.current_value > 0 and t.target_weight > 0 and abs(delta) < rs.rel_band * t.current_value
+                and not (overnight and delta < 0)):
             # resize a held stock only for a real change (25%+ of the position), not AI-score noise
             t.action = "HOLD"
             t.reasons.append("change smaller than 25% of the position: kept")
+            continue
+        if delta > 0 and late:
+            t.action = "HOLD"
+            t.reasons.append("last hour before the close: no new buys (overnight risk)")
             continue
         if delta > 0:
             t.action = "BUY" if t.current_value == 0 else "ADD"
@@ -402,7 +433,7 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
         "date": today.isoformat(), "profile": profile, "equity": round(equity, 2), "cash": round(cash, 2),
         "regime": regime.get("regime"), "regime_score": regime.get("regime_score"),
         "exposure_target": round(exposure, 3), "invested_after_pct": round(100 * invested_after, 1),
-        "brake": brake_note,
+        "brake": "; ".join(n for n in (brake_note, overnight_note) if n) or None,
         "settings": asdict(rs),
         "targets": [asdict(t) for t in sorted(targets.values(), key=lambda x: -x.final)],
         "orders": orders,
@@ -414,7 +445,7 @@ def plan_markdown(plan: dict) -> str:
     L = [f"**Equity:** ${plan['equity']:,.0f} | **Cash:** ${plan['cash']:,.0f} | "
          f"**Regime:** {plan['regime']} ({plan['regime_score']}) | "
          f"**Target exposure:** {plan['exposure_target']:.0%} | **Invested after plan:** {plan['invested_after_pct']}%",
-         *([f"", f"**Intraday brake:** {plan['brake']}"] if plan.get("brake") else []),
+         *([f"", f"**Risk brake:** {plan['brake']}"] if plan.get("brake") else []),
          "", "| Symbol | Alpha | PM adj | Final | Now | Target | Action | Why |", "|---|---|---|---|---|---|---|---|"]
     for t in plan["targets"]:
         L.append(f"| {t['symbol']} | {t['alpha']} | {t['adjust']:+.0f} | {t['final']} | {t['current_weight']:.1%} | "

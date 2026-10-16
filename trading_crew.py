@@ -332,10 +332,20 @@ def run_once(account: str | None = None, symbols: list[str] | None = None, profi
 
     today = market_today()
     peaks = state.update_peaks(st, positions, scores["rows"])
+    minutes_to_close = None
+    clock = bridge.call(bridge.TRADING_SERVER, "get_market_clock", {}, env)
+    try:
+        if isinstance(clock, dict) and clock.get("is_open") and clock.get("next_close"):
+            now = datetime.fromisoformat(str(clock["timestamp"]).replace("Z", "+00:00"))
+            close = datetime.fromisoformat(str(clock["next_close"]).replace("Z", "+00:00"))
+            minutes_to_close = (close - now).total_seconds() / 60
+    except (ValueError, TypeError):
+        minutes_to_close = None
     plan = build_plan(scores["rows"], regime, positions, acct_info, overlay, profile,
                       prof["hold_through_earnings"], RiskSettings(), evidence=evidence,
                       peaks=peaks, no_rebuy=state.blocked_today(st, today),
-                      bought_today=state.bought_today(st, today))
+                      bought_today=state.bought_today(st, today),
+                      minutes_to_close=minutes_to_close)
     plan.update({"account": label, "model": model_name, "mode": mode, "families": families,
                  "alpha_table": scores["table"], "missing": scores.get("missing", []),
                  "errors": log["errors"], "created": datetime.now().isoformat(timespec="seconds")})

@@ -322,3 +322,27 @@ def test_intraday_brake_and_falling_knife():
     assert t["KNIFE"]["action"] == "AVOID" and t["KNIFE"]["target_weight"] == 0
     crash = build_plan(rows, {**REGIME, "qqq_day_pct": -3.0}, {}, ACCT)
     assert crash["exposure_target"] == 0.35
+
+
+def test_no_new_buys_in_the_last_hour():
+    rows = [row("AAA", 90), row("BBB", 85)]
+    plan = build_plan(rows, REGIME, {}, ACCT, minutes_to_close=50)
+    assert not [o for o in plan["orders"] if o["side"] == "buy"]
+    assert "no new buys" in (plan["brake"] or "")
+    plan = build_plan(rows, REGIME, {}, ACCT, minutes_to_close=120)
+    assert [o for o in plan["orders"] if o["side"] == "buy"]
+
+
+def test_overnight_cap_trims_holdings_before_the_close():
+    rows = [row("AAA", 90), row("BBB", 88), row("CCC", 86), row("DDD", 84)]
+    pos = {s: held(22500) for s in ("AAA", "BBB", "CCC", "DDD")}    # 90% invested
+    acct = {"equity": 100000.0, "cash": 10000.0}
+    neutral = {"regime": "NEUTRAL", "regime_score": 50, "invest_fraction": 0.90}
+    plan = build_plan(rows, neutral, pos, acct, minutes_to_close=30)
+    sells = sum(o["dollars"] for o in plan["orders"] if o["side"] == "sell")
+    assert not [o for o in plan["orders"] if o["side"] == "buy"]
+    assert 25000 <= sells <= 35000          # 90% -> about 60% for the night
+    assert plan["invested_after_pct"] <= 61
+    # earlier in the session the same portfolio is left alone
+    day = build_plan(rows, neutral, pos, acct, minutes_to_close=200)
+    assert not [o for o in day["orders"] if o["side"] == "sell"]
