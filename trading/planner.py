@@ -16,13 +16,13 @@ from datetime import date, timedelta
 
 @dataclass
 class RiskSettings:
-    max_position_pct: float = 0.25      # cap per stock (aggressive: the brief says "MUST take risks")
-    max_holdings: int = 8               # concentrate on the strongest 8 of the 13 (all 13 stay tradable)
+    max_position_pct: float = 0.30      # cap per stock (aggressive: the brief says "MUST take risks")
+    max_holdings: int = 5               # 16 Oct: concentrate on the strongest 5 (was 8); all list names stay tradable
     weight_power: float = 2.0           # how hard money tilts to the top scores (2.5 swung too much on AI-score noise)
     hold_bonus: float = 5.0             # a held stock keeps its slot unless a newcomer beats it by 5+
     same_day_drop: float = 15.0         # same-day sell/re-buy needs the technical score to move this much
     rel_band: float = 0.25              # resize a held stock only if the change is 25%+ of the position
-    conviction_caps: tuple = ((80, 0.25), (70, 0.18), (0, 0.12))   # (min final score, max weight)
+    conviction_caps: tuple = ((80, 0.30), (70, 0.22), (0, 0.12))   # (min final score, max weight)
     # intraday brake: today's Nasdaq-100 (QQQ) move -> most of the account allowed in stocks
     day_brake: tuple = ((-2.5, 0.35), (-1.5, 0.55), (-0.75, 0.75))
     knife_day_pct: float = -4.0         # no NEW buy in a stock already down 4%+ today
@@ -38,15 +38,17 @@ class RiskSettings:
     unsupported_adjust: float = 5       # PM moves beyond +/-5 need news pointing the same way
     news_support: float = 0.10          # |sentiment| that counts as news support for a big adjustment
     veto_news: float = -0.25            # a buy veto needs news at least this negative (or a breakdown)
-    min_holdings: int = 8               # if fewer qualify, add the next-best names scoring >= exit_score
+    min_holdings: int = 4               # if fewer qualify, add the next-best names scoring >= exit_score
     filler_weight_pct: float = 0.05     # fixed small size for those added names (never more)
     lock_trigger: float = 0.06          # once a holding has been up 6%+ from our entry ...
     lock_keep: float = 0.60             # ... keep at least 60% of the best gain (profit lock)
     # 13-16 Oct: the sessions themselves were net positive (+$326) but the account lost
     # $4,128 between sessions, holding ~90% overnight and buying 20 min before the close.
-    late_no_buy_min: float = 60         # no new buys/adds in the last hour before the close
-    overnight_min: float = 40           # the final run(s): trim to the overnight cap
-    overnight_caps: tuple = (("RISK-ON", 0.80), ("NEUTRAL", 0.60), ("CAUTION", 0.45), ("RISK-OFF", 0.30))
+    # Only on WEAK days (Nasdaq-100 down on the day, or regime CAUTION / RISK-OFF): strong days
+    # keep full exposure overnight to catch the gap up.
+    late_no_buy_min: float = 30         # weak day: no new buys in the last 30 minutes
+    overnight_min: float = 40           # weak day, final run(s): trim to the overnight cap
+    overnight_caps: tuple = (("RISK-ON", 0.85), ("NEUTRAL", 0.70), ("CAUTION", 0.50), ("RISK-OFF", 0.35))
 
 
 @dataclass
@@ -150,17 +152,22 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
                     exposure = cap
                 break
 
-    late = minutes_to_close is not None and minutes_to_close <= rs.late_no_buy_min
-    overnight = minutes_to_close is not None and minutes_to_close <= rs.overnight_min
-    overnight_note = None
+    label = str(regime.get("regime", "")).upper()
+    weak_day = (isinstance(qd, (int, float)) and qd < 0) or label in ("CAUTION", "RISK-OFF")
+    late = weak_day and minutes_to_close is not None and minutes_to_close <= rs.late_no_buy_min
+    overnight = weak_day and minutes_to_close is not None and minutes_to_close <= rs.overnight_min
+    notes = []
     if overnight:
-        cap = dict(rs.overnight_caps).get(str(regime.get("regime", "")).upper(), 0.60)
+        cap = dict(rs.overnight_caps).get(label, 0.60)
         if exposure > cap:
-            overnight_note = (f"{minutes_to_close:.0f} min to the close: exposure cut to {cap:.0%} for the night "
-                              f"({regime.get('regime')}); strong names are bought back at the next session")
+            notes.append(f"weak day ({regime.get('regime')}"
+                         + (f", Nasdaq-100 {qd:+.2f}%" if isinstance(qd, (int, float)) else "")
+                         + f"), {minutes_to_close:.0f} min to the close: exposure cut to {cap:.0%} for the "
+                         "night; strong names are bought back at the next session")
             exposure = cap
-    elif late:
-        overnight_note = f"{minutes_to_close:.0f} min to the close: no new buys (overnight risk)"
+    if late:
+        notes.append(f"weak day, {minutes_to_close:.0f} min to the close: no new buys (overnight risk)")
+    overnight_note = "; ".join(notes) or None
 
     by_sym = {r["symbol"]: r for r in rows}
     targets: dict[str, Target] = {}
@@ -391,7 +398,7 @@ def build_plan(rows: list[dict], regime: dict, positions: dict, account: dict,
             continue
         if delta > 0 and late:
             t.action = "HOLD"
-            t.reasons.append("last hour before the close: no new buys (overnight risk)")
+            t.reasons.append("weak day, last 30 min before the close: no new buys (overnight risk)")
             continue
         if delta > 0:
             t.action = "BUY" if t.current_value == 0 else "ADD"

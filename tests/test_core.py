@@ -100,7 +100,7 @@ def test_earnings_cap_for_non_catalyst_profile():
 
 def test_fillers_get_fixed_small_weight_and_never_outnumber_strong_names():
     rows = [row("AAA", 80), row("BBB", 75)] + [row(s, 46) for s in "CDEFGH"]
-    flat = RiskSettings(conviction_caps=((0, 0.25),))
+    flat = RiskSettings(conviction_caps=((0, 0.25),), max_position_pct=0.25, min_holdings=8, max_holdings=8)
     plan = build_plan(rows, REGIME, {}, ACCT, settings=flat)
     t = {x["symbol"]: x for x in plan["targets"]}
     fillers = [x for x in plan["targets"] if "added to reach minimum holdings" in x["reasons"]]
@@ -116,7 +116,8 @@ def test_first_live_run_13_oct_sizing():
               "NVDA": 41.0, "TSM": 39.3, "AVGO": 33.6, "LRCX": 33.2, "MU": 24.4, "SNDK": 19.1, "VRT": 13.7}
     rows = [row(s, v) for s, v in scores.items()]
     reg = {"regime": "RISK-ON", "regime_score": 95, "invest_fraction": 0.97}
-    legacy = RiskSettings(max_position_pct=0.20, weight_power=1.5, conviction_caps=((0, 0.20),))   # settings that day
+    legacy = RiskSettings(max_position_pct=0.20, weight_power=1.5, conviction_caps=((0, 0.20),),
+                          min_holdings=8, max_holdings=8)   # settings that day
     plan = build_plan(rows, reg, {}, ACCT, settings=legacy)
     w = {x["symbol"]: x["target_weight"] for x in plan["targets"]}
     for strong in ("PLTR", "META", "GOOGL", "GEV"):
@@ -255,8 +256,11 @@ def test_aggressive_sizing_concentrates_on_the_best():
     plan = build_plan([row(s, v) for s, v in scores.items()], REGIME, {}, ACCT)
     w = {x["symbol"]: x["target_weight"] for x in plan["targets"]}
     held = [s for s, v in w.items() if v > 0]
-    assert len(held) <= RiskSettings().max_holdings and w["MSFT"] > 2 * min(v for v in w.values() if v > 0)
+    assert len(held) <= RiskSettings().max_holdings          # 16 Oct: only the best 5
+    assert set(held) == {"MSFT", "SHOP", "PLTR", "DDOG", "META"}
+    assert w["MSFT"] >= max(v for v in w.values()) - 1e-9
     assert w["MSFT"] <= RiskSettings().max_position_pct + 1e-9
+    assert 0.94 <= sum(w.values()) <= 0.98
 
 
 def test_every_file_in_the_repo_can_be_checked_out_on_windows():
@@ -324,25 +328,31 @@ def test_intraday_brake_and_falling_knife():
     assert crash["exposure_target"] == 0.35
 
 
-def test_no_new_buys_in_the_last_hour():
+def test_weak_day_no_new_buys_just_before_the_close():
     rows = [row("AAA", 90), row("BBB", 85)]
-    plan = build_plan(rows, REGIME, {}, ACCT, minutes_to_close=50)
+    weak = dict(REGIME, qqq_day_pct=-0.8)
+    plan = build_plan(rows, weak, {}, ACCT, minutes_to_close=20)
     assert not [o for o in plan["orders"] if o["side"] == "buy"]
     assert "no new buys" in (plan["brake"] or "")
-    plan = build_plan(rows, REGIME, {}, ACCT, minutes_to_close=120)
+    # strong day: buying continues to the end, exposure is kept overnight
+    strong = dict(REGIME, qqq_day_pct=+0.9)
+    plan = build_plan(rows, strong, {}, ACCT, minutes_to_close=20)
+    assert [o for o in plan["orders"] if o["side"] == "buy"]
+    # weak day but earlier in the session: buying allowed
+    plan = build_plan(rows, weak, {}, ACCT, minutes_to_close=120)
     assert [o for o in plan["orders"] if o["side"] == "buy"]
 
 
-def test_overnight_cap_trims_holdings_before_the_close():
+def test_overnight_cap_trims_only_on_weak_days():
     rows = [row("AAA", 90), row("BBB", 88), row("CCC", 86), row("DDD", 84)]
     pos = {s: held(22500) for s in ("AAA", "BBB", "CCC", "DDD")}    # 90% invested
     acct = {"equity": 100000.0, "cash": 10000.0}
-    neutral = {"regime": "NEUTRAL", "regime_score": 50, "invest_fraction": 0.90}
-    plan = build_plan(rows, neutral, pos, acct, minutes_to_close=30)
+    weak = {"regime": "NEUTRAL", "regime_score": 50, "invest_fraction": 0.90, "qqq_day_pct": -1.0}
+    plan = build_plan(rows, weak, pos, acct, minutes_to_close=30)
     sells = sum(o["dollars"] for o in plan["orders"] if o["side"] == "sell")
     assert not [o for o in plan["orders"] if o["side"] == "buy"]
-    assert 25000 <= sells <= 35000          # 90% -> about 60% for the night
-    assert plan["invested_after_pct"] <= 61
-    # earlier in the session the same portfolio is left alone
-    day = build_plan(rows, neutral, pos, acct, minutes_to_close=200)
-    assert not [o for o in day["orders"] if o["side"] == "sell"]
+    assert 15000 <= sells <= 25000          # 90% -> about 70% for the night
+    assert plan["invested_after_pct"] <= 71
+    strong = dict(weak, qqq_day_pct=+0.6)
+    plan = build_plan(rows, strong, pos, acct, minutes_to_close=30)
+    assert not [o for o in plan["orders"] if o["side"] == "sell"]
