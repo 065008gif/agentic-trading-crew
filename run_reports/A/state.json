@@ -4,56 +4,38 @@
   "overlay": {
    "adjustments": [
     {
-     "adjust": 4,
-     "note": "Record iPhone pre\u2011orders but no explicit upgrade",
-     "symbol": "AAPL",
-     "veto_buy": false
-    },
-    {
-     "adjust": 9,
-     "note": "Goldman Sachs raises price target \u2013 strong bullish catalyst",
-     "symbol": "MRNA",
-     "veto_buy": false
-    },
-    {
-     "adjust": 10,
-     "note": "StoneX upgrades Microsoft, target $600",
-     "symbol": "MSFT",
+     "adjust": 3,
+     "note": "Neutral Alpha, modest whale activity boost",
+     "symbol": "META",
      "veto_buy": false
     },
     {
      "adjust": 8,
-     "note": "Mizuho lifts target, maintains outperformance",
-     "symbol": "PLTR",
+     "note": "Strong Alpha and power\u2011deal news",
+     "symbol": "MSFT",
      "veto_buy": false
     },
     {
-     "adjust": 9,
-     "note": "Baird raises target, keeps outperformance",
+     "adjust": 10,
+     "note": "Bullish Alpha plus price\u2011hike target raise",
      "symbol": "SHOP",
      "veto_buy": false
     },
     {
-     "adjust": 9,
-     "note": "Deutsche\u202fBank upgrades to Buy, raises target",
+     "adjust": 4,
+     "note": "High Alpha, upbeat trading sentiment",
      "symbol": "WMT",
      "veto_buy": false
     },
     {
-     "adjust": 7,
-     "note": "Q3 adjusting items highlight timing effects \u2013 bullish",
+     "adjust": 9,
+     "note": "Top Alpha, refining\u2011margin boost news",
      "symbol": "XOM",
-     "veto_buy": false
-    },
-    {
-     "adjust": 0,
-     "note": "Neutral historical note, no fresh catalyst",
-     "symbol": "ZBRA",
      "veto_buy": false
     }
    ],
-   "exposure": 0.58,
-   "summary": "The market remains in a risk\u2011off regime, so we keep exposure modest at 58% of capital. All held names receive modest to strong positive adjustments driven by clear company\u2011specific upgrades or target raises, while Zebra stays neutral. This aligns with the momentum\u2011leader profile and aims to capture upside while limiting cash drag."
+   "exposure": 0.55,
+   "summary": "The market is in a risk\u2011off regime, so we keep exposure at the baseline 55% of capital. Momentum leaders with strong Alpha scores receive modest to strong positive adjustments, especially where company\u2011specific bullish news appears. No vetoes are set, and the portfolio remains positioned for the identified trend strengths."
   },
   "symbols": [
    "MRNA",
@@ -70,28 +52,41 @@
    "WMT",
    "AAPL"
   ],
-  "time": "2026-10-16T19:44:02"
+  "time": "2026-10-17T00:57:22"
  },
  "bought": {
-  "ZBRA": {
+  "META": {
    "date": "2026-10-16",
-   "score": 71.4
+   "score": 65.0
   }
  },
  "no_rebuy": {
+  "AAPL": {
+   "date": "2026-10-16",
+   "score": 71.5
+  },
+  "MRNA": {
+   "date": "2026-10-16",
+   "score": null
+  },
+  "PLTR": {
+   "date": "2026-10-16",
+   "score": 67.9
+  },
   "VST": {
    "date": "2026-10-16",
    "score": 59.1
+  },
+  "ZBRA": {
+   "date": "2026-10-16",
+   "score": 54.2
   }
  },
  "peaks": {
-  "AAPL": 346.1357,
-  "MRNA": 241.68,
+  "META": 721.27,
   "MSFT": 545.56,
-  "PLTR": 200.71,
   "SHOP": 179.59,
   "WMT": 120.69,
-  "XOM": 177.3,
-  "ZBRA": 379.04
+  "XOM": 178.49
  }
 }

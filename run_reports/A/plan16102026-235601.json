@@ -1,0 +1,313 @@
+{
+  "date": "2026-10-16",
+  "profile": "momentum",
+  "equity": 95245.23,
+  "cash": 41622.98,
+  "regime": "RISK-OFF",
+  "regime_score": 16.7,
+  "exposure_target": 0.55,
+  "invested_after_pct": 55.0,
+  "brake": null,
+  "settings": {
+    "max_position_pct": 0.3,
+    "max_holdings": 5,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.3
+      ],
+      [
+        70,
+        0.22
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 4,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6,
+    "late_no_buy_min": 30,
+    "overnight_min": 40,
+    "overnight_caps": [
+      [
+        "RISK-ON",
+        0.85
+      ],
+      [
+        "NEUTRAL",
+        0.7
+      ],
+      [
+        "CAUTION",
+        0.5
+      ],
+      [
+        "RISK-OFF",
+        0.35
+      ]
+    ]
+  },
+  "targets": [
+    {
+      "symbol": "XOM",
+      "alpha": 84.9,
+      "adjust": 8.0,
+      "final": 92.9,
+      "current_value": 13796.926937,
+      "current_weight": 0.1448568808852685,
+      "target_weight": 0.15200415531191877,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Gains $4.5\u202fB from higher refining margins",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "WMT",
+      "alpha": 85.9,
+      "adjust": 5.0,
+      "final": 90.9,
+      "current_value": 13190.194093,
+      "current_weight": 0.13848666324812278,
+      "target_weight": 0.13957569678161424,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Stock trading higher Thursday",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "SHOP",
+      "alpha": 80.9,
+      "adjust": 9.0,
+      "final": 89.9,
+      "current_value": 14771.894956,
+      "current_weight": 0.15509327822506178,
+      "target_weight": 0.13356021685330055,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Price hikes show pricing power",
+        "change smaller than 25% of the position: kept"
+      ]
+    },
+    {
+      "symbol": "MSFT",
+      "alpha": 74.8,
+      "adjust": 8.0,
+      "final": 82.8,
+      "current_value": 8989.904195,
+      "current_weight": 0.09438692305115962,
+      "target_weight": 0.09466033414946844,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Secures major NiSource power deal",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "MRNA",
+      "alpha": 73.9,
+      "adjust": 8.0,
+      "final": 81.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Goldman Sachs raises price target",
+        "sold today by a stop or the profit lock; no re-buy until tomorrow"
+      ]
+    },
+    {
+      "symbol": "VST",
+      "alpha": 62.9,
+      "adjust": 7.0,
+      "final": 69.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +7: CIBC initiates coverage, target $201",
+        "sold earlier today at technical score 59.1; re-buy only if it rises 15+ points (now 62.9)"
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "alpha": 69.6,
+      "adjust": -5.0,
+      "final": 64.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -5: UK legal fight over iPhone tap\u2011to\u2011pay",
+        "sold earlier today at technical score 71.5; re-buy only if it rises 15+ points (now 69.6)"
+      ]
+    },
+    {
+      "symbol": "META",
+      "alpha": 53.0,
+      "adjust": 4.0,
+      "final": 57.0,
+      "current_value": 2876.367553,
+      "current_weight": 0.030199596903697962,
+      "target_weight": 0.030199596903697962,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +4: Whale activity noted",
+        "target below the 3% minimum position; its money goes to stronger names",
+        "bought today (technical score 65.0): kept at its size until tomorrow; stop and profit lock still apply",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "alpha": 49.0,
+      "adjust": 7.0,
+      "final": 56.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +7: Mizuho lifts price target to $245",
+        "sold earlier today at technical score 67.9; re-buy only if it rises 15+ points (now 49.0)"
+      ]
+    },
+    {
+      "symbol": "ZBRA",
+      "alpha": 54.0,
+      "adjust": 0.0,
+      "final": 54.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at technical score 54.2; re-buy only if it rises 15+ points (now 54.0)"
+      ]
+    },
+    {
+      "symbol": "DDOG",
+      "alpha": 34.0,
+      "adjust": 7.0,
+      "final": 41.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +7: Mizuho raises target, maintains outperformance",
+        "down -7.6% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "HPE",
+      "alpha": 20.6,
+      "adjust": -8.0,
+      "final": 12.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -8: Barclays downgrades to equal\u2011weight",
+        "down -5.8% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "DELL",
+      "alpha": 19.2,
+      "adjust": -7.0,
+      "final": 12.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -7: Analysts question sinking stock",
+        "Risk check: veto ignored, news -0.22 not negative enough",
+        "price 456.13 is below its trailing stop 508.98 (downtrend): not buying"
+      ]
+    }
+  ],
+  "orders": [],
+  "pm_summary": "The market is in a risk\u2011off regime, so we keep exposure modest at 55% of capital. Momentum leaders WMT, XOM and SHOP retain bullish bias, reinforced by strong news, while weaker names like HPE and DELL receive sizable negative adjustments and vetoes on new buys. All other stocks are nudged modestly based on their latest headlines, aligning the portfolio with the current risk appetite and trend signals.",
+  "account": "A",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 WMT 85.9 BULLISH | 90 88 98 70 69 24 | 73.0 96.7 14.0 11.39 2.19 0.01 | \n2 XOM 84.9 BULLISH | 90 86 92 64 78 26 | 72.2 80.0 8.45 9.01 2.01 -1.06 | \n3 SHOP 80.9 BULLISH | 90 93 78 78 48 39 | 61.4 27.0 12.27 32.22 0.9 1.73 | \n4 MSFT 74.8 BULLISH | 99 78 60 64 56 78 | 55.9 20.0 1.82 6.77 0.46 2.15 | earnings 2026-10-28 AMC (12d)\n5 MRNA 73.9 BULLISH | 100 93 55 76 16 41 | 59.6 27.5 12.25 38.43 0.78 4.44 | earnings 2026-10-29 BMO (13d)\n6 AAPL 69.6 BULLISH | 75 75 62 56 70 38 | 59.5 40.6 2.28 1.63 1.03 -0.01 | \n7 VST 62.9 BULLISH | 75 74 45 85 30 44 | 53.1 31.1 9.05 8.69 0.48 1.43 | \n8 ZBRA 54.0 NEUTRAL | 64 47 43 78 50 95 | 48.7 5.5 -1.89 6.33 -0.7 2.62 | \n9 META 53.0 NEUTRAL | 77 45 58 42 30 95 | 49.5 9.7 -2.98 6.19 -1.81 1.16 | earnings 2026-10-28 AMC (12d)\n10 PLTR 49.0 NEUTRAL | 80 50 32 56 13 95 | 46.5 2.5 -1.33 4.91 -0.91 3.44 | \n11 DDOG 34.0 BEARISH | 44 37 37 44 0 95 | 41.3 2.4 -11.29 6.95 -1.75 1.95 | \n12 HPE 20.6 BEARISH | 35 28 0 27 5 95 | 37.5 1.4 -20.33 -9.1 -2.09 3.14 | BREAKDOWN\n13 DELL 19.2 BEARISH | 35 23 0 35 0 95 | 33.7 1.0 -18.89 -19.89 -2.73 4.32 | ",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-16T23:57:23"
+}

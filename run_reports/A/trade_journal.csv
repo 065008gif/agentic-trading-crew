@@ -90,3 +90,25 @@ timestamp,symbol,side,dollars,qty,reason,status,order_id
 2026-10-16T19:14:17,ZBRA,buy,3726.59,,score 71.4; target 3.8%,pending_new,8f1166c2-4847-4c74-9210-8cb95c585491
 2026-10-16T19:44:13,SHOP,sell,4059.96,22.9376,"score 96.7; target 12.2%; PM adjust +9: Baird raises target, keeps outperformance",pending_new,ecee208a-0dc9-47a0-a645-794d9e92f2f3
 2026-10-16T19:44:13,MRNA,sell,7284.02,34.3667,score 79.1; target 5.3%; PM adjust +9: Goldman Sachs raises price target – strong bullish catalyst,pending_new,1384c67e-3cdf-4172-b587-f3537e30b9b0
+2026-10-16T20:11:05,AAPL,sell,5553.546813,,score 75.5 no longer earns a position,pending_new,293929ac-7e67-467c-b8b7-eef91a770d57
+2026-10-16T20:11:05,PLTR,sell,5356.811633,,score 75.9 no longer earns a position,pending_new,cced8202-23af-4be5-8755-6e84cba5a4ce
+2026-10-16T20:11:05,SHOP,buy,4004.34,,score 96.5; target 16.3%,pending_new,b5035912-19e2-4a5d-9963-03048b55ca1c
+2026-10-16T20:11:05,MSFT,buy,2477.33,,score 88.3; target 11.5%,pending_new,8eb31a67-d57e-4422-8ff5-8a2559b0e7f1
+2026-10-16T20:11:05,MRNA,buy,2887.34,,score 82.1; target 8.5%,pending_new,16d10871-5785-40ce-b681-110596515031
+2026-10-16T20:27:14,MRNA,sell,8136.91,,"PM adjust +10: Goldman Sachs raises target, clear upside; profit lock: best gain +7.2%, now -5.1%; price 213.84 fell below the lock 235.18, booking the profit",pending_new,73173ce9-115e-4704-ad96-da214b8e0b18
+2026-10-16T20:27:14,SHOP,buy,7286.61,,score 97.1; target 23.9%,pending_new,8c30d7d9-1561-4b20-9bd7-5a232899b5f1
+2026-10-16T20:27:14,WMT,buy,5939.07,,score 91.0; target 18.7%,pending_new,5f2b71a4-79a4-48d0-b205-3f9e571480f3
+2026-10-16T20:27:14,XOM,buy,3240.04,,score 83.7; target 13.2%,pending_new,e808fd31-4327-4fc1-a322-1cff52d5387f
+2026-10-16T20:27:14,MSFT,buy,3312.17,,score 86.2; target 15.0%,pending_new,4c6f23c9-0168-412a-995c-57a620b7eaa9
+2026-10-16T20:57:08,SHOP,sell,7505.67,42.6847,score 95.7; target 16.0%; PM adjust +9: RBC upgrade and higher price target,pending_new,66fa5446-7617-4c63-bf03-57017b6cd12e
+2026-10-16T20:57:08,MSFT,sell,5214.48,9.8221,score 84.0; target 9.4%; PM adjust +8: Major power deal with NiSource boosts outlook,pending_new,54e92914-ecad-4872-bd3a-0dd98238c6bb
+2026-10-16T21:11:05,WMT,sell,4796.8,40.3635,"score 93.7; target 13.7%; PM adjust +9: Deutsche Bank upgrades to buy, raises target",pending_new,cbd8b281-fede-4fc2-83be-0b500a1fdb3e
+2026-10-16T21:11:05,META,buy,2937.55,,score 68.0; target 3.1%,pending_new,659987cf-f75a-4eb9-ba64-bd46036343fd
+2026-10-16T21:27:09,XOM,sell,4201.48,23.8206,"score 84.1; target 8.9%; PM adjust +2: Q3 adjusting items disclosed, neutral impact",pending_new,cb638894-559b-4748-b36c-2bd326ce7fcd
+2026-10-16T21:57:09,XOM,buy,2293.96,,score 88.0; target 11.3%,pending_new,a8dd4e87-0f53-4ace-b85a-212436b1168e
+2026-10-16T23:41:17,ZBRA,sell,3631.704797,,score 54.2 no longer earns a position,pending_new,cae98605-8d32-47f2-8a22-882a5850fc16
+2026-10-16T23:41:17,XOM,buy,2901.13,,score 93.8; target 14.5%,pending_new,91a06230-e619-46c1-9e10-2da0c52cd07c
+2026-10-17T00:27:43,WMT,sell,5403.98,45.4881,score 88.9; target 8.2%; PM adjust +3: Trades higher; modest positive sentiment,pending_new,ccc722f4-b04b-47a3-a44b-5e5ef6f85355
+2026-10-17T00:27:43,XOM,sell,5840.18,32.7566,score 89.5; target 8.4%; PM adjust +4: Refining margin gain adds modest upside,pending_new,36df8119-440e-4c97-8d66-cced61b8e040
+2026-10-17T00:27:43,SHOP,sell,6325.73,37.2935,score 90.7; target 8.8%; PM adjust +10: Price hikes and $200 target signal strong pricing power,pending_new,afd1a93a-5290-4a93-ba93-0ebd3bd8748c
+2026-10-17T00:27:43,MSFT,sell,2681.33,5.0968,score 84.5; target 6.6%; PM adjust +10: Major power deal with NiSource boosts outlook,pending_new,fc77c270-6867-4995-8f0a-1eff96430aa2
