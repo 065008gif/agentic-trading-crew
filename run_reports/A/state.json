@@ -4,56 +4,56 @@
   "overlay": {
    "adjustments": [
     {
-     "adjust": -8,
-     "note": "Apple\u2011Meta partnership scrutiny raises risk",
+     "adjust": 4,
+     "note": "Record iPhone pre\u2011orders but no explicit upgrade",
      "symbol": "AAPL",
-     "veto_buy": true
+     "veto_buy": false
     },
     {
-     "adjust": 8,
-     "note": "Goldman Sachs lifts price target",
+     "adjust": 9,
+     "note": "Goldman Sachs raises price target \u2013 strong bullish catalyst",
      "symbol": "MRNA",
      "veto_buy": false
     },
     {
-     "adjust": 6,
-     "note": "OpenAI\u2011Meta ad\u2011price sprint fuels buzz",
+     "adjust": 10,
+     "note": "StoneX upgrades Microsoft, target $600",
      "symbol": "MSFT",
      "veto_buy": false
     },
     {
-     "adjust": 7,
-     "note": "Mizuho raises target, maintains outperformance",
+     "adjust": 8,
+     "note": "Mizuho lifts target, maintains outperformance",
      "symbol": "PLTR",
      "veto_buy": false
     },
     {
      "adjust": 9,
-     "note": "Baird upgrades and hikes price target",
+     "note": "Baird raises target, keeps outperformance",
      "symbol": "SHOP",
      "veto_buy": false
     },
     {
-     "adjust": 0,
-     "note": "Neutral earnings call transcript",
-     "symbol": "VST",
-     "veto_buy": false
-    },
-    {
-     "adjust": 8,
-     "note": "Deutsche Bank upgrades to Buy, raises target",
+     "adjust": 9,
+     "note": "Deutsche\u202fBank upgrades to Buy, raises target",
      "symbol": "WMT",
      "veto_buy": false
     },
     {
      "adjust": 7,
-     "note": "Morgan Stanley overweight, lifts target",
+     "note": "Q3 adjusting items highlight timing effects \u2013 bullish",
      "symbol": "XOM",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "Neutral historical note, no fresh catalyst",
+     "symbol": "ZBRA",
      "veto_buy": false
     }
    ],
-   "exposure": 0.9,
-   "summary": "The market remains neutral overall, but momentum leaders like MRNA, SHOP, and WMT show strong bullish catalysts, while AAPL faces heightened scrutiny. We'll keep 90% of capital deployed, boost scores on the clear upgrade/target\u2011raise stories, and place a veto on new AAPL purchases."
+   "exposure": 0.58,
+   "summary": "The market remains in a risk\u2011off regime, so we keep exposure modest at 58% of capital. All held names receive modest to strong positive adjustments driven by clear company\u2011specific upgrades or target raises, while Zebra stays neutral. This aligns with the momentum\u2011leader profile and aims to capture upside while limiting cash drag."
   },
   "symbols": [
    "MRNA",
@@ -70,42 +70,18 @@
    "WMT",
    "AAPL"
   ],
-  "time": "2026-10-16T01:11:39"
+  "time": "2026-10-16T19:44:02"
  },
  "bought": {
-  "AAPL": {
-   "date": "2026-10-15",
-   "score": 72.5
-  },
-  "PLTR": {
-   "date": "2026-10-15",
-   "score": 79.3
-  },
-  "VST": {
-   "date": "2026-10-15",
-   "score": 50.8
-  },
-  "WMT": {
-   "date": "2026-10-15",
-   "score": 77.7
+  "ZBRA": {
+   "date": "2026-10-16",
+   "score": 71.4
   }
  },
  "no_rebuy": {
-  "DDOG": {
-   "date": "2026-10-15",
-   "score": 55.9
-  },
-  "META": {
-   "date": "2026-10-15",
-   "score": 69.5
-  },
-  "PLTR": {
-   "date": "2026-10-15",
-   "score": 63.9
-  },
-  "ZBRA": {
-   "date": "2026-10-15",
-   "score": 61.3
+  "VST": {
+   "date": "2026-10-16",
+   "score": 59.1
   }
  },
  "peaks": {
@@ -113,9 +89,9 @@
   "MRNA": 241.68,
   "MSFT": 545.56,
   "PLTR": 200.71,
-  "SHOP": 178.22,
-  "VST": 153.91,
+  "SHOP": 179.59,
   "WMT": 120.69,
-  "XOM": 177.3
+  "XOM": 177.3,
+  "ZBRA": 379.04
  }
 }

@@ -84,3 +84,9 @@ timestamp,symbol,side,dollars,qty,reason,status,order_id
 2026-10-16T01:11:54,SHOP,buy,6385.54,,score 97.3; target 16.1%,pending_new,ce7424c4-c441-4515-a522-bc3aeb5cb060
 2026-10-16T01:11:54,PLTR,buy,3667.64,,score 86.8; target 10.3%,pending_new,794a477a-a3c1-42bb-a416-b9685f520049
 2026-10-16T01:11:54,XOM,buy,2682.42,,score 85.3; target 9.6%,pending_new,bbbf660e-533c-4a72-812c-273033de37fc
+2026-10-16T19:14:17,WMT,sell,4565.37,38.3162,score 92.5; target 12.4%; PM adjust +8: Deutsche Bank upgrades to Buy,pending_new,3ee3b9c3-87da-4a30-bc18-ceebd2d7c091
+2026-10-16T19:14:17,PLTR,sell,4449.51,22.7097,score 76.5; target 5.5%; PM adjust +8: Mizuho raises target to $245,pending_new,5aeccfb2-842a-4609-9ac1-e970a3614e6a
+2026-10-16T19:14:17,VST,sell,4873.460635,,score 64.1 no longer earns a position,pending_new,9e807855-96af-49b0-88aa-80cbdbef996a
+2026-10-16T19:14:17,ZBRA,buy,3726.59,,score 71.4; target 3.8%,pending_new,8f1166c2-4847-4c74-9210-8cb95c585491
+2026-10-16T19:44:13,SHOP,sell,4059.96,22.9376,"score 96.7; target 12.2%; PM adjust +9: Baird raises target, keeps outperformance",pending_new,ecee208a-0dc9-47a0-a645-794d9e92f2f3
+2026-10-16T19:44:13,MRNA,sell,7284.02,34.3667,score 79.1; target 5.3%; PM adjust +9: Goldman Sachs raises price target – strong bullish catalyst,pending_new,1384c67e-3cdf-4172-b587-f3537e30b9b0
