@@ -1,0 +1,316 @@
+{
+  "date": "2026-10-16",
+  "profile": "catalyst",
+  "equity": 99869.9,
+  "cash": 44961.59,
+  "regime": "RISK-OFF",
+  "regime_score": 16.7,
+  "exposure_target": 0.35,
+  "invested_after_pct": 35.0,
+  "brake": "Nasdaq-100 (QQQ) -2.72% today: exposure capped at 35% (was 52%)",
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.25
+      ],
+      [
+        70,
+        0.18
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "COST",
+      "alpha": 76.3,
+      "adjust": 10.0,
+      "final": 86.3,
+      "current_value": 15292.538656,
+      "current_weight": 0.15312460166676847,
+      "target_weight": 0.08990166441281115,
+      "action": "TRIM",
+      "dollars": -6314.07,
+      "qty": 6.383,
+      "reasons": [
+        "PM adjust +10: Tigress Financial maintains Buy \u2013 strong positive signal"
+      ]
+    },
+    {
+      "symbol": "EL",
+      "alpha": 75.4,
+      "adjust": 9.0,
+      "final": 84.4,
+      "current_value": 13102.476321,
+      "current_weight": 0.13119544848848352,
+      "target_weight": 0.08182011254558072,
+      "action": "TRIM",
+      "dollars": -4931.11,
+      "qty": 46.9361,
+      "reasons": [
+        "PM adjust +9: Morgan Stanley maintains Equal\u2011Weight \u2013 bullish outlook"
+      ]
+    },
+    {
+      "symbol": "ISRG",
+      "alpha": 72.7,
+      "adjust": 0.0,
+      "final": 72.7,
+      "current_value": 8287.630067,
+      "current_weight": 0.08298426319641855,
+      "target_weight": 0.04044149176421618,
+      "action": "TRIM",
+      "dollars": -4248.74,
+      "qty": 9.9703,
+      "reasons": []
+    },
+    {
+      "symbol": "SPOT",
+      "alpha": 66.0,
+      "adjust": 0.0,
+      "final": 66.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at technical score 68.9; re-buy only if it rises 15+ points (now 66.0)"
+      ]
+    },
+    {
+      "symbol": "NOW",
+      "alpha": 65.1,
+      "adjust": 0.0,
+      "final": 65.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at technical score 65.2; re-buy only if it rises 15+ points (now 65.1)"
+      ]
+    },
+    {
+      "symbol": "CCL",
+      "alpha": 64.3,
+      "adjust": 0.0,
+      "final": 64.3,
+      "current_value": 4459.95474,
+      "current_weight": 0.04465764699874537,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -4459.95,
+      "qty": 0.0,
+      "reasons": [
+        "target below the 3% minimum position; its money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "alpha": 49.0,
+      "adjust": 7.0,
+      "final": 56.0,
+      "current_value": 4087.320848,
+      "current_weight": 0.0409264537963891,
+      "target_weight": 0.0409264537963891,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +7: Jack Henry uses Google Cloud for tokenized deposits \u2013 positive news",
+        "target below the 3% minimum position; its money goes to stronger names",
+        "bought today (technical score 51.8): kept at its size until tomorrow; stop and profit lock still apply",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "CEG",
+      "alpha": 43.3,
+      "adjust": 8.0,
+      "final": 51.3,
+      "current_value": 4693.226675,
+      "current_weight": 0.04699340517012634,
+      "target_weight": 0.04699340517012634,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: CIBC initiates coverage \u2013 bullish catalyst",
+        "target below the 3% minimum position; its money goes to stronger names",
+        "bought today (technical score 45.7): kept at its size until tomorrow; stop and profit lock still apply",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "alpha": 46.2,
+      "adjust": 0.0,
+      "final": 46.2,
+      "current_value": 4985.193046,
+      "current_weight": 0.04991687231087646,
+      "target_weight": 0.04991687231087646,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "target below the 3% minimum position; its money goes to stronger names",
+        "bought today (technical score 48.1): kept at its size until tomorrow; stop and profit lock still apply",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "GEV",
+      "alpha": 35.7,
+      "adjust": 0.0,
+      "final": 35.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 921.3 is below its trailing stop 925.94 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "alpha": 29.4,
+      "adjust": 0.0,
+      "final": 29.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 351.9 is below its trailing stop 353.33 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "CIEN",
+      "alpha": 25.4,
+      "adjust": 0.0,
+      "final": 25.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -6.9% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "LRCX",
+      "alpha": 20.5,
+      "adjust": 0.0,
+      "final": 20.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -5.0% today: not catching a falling knife"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "COST",
+      "side": "sell",
+      "type": "qty",
+      "qty": 6.383,
+      "dollars": 6314.07,
+      "reason": "score 86.3; target 9.0%; PM adjust +10: Tigress Financial maintains Buy \u2013 strong positive signal"
+    },
+    {
+      "symbol": "EL",
+      "side": "sell",
+      "type": "qty",
+      "qty": 46.9361,
+      "dollars": 4931.11,
+      "reason": "score 84.4; target 8.2%; PM adjust +9: Morgan Stanley maintains Equal\u2011Weight \u2013 bullish outlook"
+    },
+    {
+      "symbol": "ISRG",
+      "side": "sell",
+      "type": "qty",
+      "qty": 9.9703,
+      "dollars": 4248.74,
+      "reason": "score 72.7; target 4.0%"
+    },
+    {
+      "symbol": "CCL",
+      "side": "sell",
+      "type": "close",
+      "dollars": 4459.95474,
+      "reason": "score 64.3 no longer earns a position"
+    }
+  ],
+  "pm_summary": "The market remains in a risk\u2011off regime, so we keep overall exposure modest at about 52% of the account. We reinforce holdings with clear bullish news on Costco, Est\u00e9e Lauder, Constellation Energy and Google, while leaving Amazon, Carnival and Intuitive Surgical unchanged. No vetoes are applied as there are no adverse headlines. The plan is to ride the upcoming earnings and maintain the current portfolio through the short\u2011term volatility.",
+  "account": "B",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 COST 76.3 BULLISH | 90 83 96 72 70 26 | 72.3 86.8 7.42 10.36 2.02 -0.18 | \n2 EL 75.4 BULLISH | 80 92 100 66 63 27 | 64.9 61.4 14.23 12.41 1.9 1.19 | \n3 ISRG 72.7 BULLISH | 80 86 74 71 70 33 | 64.2 60.0 8.73 8.32 1.41 0.8 | earnings 2026-10-20 AMC (4d)\n4 SPOT 66.0 BULLISH | 77 72 54 74 65 39 | 53.8 35.6 11.06 2.99 0.93 -0.43 | earnings 2026-10-22 BMO (6d)\n5 NOW 65.1 BULLISH | 88 68 63 55 70 39 | 54.6 38.6 5.16 4.45 0.88 0.84 | earnings 2026-10-28 AMC (12d)\n6 CCL 64.3 BULLISH | 85 73 72 46 60 42 | 56.7 28.3 0.56 18.66 0.63 1.53 | \n7 GOOGL 49.0 NEUTRAL | 52 41 27 54 44 95 | 43.8 8.8 -1.06 -2.76 -1.3 1.21 | earnings 2026-10-27 AMC (11d)\n8 AMZN 46.2 NEUTRAL | 41 48 21 38 51 95 | 44.3 8.0 -0.81 -1.77 -0.82 1.7 | earnings 2026-10-29 AMC (13d)\n9 CEG 43.3 NEUTRAL | 40 58 36 55 13 45 | 46.8 6.8 5.16 6.24 -0.19 1.57 | \n10 GEV 35.7 BEARISH | 16 32 15 58 14 95 | 40.0 3.8 -6.88 -2.06 -1.7 1.94 | \n11 TSLA 29.4 BEARISH | 23 35 11 32 30 45 | 40.8 1.7 -5.06 -3.47 -1.78 2.14 | earnings 2026-10-20 AMC (4d)\n12 CIEN 25.4 BEARISH | 0 25 8 64 5 45 | 39.4 2.5 -15.17 -4.99 -1.42 3.67 | BREAKDOWN\n13 LRCX 20.5 BEARISH | 0 20 0 51 5 45 | 30.2 0.1 -24.12 -8.36 -2.4 3.19 | BREAKDOWN, earnings 2026-10-21 AMC (5d)",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-17T01:16:37"
+}

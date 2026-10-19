@@ -1,0 +1,290 @@
+{
+  "date": "2026-10-16",
+  "profile": "rebound",
+  "equity": 97721.47,
+  "cash": 50186.46,
+  "regime": "CAUTION",
+  "regime_score": 36.7,
+  "exposure_target": 0.75,
+  "invested_after_pct": 48.0,
+  "brake": null,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.25
+      ],
+      [
+        70,
+        0.18
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "TSM",
+      "alpha": 59.3,
+      "adjust": 9.0,
+      "final": 68.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Record profit driven by AI demand",
+        "price 414.99 is below its trailing stop 456.06 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "MRVL",
+      "alpha": 62.1,
+      "adjust": 2.0,
+      "final": 64.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +2: Investor interest but no concrete catalyst",
+        "price 235.84 is below its trailing stop 248.57 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "TER",
+      "alpha": 59.4,
+      "adjust": 0.0,
+      "final": 59.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 338.36 is below its trailing stop 394.13 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "NVDA",
+      "alpha": 50.0,
+      "adjust": 5,
+      "final": 55.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: CoreWeave partnership highlights demand",
+        "Risk check: capped +8->+5, news +0.06 does not support it",
+        "price 217.57 is below its trailing stop 224.65 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "NEM",
+      "alpha": 53.3,
+      "adjust": 0.0,
+      "final": 53.3,
+      "current_value": 12391.922788,
+      "current_weight": 0.1268085998706323,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "profit lock active: sells below 116.71 (keeps at least +3.9%)",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "AMD",
+      "alpha": 60.9,
+      "adjust": -8.0,
+      "final": 52.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -8: Limited AI chip capacity concerns",
+        "Risk check: veto ignored, news -0.14 not negative enough",
+        "price 544.8 is below its trailing stop 584.5 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "LLY",
+      "alpha": 43.5,
+      "adjust": 5,
+      "final": 48.5,
+      "current_value": 11889.006712,
+      "current_weight": 0.12166217630578009,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Positive EMA opinion for Foundayo",
+        "Risk check: capped +7->+5, news +0.00 does not support it",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "MPWR",
+      "alpha": 46.6,
+      "adjust": 0.0,
+      "final": 46.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 1245.04 is below its trailing stop 1343.73 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "UBER",
+      "alpha": 43.0,
+      "adjust": 3.0,
+      "final": 46.0,
+      "current_value": 11591.012179,
+      "current_weight": 0.11861274885652047,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: Guggenheim reiterates Buy, $125 target",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "DAL",
+      "alpha": 44.7,
+      "adjust": 0.0,
+      "final": 44.7,
+      "current_value": 11663.065692,
+      "current_weight": 0.11935008439803453,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "GNRC",
+      "alpha": 36.3,
+      "adjust": 0.0,
+      "final": 36.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 197.99 is below its trailing stop 200.71 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "AMAT",
+      "alpha": 31.8,
+      "adjust": -5.0,
+      "final": 26.8,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -5: Needham maintains Buy but cuts price target",
+        "price 422.52 is below its trailing stop 492.58 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "SMCI",
+      "alpha": 30.7,
+      "adjust": -4.0,
+      "final": 26.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -4: Stock fell on Thursday",
+        "down -5.7% today: not catching a falling knife"
+      ]
+    }
+  ],
+  "orders": [],
+  "pm_summary": "The market remains in a cautious regime with low\u2011volatility outperformance, so we keep 75% of capital deployed. We add modest positive bias to high\u2011beta chip leaders with good news (NVDA, TSM, LLY) and trim exposure to AMD and SMCI, which face negative headlines. No new buys are vetoed except AMD, keeping the portfolio aligned with the rebound strategy.",
+  "account": "C",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 MRVL 62.1 BULLISH | 35 33 8 66 0 95 | 40.5 3.0 -13.38 -4.72 -2.17 3.63 | \n2 AMD 60.9 BULLISH | 35 35 10 56 0 95 | 40.7 4.4 -14.03 -3.94 -2.57 3.15 | \n3 TER 59.4 NEUTRAL | 35 22 0 61 0 95 | 35.7 0.8 -24.58 -10.2 -2.08 2.86 | earnings 2026-10-27 AMC (11d)\n4 TSM 59.3 NEUTRAL | 35 24 6 55 1 95 | 35.0 0.6 -12.25 -5.56 -2.18 1.83 | earnings 2026-10-15 BMO (-1d)\n5 NEM 53.3 NEUTRAL | 66 64 41 65 70 44 | 52.6 82.8 3.53 -4.32 0.52 1.6 | earnings 2026-10-22 AMC (6d)\n6 NVDA 50.0 NEUTRAL | 35 32 12 27 24 78 | 40.5 10.9 -7.02 -3.29 -1.85 1.99 | \n7 MPWR 46.6 NEUTRAL | 0 30 22 67 0 69 | 40.7 13.0 -13.48 0.93 -1.62 1.86 | earnings 2026-10-29 AMC (13d)\n8 DAL 44.7 NEUTRAL | 15 34 17 28 34 70 | 40.7 55.0 -6.52 -2.53 -1.56 1.85 | \n9 LLY 43.5 NEUTRAL | 90 91 92 61 77 15 | 70.3 95.7 10.97 8.83 2.82 -0.36 | earnings 2026-10-29 BMO (13d)\n10 UBER 43.0 NEUTRAL | 27 66 40 57 73 36 | 51.1 60.5 4.39 -0.44 1.18 0.55 | \n11 GNRC 36.3 BEARISH | 0 32 5 79 9 45 | 42.8 4.7 -8.71 -5.89 -1.32 2.49 | \n12 AMAT 31.8 BEARISH | 0 21 4 60 0 45 | 31.5 0.1 -21.76 -6.26 -2.01 2.7 | \n13 SMCI 30.7 BEARISH | 20 22 0 35 0 45 | 32.4 0.4 -24.28 -16.7 -2.64 4.54 | ",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-16T20:27:11"
+}

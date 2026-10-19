@@ -4,38 +4,38 @@
   "overlay": {
    "adjustments": [
     {
+     "adjust": 1,
+     "note": "Neutral event announcement, slight upside",
+     "symbol": "AAPL",
+     "veto_buy": false
+    },
+    {
      "adjust": 3,
-     "note": "Neutral Alpha, modest whale activity boost",
-     "symbol": "META",
+     "note": "Strong alpha, no material news",
+     "symbol": "MRNA",
      "veto_buy": false
     },
     {
-     "adjust": 8,
-     "note": "Strong Alpha and power\u2011deal news",
-     "symbol": "MSFT",
-     "veto_buy": false
-    },
-    {
-     "adjust": 10,
-     "note": "Bullish Alpha plus price\u2011hike target raise",
+     "adjust": 2,
+     "note": "No news, modest bullish bias",
      "symbol": "SHOP",
      "veto_buy": false
     },
     {
-     "adjust": 4,
-     "note": "High Alpha, upbeat trading sentiment",
+     "adjust": 7,
+     "note": "Advertising opportunity news adds upside",
      "symbol": "WMT",
      "veto_buy": false
     },
     {
-     "adjust": 9,
-     "note": "Top Alpha, refining\u2011margin boost news",
+     "adjust": 8,
+     "note": "Barclays target raise signals strong upside",
      "symbol": "XOM",
      "veto_buy": false
     }
    ],
    "exposure": 0.55,
-   "summary": "The market is in a risk\u2011off regime, so we keep exposure at the baseline 55% of capital. Momentum leaders with strong Alpha scores receive modest to strong positive adjustments, especially where company\u2011specific bullish news appears. No vetoes are set, and the portfolio remains positioned for the identified trend strengths."
+   "summary": "The market is in a risk\u2011off regime, so we keep overall exposure at the regime\u2011defined 55%. Momentum leaders with strong alpha scores remain core holdings, while news\u2011driven tweaks add modest upside to XOM and WMT and small nudges to the other positions. No company shows clear downside risk, so no vetoes are applied."
   },
   "symbols": [
    "MRNA",
@@ -52,41 +52,51 @@
    "WMT",
    "AAPL"
   ],
-  "time": "2026-10-17T00:57:22"
+  "time": "2026-10-20T00:58:51"
  },
  "bought": {
-  "META": {
-   "date": "2026-10-16",
-   "score": 65.0
-  }
- },
- "no_rebuy": {
   "AAPL": {
-   "date": "2026-10-16",
-   "score": 71.5
+   "date": "2026-10-19",
+   "score": 69.3
   },
   "MRNA": {
-   "date": "2026-10-16",
+   "date": "2026-10-19",
+   "score": 85.1
+  }
+ },
+ "exposure": {
+  "date": "2026-10-19",
+  "level": 0.35
+ },
+ "no_rebuy": {
+  "META": {
+   "date": "2026-10-19",
    "score": null
   },
-  "PLTR": {
-   "date": "2026-10-16",
-   "score": 67.9
-  },
-  "VST": {
-   "date": "2026-10-16",
-   "score": 59.1
-  },
-  "ZBRA": {
-   "date": "2026-10-16",
-   "score": 54.2
+  "MSFT": {
+   "date": "2026-10-19",
+   "score": 71.6
   }
  },
  "peaks": {
-  "META": 721.27,
-  "MSFT": 545.56,
+  "AAPL": 343.3686,
+  "MRNA": 229.34,
   "SHOP": 179.59,
   "WMT": 120.69,
-  "XOM": 178.49
+  "XOM": 179.0
+ },
+ "trimmed": {
+  "SHOP": {
+   "date": "2026-10-19",
+   "score": 74.8
+  },
+  "WMT": {
+   "date": "2026-10-19",
+   "score": 84.8
+  },
+  "XOM": {
+   "date": "2026-10-19",
+   "score": 87.5
+  }
  }
 }

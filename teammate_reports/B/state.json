@@ -4,56 +4,50 @@
   "overlay": {
    "adjustments": [
     {
-     "adjust": 8,
-     "note": "Live\u2011sports rights bid adds upside",
+     "adjust": 0,
+     "note": "No direct news; neutral stance",
      "symbol": "AMZN",
      "veto_buy": false
     },
     {
-     "adjust": 2,
-     "note": "No news, modest positive bias",
+     "adjust": 0,
+     "note": "No recent news",
      "symbol": "CCL",
      "veto_buy": false
     },
     {
-     "adjust": 0,
-     "note": "No recent news",
+     "adjust": 8,
+     "note": "CIBC initiates coverage \u2013 bullish catalyst",
      "symbol": "CEG",
      "veto_buy": false
     },
     {
-     "adjust": 0,
-     "note": "No recent news",
+     "adjust": 10,
+     "note": "Tigress Financial maintains Buy \u2013 strong positive signal",
      "symbol": "COST",
      "veto_buy": false
     },
     {
-     "adjust": 0,
-     "note": "No recent news",
+     "adjust": 9,
+     "note": "Morgan Stanley maintains Equal\u2011Weight \u2013 bullish outlook",
      "symbol": "EL",
      "veto_buy": false
     },
     {
-     "adjust": 8,
-     "note": "UBS raises price target",
+     "adjust": 7,
+     "note": "Jack Henry uses Google Cloud for tokenized deposits \u2013 positive news",
      "symbol": "GOOGL",
      "veto_buy": false
     },
     {
-     "adjust": -8,
-     "note": "BTIG cuts price target",
+     "adjust": 0,
+     "note": "Neutral 10\u2011year return highlight; no new catalyst",
      "symbol": "ISRG",
-     "veto_buy": false
-    },
-    {
-     "adjust": 8,
-     "note": "Citi raises price target",
-     "symbol": "NOW",
      "veto_buy": false
     }
    ],
-   "exposure": 0.9,
-   "summary": "The market remains neutral with a slight bullish beta edge, so we keep 90% of capital deployed. Positive catalysts from Amazon's live\u2011sports bid, Alphabet's target raise, and ServiceNow's upgraded target justify modest score lifts, while Intuitive Surgical's target cut drags its score down. No new information on the remaining holdings, so we leave them unchanged."
+   "exposure": 0.52,
+   "summary": "The market remains in a risk\u2011off regime, so we keep overall exposure modest at about 52% of the account. We reinforce holdings with clear bullish news on Costco, Est\u00e9e Lauder, Constellation Energy and Google, while leaving Amazon, Carnival and Intuitive Surgical unchanged. No vetoes are applied as there are no adverse headlines. The plan is to ride the upcoming earnings and maintain the current portfolio through the short\u2011term volatility."
   },
   "symbols": [
    "TSLA",
@@ -70,52 +64,42 @@
    "GEV",
    "AMZN"
   ],
-  "time": "2026-10-15T01:12:52"
+  "time": "2026-10-17T01:16:26"
  },
  "bought": {
   "AMZN": {
-   "date": "2026-10-14",
-   "score": 58.7
+   "date": "2026-10-16",
+   "score": 48.1
   },
   "CEG": {
-   "date": "2026-10-14",
-   "score": 58.7
+   "date": "2026-10-16",
+   "score": 45.7
   },
-  "ISRG": {
-   "date": "2026-10-14",
-   "score": 66.3
-  },
-  "NOW": {
-   "date": "2026-10-14",
-   "score": 62.4
+  "GOOGL": {
+   "date": "2026-10-16",
+   "score": 51.8
   }
  },
  "no_rebuy": {
-  "CEG": {
-   "date": "2026-10-14",
-   "score": 55.5
-  },
-  "CIEN": {
-   "date": "2026-10-14",
-   "score": null
-  },
-  "GEV": {
-   "date": "2026-10-14",
-   "score": 47.0
+  "CCL": {
+   "date": "2026-10-16",
+   "score": 64.3
   },
   "NOW": {
-   "date": "2026-10-14",
-   "score": 56.6
+   "date": "2026-10-16",
+   "score": 65.2
+  },
+  "SPOT": {
+   "date": "2026-10-16",
+   "score": 68.9
   }
  },
  "peaks": {
-  "AMZN": 255.97,
-  "CCL": 26.75,
-  "CEG": 279.38,
-  "COST": 978.48,
-  "EL": 101.24,
-  "GOOGL": 357.67,
-  "ISRG": 423.97,
-  "NOW": 140.68
+  "AMZN": 254.47,
+  "CEG": 275.48,
+  "COST": 1004.64,
+  "EL": 108.32,
+  "GOOGL": 344.47,
+  "ISRG": 433.24
  }
 }

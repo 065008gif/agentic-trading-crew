@@ -1,0 +1,282 @@
+{
+  "date": "2026-10-16",
+  "profile": "rebound",
+  "equity": 97009.66,
+  "cash": 61672.68,
+  "regime": "RISK-OFF",
+  "regime_score": 16.7,
+  "exposure_target": 0.55,
+  "invested_after_pct": 36.0,
+  "brake": null,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.25
+      ],
+      [
+        70,
+        0.18
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "LLY",
+      "alpha": 51.6,
+      "adjust": 10.0,
+      "final": 61.6,
+      "current_value": 11759.789562,
+      "current_weight": 0.1212228716397934,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +10: Positive European backing for GLP\u20111 pill",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "MRVL",
+      "alpha": 60.3,
+      "adjust": 0.0,
+      "final": 60.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -4.4% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "AMD",
+      "alpha": 59.7,
+      "adjust": 0.0,
+      "final": 59.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -4.9% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "TSM",
+      "alpha": 58.5,
+      "adjust": 0.0,
+      "final": 58.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 412.17 is below its trailing stop 455.97 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "NVDA",
+      "alpha": 57.9,
+      "adjust": 0.0,
+      "final": 57.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 215.0 is below its trailing stop 224.59 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "NEM",
+      "alpha": 53.7,
+      "adjust": 0.0,
+      "final": 53.7,
+      "current_value": 12162.174428,
+      "current_weight": 0.12537075614943913,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "profit lock active: sells below 116.71 (keeps at least +3.9%)",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "UBER",
+      "alpha": 41.5,
+      "adjust": 5,
+      "final": 46.5,
+      "current_value": 11415.02043,
+      "current_weight": 0.11766890462248811,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Buy recommendation from Guggenheim",
+        "Risk check: capped +10->+5, news -0.18 does not support it",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "DAL",
+      "alpha": 42.1,
+      "adjust": 0.0,
+      "final": 42.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold today by a stop or the profit lock; no re-buy until tomorrow"
+      ]
+    },
+    {
+      "symbol": "GNRC",
+      "alpha": 34.9,
+      "adjust": 0.0,
+      "final": 34.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 193.31 is below its trailing stop 200.71 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "TER",
+      "alpha": 34.4,
+      "adjust": 0.0,
+      "final": 34.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 331.81 is below its trailing stop 394.13 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "MPWR",
+      "alpha": 33.6,
+      "adjust": 0.0,
+      "final": 33.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 1220.21 is below its trailing stop 1343.73 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "AMAT",
+      "alpha": 31.4,
+      "adjust": 0.0,
+      "final": 31.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 415.93 is below its trailing stop 491.8 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "SMCI",
+      "alpha": 30.1,
+      "adjust": 0.0,
+      "final": 30.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -9.6% today: not catching a falling knife"
+      ]
+    }
+  ],
+  "orders": [],
+  "pm_summary": "The risk\u2011off regime and high\u2011beta pullback strategy guide us to maintain a 55% exposure, focusing on rebound opportunities in high\u2011beta chip stocks while holding a small allocation to non\u2011chip positions. LLY receives a strong positive tilt due to European backing of its GLP\u20111 pill, UBER gets a boost from a renewed buy recommendation, and NEM remains neutral with no recent catalysts. We will keep the portfolio balanced and monitor for further pullbacks in the chip sector.",
+  "account": "C",
+  "model": "groq:openai/gpt-oss-20b (AI view from 23:35, reused)",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 MRVL 60.3 BULLISH | 35 27 6 60 0 95 | 38.6 2.3 -15.23 -5.69 -2.43 3.64 | \n2 AMD 59.7 NEUTRAL | 35 28 8 54 0 95 | 38.8 3.4 -15.66 -4.68 -2.79 3.19 | \n3 TSM 58.5 NEUTRAL | 35 24 7 50 0 95 | 34.0 0.5 -12.85 -5.11 -2.29 1.83 | earnings 2026-10-15 BMO (-1d)\n4 NVDA 57.9 NEUTRAL | 35 24 12 36 18 95 | 38.1 4.0 -8.12 -3.36 -2.18 1.94 | \n5 NEM 53.7 NEUTRAL | 65 44 36 77 36 50 | 49.3 75.9 1.69 -4.94 -0.02 1.48 | earnings 2026-10-22 AMC (6d)\n6 LLY 51.6 NEUTRAL | 89 90 92 65 72 15 | 68.7 94.4 9.91 8.88 2.59 -0.35 | earnings 2026-10-29 BMO (13d)\n7 DAL 42.1 NEUTRAL | 0 18 8 47 16 70 | 34.2 19.6 -9.79 -4.88 -2.41 1.88 | \n8 UBER 41.5 BEARISH | 6 50 38 52 70 46 | 47.4 37.7 2.88 -0.81 0.36 0.6 | \n9 GNRC 34.9 BEARISH | 0 32 2 74 0 45 | 40.1 2.6 -10.86 -7.05 -1.74 2.46 | \n10 TER 34.4 BEARISH | 20 22 0 58 5 45 | 34.4 0.6 -26.04 -10.87 -2.25 2.85 | BREAKDOWN, earnings 2026-10-27 AMC (11d)\n11 MPWR 33.6 BEARISH | 0 24 20 60 0 45 | 38.5 7.5 -15.2 -0.01 -1.91 1.86 | earnings 2026-10-29 AMC (13d)\n12 AMAT 31.4 BEARISH | 0 20 3 57 5 45 | 30.3 0.1 -22.98 -6.65 -2.15 2.68 | BREAKDOWN\n13 SMCI 30.1 BEARISH | 20 21 0 30 5 45 | 30.2 0.3 -27.44 -19.13 -2.9 4.71 | BREAKDOWN",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-16T23:38:22"
+}

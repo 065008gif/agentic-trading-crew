@@ -1,0 +1,293 @@
+{
+  "date": "2026-10-15",
+  "profile": "rebound",
+  "equity": 97243.72,
+  "cash": 73580.81,
+  "regime": "NEUTRAL",
+  "regime_score": 45.6,
+  "exposure_target": 0.85,
+  "invested_after_pct": 24.0,
+  "brake": null,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.25
+      ],
+      [
+        70,
+        0.18
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "TER",
+      "alpha": 58.9,
+      "adjust": 9.0,
+      "final": 67.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Partnership with FormFactor",
+        "down -4.6% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "MRVL",
+      "alpha": 63.9,
+      "adjust": 3.0,
+      "final": 66.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: Swing\u2011trader buying interest",
+        "price 241.77 is below its trailing stop 247.63 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "TSM",
+      "alpha": 58.3,
+      "adjust": 6.0,
+      "final": 64.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +6: Record profit but earnings risk",
+        "price 422.07 is below its trailing stop 455.65 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "NVDA",
+      "alpha": 59.1,
+      "adjust": 4.0,
+      "final": 63.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +4: CEO support signal",
+        "sold today by a stop or the profit lock; no re-buy until tomorrow"
+      ]
+    },
+    {
+      "symbol": "LLY",
+      "alpha": 46.0,
+      "adjust": 5,
+      "final": 51.0,
+      "current_value": 11791.544337,
+      "current_weight": 0.12125764354757304,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Positive ulcerative colitis trial",
+        "Risk check: capped +10->+5, news +0.00 does not support it",
+        "profit lock active: sells below 1243.05 (keeps at least +3.6%)",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "MPWR",
+      "alpha": 49.9,
+      "adjust": 0.0,
+      "final": 49.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 1255.62 is below its trailing stop 1341.79 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "NEM",
+      "alpha": 48.7,
+      "adjust": 0.0,
+      "final": 48.7,
+      "current_value": 11871.366819,
+      "current_weight": 0.12207849328470775,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "AMD",
+      "alpha": 53.4,
+      "adjust": -8.0,
+      "final": 45.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -8: Yield\u2011driven slump",
+        "Risk check: veto ignored, news -0.11 not negative enough",
+        "price 566.18 is below its trailing stop 583.68 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "GNRC",
+      "alpha": 39.8,
+      "adjust": 0.0,
+      "final": 39.8,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 198.68 is below its trailing stop 200.22 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "AMAT",
+      "alpha": 32.1,
+      "adjust": 5,
+      "final": 37.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Evercore upgrade",
+        "Risk check: capped +8->+5, news +0.05 does not support it",
+        "sold today by a stop or the profit lock; no re-buy until tomorrow"
+      ]
+    },
+    {
+      "symbol": "UBER",
+      "alpha": 42.4,
+      "adjust": -7.0,
+      "final": 35.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -7: Investor pressure, missed upside",
+        "Risk check: veto ignored, news -0.18 not negative enough",
+        "sold earlier today at technical score 42.0; re-buy only if it rises 15+ points (now 42.4)"
+      ]
+    },
+    {
+      "symbol": "DAL",
+      "alpha": 43.9,
+      "adjust": -9.0,
+      "final": 34.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -9: Launch delay after attacks",
+        "price 77.84 is below its trailing stop 77.97 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "SMCI",
+      "alpha": 30.0,
+      "adjust": -4.0,
+      "final": 26.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -4: CFO change amid falling price",
+        "price 34.98 is below its trailing stop 38.82 (downtrend): not buying"
+      ]
+    }
+  ],
+  "orders": [],
+  "pm_summary": "The market remains neutral, so we keep most capital deployed at 85% exposure while trimming a few riskier names. We add modest upside to chip rebound candidates with strong news (LLY, AMAT, TER, TSM, MRVL) and stay flat on neutral positions. Negative macro\u2011driven news on AMD, DAL and UBER leads to larger down\u2011adjustments and vetoes on new buys. Overall the plan leans into the rebound theme while protecting against the identified downside catalysts.",
+  "account": "C",
+  "model": "groq:openai/gpt-oss-120b (AI view from 00:52, reused)",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 MRVL 63.9 BULLISH | 38 35 18 67 0 95 | 43.0 5.0 -9.77 -1.0 -1.86 3.45 | \n2 NVDA 59.1 NEUTRAL | 36 35 14 32 23 95 | 40.3 6.2 -5.87 -2.36 -2.03 1.94 | \n3 TER 58.9 NEUTRAL | 35 24 9 49 5 95 | 36.6 1.0 -17.52 -4.42 -2.19 2.61 | BREAKDOWN, earnings 2026-10-27 AMC (12d)\n4 TSM 58.3 NEUTRAL | 35 26 12 42 5 95 | 37.6 1.0 -8.08 -3.35 -2.01 1.77 | BREAKDOWN, earnings 2026-10-15 BMO (0d)\n5 AMD 53.4 NEUTRAL | 37 37 26 41 5 78 | 45.4 10.5 -8.05 2.43 -1.94 3.06 | \n6 MPWR 49.9 NEUTRAL | 20 32 35 67 0 67 | 41.9 23.1 -7.73 6.06 -1.41 1.74 | earnings 2026-10-29 AMC (14d)\n7 NEM 48.7 NEUTRAL | 35 42 18 64 24 60 | 44.4 57.2 0.08 -9.27 -0.79 1.58 | earnings 2026-10-22 AMC (7d)\n8 LLY 46.0 NEUTRAL | 87 87 90 80 90 15 | 69.2 94.3 9.59 7.93 3.31 -0.41 | BREAKOUT, earnings 2026-10-29 BMO (14d)\n9 DAL 43.9 NEUTRAL | 15 21 12 36 30 70 | 38.6 42.9 -7.17 -3.2 -1.86 1.81 | \n10 UBER 42.4 NEUTRAL | 27 66 47 58 75 32 | 52.2 67.5 5.14 -0.76 1.47 0.62 | \n11 GNRC 39.8 BEARISH | 26 38 6 72 11 45 | 43.3 7.5 -4.4 -5.67 -1.37 2.39 | \n12 AMAT 32.1 BEARISH | 0 23 26 47 0 45 | 33.5 0.2 -18.07 2.35 -1.86 2.43 | \n13 SMCI 30.0 BEARISH | 20 24 0 27 5 45 | 36.0 1.0 -16.54 -14.76 -2.58 4.14 | BREAKDOWN",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-16T01:06:38"
+}

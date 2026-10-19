@@ -112,3 +112,15 @@ timestamp,symbol,side,dollars,qty,reason,status,order_id
 2026-10-17T00:27:43,XOM,sell,5840.18,32.7566,score 89.5; target 8.4%; PM adjust +4: Refining margin gain adds modest upside,pending_new,36df8119-440e-4c97-8d66-cced61b8e040
 2026-10-17T00:27:43,SHOP,sell,6325.73,37.2935,score 90.7; target 8.8%; PM adjust +10: Price hikes and $200 target signal strong pricing power,pending_new,afd1a93a-5290-4a93-ba93-0ebd3bd8748c
 2026-10-17T00:27:43,MSFT,sell,2681.33,5.0968,score 84.5; target 6.6%; PM adjust +10: Major power deal with NiSource boosts outlook,pending_new,fc77c270-6867-4995-8f0a-1eff96430aa2
+2026-10-19T19:28:53,META,sell,2840.32,,"PM adjust -3: preorder hype insufficient, still bearish; stop hit: close 696.95 < chandelier stop 701.93",pending_new,c3eb1d0b-1654-4d73-a355-b24cfcb68c84
+2026-10-19T19:28:53,XOM,buy,5903.73,,score 91.4; target 14.6%,pending_new,fefabe06-fec1-4276-8493-4b36fd23e20e
+2026-10-19T19:28:53,WMT,buy,5441.52,,score 90.2; target 13.8%,pending_new,10154b86-b110-4779-b9c3-cf28e89aeac2
+2026-10-19T19:28:53,MRNA,buy,10394.26,,score 85.1; target 10.9%,pending_new,372b86c2-db1d-4c56-bd36-e99bb1e9bad5
+2026-10-19T20:58:44,WMT,sell,3907.4,32.9488,score 84.5; target 9.7%,pending_new,1319536d-be3c-456f-8e44-ae31eeb930e7
+2026-10-19T21:58:52,MRNA,buy,3139.2,,score 88.7; target 14.2%,pending_new,e2f7e15d-8ff7-419b-b93e-7d1459b46499
+2026-10-19T23:58:56,SHOP,sell,3671.12,21.456,"score 71.8; target 5.0%; PM adjust -2: No news and recent price dip, slight downside bias",pending_new,fe9647bd-336b-4556-be84-c81e91ca25b4
+2026-10-20T00:29:06,MSFT,sell,6389.069455,,score 66.6 no longer earns a position,pending_new,8577c7a1-c8d5-4631-9eae-80e6388e7be4
+2026-10-20T00:29:06,AAPL,buy,5761.84,,score 74.3; target 6.0%,pending_new,eb251fca-ef87-42a5-b0e9-f82454bb4576
+2026-10-20T00:59:06,XOM,sell,7497.77,41.9925,score 95.5; target 6.7%; PM adjust +8: Barclays target raise signals strong upside,pending_new,e20b4989-9fcc-490f-98e6-2a74de49a0bb
+2026-10-20T00:59:06,WMT,sell,4278.12,36.0111,"score 89.8; target 5.3%; PM adjust +5: Advertising opportunity news adds upside; Risk check: capped +7->+5, news +0.00 does not support it",pending_new,d85a5565-7e6d-422b-b6df-64675b44f64d
+2026-10-20T00:59:06,SHOP,sell,2313.19,13.4566,"score 76.8; target 2.6%; PM adjust +2: No news, modest bullish bias",pending_new,56731c3d-5923-4261-af4b-f3369413252b

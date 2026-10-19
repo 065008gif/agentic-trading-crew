@@ -4,21 +4,57 @@
   "overlay": {
    "adjustments": [
     {
-     "adjust": 5,
-     "note": "Trader buying indicates mild bullish sentiment",
+     "adjust": 0,
+     "note": "No material news",
      "symbol": "MRVL",
      "veto_buy": false
     },
     {
-     "adjust": -3,
-     "note": "Earnings risk, no clear catalyst",
+     "adjust": -8,
+     "note": "Cloud\u2011access issue flagged, clear downside",
+     "symbol": "AMD",
+     "veto_buy": true
+    },
+    {
+     "adjust": 2,
+     "note": "New CFO appointment, modestly positive",
+     "symbol": "SMCI",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "No significant news",
+     "symbol": "MPWR",
+     "veto_buy": false
+    },
+    {
+     "adjust": 7,
+     "note": "Needham maintains buy, bullish signal",
+     "symbol": "AMAT",
+     "veto_buy": false
+    },
+    {
+     "adjust": 0,
+     "note": "No material news",
+     "symbol": "TER",
+     "veto_buy": false
+    },
+    {
+     "adjust": 4,
+     "note": "AI demand outlook positive but not a catalyst",
+     "symbol": "NVDA",
+     "veto_buy": false
+    },
+    {
+     "adjust": 8,
+     "note": "Barclays raises price target, strong upside",
      "symbol": "TSM",
      "veto_buy": false
     },
     {
-     "adjust": 10,
-     "note": "Partnership with FormFactor",
-     "symbol": "TER",
+     "adjust": 8,
+     "note": "EU backs GLP\u20111 pill, clear upside",
+     "symbol": "LLY",
      "veto_buy": false
     },
     {
@@ -28,62 +64,26 @@
      "veto_buy": false
     },
     {
-     "adjust": 8,
-     "note": "RBC reiterates Outperform",
-     "symbol": "AMAT",
-     "veto_buy": false
-    },
-    {
-     "adjust": -4,
-     "note": "Stock falling, bearish pressure",
-     "symbol": "AMD",
-     "veto_buy": false
-    },
-    {
-     "adjust": -4,
-     "note": "Stock falling, bearish pressure",
-     "symbol": "SMCI",
-     "veto_buy": false
-    },
-    {
-     "adjust": 6,
-     "note": "AI tool expansion supports growth",
-     "symbol": "NVDA",
+     "adjust": 0,
+     "note": "No material news",
+     "symbol": "DAL",
      "veto_buy": false
     },
     {
      "adjust": 5,
-     "note": "Trader buying suggests bullish bias",
-     "symbol": "LLY",
-     "veto_buy": false
-    },
-    {
-     "adjust": -10,
-     "note": "Delta launch delay hurts outlook",
-     "symbol": "DAL",
-     "veto_buy": true
-    },
-    {
-     "adjust": 0,
-     "note": "No material news",
+     "note": "Guggenheim reiterates buy, modestly positive",
      "symbol": "UBER",
      "veto_buy": false
     },
     {
      "adjust": 0,
-     "note": "No recent news",
+     "note": "No material news",
      "symbol": "GNRC",
-     "veto_buy": false
-    },
-    {
-     "adjust": 0,
-     "note": "No recent news",
-     "symbol": "MPWR",
      "veto_buy": false
     }
    ],
-   "exposure": 0.9,
-   "summary": "The market remains neutral with a slight risk\u2011on tilt, favoring rebound opportunities in high\u2011beta chip stocks. We keep overall exposure at 90% and add modest upside to TER and AMAT on partnership and analyst upgrade, while trimming exposure to AMD and SMCI due to price weakness. No new positions will be taken in DAL given its adverse news, and other holdings stay largely unchanged."
+   "exposure": 0.55,
+   "summary": "The market remains in a risk\u2011off regime, so we keep exposure at the baseline 55% and avoid adding new risk. Positive, company\u2011specific catalysts for TSM, LLY, AMAT and the CFO change at SMCI earn modest score bumps, while AMD\u2019s cloud\u2011access issue triggers a strong downgrade and a veto on new buys. All other names stay near neutral pending clearer signals."
   },
   "symbols": [
    "MRVL",
@@ -100,71 +100,21 @@
    "UBER",
    "GNRC"
   ],
-  "time": "2026-10-15T01:16:13"
+  "time": "2026-10-17T01:14:09"
  },
- "bought": {
-  "AMAT": {
-   "date": "2026-10-14",
-   "score": 63.3
-  },
-  "LLY": "2026-10-14",
-  "NEM": {
-   "date": "2026-10-14",
-   "score": 63.5
-  },
-  "NVDA": {
-   "date": "2026-10-14",
-   "score": 61.4
-  }
- },
+ "bought": {},
  "no_rebuy": {
-  "AMAT": {
-   "date": "2026-10-14",
-   "score": null
-  },
-  "AMD": {
-   "date": "2026-10-14",
-   "score": null
-  },
   "DAL": {
-   "date": "2026-10-14",
-   "score": null
-  },
-  "GNRC": {
-   "date": "2026-10-14",
-   "score": null
-  },
-  "MPWR": {
-   "date": "2026-10-14",
-   "score": null
-  },
-  "MRVL": {
-   "date": "2026-10-14",
-   "score": null
-  },
-  "NVDA": {
-   "date": "2026-10-14",
-   "score": null
-  },
-  "SMCI": {
-   "date": "2026-10-14",
-   "score": null
-  },
-  "TER": {
-   "date": "2026-10-14",
-   "score": null
-  },
-  "TSM": {
-   "date": "2026-10-14",
+   "date": "2026-10-16",
    "score": null
   },
   "UBER": {
-   "date": "2026-10-14",
-   "score": 38.5
+   "date": "2026-10-16",
+   "score": 42.4
   }
  },
  "peaks": {
-  "LLY": 1216.42,
-  "NEM": 112.7
+  "LLY": 1271.94,
+  "NEM": 119.64
  }
 }

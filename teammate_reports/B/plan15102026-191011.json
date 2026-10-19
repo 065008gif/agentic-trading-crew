@@ -1,0 +1,329 @@
+{
+  "date": "2026-10-15",
+  "profile": "catalyst",
+  "equity": 99799.66,
+  "cash": 1973.49,
+  "regime": "RISK-OFF",
+  "regime_score": 26.7,
+  "exposure_target": 0.55,
+  "invested_after_pct": 55.0,
+  "brake": null,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.25
+      ],
+      [
+        70,
+        0.18
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "COST",
+      "alpha": 77.2,
+      "adjust": 5,
+      "final": 82.2,
+      "current_value": 23681.949468,
+      "current_weight": 0.2372948912651606,
+      "target_weight": 0.17844152738475103,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: After\u2011hours trending suggests strong demand",
+        "Risk check: capped +8->+5, news +0.00 does not support it",
+        "change smaller than 25% of the position: kept"
+      ]
+    },
+    {
+      "symbol": "EL",
+      "alpha": 75.4,
+      "adjust": 2.0,
+      "final": 77.4,
+      "current_value": 18153.540805,
+      "current_weight": 0.18189982616173242,
+      "target_weight": 0.13536303169977473,
+      "action": "TRIM",
+      "dollars": -4644.36,
+      "qty": 44.8643,
+      "reasons": [
+        "PM adjust +2: No news, but bullish trend supports slight uptick"
+      ]
+    },
+    {
+      "symbol": "ISRG",
+      "alpha": 70.2,
+      "adjust": 2.0,
+      "final": 72.2,
+      "current_value": 14346.735895,
+      "current_weight": 0.14375535843508885,
+      "target_weight": 0.09539988699584792,
+      "action": "TRIM",
+      "dollars": -4825.86,
+      "qty": 11.4899,
+      "reasons": [
+        "PM adjust +2: No news, keep modest positive"
+      ]
+    },
+    {
+      "symbol": "NOW",
+      "alpha": 60.2,
+      "adjust": 9.0,
+      "final": 69.2,
+      "current_value": 8580.684709,
+      "current_weight": 0.0859790976141602,
+      "target_weight": 0.07551631409527516,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +9: Target raise to $165 by TD Cowen, clear upside",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "CCL",
+      "alpha": 66.5,
+      "adjust": 1.0,
+      "final": 67.5,
+      "current_value": 12746.531714,
+      "current_weight": 0.12772119377961808,
+      "target_weight": 0.06527923982435122,
+      "action": "TRIM",
+      "dollars": -6231.69,
+      "qty": 238.6705,
+      "reasons": [
+        "PM adjust +1: No news, maintain small positive bias"
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "alpha": 56.9,
+      "adjust": 1.0,
+      "final": 57.9,
+      "current_value": 12527.065688,
+      "current_weight": 0.12552212791105702,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -12527.07,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +1: No direct news, maintain slight positive",
+        "target below the 3% minimum position; its money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "SPOT",
+      "alpha": 56.5,
+      "adjust": 0.0,
+      "final": 56.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "target below the 3% minimum position; its money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "alpha": 49.5,
+      "adjust": 2.0,
+      "final": 51.5,
+      "current_value": 3005.560553,
+      "current_weight": 0.030115939803802935,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -3005.56,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +2: Product rollout neutral, no strong catalyst",
+        "target below the 3% minimum position; its money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "CEG",
+      "alpha": 44.4,
+      "adjust": 0.0,
+      "final": 44.4,
+      "current_value": 4788.43274,
+      "current_weight": 0.0479804514364077,
+      "target_weight": 0.0,
+      "action": "EXIT",
+      "dollars": -4788.43,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 8: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "alpha": 40.8,
+      "adjust": 0.0,
+      "final": 40.8,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 40.8 below entry 52"
+      ]
+    },
+    {
+      "symbol": "GEV",
+      "alpha": 29.4,
+      "adjust": 0.0,
+      "final": 29.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -4.0% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "CIEN",
+      "alpha": 28.7,
+      "adjust": 0.0,
+      "final": 28.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -5.7% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "LRCX",
+      "alpha": 23.9,
+      "adjust": 0.0,
+      "final": 23.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -5.4% today: not catching a falling knife"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "EL",
+      "side": "sell",
+      "type": "qty",
+      "qty": 44.8643,
+      "dollars": 4644.36,
+      "reason": "score 77.4; target 13.5%; PM adjust +2: No news, but bullish trend supports slight uptick"
+    },
+    {
+      "symbol": "ISRG",
+      "side": "sell",
+      "type": "qty",
+      "qty": 11.4899,
+      "dollars": 4825.86,
+      "reason": "score 72.2; target 9.5%; PM adjust +2: No news, keep modest positive"
+    },
+    {
+      "symbol": "CCL",
+      "side": "sell",
+      "type": "qty",
+      "qty": 238.6705,
+      "dollars": 6231.69,
+      "reason": "score 67.5; target 6.5%; PM adjust +1: No news, maintain small positive bias"
+    },
+    {
+      "symbol": "GOOGL",
+      "side": "sell",
+      "type": "close",
+      "dollars": 12527.065688,
+      "reason": "score 57.9 no longer earns a position"
+    },
+    {
+      "symbol": "AMZN",
+      "side": "sell",
+      "type": "close",
+      "dollars": 3005.560553,
+      "reason": "score 51.5 no longer earns a position"
+    },
+    {
+      "symbol": "CEG",
+      "side": "sell",
+      "type": "close",
+      "dollars": 4788.43274,
+      "reason": "score 44.4 no longer earns a position"
+    }
+  ],
+  "pm_summary": "The market remains risk\u2011off with low\u2011vol assets outperforming, so we keep exposure at 55% and focus on the few bullish names with solid fundamentals. We add modest positive scores to holdings lacking news, and give larger boosts to Costco and ServiceNow where recent sentiment and target upgrades are evident. No positions receive a sell veto.",
+  "account": "B",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 COST 77.2 BULLISH | 90 86 99 62 90 15 | 76.6 96.6 9.64 11.46 2.57 -0.15 | BREAKOUT\n2 EL 75.4 BULLISH | 80 90 94 55 90 24 | 65.8 97.3 14.78 9.49 2.14 1.19 | BREAKOUT\n3 ISRG 70.2 BULLISH | 65 81 72 77 70 37 | 61.9 32.1 4.71 8.67 1.07 0.89 | earnings 2026-10-20 AMC (5d)\n4 CCL 66.5 BULLISH | 85 78 74 48 65 40 | 59.5 37.4 4.02 16.93 0.82 1.56 | \n5 NOW 60.2 BULLISH | 77 80 65 29 70 27 | 60.2 89.4 4.13 2.75 1.92 0.71 | earnings 2026-10-28 AMC (13d)\n6 GOOGL 56.9 NEUTRAL | 53 62 40 58 54 78 | 50.2 13.2 2.43 -1.04 -0.02 1.41 | earnings 2026-10-27 AMC (12d)\n7 SPOT 56.5 NEUTRAL | 62 64 28 71 58 42 | 51.3 10.8 5.33 -2.96 0.65 -0.44 | earnings 2026-10-22 BMO (7d)\n8 AMZN 49.5 NEUTRAL | 42 50 32 42 52 95 | 44.8 7.6 0.56 -1.4 -0.75 1.83 | earnings 2026-10-29 AMC (14d)\n9 CEG 44.4 NEUTRAL | 45 59 26 63 14 45 | 47.2 8.5 4.75 2.44 -0.1 1.54 | \n10 TSLA 40.8 BEARISH | 27 45 18 60 41 45 | 45.2 4.2 1.67 -2.42 -1.1 2.71 | earnings 2026-10-20 AMC (5d)\n11 GEV 29.4 BEARISH | 4 25 12 77 5 45 | 37.5 3.1 -8.38 -3.13 -2.24 1.77 | BREAKDOWN\n12 CIEN 28.7 BEARISH | 6 33 14 65 0 45 | 40.8 4.0 -10.73 -2.35 -1.23 3.3 | \n13 LRCX 23.9 BEARISH | 0 22 20 54 0 45 | 32.4 0.1 -20.19 0.02 -2.27 3.04 | earnings 2026-10-21 AMC (6d)",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-15T19:11:47"
+}

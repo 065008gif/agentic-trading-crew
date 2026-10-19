@@ -192,3 +192,16 @@ timestamp,symbol,side,dollars,qty,reason,status,order_id
 2026-10-15T01:16:51,TER,sell,4828.27,,PM adjust +10: Partnership with FormFactor; stop hit: close 360.84 < chandelier stop 398.25,pending_new,481ace16-597e-4c54-897d-6e59c0d52822
 2026-10-15T01:16:51,AMAT,buy,4809.07,,score 63.3; target 5.0%,pending_new,e79974a5-fe97-414d-bae2-000e9d3eed44
 2026-10-15T01:16:51,NVDA,buy,4809.07,,score 61.4; target 5.0%,pending_new,7c7e147c-f35c-45a5-8ae4-06c4ed069930
+2026-10-15T19:17:38,NVDA,sell,4704.47,,stop hit: close 214.53 < chandelier stop 224.28,pending_new,58720f4c-7f7b-403c-969f-463209eaec50
+2026-10-15T19:17:38,NEM,sell,11093.14,98.9664,score 52.4; target 12.0%,pending_new,7ae525a3-dfec-402c-a8ab-f5cbdf3ae64a
+2026-10-15T19:17:38,LLY,sell,13201.52,10.5872,score 51.1; target 12.0%; PM adjust +9: Omvoh hits multiple treatment goals,pending_new,8cfceb31-30a8-4b57-8db6-2f685457ffb4
+2026-10-15T19:17:38,AMAT,sell,4633.24,,PM adjust +2: Evercore maintains Outperform; stop hit: close 427.97 < chandelier stop 492.05,pending_new,e0309d77-37ee-4fd4-a7c3-a4ffd70a7723
+2026-10-15T21:23:41,UBER,buy,4862.98,,score 41.5; target 5.0%,pending_new,bb2e94b8-0f5d-4044-8a58-608e405b6b2d
+2026-10-15T21:36:40,UBER,buy,6814.06,,score 41.8; target 12.0%,pending_new,f97bdee5-2a87-485e-a9b1-4b5fc4e5fe25
+2026-10-15T21:53:33,UBER,sell,11680.05,,PM adjust -7: Investor pressure on robotaxi timeline; score 35.0 below exit level 40,pending_new,5eb5155c-dc37-45d1-8f02-e1708ad87375
+2026-10-16T19:13:15,DAL,buy,4872.44,,score 43.8; target 5.0%,pending_new,338be309-c019-4e54-90b7-795f7557234f
+2026-10-16T19:13:15,UBER,buy,4872.44,,score 42.9; target 5.0%,pending_new,a7d5b3b3-8e3e-442a-9452-fcdf000084be
+2026-10-16T19:25:41,DAL,buy,6846.19,,score 44.0; target 12.0%,pending_new,551d74a9-1d9a-4f50-be8f-ea14f6236c6e
+2026-10-16T19:25:41,UBER,buy,6802.37,,score 42.1; target 12.0%,pending_new,3dfc8cf9-a80d-4d11-94fc-6d8951dac4e4
+2026-10-16T21:27:42,DAL,sell,11505.54,,stop hit: close 77.38 < chandelier stop 77.63,pending_new,91edd65f-0a92-45e1-aa24-c3edfdc31adc
+2026-10-17T00:40:39,UBER,sell,11374.28,,PM adjust -6: Guggenheim cites challenges despite Buy rating; score 36.4 below exit level 40,pending_new,8d565b2f-ccdc-4b79-a83d-c0b294c173f0

@@ -26,3 +26,55 @@
 15-10-2026 00:56 IST  run 24: model groq:openai/gpt-oss-120b (AI view from 00:42, reused), regime NEUTRAL, 0 order(s) sent, 0 error(s), invested after plan 113.2%
 15-10-2026 01:13 IST  run 25: model groq:openai/gpt-oss-120b, regime NEUTRAL, 0 order(s) sent, 0 error(s), invested after plan 108.8%
 15-10-2026 01:31 IST  session ended after 25 run(s)
+15-10-2026 19:12 IST  run 1: model groq:openai/gpt-oss-120b, regime RISK-OFF, 6 order(s) sent, 0 error(s), invested after plan 55.0%
+15-10-2026 19:25 IST  run 2: model groq:openai/gpt-oss-120b (AI view from 19:11, reused), regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+15-10-2026 19:42 IST  run 3: model groq:openai/gpt-oss-120b, regime RISK-OFF, 1 order(s) sent, 0 error(s), invested after plan 60.0%
+15-10-2026 19:55 IST  run 4: model groq:openai/gpt-oss-120b (AI view from 19:42, reused), regime RISK-OFF, 2 order(s) sent, 0 error(s), invested after plan 60.0%
+15-10-2026 20:12 IST  run 5: model groq:openai/gpt-oss-120b, regime RISK-OFF, 1 order(s) sent, 0 error(s), invested after plan 55.0%
+15-10-2026 20:26 IST  run 6: model groq:openai/gpt-oss-120b (AI view from 20:12, reused), regime RISK-OFF, 2 order(s) sent, 0 error(s), invested after plan 55.0%
+15-10-2026 20:42 IST  run 7: model groq:openai/gpt-oss-120b, regime CAUTION, 4 order(s) sent, 0 error(s), invested after plan 75.0%
+15-10-2026 20:55 IST  run 8: model groq:openai/gpt-oss-120b (AI view from 20:41, reused), regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 75.0%
+15-10-2026 21:12 IST  run 9: model groq:openai/gpt-oss-120b, regime CAUTION, 2 order(s) sent, 0 error(s), invested after plan 80.0%
+15-10-2026 21:26 IST  run 10: model groq:openai/gpt-oss-120b (AI view from 21:12, reused), regime CAUTION, 1 order(s) sent, 0 error(s), invested after plan 80.0%
+15-10-2026 21:42 IST  run 11: model groq:openai/gpt-oss-120b, regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 78.0%
+15-10-2026 21:56 IST  run 12: model groq:openai/gpt-oss-120b (AI view from 21:42, reused), regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 75.0%
+15-10-2026 22:13 IST  run 13: model groq:openai/gpt-oss-120b, regime CAUTION, 2 order(s) sent, 0 error(s), invested after plan 75.0%
+15-10-2026 22:26 IST  run 14: model groq:openai/gpt-oss-120b (AI view from 22:12, reused), regime CAUTION, 1 order(s) sent, 0 error(s), invested after plan 75.0%
+15-10-2026 22:43 IST  run 15: model groq:openai/gpt-oss-120b, regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 75.0%
+15-10-2026 22:56 IST  run 16: model groq:openai/gpt-oss-120b (AI view from 22:42, reused), regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 75.0%
+15-10-2026 23:12 IST  run 17: model groq:openai/gpt-oss-120b, regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 75.0%
+15-10-2026 23:26 IST  run 18: model groq:openai/gpt-oss-120b (AI view from 23:12, reused), regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 75.0%
+15-10-2026 23:43 IST  run 19: model groq:openai/gpt-oss-120b, regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 80.0%
+15-10-2026 23:56 IST  run 20: model groq:openai/gpt-oss-120b (AI view from 23:42, reused), regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 80.0%
+16-10-2026 00:13 IST  run 21: model groq:openai/gpt-oss-120b, regime CAUTION, 1 order(s) sent, 0 error(s), invested after plan 80.0%
+16-10-2026 00:27 IST  run 22: model groq:openai/gpt-oss-120b (AI view from 00:13, reused), regime CAUTION, 1 order(s) sent, 0 error(s), invested after plan 80.0%
+16-10-2026 00:43 IST  run 23: model groq:openai/gpt-oss-120b, regime CAUTION, 2 order(s) sent, 0 error(s), invested after plan 80.0%
+16-10-2026 00:57 IST  run 24: model groq:openai/gpt-oss-120b (AI view from 00:43, reused), regime NEUTRAL, 0 order(s) sent, 0 error(s), invested after plan 80.0%
+16-10-2026 01:13 IST  run 25: model groq:openai/gpt-oss-120b, regime NEUTRAL, 3 order(s) sent, 0 error(s), invested after plan 95.0%
+16-10-2026 01:31 IST  session ended after 25 run(s)
+16-10-2026 19:12 IST  run 1: model groq:openai/gpt-oss-120b, regime CAUTION, 4 order(s) sent, 0 error(s), invested after plan 75.0%
+16-10-2026 19:25 IST  run 2: model groq:openai/gpt-oss-120b (AI view from 19:11, reused), regime CAUTION, 3 order(s) sent, 0 error(s), invested after plan 75.0%
+16-10-2026 19:42 IST  run 3: model groq:openai/gpt-oss-120b, regime RISK-OFF, 1 order(s) sent, 0 error(s), invested after plan 65.0%
+16-10-2026 19:55 IST  run 4: model groq:openai/gpt-oss-120b (AI view from 19:41, reused), regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 75.0%
+16-10-2026 20:12 IST  run 5: model groq:openai/gpt-oss-120b, regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 75.0%
+16-10-2026 20:25 IST  run 6: model groq:openai/gpt-oss-120b (AI view from 20:11, reused), regime CAUTION, 0 order(s) sent, 0 error(s), invested after plan 75.0%
+16-10-2026 20:42 IST  run 7: model groq:openai/gpt-oss-120b, regime RISK-OFF, 5 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 20:56 IST  run 8: model groq:openai/gpt-oss-120b (AI view from 20:41, reused), regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 21:12 IST  run 9: model groq:openai/gpt-oss-120b, regime RISK-OFF, 1 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 21:26 IST  run 10: model groq:openai/gpt-oss-120b (AI view from 21:12, reused), regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 21:42 IST  run 11: model groq:openai/gpt-oss-120b, regime RISK-OFF, 2 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 21:56 IST  run 12: model groq:openai/gpt-oss-120b (AI view from 21:42, reused), regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 22:12 IST  run 13: model groq:openai/gpt-oss-120b, regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 22:29 IST  run 14: model groq:openai/gpt-oss-120b (AI view from 22:12, reused), regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 22:46 IST  run 15: model groq:openai/gpt-oss-120b, regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 22:59 IST  run 16: model groq:openai/gpt-oss-120b (AI view from 22:45, reused), regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 23:16 IST  run 17: model groq:openai/gpt-oss-120b, regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 23:29 IST  run 18: model groq:openai/gpt-oss-120b (AI view from 23:15, reused), regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 23:46 IST  run 19: model groq:openai/gpt-oss-120b, regime RISK-OFF, 2 order(s) sent, 0 error(s), invested after plan 55.0%
+16-10-2026 23:59 IST  run 20: model groq:openai/gpt-oss-120b (AI view from 23:45, reused), regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+17-10-2026 00:16 IST  run 21: model groq:openai/gpt-oss-120b, regime RISK-OFF, 1 order(s) sent, 0 error(s), invested after plan 55.0%
+17-10-2026 00:30 IST  run 22: model groq:openai/gpt-oss-120b (AI view from 00:16, reused), regime RISK-OFF, 4 order(s) sent, 0 error(s), invested after plan 35.0%
+17-10-2026 00:47 IST  run 23: model groq:openai/gpt-oss-120b, regime RISK-OFF, 4 order(s) sent, 0 error(s), invested after plan 55.0%
+17-10-2026 01:00 IST  run 24: model groq:openai/gpt-oss-120b (AI view from 00:46, reused), regime RISK-OFF, 0 order(s) sent, 0 error(s), invested after plan 55.0%
+17-10-2026 01:16 IST  run 25: model groq:openai/gpt-oss-120b, regime RISK-OFF, 4 order(s) sent, 0 error(s), invested after plan 35.0%
+17-10-2026 01:31 IST  session ended after 25 run(s)

@@ -1,0 +1,288 @@
+{
+  "date": "2026-10-16",
+  "profile": "rebound",
+  "equity": 97216.83,
+  "cash": 61672.68,
+  "regime": "RISK-OFF",
+  "regime_score": 26.7,
+  "exposure_target": 0.52,
+  "invested_after_pct": 36.0,
+  "brake": null,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.25
+      ],
+      [
+        70,
+        0.18
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "TSM",
+      "alpha": 59.1,
+      "adjust": 7.0,
+      "final": 66.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +7: Nvidia orders surge",
+        "price 415.31 is below its trailing stop 456.0 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "MRVL",
+      "alpha": 61.7,
+      "adjust": 4.0,
+      "final": 65.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +4: Investor interest spikes",
+        "price 234.52 is below its trailing stop 248.57 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "TER",
+      "alpha": 59.2,
+      "adjust": 3.0,
+      "final": 62.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: 20\u2011yr returns highlighted",
+        "price 335.99 is below its trailing stop 394.13 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "LLY",
+      "alpha": 51.6,
+      "adjust": 8.0,
+      "final": 59.6,
+      "current_value": 11808.19338,
+      "current_weight": 0.1214624399911003,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: EU backing for GLP\u20111 pill",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "NEM",
+      "alpha": 54.8,
+      "adjust": 0.0,
+      "final": 54.8,
+      "current_value": 12219.094067,
+      "current_weight": 0.12568908147899904,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "profit lock active: sells below 116.71 (keeps at least +3.9%)",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "NVDA",
+      "alpha": 58.2,
+      "adjust": -4.0,
+      "final": 54.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -4: AI boom likened to bubble",
+        "price 217.35 is below its trailing stop 224.65 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "AMD",
+      "alpha": 60.8,
+      "adjust": -7.0,
+      "final": 53.8,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -7: Questions over Fermi chip",
+        "price 542.94 is below its trailing stop 584.26 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "UBER",
+      "alpha": 42.8,
+      "adjust": 5.0,
+      "final": 47.8,
+      "current_value": 11517.682284,
+      "current_weight": 0.11847416012227513,
+      "target_weight": 0.12,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Buy recommendation from Guggenheim",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "MPWR",
+      "alpha": 45.8,
+      "adjust": 0.0,
+      "final": 45.8,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 1235.44 is below its trailing stop 1343.73 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "DAL",
+      "alpha": 45.5,
+      "adjust": 0.0,
+      "final": 45.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold today by a stop or the profit lock; no re-buy until tomorrow"
+      ]
+    },
+    {
+      "symbol": "GNRC",
+      "alpha": 35.9,
+      "adjust": 0.0,
+      "final": 35.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 196.36 is below its trailing stop 200.71 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "AMAT",
+      "alpha": 31.6,
+      "adjust": -7.0,
+      "final": 24.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -7: Price target cut by Needham",
+        "price 418.13 is below its trailing stop 491.8 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "SMCI",
+      "alpha": 30.4,
+      "adjust": -6.0,
+      "final": 24.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -6: Shares tumble",
+        "down -8.7% today: not catching a falling knife"
+      ]
+    }
+  ],
+  "orders": [],
+  "pm_summary": "Risk\u2011off regime keeps overall exposure modest at 52%. Positive catalysts like TSM's Nvidia order surge and LLY's EU GLP\u20111 approval boost scores, while concerns around AMD's Fermi chip and AMAT's target cut temper optimism. We stay lightly invested, nudging scores toward the strongest rebound candidates and trimming exposure to weaker or uncertain names.",
+  "account": "C",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 MRVL 61.7 BULLISH | 35 33 8 64 0 95 | 40.0 2.8 -13.86 -4.78 -2.24 3.65 | \n2 AMD 60.8 BULLISH | 35 34 10 55 0 95 | 40.3 4.2 -14.33 -3.79 -2.61 3.17 | \n3 TER 59.2 NEUTRAL | 35 22 0 60 0 95 | 35.2 0.7 -25.11 -10.35 -2.15 2.86 | earnings 2026-10-27 AMC (11d)\n4 TSM 59.1 NEUTRAL | 35 24 8 53 1 95 | 35.1 0.6 -12.19 -4.99 -2.17 1.83 | earnings 2026-10-15 BMO (-1d)\n5 NVDA 58.2 NEUTRAL | 35 32 14 30 23 95 | 40.2 6.5 -7.12 -2.91 -1.88 1.96 | \n6 NEM 54.8 NEUTRAL | 65 53 35 73 70 49 | 50.2 78.2 2.17 -5.1 0.12 1.56 | earnings 2026-10-22 AMC (6d)\n7 LLY 51.6 NEUTRAL | 89 90 92 63 75 15 | 69.5 95.1 10.41 8.76 2.7 -0.37 | earnings 2026-10-29 BMO (13d)\n8 MPWR 45.8 NEUTRAL | 0 24 22 65 0 70 | 39.9 10.1 -14.14 0.63 -1.74 1.86 | earnings 2026-10-29 AMC (13d)\n9 DAL 45.5 NEUTRAL | 15 19 11 50 25 70 | 37.1 30.0 -8.07 -3.68 -2.0 1.85 | \n10 UBER 42.8 NEUTRAL | 26 51 40 56 70 40 | 49.6 48.7 3.78 -0.55 0.86 0.56 | \n11 GNRC 35.9 BEARISH | 0 32 4 78 5 45 | 41.8 3.6 -9.46 -6.19 -1.47 2.47 | \n12 AMAT 31.6 BEARISH | 0 20 3 59 5 45 | 30.7 0.1 -22.57 -6.76 -2.11 2.71 | BREAKDOWN\n13 SMCI 30.4 BEARISH | 20 21 0 32 5 45 | 30.8 0.3 -26.65 -18.86 -2.84 4.66 | BREAKDOWN",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-16T21:57:57"
+}

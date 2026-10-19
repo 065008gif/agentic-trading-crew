@@ -1,0 +1,308 @@
+{
+  "date": "2026-10-19",
+  "profile": "momentum",
+  "equity": 95428.76,
+  "cash": 47414.25,
+  "regime": "RISK-OFF",
+  "regime_score": 26.7,
+  "exposure_target": 0.55,
+  "invested_after_pct": 55.0,
+  "brake": null,
+  "settings": {
+    "max_position_pct": 0.3,
+    "max_holdings": 5,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.3
+      ],
+      [
+        70,
+        0.22
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 4,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6,
+    "late_no_buy_min": 30,
+    "overnight_min": 40,
+    "overnight_caps": [
+      [
+        "RISK-ON",
+        0.85
+      ],
+      [
+        "NEUTRAL",
+        0.7
+      ],
+      [
+        "CAUTION",
+        0.5
+      ],
+      [
+        "RISK-OFF",
+        0.35
+      ]
+    ],
+    "no_buy_qqq_day": -0.75,
+    "exposure_step": 0.1,
+    "reentry_qqq_day": -0.25
+  },
+  "targets": [
+    {
+      "symbol": "WMT",
+      "alpha": 86.3,
+      "adjust": 5,
+      "final": 91.3,
+      "current_value": 9328.299087,
+      "current_weight": 0.09775144397768555,
+      "target_weight": 0.14684528854984735,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Analyst expects billions from Walmart advertising",
+        "Risk check: capped +7->+5, news +0.00 does not support it",
+        "partly sold earlier today: not bought back today unless its technical score rises 15+ points"
+      ]
+    },
+    {
+      "symbol": "MRNA",
+      "alpha": 86.7,
+      "adjust": 3.0,
+      "final": 89.7,
+      "current_value": 13582.993719,
+      "current_weight": 0.14233647926474158,
+      "target_weight": 0.14233647926474158,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +3: No specific news, keep modest positive tilt",
+        "bought today (technical score 85.1): kept at its size until tomorrow; stop and profit lock still apply",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "XOM",
+      "alpha": 87.7,
+      "adjust": 1.0,
+      "final": 88.7,
+      "current_value": 13895.777744,
+      "current_weight": 0.14561414969659045,
+      "target_weight": 0.13081601308526797,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +1: No new news, maintain slight positive view",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "MSFT",
+      "alpha": 71.5,
+      "adjust": 8.0,
+      "final": 79.5,
+      "current_value": 6387.156596,
+      "current_weight": 0.06693114943545321,
+      "target_weight": 0.08153352616117808,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Microsoft expands Project Perception \u2013 clear upside",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "SHOP",
+      "alpha": 73.6,
+      "adjust": -2.0,
+      "final": 71.6,
+      "current_value": 4820.270673,
+      "current_weight": 0.050511718616065016,
+      "target_weight": 0.048468692938965045,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -2: No news and recent price dip, slight downside bias",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "alpha": 68.9,
+      "adjust": 0.0,
+      "final": 68.9,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 5: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "ZBRA",
+      "alpha": 63.2,
+      "adjust": 0.0,
+      "final": 63.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 5: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "alpha": 59.5,
+      "adjust": 0.0,
+      "final": 59.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 5: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "VST",
+      "alpha": 43.0,
+      "adjust": 0.0,
+      "final": 43.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 43.0 below entry 52"
+      ]
+    },
+    {
+      "symbol": "META",
+      "alpha": 40.8,
+      "adjust": 0.0,
+      "final": 40.8,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold today by a stop or the profit lock; no re-buy until tomorrow"
+      ]
+    },
+    {
+      "symbol": "DDOG",
+      "alpha": 37.5,
+      "adjust": 0.0,
+      "final": 37.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 37.5 below entry 52"
+      ]
+    },
+    {
+      "symbol": "HPE",
+      "alpha": 19.6,
+      "adjust": 0.0,
+      "final": 19.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 55.77 is below its trailing stop 63.94 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "DELL",
+      "alpha": 18.0,
+      "adjust": 0.0,
+      "final": 18.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 451.94 is below its trailing stop 510.51 (downtrend): not buying"
+      ]
+    }
+  ],
+  "orders": [],
+  "pm_summary": "The market is in a risk\u2011off regime, so we keep exposure at the regime\u2011defined 55%. Momentum leaders MRNA, MSFT, WMT and XOM retain modest to strong positive adjustments, while SHOP gets a small negative tweak due to lack of news and recent price weakness. The plan leans on the strong Alpha scores and the few positive headlines to capture short\u2011term upside while staying disciplined.",
+  "account": "A",
+  "model": "groq:openai/gpt-oss-120b (AI view from 23:58, reused)",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 XOM 87.7 BULLISH | 90 89 96 76 78 28 | 72.0 73.5 8.88 13.6 1.81 -1.09 | \n2 MRNA 86.7 BULLISH | 100 92 100 73 45 33 | 64.0 57.3 11.35 31.68 1.43 4.33 | earnings 2026-10-29 BMO (10d)\n3 WMT 86.3 BULLISH | 90 89 99 66 70 27 | 73.5 97.3 13.42 11.71 1.92 0.02 | \n4 SHOP 73.6 BULLISH | 90 86 54 69 51 39 | 62.0 39.4 6.78 24.72 0.89 1.72 | \n5 MSFT 71.5 BULLISH | 98 68 59 54 64 39 | 59.9 52.4 1.75 7.28 0.88 2.14 | earnings 2026-10-28 AMC (9d)\n6 AAPL 68.9 BULLISH | 75 76 56 52 73 34 | 61.9 78.3 3.11 2.11 1.37 -0.04 | \n7 ZBRA 63.2 BULLISH | 82 56 52 64 60 50 | 54.5 57.6 0.17 8.03 -0.04 2.64 | \n8 PLTR 59.5 NEUTRAL | 97 61 37 47 33 50 | 53.6 49.9 2.55 6.83 0.0 3.48 | \n9 VST 43.0 NEUTRAL | 41 49 36 81 18 49 | 49.6 15.1 2.81 6.59 0.05 1.43 | \n10 META 40.8 BEARISH | 74 41 10 38 28 95 | 48.9 8.2 -5.07 -4.22 -1.73 1.11 | earnings 2026-10-28 AMC (9d)\n11 DDOG 37.5 BEARISH | 39 47 40 34 14 57 | 50.2 55.5 -5.01 7.82 -0.62 2.0 | \n12 HPE 19.6 BEARISH | 35 26 0 31 0 78 | 38.7 15.3 -18.44 -8.9 -1.77 3.15 | \n13 DELL 18.0 BEARISH | 35 21 0 29 0 95 | 33.3 2.6 -18.14 -20.64 -2.27 4.37 | ",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-20T00:12:50"
+}

@@ -44,3 +44,63 @@ timestamp,symbol,side,dollars,qty,reason,status,order_id
 2026-10-15T00:12:48,CEG,buy,4934.12,,score 58.7; target 5.0%,pending_new,dcbaf7c8-f74c-42fc-a17a-40f8239bc548
 2026-10-15T00:26:21,ISRG,buy,2371.18,,score 69.5; target 14.5%,pending_new,9497fec4-be3a-490a-b3dc-c05833419b12
 2026-10-15T00:42:33,NOW,buy,387.41,,score 71.7; target 17.7%; scaled x0.04 to available cash,pending_new,cbc23d5a-1d4e-49c8-8578-39dc251aaba0
+2026-10-15T19:12:12,EL,sell,4644.36,44.8643,"score 77.4; target 13.5%; PM adjust +2: No news, but bullish trend supports slight uptick",pending_new,e9a472d7-eb43-40cf-982f-e1348ebd0791
+2026-10-15T19:12:12,ISRG,sell,4825.86,11.4899,"score 72.2; target 9.5%; PM adjust +2: No news, keep modest positive",pending_new,89aaa790-72f9-4c75-b071-ccf4fb5d75bd
+2026-10-15T19:12:12,CCL,sell,6231.69,238.6705,"score 67.5; target 6.5%; PM adjust +1: No news, maintain small positive bias",pending_new,39a4fe06-afae-44fb-8c30-a442d60f4dd9
+2026-10-15T19:12:12,GOOGL,sell,12527.065688,,score 57.9 no longer earns a position,pending_new,dc0a858c-29b4-44ac-a383-054d19e0e878
+2026-10-15T19:12:12,AMZN,sell,3005.560553,,score 51.5 no longer earns a position,pending_new,541f53ba-b61f-4b43-aa85-b88b9860136a
+2026-10-15T19:12:12,CEG,sell,4788.43274,,score 44.4 no longer earns a position,pending_new,3a59dc22-a524-45e0-b163-2bcb38eaaec5
+2026-10-15T19:42:19,NOW,buy,3609.06,,score 75.1; target 12.3%,pending_new,bacc2235-c890-4856-92ef-2ff174350392
+2026-10-15T19:55:53,COST,sell,6140.57,6.1258,"score 82.8; target 17.5%; PM adjust +5: After‑hours bullish sentiment.; Risk check: capped +9->+5, news +0.00 does not support it",pending_new,4b8c13d2-51e1-42cc-bcf5-7664df1ae58e
+2026-10-15T19:55:53,SPOT,buy,3108.94,,score 60.9; target 3.1%,pending_new,81481826-b5e2-4c19-877d-719ac0461f10
+2026-10-15T20:12:42,ISRG,sell,3040.91,7.185,score 67.4; target 6.6%,pending_new,72aa737b-526b-404b-8c34-073dc23ad1d7
+2026-10-15T20:26:00,COST,sell,5457.65,5.531,score 76.9; target 11.8%,pending_new,4b93557e-8abc-4073-b243-8dc7acaf5e19
+2026-10-15T20:26:00,TSLA,buy,4726.56,,score 40.0; target 4.7%,pending_new,eb4324b3-1194-4229-a1d8-f751421d1682
+2026-10-15T20:42:20,COST,buy,4338.8,,score 77.0; target 16.1%,pending_new,92690b74-82ad-4f6d-bbb0-a80115a4d4a1
+2026-10-15T20:42:20,CCL,buy,2964.22,,score 68.8; target 9.5%,pending_new,7acbbc7e-5a9b-4ed9-886c-154ac62e4969
+2026-10-15T20:42:20,ISRG,buy,2735.26,,score 68.5; target 9.3%,pending_new,a8266802-6ec7-435a-b460-1d3574613510
+2026-10-15T20:42:20,NOW,buy,3737.16,,score 78.3; target 16.1%,pending_new,1fb3a51e-cebe-4fdf-8ff0-8e2dde7e4eb3
+2026-10-15T21:12:24,TSLA,sell,4754.84,,"PM adjust -2: Neutral speculation, bearish Alpha; score 38.2 below exit level 40",pending_new,f6c87ce6-da41-4ce6-b29b-4303cc787ee6
+2026-10-15T21:12:24,COST,buy,4790.12,,score 81.4; target 20.9%,pending_new,39717f4a-b2fc-4d0b-a146-3cffc501565c
+2026-10-15T21:26:21,CCL,buy,2835.47,,score 71.6; target 12.3%,pending_new,4bc7a87c-19f8-49b0-8e5e-08c4ea2a3f66
+2026-10-15T22:12:59,CCL,sell,4365.72,166.1231,score 68.4; target 8.0%,pending_new,214fa6e1-ef15-4ee4-a35d-6c7598b8f7aa
+2026-10-15T22:12:59,EL,buy,10131.16,,score 86.9; target 24.0%,pending_new,6790a763-d153-4ce8-ba03-7423be1c49e9
+2026-10-15T22:26:27,COST,sell,5385.91,5.4588,score 77.9; target 15.5%,pending_new,368faf25-c05e-40ee-83fa-4810938b319c
+2026-10-16T00:13:18,SPOT,buy,2759.98,,score 66.2; target 5.9%,pending_new,33d87b71-874e-49d6-8a1f-ffe549baa61e
+2026-10-16T00:27:09,NOW,sell,5135.7,34.6655,score 73.6; target 11.0%; PM adjust +10: Mizuho upgrade and target raise,pending_new,8421321f-2a49-46aa-a884-c3600e61fab9
+2026-10-16T00:43:28,ISRG,buy,4173.96,,score 77.0; target 13.4%,pending_new,3868e749-4445-4dac-a3f4-ce37ff8699fb
+2026-10-16T00:43:28,CCL,buy,2291.47,,score 73.0; target 10.3%,pending_new,5e1f17d0-e248-4965-ba2a-17eba9314faf
+2026-10-16T01:13:37,ISRG,buy,3999.65,,score 76.7; target 17.5%,pending_new,e8f65e4c-5202-48b5-8ccb-7c76b6b59a64
+2026-10-16T01:13:37,CCL,buy,3988.61,,score 72.3; target 14.2%,pending_new,96ae72dc-911e-4eff-95c7-d66dd91bd450
+2026-10-16T01:13:37,NOW,buy,4771.74,,score 73.8; target 15.8%,pending_new,d8a78504-31f4-4380-96ae-db23d4ae6ef5
+2026-10-16T19:12:29,ISRG,sell,6653.07,15.4078,score 74.7; target 10.9%,pending_new,5b56edd2-b3c0-4f37-a3d8-fa26bf2423d5
+2026-10-16T19:12:29,CCL,sell,4343.84,161.5412,score 73.5; target 10.0%,pending_new,6062cf4d-3429-4297-8144-5c1a5b547aff
+2026-10-16T19:12:29,SPOT,sell,5897.559475,,score 58.9 no longer earns a position,pending_new,2bcc76e3-d60c-4ea1-b508-138fb2a9833c
+2026-10-16T19:12:29,AMZN,buy,5072.34,,score 48.1; target 5.0%,pending_new,f97391d3-f213-47d3-ad18-4073bf74c232
+2026-10-16T19:25:43,EL,sell,7393.86,68.5505,score 84.3; target 16.9%; PM adjust +8: Morgan Stanley raises price target,pending_new,9ca9f9df-27d9-4e8d-9799-4fafc9aac8be
+2026-10-16T19:25:43,CCL,sell,2540.3,94.8581,score 71.2; target 7.5%,pending_new,b54bf8b6-f47f-432b-8f95-ff643a509918
+2026-10-16T19:25:43,CEG,buy,4732.24,,score 45.7; target 4.7%,pending_new,309f8da7-cd11-4d49-829f-4e4f49b7e8a3
+2026-10-16T19:41:57,NOW,sell,4248.5,29.1033,score 80.8; target 11.2%; PM adjust +8: AI agents rollout with Nvidia oversight – clear positive news,pending_new,9b753d6a-64b2-4375-a609-8cc3055cb42c
+2026-10-16T20:42:31,EL,sell,4471.99,41.806,score 87.5; target 12.4%; PM adjust +10: Morgan Stanley lifts target; solid bullish news,pending_new,9acbfeaf-738e-434e-8466-2f3ff1740eec
+2026-10-16T20:42:31,ISRG,sell,3569.76,8.3004,score 77.8; target 7.4%; PM adjust +3: No news; maintain existing bullish view,pending_new,93ecbf5b-8c9d-4b6c-b58f-15b8aeab0954
+2026-10-16T20:42:31,COST,sell,5717.64,5.7868,score 82.8; target 9.8%; PM adjust +9: Target raise by Tigress Financial; clear upside,pending_new,62181c9e-7818-4f83-87af-7bd6d14b650f
+2026-10-16T20:42:31,NOW,sell,5185.6,36.6266,score 74.0; target 5.8%; PM adjust +7: AI agents rollout with Nvidia oversight; positive catalyst,pending_new,2aa154f6-31e7-4b7d-9b68-bdea4fe2170c
+2026-10-16T20:42:31,GOOGL,buy,4138.2,,score 51.8; target 4.1%,pending_new,ffe8a172-b85a-4ebf-bc7a-0dfcb60ee581
+2026-10-16T21:12:21,ISRG,sell,2049.28,4.7731,score 72.4; target 5.3%; PM adjust +1: No specific catalyst; slight positive bias from earnings outlook,pending_new,ec8031d8-e79c-429a-b89c-efce97c44dc6
+2026-10-16T21:42:44,CCL,sell,2611.38,98.1354,score 69.5; target 4.9%,pending_new,3fa197c4-d5f4-408e-816d-2ce35ea990e9
+2026-10-16T21:42:44,ISRG,buy,3043.84,,score 77.0; target 8.4%,pending_new,f4cf6782-daef-4cf9-a675-4117cfadf746
+2026-10-16T23:46:26,NOW,sell,5814.452535,,score 60.2 no longer earns a position,pending_new,dfecee15-4fbf-48b3-86a4-8cd7b7f460ae
+2026-10-16T23:46:26,COST,buy,4188.35,,score 84.0; target 14.1%,pending_new,75592e2e-181e-4a27-98a5-8610fa3ed5e8
+2026-10-17T00:16:28,ISRG,buy,2789.22,,score 77.4; target 11.2%,pending_new,6e7f9eed-4a74-4870-a336-13824dace6a7
+2026-10-17T00:30:17,COST,sell,7253.77,7.3085,score 80.4; target 6.9%; PM adjust +4: Tigress maintains Buy – supportive but not an upgrade,pending_new,e4611f7b-e7b6-467a-b9b0-66b55b9819eb
+2026-10-17T00:30:17,EL,sell,6185.16,59.1824,score 78.2; target 6.0%; PM adjust +3: Morgan Stanley equal‑weight – neutral‑to‑positive stance,pending_new,6702829c-3625-488d-9726-63d2b414bf01
+2026-10-17T00:30:17,ISRG,sell,5309.18,12.4066,"score 77.8; target 5.9%; PM adjust +4: 10‑year return spotlight – neutral news, slight positive bias",pending_new,466fea5c-1be3-4c76-8967-58eb4929c187
+2026-10-17T00:30:17,CCL,sell,2360.11,91.4773,score 66.1; target 2.4%; PM adjust +2: No news; modest boost from bullish Alpha score,pending_new,1bef331a-7f7f-4c76-9111-4dc98107dce5
+2026-10-17T00:47:08,COST,buy,8482.37,,score 86.4; target 15.4%,pending_new,40f03667-fcf5-41cf-a3b3-4473db1babc9
+2026-10-17T00:47:08,EL,buy,7019.49,,score 83.2; target 13.1%,pending_new,4a4d1087-4ba4-4a5a-8649-0be469a764d5
+2026-10-17T00:47:08,ISRG,buy,2440.89,,score 75.5; target 8.3%,pending_new,b350719c-bc74-46e5-b899-380aabd8fabe
+2026-10-17T00:47:08,CCL,buy,2010.77,,score 67.3; target 4.5%,pending_new,ca53ab43-a610-4cd6-85a9-90fbee8422f6
+2026-10-17T01:16:53,COST,sell,6314.07,6.383,score 86.3; target 9.0%; PM adjust +10: Tigress Financial maintains Buy – strong positive signal,pending_new,3ca2c893-a713-4c2a-bd29-9d549fd8e82d
+2026-10-17T01:16:53,EL,sell,4931.11,46.9361,score 84.4; target 8.2%; PM adjust +9: Morgan Stanley maintains Equal‑Weight – bullish outlook,pending_new,1457b899-8527-485a-a4d5-2429b1bf247e
+2026-10-17T01:16:53,ISRG,sell,4248.74,9.9703,score 72.7; target 4.0%,pending_new,feb61ac4-d3e9-49b3-b10d-c393cd9e9fe9
+2026-10-17T01:16:53,CCL,sell,4459.95474,,score 64.3 no longer earns a position,pending_new,2a0c7633-005b-4b29-9e69-859f525229d8

@@ -1,0 +1,305 @@
+{
+  "date": "2026-10-16",
+  "profile": "catalyst",
+  "equity": 101414.9,
+  "cash": 19116.8,
+  "regime": "CAUTION",
+  "regime_score": 36.7,
+  "exposure_target": 0.75,
+  "invested_after_pct": 75.0,
+  "brake": "Nasdaq-100 (QQQ) -0.95% today: exposure capped at 75% (was 80%)",
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.25
+      ],
+      [
+        70,
+        0.18
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "EL",
+      "alpha": 76.3,
+      "adjust": 8.0,
+      "final": 84.3,
+      "current_value": 24514.536452,
+      "current_weight": 0.241725194739629,
+      "target_weight": 0.16881815636656566,
+      "action": "TRIM",
+      "dollars": -7393.86,
+      "qty": 68.5505,
+      "reasons": [
+        "PM adjust +8: Morgan Stanley raises price target"
+      ]
+    },
+    {
+      "symbol": "COST",
+      "alpha": 74.9,
+      "adjust": 8.0,
+      "final": 82.9,
+      "current_value": 15572.46102,
+      "current_weight": 0.1535520029108149,
+      "target_weight": 0.15700463453081517,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Target raise by Tigress Financial",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "NOW",
+      "alpha": 74.7,
+      "adjust": 8.0,
+      "final": 82.7,
+      "current_value": 15867.694757,
+      "current_weight": 0.1564631504542232,
+      "target_weight": 0.155351965672964,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: AI agents rollout, bullish sentiment",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "ISRG",
+      "alpha": 74.8,
+      "adjust": 0.0,
+      "final": 74.8,
+      "current_value": 11116.42307,
+      "current_weight": 0.10961331194923035,
+      "target_weight": 0.09706587648982186,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "CCL",
+      "alpha": 71.2,
+      "adjust": 0.0,
+      "final": 71.2,
+      "current_value": 10149.490527,
+      "current_weight": 0.10007888906856882,
+      "target_weight": 0.07503029171847367,
+      "action": "TRIM",
+      "dollars": -2540.3,
+      "qty": 94.8581,
+      "reasons": []
+    },
+    {
+      "symbol": "SPOT",
+      "alpha": 70.0,
+      "adjust": -10.0,
+      "final": 60.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -10: StoneX downgrade to Hold",
+        "sold earlier today at technical score 68.9; re-buy only if it rises 15+ points (now 70.0)"
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "alpha": 52.6,
+      "adjust": 0.0,
+      "final": 52.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "target below the 3% minimum position; its money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "alpha": 50.2,
+      "adjust": 0.0,
+      "final": 50.2,
+      "current_value": 5077.52624,
+      "current_weight": 0.05006686630859963,
+      "target_weight": 0.05006686630859963,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "target below the 3% minimum position; its money goes to stronger names",
+        "bought today (technical score 48.1): kept at its size until tomorrow; stop and profit lock still apply",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "CEG",
+      "alpha": 45.7,
+      "adjust": 0.0,
+      "final": 45.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.04666220891276003,
+      "action": "BUY",
+      "dollars": 4732.24,
+      "qty": 0.0,
+      "reasons": [
+        "added to reach minimum holdings"
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "alpha": 34.5,
+      "adjust": 0.0,
+      "final": 34.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 34.5 below entry 52"
+      ]
+    },
+    {
+      "symbol": "GEV",
+      "alpha": 32.7,
+      "adjust": 0.0,
+      "final": 32.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 32.7 below entry 52"
+      ]
+    },
+    {
+      "symbol": "CIEN",
+      "alpha": 27.0,
+      "adjust": 0.0,
+      "final": 27.0,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -4.2% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "LRCX",
+      "alpha": 21.3,
+      "adjust": 0.0,
+      "final": 21.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 271.75 is below its trailing stop 311.66 (downtrend): not buying"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "EL",
+      "side": "sell",
+      "type": "qty",
+      "qty": 68.5505,
+      "dollars": 7393.86,
+      "reason": "score 84.3; target 16.9%; PM adjust +8: Morgan Stanley raises price target"
+    },
+    {
+      "symbol": "CCL",
+      "side": "sell",
+      "type": "qty",
+      "qty": 94.8581,
+      "dollars": 2540.3,
+      "reason": "score 71.2; target 7.5%"
+    },
+    {
+      "symbol": "CEG",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 4732.24,
+      "reason": "score 45.7; target 4.7%"
+    }
+  ],
+  "pm_summary": "The market remains in a cautious regime, but our core holdings retain strong momentum and earnings catalysts. We raise exposure to 80% and add modest positive adjustments for Costco, Estee Lauder, and ServiceNow based on fresh bullish news, while trimming Spotify after a downgrade. No new buy vetoes are required.",
+  "account": "B",
+  "model": "groq:openai/gpt-oss-120b (AI view from 19:11, reused)",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 EL 76.3 BULLISH | 80 93 100 52 90 22 | 71.3 98.9 17.26 14.15 2.35 1.14 | BREAKOUT\n2 COST 74.9 BULLISH | 90 90 87 64 68 27 | 71.5 84.4 7.05 8.74 1.92 -0.15 | \n3 ISRG 74.8 BULLISH | 80 95 76 57 90 27 | 67.7 88.5 10.37 8.72 1.89 0.81 | BREAKOUT, earnings 2026-10-20 AMC (4d)\n4 NOW 74.7 BULLISH | 90 89 91 62 70 23 | 64.6 88.1 10.28 8.3 2.26 0.61 | earnings 2026-10-28 AMC (12d)\n5 CCL 71.2 BULLISH | 100 78 83 45 77 37 | 63.6 76.5 3.88 21.34 1.05 1.52 | \n6 SPOT 70.0 BULLISH | 78 81 55 78 72 34 | 57.3 71.4 12.61 3.19 1.3 -0.54 | earnings 2026-10-22 BMO (6d)\n7 GOOGL 52.6 NEUTRAL | 52 52 30 58 53 78 | 48.9 16.8 0.6 -2.37 -0.24 1.15 | earnings 2026-10-27 AMC (11d)\n8 AMZN 50.2 NEUTRAL | 42 51 24 46 70 78 | 48.8 19.0 0.9 -1.31 0.06 1.7 | earnings 2026-10-29 AMC (13d)\n9 CEG 45.7 NEUTRAL | 40 59 34 64 16 45 | 47.7 8.1 5.91 5.76 -0.07 1.6 | \n10 TSLA 34.5 BEARISH | 25 41 17 26 47 58 | 47.8 30.8 -1.67 -1.27 -0.67 2.12 | earnings 2026-10-20 AMC (4d)\n11 GEV 32.7 BEARISH | 17 34 16 46 22 64 | 43.9 36.1 -5.11 -1.43 -1.17 2.04 | \n12 CIEN 27.0 BEARISH | 0 31 11 65 0 45 | 41.0 3.2 -12.78 -3.55 -1.19 3.59 | \n13 LRCX 21.3 BEARISH | 0 21 3 56 0 45 | 32.5 0.1 -21.79 -6.77 -2.13 3.16 | earnings 2026-10-21 AMC (5d)",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-16T19:25:24"
+}

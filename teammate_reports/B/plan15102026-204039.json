@@ -1,0 +1,311 @@
+{
+  "date": "2026-10-15",
+  "profile": "catalyst",
+  "equity": 100532.69,
+  "cash": 41187.14,
+  "regime": "CAUTION",
+  "regime_score": 30.1,
+  "exposure_target": 0.75,
+  "invested_after_pct": 75.0,
+  "brake": null,
+  "settings": {
+    "max_position_pct": 0.25,
+    "max_holdings": 8,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.25
+      ],
+      [
+        70,
+        0.18
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 8,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6
+  },
+  "targets": [
+    {
+      "symbol": "NOW",
+      "alpha": 68.3,
+      "adjust": 10.0,
+      "final": 78.3,
+      "current_value": 12467.294725,
+      "current_weight": 0.12401234588470675,
+      "target_weight": 0.16118594293338814,
+      "action": "ADD",
+      "dollars": 3737.16,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +10: TD Cowen raises target"
+      ]
+    },
+    {
+      "symbol": "COST",
+      "alpha": 77.0,
+      "adjust": 0.0,
+      "final": 77.0,
+      "current_value": 11865.653944,
+      "current_weight": 0.11802781706129617,
+      "target_weight": 0.16118594293338814,
+      "action": "ADD",
+      "dollars": 4338.8,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "EL",
+      "alpha": 76.0,
+      "adjust": 0.0,
+      "final": 76.0,
+      "current_value": 13926.589141,
+      "current_weight": 0.1385279667837397,
+      "target_weight": 0.16118594293338814,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "profit lock active: sells below 103.28 (keeps at least +3.7%)",
+        "change smaller than 25% of the position: kept"
+      ]
+    },
+    {
+      "symbol": "CCL",
+      "alpha": 68.8,
+      "adjust": 0.0,
+      "final": 68.8,
+      "current_value": 6608.281598,
+      "current_weight": 0.06573266464868292,
+      "target_weight": 0.09521779322337115,
+      "action": "ADD",
+      "dollars": 2964.22,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "ISRG",
+      "alpha": 68.5,
+      "adjust": 0.0,
+      "final": 68.5,
+      "current_value": 6597.44328,
+      "current_weight": 0.06562485575587404,
+      "target_weight": 0.09283247353224833,
+      "action": "ADD",
+      "dollars": 2735.26,
+      "qty": 0.0,
+      "reasons": []
+    },
+    {
+      "symbol": "AMZN",
+      "alpha": 52.8,
+      "adjust": 5,
+      "final": 57.8,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Bee Frontier/Eclipse rollout",
+        "Risk check: capped +8->+5, news +0.02 does not support it",
+        "sold earlier today at technical score 49.5; re-buy only if it rises 15+ points (now 52.8)"
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "alpha": 56.7,
+      "adjust": 0.0,
+      "final": 56.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at technical score 56.9; re-buy only if it rises 15+ points (now 56.7)"
+      ]
+    },
+    {
+      "symbol": "SPOT",
+      "alpha": 64.0,
+      "adjust": -10.0,
+      "final": 54.0,
+      "current_value": 3136.141511,
+      "current_weight": 0.031195241179759536,
+      "target_weight": 0.031195241179759536,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -10: StoneX downgrade to Hold",
+        "target below the 3% minimum position; its money goes to stronger names",
+        "bought today (technical score 60.9): kept at its size until tomorrow; stop and profit lock still apply",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "alpha": 40.2,
+      "adjust": 2.0,
+      "final": 42.2,
+      "current_value": 4744.807517,
+      "current_weight": 0.04719666326445657,
+      "target_weight": 0.04719666326445657,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +2: Roadster demo speculation",
+        "target below the 3% minimum position; its money goes to stronger names",
+        "bought today (technical score 40.0): kept at its size until tomorrow; stop and profit lock still apply",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "CEG",
+      "alpha": 42.1,
+      "adjust": 0.0,
+      "final": 42.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "sold earlier today at technical score 44.4; re-buy only if it rises 15+ points (now 42.1)"
+      ]
+    },
+    {
+      "symbol": "CIEN",
+      "alpha": 29.3,
+      "adjust": 0.0,
+      "final": 29.3,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 347.09 is below its trailing stop 383.57 (downtrend): not buying"
+      ]
+    },
+    {
+      "symbol": "LRCX",
+      "alpha": 22.4,
+      "adjust": 0.0,
+      "final": 22.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "down -5.6% today: not catching a falling knife"
+      ]
+    },
+    {
+      "symbol": "GEV",
+      "alpha": 26.7,
+      "adjust": -8.0,
+      "final": 18.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust -8: Bearish news despite agreements",
+        "price 906.75 is below its trailing stop 924.61 (downtrend): not buying"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "COST",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 4338.8,
+      "reason": "score 77.0; target 16.1%"
+    },
+    {
+      "symbol": "CCL",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 2964.22,
+      "reason": "score 68.8; target 9.5%"
+    },
+    {
+      "symbol": "ISRG",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 2735.26,
+      "reason": "score 68.5; target 9.3%"
+    },
+    {
+      "symbol": "NOW",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 3737.16,
+      "reason": "score 78.3; target 16.1%"
+    }
+  ],
+  "pm_summary": "Regime remains cautious with 75% of capital deployed as SPY shows modest bullish bias but risk\u2011off spread suggests restraint. We keep existing bullish positions and add modest positive tilt to NOW and AMZN on fresh buy\u2011side guidance, while trimming exposure to SPOT and GEV after downgrade and mixed news. No new buys are vetoed. Overall we aim to capture upside from earnings catalysts while protecting against downside.",
+  "account": "B",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 COST 77.0 BULLISH | 90 83 87 69 90 24 | 73.6 94.3 8.0 9.35 2.2 -0.12 | BREAKOUT\n2 EL 76.0 BULLISH | 80 90 99 58 90 15 | 68.8 98.4 17.24 11.43 2.55 1.22 | BREAKOUT\n3 CCL 68.8 BULLISH | 85 79 78 50 72 38 | 61.5 59.0 5.3 17.95 0.97 1.57 | \n4 ISRG 68.5 BULLISH | 65 83 79 59 75 32 | 64.7 73.4 6.1 9.7 1.54 0.89 | earnings 2026-10-20 AMC (5d)\n5 NOW 68.3 BULLISH | 78 84 84 48 79 15 | 64.6 94.5 7.35 5.53 2.78 0.74 | earnings 2026-10-28 AMC (13d)\n6 SPOT 64.0 BULLISH | 78 81 42 60 69 35 | 56.2 72.2 7.65 -1.23 1.26 -0.46 | earnings 2026-10-22 BMO (7d)\n7 GOOGL 56.7 NEUTRAL | 74 64 44 42 70 42 | 53.9 51.4 3.52 -0.41 0.7 1.41 | earnings 2026-10-27 AMC (12d)\n8 AMZN 52.8 NEUTRAL | 43 53 42 42 70 78 | 49.3 16.6 2.33 -0.07 0.15 1.81 | earnings 2026-10-29 AMC (14d)\n9 CEG 42.1 NEUTRAL | 44 58 23 57 11 45 | 46.4 7.8 4.07 1.36 -0.2 1.5 | \n10 TSLA 40.2 BEARISH | 27 46 19 53 44 45 | 46.2 5.0 2.23 -2.31 -0.91 2.7 | earnings 2026-10-20 AMC (5d)\n11 CIEN 29.3 BEARISH | 7 33 19 63 0 45 | 42.1 4.8 -8.61 -0.44 -1.02 3.24 | \n12 GEV 26.7 BEARISH | 4 25 12 64 5 45 | 37.9 3.3 -8.05 -3.2 -2.16 1.72 | BREAKDOWN\n13 LRCX 22.4 BEARISH | 0 22 18 48 0 45 | 32.3 0.1 -20.35 -0.61 -2.29 2.98 | earnings 2026-10-21 AMC (6d)",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-15T20:42:03"
+}
