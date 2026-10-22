@@ -4,38 +4,86 @@
   "overlay": {
    "adjustments": [
     {
-     "adjust": 1,
-     "note": "Neutral event announcement, slight upside",
-     "symbol": "AAPL",
-     "veto_buy": false
-    },
-    {
-     "adjust": 3,
-     "note": "Strong alpha, no material news",
-     "symbol": "MRNA",
-     "veto_buy": false
-    },
-    {
-     "adjust": 2,
-     "note": "No news, modest bullish bias",
-     "symbol": "SHOP",
-     "veto_buy": false
-    },
-    {
-     "adjust": 7,
-     "note": "Advertising opportunity news adds upside",
+     "adjust": 10,
+     "note": "Bullish rally news supports upside",
      "symbol": "WMT",
      "veto_buy": false
     },
     {
-     "adjust": 8,
-     "note": "Barclays target raise signals strong upside",
+     "adjust": 2,
+     "note": "Neutral JV news, slight positive bias",
      "symbol": "XOM",
+     "veto_buy": false
+    },
+    {
+     "adjust": 1,
+     "note": "Neutral prototype news, minor boost",
+     "symbol": "AAPL",
+     "veto_buy": false
+    },
+    {
+     "adjust": 2,
+     "note": "Neutral checkout integration news",
+     "symbol": "SHOP",
+     "veto_buy": false
+    },
+    {
+     "adjust": 3,
+     "note": "Award win suggests modest upside",
+     "symbol": "ZBRA",
+     "veto_buy": false
+    },
+    {
+     "adjust": 8,
+     "note": "Bullish AI partnership news",
+     "symbol": "MSFT",
+     "veto_buy": false
+    },
+    {
+     "adjust": 9,
+     "note": "Bullish analyst upgrade and target raise",
+     "symbol": "PLTR",
+     "veto_buy": false
+    },
+    {
+     "adjust": 8,
+     "note": "Bullish acquisition news",
+     "symbol": "DDOG",
+     "veto_buy": false
+    },
+    {
+     "adjust": -2,
+     "note": "Neutral but market\u2011sinking headline, slight downside",
+     "symbol": "MRNA",
+     "veto_buy": false
+    },
+    {
+     "adjust": 7,
+     "note": "Bullish coverage and buy rating",
+     "symbol": "VST",
+     "veto_buy": false
+    },
+    {
+     "adjust": 8,
+     "note": "Bullish AI collaboration news",
+     "symbol": "HPE",
+     "veto_buy": false
+    },
+    {
+     "adjust": 2,
+     "note": "Neutral AI foundation membership",
+     "symbol": "DELL",
+     "veto_buy": false
+    },
+    {
+     "adjust": 9,
+     "note": "Bullish Citi upgrade and target raise",
+     "symbol": "META",
      "veto_buy": false
     }
    ],
    "exposure": 0.55,
-   "summary": "The market is in a risk\u2011off regime, so we keep overall exposure at the regime\u2011defined 55%. Momentum leaders with strong alpha scores remain core holdings, while news\u2011driven tweaks add modest upside to XOM and WMT and small nudges to the other positions. No company shows clear downside risk, so no vetoes are applied."
+   "summary": "The market remains risk\u2011off, so we keep exposure at the regime level of 55%. Momentum leaders WMT, XOM and AAPL retain modest positive adjustments, while bullish news lifts several names (MSFT, PLTR, DDOG, HPE, VST, META). Minor negative sentiment on MRNA tempers its score. Overall the plan leans into the strongest trend\u2011driven stocks while staying disciplined under the risk\u2011off backdrop."
   },
   "symbols": [
    "MRNA",
@@ -52,51 +100,32 @@
    "WMT",
    "AAPL"
   ],
-  "time": "2026-10-20T00:58:51"
+  "time": "2026-10-23T00:54:35"
  },
- "bought": {
-  "AAPL": {
-   "date": "2026-10-19",
-   "score": 69.3
-  },
-  "MRNA": {
-   "date": "2026-10-19",
-   "score": 85.1
-  }
- },
+ "bought": {},
  "exposure": {
-  "date": "2026-10-19",
+  "date": "2026-10-22",
   "level": 0.35
  },
  "no_rebuy": {
-  "META": {
-   "date": "2026-10-19",
-   "score": null
+  "MRNA": {
+   "date": "2026-10-22",
+   "score": 51.8
   },
-  "MSFT": {
-   "date": "2026-10-19",
-   "score": 71.6
+  "SHOP": {
+   "date": "2026-10-22",
+   "score": 62.4
   }
  },
  "peaks": {
-  "AAPL": 343.3686,
-  "MRNA": 229.34,
-  "SHOP": 179.59,
-  "WMT": 120.69,
+  "AAPL": 347.38,
+  "WMT": 120.81,
   "XOM": 179.0
  },
  "trimmed": {
-  "SHOP": {
-   "date": "2026-10-19",
-   "score": 74.8
-  },
-  "WMT": {
-   "date": "2026-10-19",
-   "score": 84.8
-  },
-  "XOM": {
-   "date": "2026-10-19",
-   "score": 87.5
+  "MRNA": {
+   "date": "2026-10-22",
+   "score": 70.9
   }
  }
 }

@@ -124,3 +124,6 @@ timestamp,symbol,side,dollars,qty,reason,status,order_id
 2026-10-20T00:59:06,XOM,sell,7497.77,41.9925,score 95.5; target 6.7%; PM adjust +8: Barclays target raise signals strong upside,pending_new,e20b4989-9fcc-490f-98e6-2a74de49a0bb
 2026-10-20T00:59:06,WMT,sell,4278.12,36.0111,"score 89.8; target 5.3%; PM adjust +5: Advertising opportunity news adds upside; Risk check: capped +7->+5, news +0.00 does not support it",pending_new,d85a5565-7e6d-422b-b6df-64675b44f64d
 2026-10-20T00:59:06,SHOP,sell,2313.19,13.4566,"score 76.8; target 2.6%; PM adjust +2: No news, modest bullish bias",pending_new,56731c3d-5923-4261-af4b-f3369413252b
+2026-10-22T21:24:27,MRNA,sell,3915.42,17.4204,"score 80.9; target 10.1%; PM adjust +10: FDA lifts freeze on hepatitis B study, clearing path for sales",pending_new,62efe9ca-1955-4b66-b05f-3058dfdb0503
+2026-10-22T22:24:35,MRNA,sell,8433.947915,,score 46.8 no longer earns a position,pending_new,ac527a18-c96b-4f10-82e3-c2b7f502ce8b
+2026-10-23T00:08:34,SHOP,sell,2447.484643,,score 64.4 no longer earns a position,pending_new,7390c6c4-076d-4f4c-83da-b9f8efb6728c
