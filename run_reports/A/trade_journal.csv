@@ -127,3 +127,19 @@ timestamp,symbol,side,dollars,qty,reason,status,order_id
 2026-10-22T21:24:27,MRNA,sell,3915.42,17.4204,"score 80.9; target 10.1%; PM adjust +10: FDA lifts freeze on hepatitis B study, clearing path for sales",pending_new,62efe9ca-1955-4b66-b05f-3058dfdb0503
 2026-10-22T22:24:35,MRNA,sell,8433.947915,,score 46.8 no longer earns a position,pending_new,ac527a18-c96b-4f10-82e3-c2b7f502ce8b
 2026-10-23T00:08:34,SHOP,sell,2447.484643,,score 64.4 no longer earns a position,pending_new,7390c6c4-076d-4f4c-83da-b9f8efb6728c
+2026-10-27T19:31:48,XOM,buy,4446.98,,score 81.6; target 11.6%,pending_new,6674f260-3c70-4316-818e-47f55ff8988a
+2026-10-27T19:31:48,WMT,buy,12781.31,,score 91.6; target 18.9%,pending_new,2b08db1b-c9fe-4c9d-a1d2-2ccf9fee464c
+2026-10-27T19:31:48,DDOG,buy,9497.73,,score 79.0; target 10.0%,pending_new,8c6693fb-bc7f-48a0-9d31-dcbc8a9ffb2b
+2026-10-27T19:31:48,PLTR,buy,7101.61,,score 74.4; target 7.5%,pending_new,c9b5d3ae-2d7c-4dd5-8bcd-09e6f2f0fbb0
+2026-10-27T20:31:51,XOM,buy,7623.7,,score 84.9; target 19.6%,pending_new,12943824-dfb9-492b-ac4b-dd83e88a799b
+2026-10-27T20:31:51,WMT,buy,6926.51,,score 91.1; target 26.2%,pending_new,34f63bd5-6a1c-4292-a6cd-4c71e1bad18c
+2026-10-27T20:31:51,AAPL,buy,4875.18,,score 75.3; target 11.3%,pending_new,dc4a365f-b9fa-4fa7-bff6-aabc909905f1
+2026-10-27T20:31:51,DDOG,buy,3495.74,,score 78.5; target 13.8%,pending_new,c89f5b41-94bc-4c4a-80ca-4d377a2c6eed
+2026-10-27T21:15:28,PLTR,buy,2095.85,,score 74.5; target 9.8%,pending_new,3de1c05c-b40a-4fc1-9d2d-4a9430148aff
+2026-10-27T21:31:46,AAPL,buy,2750.18,,score 78.5; target 14.2%,pending_new,36ea75ae-1eea-404c-843d-3836f35c8a00
+2026-10-27T22:31:44,AAPL,sell,7917.22,22.8656,"score 66.5; target 5.8%; PM adjust -5: Bearish product launch news; Risk check: capped -8->-5, news -0.06 does not support it; Risk check: veto ignored, news -0.06 not negative enough",pending_new,c4d93d50-e739-4bd2-a963-ff5b2adedfa1
+2026-10-28T01:00:13,AAPL,sell,5521.34,,final day: book all profits (+0.5%),pending_new,16bfc431-83fb-48d3-acad-c0f74a4de279
+2026-10-28T01:00:13,DDOG,sell,13133.3,,final day: book all profits (+1.1%),pending_new,8325c73b-687f-4e42-a3ad-f8436c64517f
+2026-10-28T01:00:13,PLTR,sell,9285.21,,final day: book all profits (+1.0%),pending_new,b235c7fb-70b6-4f0a-85b8-eb112b00702f
+2026-10-28T01:00:13,WMT,sell,24638.53,,final day: book all profits (-0.4%),pending_new,1f39b61b-4f7a-4ae4-90e3-37dde9fb3ccf
+2026-10-28T01:00:13,XOM,sell,18373.92,,final day: book all profits (-0.5%),pending_new,5f2bb953-7604-4cbf-a57f-017258eeb30a

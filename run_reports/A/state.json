@@ -4,86 +4,38 @@
   "overlay": {
    "adjustments": [
     {
-     "adjust": 10,
-     "note": "Bullish rally news supports upside",
-     "symbol": "WMT",
-     "veto_buy": false
-    },
-    {
-     "adjust": 2,
-     "note": "Neutral JV news, slight positive bias",
-     "symbol": "XOM",
-     "veto_buy": false
-    },
-    {
-     "adjust": 1,
-     "note": "Neutral prototype news, minor boost",
+     "adjust": 3,
+     "note": "Neutral Creator Studio update, modest upside",
      "symbol": "AAPL",
      "veto_buy": false
     },
     {
-     "adjust": 2,
-     "note": "Neutral checkout integration news",
-     "symbol": "SHOP",
-     "veto_buy": false
-    },
-    {
-     "adjust": 3,
-     "note": "Award win suggests modest upside",
-     "symbol": "ZBRA",
-     "veto_buy": false
-    },
-    {
      "adjust": 8,
-     "note": "Bullish AI partnership news",
-     "symbol": "MSFT",
-     "veto_buy": false
-    },
-    {
-     "adjust": 9,
-     "note": "Bullish analyst upgrade and target raise",
-     "symbol": "PLTR",
-     "veto_buy": false
-    },
-    {
-     "adjust": 8,
-     "note": "Bullish acquisition news",
+     "note": "UBS raises price target, strong catalyst",
      "symbol": "DDOG",
      "veto_buy": false
     },
     {
-     "adjust": -2,
-     "note": "Neutral but market\u2011sinking headline, slight downside",
-     "symbol": "MRNA",
+     "adjust": 4,
+     "note": "Near 52\u2011week high, earnings buzz lifts target",
+     "symbol": "PLTR",
      "veto_buy": false
     },
     {
      "adjust": 7,
-     "note": "Bullish coverage and buy rating",
-     "symbol": "VST",
+     "note": "Rivian van partnership boosts growth outlook",
+     "symbol": "WMT",
      "veto_buy": false
     },
     {
-     "adjust": 8,
-     "note": "Bullish AI collaboration news",
-     "symbol": "HPE",
-     "veto_buy": false
-    },
-    {
-     "adjust": 2,
-     "note": "Neutral AI foundation membership",
-     "symbol": "DELL",
-     "veto_buy": false
-    },
-    {
-     "adjust": 9,
-     "note": "Bullish Citi upgrade and target raise",
-     "symbol": "META",
+     "adjust": 0,
+     "note": "Neutral exit from Venezuela, no clear impact",
+     "symbol": "XOM",
      "veto_buy": false
     }
    ],
-   "exposure": 0.55,
-   "summary": "The market remains risk\u2011off, so we keep exposure at the regime level of 55%. Momentum leaders WMT, XOM and AAPL retain modest positive adjustments, while bullish news lifts several names (MSFT, PLTR, DDOG, HPE, VST, META). Minor negative sentiment on MRNA tempers its score. Overall the plan leans into the strongest trend\u2011driven stocks while staying disciplined under the risk\u2011off backdrop."
+   "exposure": 0.8,
+   "summary": "The market remains in a CAUTION regime, but our momentum leaders retain strong trend and volatility scores. We raise overall exposure modestly to 80% and add modest positive tweaks to AAPL, PLTR, and XOM, while giving larger boosts to WMT and DDOG based on clear partnership and target\u2011raise news. No vetoes are applied, keeping all positions open for upside."
   },
   "symbols": [
    "MRNA",
@@ -100,32 +52,34 @@
    "WMT",
    "AAPL"
   ],
-  "time": "2026-10-23T00:54:35"
+  "time": "2026-10-28T00:31:42"
  },
- "bought": {},
- "exposure": {
-  "date": "2026-10-22",
-  "level": 0.35
- },
- "no_rebuy": {
-  "MRNA": {
-   "date": "2026-10-22",
-   "score": 51.8
+ "bought": {
+  "DDOG": {
+   "date": "2026-10-27",
+   "score": 70.0
   },
-  "SHOP": {
-   "date": "2026-10-22",
-   "score": 62.4
+  "PLTR": {
+   "date": "2026-10-27",
+   "score": 69.4
   }
  },
+ "exposure": {
+  "date": "2026-10-27",
+  "level": 0.8
+ },
+ "no_rebuy": {},
  "peaks": {
-  "AAPL": 347.38,
+  "AAPL": 347.56,
+  "DDOG": 281.65,
+  "PLTR": 201.2,
   "WMT": 120.81,
-  "XOM": 179.0
+  "XOM": 183.63
  },
  "trimmed": {
-  "MRNA": {
-   "date": "2026-10-22",
-   "score": 70.9
+  "AAPL": {
+   "date": "2026-10-27",
+   "score": 71.5
   }
  }
 }

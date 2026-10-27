@@ -1,0 +1,314 @@
+{
+  "date": "2026-10-27",
+  "profile": "momentum",
+  "equity": 94499.46,
+  "cash": 18288.92,
+  "regime": "CAUTION",
+  "regime_score": 36.7,
+  "exposure_target": 0.85,
+  "invested_after_pct": 85.0,
+  "brake": null,
+  "settings": {
+    "max_position_pct": 0.3,
+    "max_holdings": 5,
+    "weight_power": 2.0,
+    "hold_bonus": 5.0,
+    "same_day_drop": 15.0,
+    "rel_band": 0.25,
+    "conviction_caps": [
+      [
+        80,
+        0.3
+      ],
+      [
+        70,
+        0.22
+      ],
+      [
+        0,
+        0.12
+      ]
+    ],
+    "day_brake": [
+      [
+        -2.5,
+        0.35
+      ],
+      [
+        -1.5,
+        0.55
+      ],
+      [
+        -0.75,
+        0.75
+      ]
+    ],
+    "knife_day_pct": -4.0,
+    "min_position_pct": 0.03,
+    "entry_score": 52,
+    "exit_score": 40,
+    "rebalance_band_pct": 0.02,
+    "min_order_dollars": 300,
+    "max_exposure": 0.98,
+    "earnings_cap_pct": 0.05,
+    "overextended_cap_pct": 0.07,
+    "max_llm_adjust": 15,
+    "unsupported_adjust": 5,
+    "news_support": 0.1,
+    "veto_news": -0.25,
+    "min_holdings": 4,
+    "filler_weight_pct": 0.05,
+    "lock_trigger": 0.06,
+    "lock_keep": 0.6,
+    "late_no_buy_min": 30,
+    "overnight_min": 40,
+    "overnight_caps": [
+      [
+        "RISK-ON",
+        0.85
+      ],
+      [
+        "NEUTRAL",
+        0.7
+      ],
+      [
+        "CAUTION",
+        0.5
+      ],
+      [
+        "RISK-OFF",
+        0.35
+      ]
+    ],
+    "no_buy_qqq_day": -0.75,
+    "exposure_step": 0.1,
+    "reentry_qqq_day": -0.25
+  },
+  "targets": [
+    {
+      "symbol": "WMT",
+      "alpha": 82.4,
+      "adjust": 8.0,
+      "final": 90.4,
+      "current_value": 24644.734566,
+      "current_weight": 0.2607923322101523,
+      "target_weight": 0.26143777000156687,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: Walmart launches Vita\u202fCoco\u202fKids exclusive brand",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "XOM",
+      "alpha": 83.5,
+      "adjust": 0.0,
+      "final": 83.5,
+      "current_value": 18457.491333,
+      "current_weight": 0.1953184847088015,
+      "target_weight": 0.18800875942907025,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "DDOG",
+      "alpha": 70.7,
+      "adjust": 8.0,
+      "final": 78.7,
+      "current_value": 13099.53969,
+      "current_weight": 0.1386202597348175,
+      "target_weight": 0.14405104941541633,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +8: UBS raises Datadog price target to $320",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "alpha": 73.5,
+      "adjust": 5,
+      "final": 78.5,
+      "current_value": 10701.470377,
+      "current_weight": 0.1132437198794575,
+      "target_weight": 0.1423463182791527,
+      "action": "ADD",
+      "dollars": 2750.18,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: New iMac and 14\u2011inch MacBook Pro launch boosts demand",
+        "Risk check: capped +7->+5, news -0.06 does not support it"
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "alpha": 70.0,
+      "adjust": 5,
+      "final": 75.0,
+      "current_value": 9307.456719,
+      "current_weight": 0.0984921683044538,
+      "target_weight": 0.11415610287479389,
+      "action": "HOLD",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "PM adjust +5: Target raised as Palantir nears 52\u2011week high",
+        "Risk check: capped +8->+5, news +0.00 does not support it",
+        "within rebalance band"
+      ]
+    },
+    {
+      "symbol": "MSFT",
+      "alpha": 65.4,
+      "adjust": 0.0,
+      "final": 65.4,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 5: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "ZBRA",
+      "alpha": 64.1,
+      "adjust": 0.0,
+      "final": 64.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 5: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "SHOP",
+      "alpha": 56.2,
+      "adjust": 0.0,
+      "final": 56.2,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "not in the top 5: money goes to stronger names"
+      ]
+    },
+    {
+      "symbol": "HPE",
+      "alpha": 40.6,
+      "adjust": 0.0,
+      "final": 40.6,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 40.6 below entry 52"
+      ]
+    },
+    {
+      "symbol": "DELL",
+      "alpha": 36.1,
+      "adjust": 0.0,
+      "final": 36.1,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 36.1 below entry 52"
+      ]
+    },
+    {
+      "symbol": "MRNA",
+      "alpha": 29.7,
+      "adjust": 0.0,
+      "final": 29.7,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 29.7 below entry 52"
+      ]
+    },
+    {
+      "symbol": "VST",
+      "alpha": 25.8,
+      "adjust": 0.0,
+      "final": 25.8,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "score 25.8 below entry 52"
+      ]
+    },
+    {
+      "symbol": "META",
+      "alpha": 14.5,
+      "adjust": 0.0,
+      "final": 14.5,
+      "current_value": 0.0,
+      "current_weight": 0.0,
+      "target_weight": 0.0,
+      "action": "AVOID",
+      "dollars": 0.0,
+      "qty": 0.0,
+      "reasons": [
+        "price 626.15 is below its trailing stop 677.47 (downtrend): not buying"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "symbol": "AAPL",
+      "side": "buy",
+      "type": "dollars",
+      "dollars": 2750.18,
+      "reason": "score 78.5; target 14.2%"
+    }
+  ],
+  "pm_summary": "The market remains in a caution regime, so we keep 85% of capital deployed. Momentum leaders AAPL, DDOG, PLTR and WMT receive modest score boosts from recent product launches and analyst upgrades, while XOM stays unchanged due to lack of specific news. The plan is to let the strongest trends run while maintaining disciplined exposure.",
+  "account": "A",
+  "model": "groq:openai/gpt-oss-120b",
+  "mode": "auto",
+  "families": [
+    "trend",
+    "momentum",
+    "rs",
+    "volume",
+    "volatility",
+    "stats"
+  ],
+  "alpha_table": "rank symbol score lean | trend mom rs vol brk stat | rsi14 rsi2 roc10 rs20 z beta | note\n1 XOM 83.5 BULLISH | 100 84 76 78 69 36 | 67.6 36.5 4.04 11.34 1.15 -1.19 | \n2 WMT 82.4 BULLISH | 100 86 71 75 66 38 | 65.6 30.6 6.11 10.68 0.97 0.15 | \n3 AAPL 73.5 BULLISH | 85 81 60 48 73 34 | 60.9 64.3 1.66 4.41 1.33 0.28 | \n4 DDOG 70.7 BULLISH | 86 64 78 38 70 42 | 56.8 75.3 -1.4 3.13 0.64 2.88 | \n5 PLTR 70.0 BULLISH | 86 63 77 37 70 43 | 57.7 81.8 -3.72 6.55 0.59 4.42 | \n6 MSFT 65.4 BULLISH | 82 67 52 41 70 42 | 58.5 82.0 -1.63 4.19 0.65 1.25 | earnings 2026-10-28 AMC (1d)\n7 ZBRA 64.1 BULLISH | 85 61 40 58 70 47 | 55.8 31.2 -0.97 1.02 0.27 3.06 | \n8 SHOP 56.2 NEUTRAL | 87 50 48 40 37 95 | 54.8 5.8 -5.74 11.36 -0.08 2.68 | \n9 HPE 40.6 BEARISH | 55 42 67 10 0 54 | 50.7 91.0 -10.96 -1.29 -0.37 3.4 | \n10 DELL 36.1 BEARISH | 55 31 52 25 1 53 | 49.6 90.8 -11.63 -7.12 -0.26 4.69 | \n11 MRNA 29.7 BEARISH | 41 37 9 66 0 95 | 48.8 8.8 -9.36 -4.5 -0.79 5.98 | earnings 2026-10-29 BMO (2d)\n12 VST 25.8 BEARISH | 20 36 30 28 7 57 | 47.9 70.4 -10.25 2.6 -0.57 1.64 | \n13 META 14.5 BEARISH | 20 20 0 28 5 45 | 33.1 1.7 -17.88 -16.13 -2.1 1.71 | BREAKDOWN, earnings 2026-10-28 AMC (1d)",
+  "missing": [],
+  "errors": [],
+  "created": "2026-10-27T21:31:43"
+}
