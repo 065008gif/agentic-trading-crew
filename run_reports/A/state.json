@@ -4,86 +4,86 @@
   "overlay": {
    "adjustments": [
     {
-     "adjust": 0,
-     "note": "Neutral analyst day, no clear catalyst",
+     "adjust": 3,
+     "note": "Oncology shift seen as modest upside",
      "symbol": "MRNA",
      "veto_buy": false
     },
     {
-     "adjust": 0,
-     "note": "New storage solutions but impact unclear",
+     "adjust": 4,
+     "note": "New supercomputing storage seen as positive",
      "symbol": "HPE",
      "veto_buy": false
     },
     {
-     "adjust": -3,
-     "note": "Restricted NVIDIA chips in China may limit sales",
+     "adjust": -8,
+     "note": "Restricted NVIDIA chips raise concerns",
      "symbol": "DELL",
-     "veto_buy": false
+     "veto_buy": true
     },
     {
-     "adjust": -4,
-     "note": "Officer stock\u2011sale notice adds slight downside",
+     "adjust": -7,
+     "note": "Insider stock sale adds pressure",
      "symbol": "PLTR",
      "veto_buy": false
     },
     {
      "adjust": 0,
-     "note": "No material updates",
+     "note": "No news",
      "symbol": "SHOP",
      "veto_buy": false
     },
     {
-     "adjust": 8,
-     "note": "Service restoration after outage seen as positive",
+     "adjust": -3,
+     "note": "Outage recovery neutral, slight downside",
      "symbol": "MSFT",
      "veto_buy": false
     },
     {
-     "adjust": -9,
-     "note": "\u20ac805\u202fM fine in Italy is clearly adverse",
+     "adjust": -10,
+     "note": "Large fine in Italy hurts outlook",
      "symbol": "META",
      "veto_buy": true
     },
     {
-     "adjust": 0,
-     "note": "COO board appointment neutral",
+     "adjust": 4,
+     "note": "COO board appointment viewed positively",
      "symbol": "DDOG",
      "veto_buy": false
     },
     {
      "adjust": 10,
-     "note": "Barclays raises price target to $206",
+     "note": "Barclays target raise supports bullish case",
      "symbol": "XOM",
      "veto_buy": false
     },
     {
-     "adjust": 0,
-     "note": "Conference appearances are neutral",
+     "adjust": 2,
+     "note": "Conference presentations may boost visibility",
      "symbol": "ZBRA",
      "veto_buy": false
     },
     {
-     "adjust": 0,
-     "note": "Growth outlook unchanged amid volatility",
+     "adjust": 3,
+     "note": "Growth outlook maintained, modest upside",
      "symbol": "VST",
      "veto_buy": false
     },
     {
-     "adjust": 7,
-     "note": "Wells\u202fFargo raises target, keeping Walmart overweight",
+     "adjust": 8,
+     "note": "Wells Fargo lifts target, supports bullish view",
      "symbol": "WMT",
      "veto_buy": false
     },
     {
      "adjust": 0,
-     "note": "Nvidia comment debate has no clear impact",
+     "note": "Legal and Nvidia debate creates uncertainty",
      "symbol": "AAPL",
      "veto_buy": false
     }
    ],
-   "exposure": 0.55,
-   "summary": "The market remains risk\u2011off, so we keep overall exposure at 55%. Positive catalysts for MSFT, XOM and WMT earn modest score lifts, while META\u2019s hefty fine triggers a strong downgrade and a buy veto. Other names stay near neutral pending clearer signals."
+   "exposure": 0.6,
+   "summary": "The market remains in a risk\u2011off regime, limiting overall exposure to about 60% of capital. Momentum leaders like WMT, XOM and AAPL retain modest positive adjustments, while negative news on DELL, META and insider sales at PLTR drive larger down\u2011grades and vetoes. The plan focuses on riding the strongest trends while trimming exposure to companies with adverse headlines."
   },
   "symbols": [
    "MRNA",
@@ -100,7 +100,7 @@
    "WMT",
    "AAPL"
   ],
-  "time": "2026-11-15T13:06:53"
+  "time": "2026-11-15T13:14:57"
  },
  "bought": {
   "DDOG": {
