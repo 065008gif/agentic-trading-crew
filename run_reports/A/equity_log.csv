@@ -147,3 +147,4 @@ timestamp,equity,cash,last_equity,regime,exposure_target,orders,model
 2026-10-28T00:15:39,94380.12,23454.67,94593.5176999077,CAUTION,0.7,0,"groq:openai/gpt-oss-120b (AI view from 00:01, reused)"
 2026-10-28T00:31:49,94409.18,23454.67,94593.5176999077,CAUTION,0.8,0,groq:openai/gpt-oss-120b
 2026-10-28T00:45:43,94397.98,23454.67,94593.5176999077,CAUTION,0.8,0,"groq:openai/gpt-oss-120b (AI view from 00:31, reused)"
+2026-11-15T13:07:00,94383.69,94383.69,94383.69,RISK-OFF,0.55,4,groq:openai/gpt-oss-120b
